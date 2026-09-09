@@ -212,8 +212,8 @@ var WORDS=[
  ana:'注意它是个<b>大筐</b>，不是某个具体产品。就像「车」是个大类，自行车、轿车、卡车都在里面。',
  scn:'以后听到「AI 写作」「AI 客服」「AI 剪辑」，都是说「用机器替人干这摊活」，跟具体用什么模型无关。',
  demo:'kit',
- quiz:{q:'下面哪个说法是对的？',o:['ChatGPT 就是 AI 的全部','AI 是大类，ChatGPT 只是其中一个产品','AI 和机器学习是一个东西','AI 必须有实体机器人'],a:1,
-  why:'AI 是最大的筐 → 机器学习是造它的方法 → 深度学习是最能打的一支 → 大模型是产物 → GPT/Claude/DeepSeek 是具体产品。它们是套娃关系，不是同一个东西。'},
+ quiz:{q:'下面哪个说法是对的？',o:['AI 是大类，ChatGPT 只是其中一个产品','ChatGPT 就是 AI 的全部','AI 和机器学习是一个东西','AI 必须有实体机器人'],a:0,
+ why:'AI 是最大的筐 → 机器学习是造它的方法 → 深度学习是最能打的一支 → 大模型是产物 → GPT/Claude/DeepSeek 是具体产品。它们是套娃关系，不是同一个东西。'},
  rel:['llm','ml','agent']},
 
 {id:'ml',term:'机器学习 / ML',full:'Machine Learning',cn:'机器学习',zone:'ai',lv:2,abbr:true,
@@ -227,8 +227,8 @@ var WORDS=[
  ana:'像一个<b>把全世界的书都背下来的接龙高手</b>。你说「今天天气」，它接「真好」——它不是在思考，是在算「接哪个字最像人话」。',
  scn:'你在 Codex / WorkBuddy 里<b>选模型</b>（GPT、Claude、GLM、DeepSeek），选的就是不同的 LLM；公众号说「用大模型写文案」，那个大模型就是它。',
  demo:'llm',
- quiz:{q:'「大模型」的「大」，到底大在哪？',o:['装它的服务器体积很大','学过的文字和参数特别多','收费很贵','只能处理很大的问题'],a:1,
-  why:'「大」指训练数据量 + 模型参数量巨大，跟体积、价格、问题大小都没关系。'},
+ quiz:{q:'「大模型」的「大」，到底大在哪？',o:['学过的文字和参数特别多','装它的服务器体积很大','收费很贵','只能处理很大的问题'],a:0,
+ why:'「大」指训练数据量 + 模型参数量巨大，跟体积、价格、问题大小都没关系。'},
  rel:['token','context','rag','ai']},
 
 {id:'token',term:'Token',full:'Token',cn:'词元 / 令牌',zone:'ai',lv:2,
@@ -236,8 +236,8 @@ var WORDS=[
  ana:'把文字想成<b>乐高积木</b>：AI 不认识整句话，先把话拆成一堆积木，再一块块拼着理解、一块块往外吐。你付的钱、它记住的长度，都按积木块数算。',
  scn:'Codex 提示「上下文剩 12%」，那个百分比就是剩余 Token；文章里说「这个词 3 个 token」，就是在说它被切成了 3 块。',
  demo:'token',
- quiz:{q:'「我爱吃苹果」大概会被切成几个 Token？',o:['1 个（一整句）','5 个（一个字一块）','11 个（一个字母一块）','看心情'],a:1,
-  why:'中文通常一个字 ≈ 一个 Token；英文长单词反而会被拆成好几块，所以「按字数估钱」在中文里基本准，在英文里会算错。'},
+ quiz:{q:'「我爱吃苹果」大概会被切成几个 Token？',o:['5 个（一个字一块）','1 个（一整句）','11 个（一个字母一块）','看心情'],a:0,
+ why:'中文通常一个字 ≈ 一个 Token；英文长单词反而会被拆成好几块，所以「按字数估钱」在中文里基本准，在英文里会算错。'},
  rel:['llm','context']},
 
 {id:'context',term:'上下文窗口',full:'Context Window',cn:'上下文窗口',zone:'ai',lv:2,
@@ -251,8 +251,8 @@ var WORDS=[
  ana:'就像<b>给下属派活</b>：你说「写个方案」他给你一堆废话；你说「写给 30 岁女性看的、500 字、开头要有钩子」，出来的东西完全不一样。',
  scn:'公众号圈说的「提示词工程」「咒语」，本质就是把活派清楚。你让我「用苏格拉底提问法问我」，那句话就是 Prompt。',
  demo:'prompt',
- quiz:{q:'想让 AI 答得更好，最便宜有效的一招是？',o:['把问题写得更长','给它几个你想要的样子当例子','多说几次「请」','换更贵的模型'],a:1,
-  why:'这招叫「少样本」（Few-shot）：先给它 2～3 个你想要的样子，它立刻知道你要什么。比调参数、换模型都划算。'},
+ quiz:{q:'想让 AI 答得更好，最便宜有效的一招是？',o:['把问题写得更长','换更贵的模型','多说几次「请」','给它几个你想要的样子当例子'],a:3,
+ why:'这招叫「少样本」（Few-shot）：先给它 2～3 个你想要的样子，它立刻知道你要什么。比调参数、换模型都划算。'},
  rel:['sysprompt','cot','llm']},
 
 {id:'sysprompt',term:'System Prompt',full:'System Prompt',cn:'系统提示词',zone:'ai',lv:2,
@@ -266,8 +266,8 @@ var WORDS=[
  ana:'像考试遇到不会的题，<b>凭感觉编了个答案，还写得很笃定</b>。它不是故意骗你——它只是在算「什么听起来最像对的」。',
  scn:'你让 AI 找五行针灸的原文出处，它可能给你编一个页码。<b>凡是引用、数据、人名，一定要自己核一遍</b>。',
  demo:'hallu',
- quiz:{q:'哪种做法最能减少 AI 瞎编？',o:['把温度调到 0','让它先查你的资料再回答（RAG）','每次都提醒它「不许编」','换个更大的模型'],a:1,
-  why:'让它先翻你的资料再回答（RAG），答案有出处就不容易编。「不许编」这种叮嘱基本没用，它做不到。'},
+ quiz:{q:'哪种做法最能减少 AI 瞎编？',o:['让它先查你的资料再回答（RAG）','把温度调到 0','每次都提醒它「不许编」','换个更大的模型'],a:0,
+ why:'让它先翻你的资料再回答（RAG），答案有出处就不容易编。「不许编」这种叮嘱基本没用，它做不到。'},
  rel:['rag','llm']},
 
 {id:'temp',term:'温度',full:'Temperature',cn:'温度参数',zone:'ai',lv:2,
@@ -281,8 +281,8 @@ var WORDS=[
  ana:'普通 AI 是<b>你问我答的客服</b>；Agent 是<b>外包员工</b>——你说「帮我调研竞品定价写成报告」，它自己搜、自己整理、自己写，最后把成品给你。',
  scn:'你让 WorkBuddy「做个名词工具」，它自己拆任务、读文件、写代码、跑测试，干完一次性给你结果——这就是 Agent 模式。',
  demo:'agent',
- quiz:{q:'下面哪个更像 Agent 而不是普通聊天 AI？',o:['问一句答一句的百科','你说目标，它自己搜资料→整理→写报告→交给你','只能聊天的客服机器人','需要你一步步指挥的工具'],a:1,
-  why:'判断标准一句话：聊天机器人给你「步骤清单」，Agent 直接给你「可以验收的成品」。'},
+ quiz:{q:'下面哪个更像 Agent 而不是普通聊天 AI？',o:['问一句答一句的百科','只能聊天的客服机器人','你说目标，它自己搜资料→整理→写报告→交给你','需要你一步步指挥的工具'],a:2,
+ why:'判断标准一句话：聊天机器人给你「步骤清单」，Agent 直接给你「可以验收的成品」。'},
  rel:['mcp','tool','workflow']},
 
 {id:'rag',term:'RAG',full:'Retrieval-Augmented Generation',cn:'检索增强生成',zone:'ai',lv:3,abbr:true,
@@ -308,8 +308,8 @@ var WORDS=[
  ana:'预训练是<b>读完大学</b>（啥都学点）；微调是<b>上岗培训</b>（只在你们公司干，学会你们的黑话和规矩）。LoRA 是一种省钱的微调法，只改模型的一小部分。',
  scn:'「用龙梅老师的文章微调一个模型」，就是让它学会她的语气和说法。<b>注意：微调不能让它知道新知识</b>，那是 RAG 的活。',
  demo:'ft',
- quiz:{q:'想让 AI 学会你公司的新规定（每周都在变），该用哪个？',o:['微调','RAG（挂知识库）','换更大的模型','调高温度'],a:1,
-  why:'微调是把知识「刻进脑子」，改起来慢又贵，适合固定风格；RAG 是给它一本书随时翻，内容变了改书就行。经常变的东西用 RAG。'},
+ quiz:{q:'想让 AI 学会你公司的新规定（每周都在变），该用哪个？',o:['RAG（挂知识库）','微调','换更大的模型','调高温度'],a:0,
+ why:'微调是把知识「刻进脑子」，改起来慢又贵，适合固定风格；RAG 是给它一本书随时翻，内容变了改书就行。经常变的东西用 RAG。'},
  rel:['rag','llm']},
 
 {id:'multi',shot:'multi',term:'多模态',full:'Multimodal',cn:'多模态',zone:'ai',lv:1,
@@ -420,8 +420,8 @@ var WORDS=[
  ana:'就是餐厅里的<b>服务员</b>。你不用进厨房，把点单递给服务员，他去厨房下单再把菜端回来。你永远看不到厨房里发生了什么。',
  scn:'你用<b>极致了 API 抓公众号数据</b>：发一个文章链接过去，它返回阅读量、点赞数。你不用知道它怎么爬的——这就是 API。',
  demo:'api',
- quiz:{q:'别人给你一个 API，你其实拿到了什么？',o:['对方的程序源码','一个能按格式收发数据的窗口','对方的数据库密码','一个软件安装包'],a:1,
-  why:'API 只是「窗口」：你按它要求的格式递东西进去，它按格式把结果递出来。里面怎么实现的，你不需要知道，也拿不到。'},
+ quiz:{q:'别人给你一个 API，你其实拿到了什么？',o:['对方的程序源码','对方的数据库密码','一个能按格式收发数据的窗口','一个软件安装包'],a:2,
+ why:'API 只是「窗口」：你按它要求的格式递东西进去，它按格式把结果递出来。里面怎么实现的，你不需要知道，也拿不到。'},
  rel:['apikey','json','sdk']},
 
 {id:'apikey',term:'API Key',full:'API Key',cn:'密钥 / 钥匙',zone:'code',lv:2,
@@ -594,8 +594,8 @@ var WORDS=[
  ana:'以前 AI 连飞书、连数据库、连网盘，每个都得<b>单独写一套线</b>（各种奇形怪状的充电口）。MCP 就是<b>统一成 Type-C</b>，插上就能用。',
  scn:'你在 Claude Code / Codex 里装 MCP，装完 AI 就能直接读你的飞书多维表格、直接搜网页，<b>不用你复制粘贴</b>。',
  demo:null,
- quiz:{q:'MCP 解决的是什么问题？',o:['让模型更聪明','让 AI 能用统一方式连接各种外部工具和数据','让 AI 回答更快','让 API 更便宜'],a:1,
-  why:'MCP 不管模型聪不聪明，它管的是「接得上」：一个标准接口，接文件、数据库、飞书、浏览器都行，不用每个都单独开发。'},
+ quiz:{q:'MCP 解决的是什么问题？',o:['让模型更聪明','让 API 更便宜','让 AI 回答更快','让 AI 能用统一方式连接各种外部工具和数据'],a:3,
+ why:'MCP 不管模型聪不聪明，它管的是「接得上」：一个标准接口，接文件、数据库、飞书、浏览器都行，不用每个都单独开发。'},
  rel:['api','tool','agent']},
 
 {id:'agi',term:'AGI',full:'Artificial General Intelligence',cn:'通用人工智能',zone:'abbr',lv:2,abbr:true,
@@ -675,7 +675,7 @@ var WORDS=[
  ana:'就像<b>菜谱书后面的附录</b>：正文只写「盐适量」，具体选什么盐、不同盐差在哪，全在附录里，做菜时才翻。',
  scn:'你让我拆的 dev-expert 技能里就有 <b>39 个 reference</b>（错误账本、阶段导航、事故复盘……）。AI 先只记名字，碰到具体活才去读对应那份。',
  demo:null,rel:['agent','context'],
- quiz:{q:'技能包里的 references/ 是干嘛的？',o:['每次启用都全部读一遍','把详细资料分开存，AI 用到了才读那一本','给用户看的产品说明书','技能的运行日志'],a:1,
+ quiz:{q:'技能包里的 references/ 是干嘛的？',o:['每次启用都全部读一遍','技能的运行日志','给用户看的产品说明书','把详细资料分开存，AI 用到了才读那一本'],a:3,
  why:'AI 的「记性」（上下文窗口）有容量，一次全读会挤爆。所以详细资料分开存，用到哪本翻哪本。'}},
 
 {id:'tpl',shot:'tpl',term:'templates',full:'Templates / File Templates',cn:'模板（填空就能用的半成品）',zone:'misc',lv:1,new:true,
@@ -683,7 +683,7 @@ var WORDS=[
  ana:'就像<b>印刷好的合同范本</b>：格式和条款都印好了，你只要填名字、金额、日期。',
  scn:'我给你做的「软件开发标准流程」技能里就有 <b>9 个模板</b>（进度表、规范、体检脚本……）。以后你开新项目，我复制一套、把项目名一填，框架立刻就位。',
  demo:null,rel:['workflow','git'],
- quiz:{q:'templates/ 和 references/ 最大的区别是什么？',o:['两个是同一个东西的不同叫法','templates 是填空的半成品，复制一份填上就变成真文件','templates 是给 AI 读的说明书，references 才会被复制出去','templates 每次都必须读，references 不用'],a:1,
+ quiz:{q:'templates/ 和 references/ 最大的区别是什么？',o:['templates 是填空的半成品，复制一份填上就变成真文件','两个是同一个东西的不同叫法','templates 是给 AI 读的说明书，references 才会被复制出去','templates 每次都必须读，references 不用'],a:0,
  why:'templates 是「骨架」（合同范本），会被复制出去变成你的文件；references 是「资料」（附录），只给 AI 查，不会变成你的东西。'}},
 
 {id:'prog',shot:'prog',term:'progress',full:'Progress',cn:'进度（做到哪一步了）',zone:'misc',lv:1,new:true,
@@ -699,7 +699,7 @@ var WORDS=[
  scn:'你电脑上的「五行针灸」「薛辉IP方法论」「软件开发标准流程」都是技能包。你说「拆一本书」，我自己会去翻对应的那本手册 —— 不用你提醒我用哪个。',
  demo:null,rel:['ref','tpl','plugin','agent'],
  quiz:{q:'技能包（Skill）和你当场打的一句提示词，最大的区别是什么？',
- o:['技能包更长，所以更厉害','技能包存在硬盘上能反复用，而且 AI 会自己判断该不该用','技能包要另外花钱','技能包只有 Claude 能用'],a:1,
+ o:['技能包存在硬盘上能反复用，而且 AI 会自己判断该不该用','技能包更长，所以更厉害','技能包要另外花钱','技能包只有 Claude 能用'],a:0,
  why:'技能包是硬盘上的文件夹，永远在那儿；AI 靠文件开头写的简介判断这次该不该翻它。提示词是你当场打的一句话，说完就没了。'}},
 
 {id:'slash',term:'/slash command',full:'Slash Command',cn:'斜杠命令',zone:'code',lv:1,new:true,
@@ -720,7 +720,7 @@ var WORDS=[
  scn:'我说「去把项目文件扫一遍找线索」时，派出去的就是只读的探索型子代理 —— 它不会乱改你的文件，只把结果带回来。最大的好处：<b>查来的大量内容不占主对话的记忆</b>。',
  demo:null,rel:['agent','context','tool'],
  quiz:{q:'为什么要把活派给子代理，而不是主 AI 自己干？',
- o:['子代理比主 AI 聪明','子代理速度快十倍','子代理自己开一份记忆，不把主对话挤爆，还能并行','子代理不要钱'],a:2,
+ o:['子代理比主 AI 聪明','子代理速度快十倍','子代理不要钱','子代理自己开一份记忆，不把主对话挤爆，还能并行'],a:3,
  why:'子代理有独立的上下文窗口，查资料的海量内容不会污染主对话；几个子代理还能同时干活。它并不比主 AI 更聪明，也不免费。'}},
 
 {id:'toolcall',term:'tool use',full:'Tool Use / Function Calling',cn:'工具调用',zone:'ai',lv:2,
@@ -765,7 +765,7 @@ var WORDS=[
  scn:'你在终端里敲 git log --oneline、python check.py，用的就是命令行。',
  demo:null,rel:['terminal','git'],
  quiz:{q:'命令行（CLI）和平时点的图标、按钮，区别在哪？',
- o:['命令行更高级，普通人用不了','命令行靠打字下指令，图形界面靠鼠标点；干的是同一件事','命令行不要装软件','命令行只能在 Mac 上用'],a:1,
+ o:['命令行更高级，普通人用不了','命令行只能在 Mac 上用','命令行不要装软件','命令行靠打字下指令，图形界面靠鼠标点；干的是同一件事'],a:3,
  why:'两者只是操作方式不同，干的事一样。命令行的好处是能写进脚本批量执行、能远程操作，代价是得记命令。'}},
 
 {id:'repo',term:'repo',full:'Repository',cn:'代码仓库',zone:'code',lv:1,
@@ -792,7 +792,7 @@ var WORDS=[
  scn:'你问「你这次到底改了啥」，我敲 git diff 就能把改动一行行列给你看 —— 不靠我嘴说，靠机器对。',
  demo:null,rel:['git','commit'],
  quiz:{q:'想确认「这次到底改了哪些内容」，最靠谱的做法是？',
- o:['问 AI 自己说','看文件修改时间','跑 diff 把新旧版本逐行对比','重新写一遍'],a:2,
+ o:['问 AI 自己说','看文件修改时间','重新写一遍','跑 diff 把新旧版本逐行对比'],a:3,
  why:'diff 是机器逐行比对的结果，不会漏也不会记错；靠人（或 AI）口述最容易漏掉细节。'}},
 
 {id:'md',shot:'md',term:'Markdown',full:'Markdown / .md',cn:'轻量标记语言',zone:'code',lv:1,new:true,
@@ -861,7 +861,7 @@ var WORDS=[
  scn:'名词小抄每周一 9 点自己去抓新词、重新上线，背后就是这么一条定时规则。星号表示「每一个」，最后一位 1 表示星期一。',
  demo:null,rel:['automation','server','deploy'],
  quiz:{q:'定时表达式「0 9 * * 1」表示什么时候执行？',
- o:['每天 9 点 0 分','每周一早上 9:00','每月 1 号 9 点','9 月 1 号 0 点'],a:1,
+ o:['每天 9 点 0 分','每月 1 号 9 点','每周一早上 9:00','9 月 1 号 0 点'],a:2,
  why:'五段依次是 分 时 日 月 周：第 1 段 0 是整分，第 2 段 9 是 9 点，中间两个星号是「每天、每月」，最后 1 是星期一。合起来就是每周一 9:00。'}},
 
 {id:'obsidian',shot:'obsidian',term:'Obsidian',full:'Obsidian',cn:'双链笔记软件',zone:'misc',lv:1,
@@ -882,7 +882,7 @@ var WORDS=[
  scn:'飞书群里加个自定义机器人，本质上就是给它一个回调地址 —— 我这边一有结果就往里推消息，你不用盯着等。',
  demo:null,rel:['api','server','automation'],
  quiz:{q:'「回调（webhook）」和普通的「接口调用」，最关键的区别是什么？',
- o:['回调更安全','回调更快','回调是对方出事时主动通知你，普通接口要你自己不停去问','回调只能用在飞书'],a:2,
+ o:['回调更安全','回调是对方出事时主动通知你，普通接口要你自己不停去问','回调更快','回调只能用在飞书'],a:1,
  why:'普通接口是你主动发问、它才回答，你不问它就沉默；回调是你先留个网址，对方有动静时主动把消息推过来。'}},
 
 {id:'automation',term:'automation',full:'Scheduled Task / Automation',cn:'定时自动任务',zone:'misc',lv:1,new:true,
@@ -1867,11 +1867,12 @@ document.getElementById('screen').addEventListener('click',function(e){
 });
 document.getElementById('q').addEventListener('input',function(){
   var v=this.value.trim();
-  if(v){if(cur!=='list'){stack.push({v:cur,a:curArg});cur='list';curArg={z:'ai',q:v}}
-    else curArg={z:curArg.z,q:v};
+  if(v){
+    if(cur!=='list'){stack.push({v:cur,a:curArg});cur='list';curArg={z:'ai',q:v};render();return}
+    curArg={z:curArg.z,q:v};
     var box=document.getElementById('listBox');
     if(box)box.innerHTML=listHTML(curArg,false);
-    var t=document.querySelector('#screen .topbar .t');if(t)t.textContent='搜索“'+v+'”';
+    var t=document.querySelector('#screen .topbar .t');if(t)t.textContent='搜索“'+esc(v)+'”';
   }else if(cur==='list'){back();}
 });
 document.getElementById('tabbar').addEventListener('click',function(e){
