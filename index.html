@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="8pcTUy69u4GmiKCQN04Q8s">
+<head data-page-node-id="g4jbr6hUcKI8fgNoqhyMV0">
+<meta charset="UTF-8" data-page-node-id="JnIkuWwW4k4D1iHjpQPqeG">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1" data-page-node-id="ZPxzhMwzA6NczpOWcm8WDg">
+<meta name="theme-color" content="#3566f0" data-page-node-id="Mcsf1Ct36K3nWudYwJaue1">
+<meta name="apple-mobile-web-app-capable" content="yes" data-page-node-id="8oPxzYFA8KHDa9NX4KQLMS">
+<meta name="apple-mobile-web-app-title" content="名词小抄" data-page-node-id="LZifNMeY7qBGEN7loUNakN">
+<meta name="apple-mobile-web-app-status-bar-style" content="default" data-page-node-id="MBBrfLUlCFGzQNH6wDpiIY">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233566f0'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E词%3C/text%3E%3C/svg%3E" data-page-node-id="PRr72PnAJyG5H8L9UrFdSD">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233566f0'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E词%3C/text%3E%3C/svg%3E" data-page-node-id="8A15KDJS1fATQ7DiCxBSPd">
+<title>AI 名词小抄</title>
+<style>
+:root{
+  --bg:#f4f5f7; --card:#fff; --text:#171a1f; --sub:#5c6470; --faint:#8d95a1;
+  --line:#e4e7eb; --accent:#3566f0; --accent-soft:#eaf0ff; --new:#f2622e;
+  --star:#f6a623; --ok:#1f9d55; --bad:#d93a3a; --soft:#f2f4f7;
+  --sh:0 1px 2px rgba(16,24,40,.05),0 4px 14px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#111318; --card:#191c22; --text:#e9ecf1; --sub:#a3acb9; --faint:#7c8593;
+    --line:#272b33; --accent:#6d94ff; --accent-soft:#1c2540; --new:#ff7a45;
+    --star:#ffc043; --ok:#3ecf8e; --bad:#ff6b6b; --soft:#20242b;
+    --sh:0 1px 2px rgba(0,0,0,.4),0 4px 14px rgba(0,0,0,.3);
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom)}
+.app{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
+.hd{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 14px 8px;
+  border-bottom:1px solid var(--line)}
+.hdrow{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.3px}
+.brand span{color:var(--accent)}
+.brandsub{font-size:11.5px;color:var(--faint);flex:1}
+.cnt{font-size:11.5px;color:var(--faint)}
+.searchbox{display:flex;align-items:center;gap:8px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:9px 13px}
+.searchbox input{flex:1;border:0;outline:0;background:transparent;color:var(--text);
+  font-size:15px;font-family:inherit;min-width:0}
+.searchbox .ico{color:var(--faint);font-size:14px}
+main{padding:12px 14px 96px}
+.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);
+  border-top:1px solid var(--line);display:flex;max-width:520px;margin:0 auto;
+  padding-bottom:env(safe-area-inset-bottom)}
+.tabbar div{flex:1;text-align:center;padding:9px 0 8px;font-size:11.5px;color:var(--faint);cursor:pointer}
+.tabbar div.on{color:var(--accent);font-weight:700}
+.tabbar div .i{font-size:18px;display:block;line-height:1.3}
+.view{animation:fade .2s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+.daily{background:linear-gradient(135deg,#3566f0,#7b4ff0);color:#fff;border-radius:16px;
+  padding:15px 17px;box-shadow:var(--sh);margin-bottom:14px}
+.daily .lbl{font-size:11.5px;opacity:.85;letter-spacing:1px}
+.daily .w{font-size:23px;font-weight:800;margin:3px 0 2px;line-height:1.3}
+.daily .w em{font-style:normal;font-size:14px;font-weight:400;opacity:.85}
+.daily .d{font-size:13px;opacity:.93;line-height:1.55}
+.daily .go{margin-top:10px;display:inline-block;background:rgba(255,255,255,.22);
+  padding:6px 14px;border-radius:20px;font-size:13px;cursor:pointer}
+.zones{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:4px}
+.zone{background:var(--card);border:1px solid var(--line);border-radius:13px;
+  padding:12px 13px;cursor:pointer;box-shadow:var(--sh)}
+.zone .e{font-size:19px}
+.zone .n{font-weight:700;font-size:14.5px;margin-top:1px}
+.zone .c{color:var(--faint);font-size:11.5px}
+.secttl{font-size:12.5px;color:var(--sub);font-weight:700;margin:18px 0 8px;
+  display:flex;align-items:center;justify-content:space-between}
+.secttl .more{font-weight:400;font-size:12px;color:var(--accent);cursor:pointer}
+.row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:11px 13px;margin-bottom:8px;cursor:pointer}
+.row .rt{flex:1;min-width:0}
+.row .rn{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.row .rd{color:var(--sub);font-size:12.5px;line-height:1.5;margin-top:2px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge{font-size:10px;padding:1px 6px;border-radius:5px;background:var(--new);color:#fff;font-weight:700}
+.chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--accent-soft);color:var(--accent)}
+.chip.lv{background:var(--soft);color:var(--sub)}
+.chip.z{background:var(--soft);color:var(--sub)}
+.star{font-size:18px;color:var(--line);cursor:pointer;flex:none;line-height:1;padding-left:4px}
+.star.on{color:var(--star)}
+
+.topbar{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.back{cursor:pointer;color:var(--accent);font-size:14px;user-select:none;white-space:nowrap}
+.topbar .t{font-weight:700;font-size:15px;flex:1;text-align:center;margin-right:38px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dterm{font-size:25px;font-weight:800;letter-spacing:-.4px;line-height:1.25}
+.dfull{color:var(--faint);font-size:12.5px;margin-top:1px;word-break:break-word}
+.dcn{color:var(--sub);font-size:13.5px;margin-top:2px}
+.chips{margin:10px 0 2px;display:flex;gap:6px;flex-wrap:wrap}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:13px 15px;margin:11px 0;box-shadow:var(--sh)}
+.blk .h{font-weight:700;font-size:14px;margin-bottom:5px}
+.blk .b{font-size:14.5px;line-height:1.78}
+.blk .b em{font-style:normal;background:linear-gradient(transparent 60%,#ffe08a 60%);font-weight:600}
+@media (prefers-color-scheme:dark){.blk .b em{background:linear-gradient(transparent 60%,#5b4a16 60%)}}
+.demoname{font-size:11.5px;color:var(--faint);margin:0 0 9px}
+.shotbox{background:var(--soft);border:1px solid var(--line);border-radius:11px;
+  padding:11px 9px 8px;cursor:zoom-in}
+.shotbox svg{width:100%;height:auto;display:block}
+.shotbox .zt{font-size:11px;color:var(--faint);text-align:center;margin-top:8px}
+.zmask{position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;
+  background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;
+  padding:14px;cursor:zoom-out}
+.zmask .zin{background:var(--card);border-radius:14px;padding:14px;width:100%;max-width:520px}
+.zmask svg{width:100%;height:auto;display:block}
+.zmask .zc{font-size:12px;color:var(--sub);text-align:center;margin-top:10px}
+.rel .row{margin-bottom:6px;box-shadow:none}
+.btn{display:block;width:100%;background:var(--accent);color:#fff;border:0;border-radius:12px;
+  padding:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:12px}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line)}
+.btn:disabled{opacity:.4}
+
+/* 演示组件 */
+.stage{background:var(--soft);border-radius:11px;padding:13px}
+.hint{font-size:12.5px;color:var(--sub);margin-top:9px;min-height:19px;line-height:1.6}
+.tok{padding:5px 9px;border-radius:7px;background:var(--card);border:1px solid var(--line);
+  font-size:14px;opacity:.22;transform:scale(.92);transition:all .3s ease;display:inline-block;margin:3px}
+.tok.on{opacity:1;transform:scale(1)}
+.miniin{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--text);
+  border-radius:10px;padding:9px 11px;font-size:14px;font-family:inherit;outline:0;margin-top:9px}
+.miniin:focus{border-color:var(--accent)}
+.counter{font-size:12.5px;color:var(--accent);font-weight:700;margin-top:7px}
+.steps{display:flex;flex-direction:column;gap:6px}
+.step{display:flex;align-items:center;gap:9px;padding:8px 11px;border-radius:10px;
+  background:var(--soft);opacity:.32;transition:all .4s ease;font-size:13.5px}
+.step.on{opacity:1;background:var(--accent-soft);color:var(--accent);font-weight:600}
+.step .num{width:19px;height:19px;border-radius:50%;background:var(--card);
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+  font-size:11px;flex:none;font-weight:700}
+.step.on .num{background:var(--accent);color:#fff;border-color:var(--accent)}
+.apirow{display:flex;align-items:center;gap:3px}
+.apibox{flex:1;text-align:center;padding:8px 3px;border-radius:9px;background:var(--soft);font-size:12px}
+.apibox.hi{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.apiline{flex:.6;height:2px;background:var(--line);position:relative;min-width:16px}
+.apiline i{position:absolute;top:-3px;left:0;width:6px;height:6px;border-radius:50%;
+  background:var(--accent);animation:move 2.2s linear infinite}
+@keyframes move{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 6px);opacity:0}}
+.typing{background:var(--soft);border-radius:11px;padding:14px;font-size:17px;letter-spacing:1px}
+.typing .q{color:var(--sub)}
+.typing .o{color:var(--accent);font-weight:700}
+.caret{display:inline-block;width:2px;height:17px;background:var(--accent);
+  vertical-align:-2px;animation:blink .9s steps(2) infinite}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+.cmp{display:flex;gap:8px}
+.cmp .side{flex:1;border-radius:11px;padding:11px 12px;font-size:13px;line-height:1.6;
+  background:var(--soft);border:1px solid var(--line)}
+.cmp .side.bad{background:color-mix(in srgb,var(--bad) 10%,transparent);border:1px solid color-mix(in srgb,var(--bad) 35%,transparent)}
+.cmp .side.good{background:color-mix(in srgb,var(--ok) 10%,transparent);border:1px solid color-mix(in srgb,var(--ok) 35%,transparent)}
+.cmp .side .t{font-weight:700;font-size:12.5px;margin-bottom:4px}
+.kit{display:flex;flex-direction:column;gap:5px}
+.kit .lv1{border-radius:9px;padding:8px 12px;font-size:13px;background:var(--soft);text-align:center}
+.kit .lv1.in2{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.kit .lv1.in3{background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.kit .lv1.in4{background:color-mix(in srgb,var(--accent) 26%,transparent);color:var(--accent);font-weight:700}
+.kit .ar{text-align:center;color:var(--faint);font-size:11px;line-height:1}
+.win{border:1px dashed var(--line);border-radius:10px;padding:9px;min-height:96px;
+  display:flex;flex-direction:column;gap:5px}
+.msg{font-size:12.5px;padding:6px 9px;border-radius:8px;background:var(--soft);
+  opacity:.35;transition:all .35s}
+.msg.on{opacity:1}
+.msg.out{background:color-mix(in srgb,var(--new) 14%,transparent);color:var(--new);text-decoration:line-through}
+.slider{width:100%;margin:6px 0 2px;accent-color:var(--accent)}
+.say{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px;
+  font-size:13.5px;line-height:1.7;margin-top:8px;min-height:52px}
+.moe{display:flex;gap:6px;flex-wrap:wrap}
+.moe .ex{padding:6px 10px;border-radius:8px;background:var(--soft);font-size:12px;opacity:.4;transition:all .3s}
+.moe .ex.on{opacity:1;background:var(--accent-soft);color:var(--accent);font-weight:700}
+
+/* 测验 */
+.qbox{background:var(--card);border:1px solid var(--line);border-radius:15px;
+  padding:17px;margin-bottom:12px;box-shadow:var(--sh)}
+.qnum{font-size:11.5px;color:var(--faint)}
+.qtxt{font-size:16px;font-weight:700;margin:7px 0 13px;line-height:1.6}
+.opt{border:1px solid var(--line);border-radius:11px;padding:11px 13px;margin-bottom:8px;
+  cursor:pointer;font-size:14.5px}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);color:var(--ok);font-weight:600}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,transparent);color:var(--bad)}
+.expl{font-size:13.5px;color:var(--sub);background:var(--soft);border-radius:10px;padding:11px 13px;margin-top:4px}
+.empty{text-align:center;color:var(--faint);padding:50px 20px;font-size:14px;line-height:1.9}
+.empty .e{font-size:36px;display:block;margin-bottom:8px}
+.tip{font-size:12px;color:var(--faint);text-align:center;margin-top:16px;line-height:1.7}
+.abbrline .a{font-weight:800;font-size:15px;color:var(--accent);min-width:58px;display:inline-block}
+.abbrline .f{font-size:11.5px;color:var(--faint)}
+footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 10px;line-height:1.8}
+</style>
+</head>
+<body data-page-node-id="QxIqCOXUCHxgQ7vOMDn8QF">
+<div class="app" data-page-node-id="2HOiqko75zo5cnnR0WqVXA">
+  <div class="hd" data-page-node-id="531YSBDUGMRi0KF5ACNSSk">
+    <div class="hdrow" data-page-node-id="fqxD1QvU28rWgIJUA5gGoZ"><span class="brand" data-page-node-id="3R4A6HCfYKgZAyMlmKTm3t">AI 名词<span data-page-node-id="IQrgBXzur7VUM5ejup5T3F">小抄</span></span>
+      <span class="brandsub" data-page-node-id="9EkykKrKOlMaS4GqjfU6IY">看不懂的词，说人话给你听</span><span class="cnt" id="cnt" data-page-node-id="cBCezoC5kSzbSbtFOSlvPD"></span></div>
+    <div class="searchbox" data-page-node-id="hyFLO1EsxIjKTjVG1FcO2R"><span class="ico" data-page-node-id="Pc2M4oC0DntF1EFpPrUSuh">🔍</span>
+      <input id="q" placeholder="搜词、缩写、或一句话描述…" autocomplete="off" data-page-node-id="KuMZIhvWCE8LDd55zIRnuu"></div>
+  </div>
+  <main id="screen" data-page-node-id="axBVXxE4oKis0T8llDQxJj"></main>
+  <div class="tabbar" id="tabbar" data-page-node-id="11g3aF01OYc6zjOKHbSXvx">
+    <div data-tab="home" class="on" data-page-node-id="nzlC6yptj33qoGu9yJkVmC"><span class="i" data-page-node-id="fNV5deb4DGeem6vM3b97UF">🏠</span>首页</div>
+    <div data-tab="fav" data-page-node-id="mGRTSeyCnkABXVRiZB4a4H"><span class="i" data-page-node-id="dpZlAowaBDYObgucoWVPAA">⭐</span>收藏</div>
+    <div data-tab="quiz" data-page-node-id="lhTVxUEvIo3pmIuZAqmKkj"><span class="i" data-page-node-id="YvJqCxMC4KDHGoEBIeFWQX">🎯</span>考考我</div>
+  </div>
+</div>
+<script>
+/* ============ 词库 v1（2026-09-08） ============ */
+var WORDS=[
+/* ---------- AI 核心区 ---------- */
+{id:'ai',term:'AI',full:'Artificial Intelligence',cn:'人工智能',zone:'ai',lv:1,abbr:true,
+ tl:'让机器干「原来只有人才能干」的活：看懂文字图片、听懂说话、写东西、做决定。',
+ ana:'注意它是个<b>大筐</b>，不是某个具体产品。就像「车」是个大类，自行车、轿车、卡车都在里面。',
+ scn:'以后听到「AI 写作」「AI 客服」「AI 剪辑」，都是说「用机器替人干这摊活」，跟具体用什么模型无关。',
+ demo:'kit',
+ quiz:{q:'下面哪个说法是对的？',o:['ChatGPT 就是 AI 的全部','AI 是大类，ChatGPT 只是其中一个产品','AI 和机器学习是一个东西','AI 必须有实体机器人'],a:1,
+  why:'AI 是最大的筐 → 机器学习是造它的方法 → 深度学习是最能打的一支 → 大模型是产物 → GPT/Claude/DeepSeek 是具体产品。它们是套娃关系，不是同一个东西。'},
+ rel:['llm','ml','agent']},
+
+{id:'ml',term:'机器学习 / ML',full:'Machine Learning',cn:'机器学习',zone:'ai',lv:2,abbr:true,
+ tl:'造 AI 的一种方法：<b>不给机器写死规则，让它自己从大量例子里总结规律</b>。',
+ ana:'教小孩认猫，老办法是写规则「尖耳朵+长尾巴+会喵喵叫=猫」；机器学习是<b>直接给它看十万张猫片</b>，让它自己总结猫长什么样。',
+ scn:'你刷抖音「猜你喜欢」、邮箱自动拦垃圾邮件，背后都是机器学习——没人写规则，它自己从你的行为里学的。',
+ demo:null,rel:['ai','llm']},
+
+{id:'llm',term:'LLM',full:'Large Language Model',cn:'大语言模型 / 大模型',zone:'ai',lv:1,abbr:true,
+ tl:'在海量的文字上训练出来的超大程序，核心本事只有一个：<b>猜下一个字是什么</b>。',
+ ana:'像一个<b>把全世界的书都背下来的接龙高手</b>。你说「今天天气」，它接「真好」——它不是在思考，是在算「接哪个字最像人话」。',
+ scn:'你在 Codex / WorkBuddy 里<b>选模型</b>（GPT、Claude、GLM、DeepSeek），选的就是不同的 LLM；公众号说「用大模型写文案」，那个大模型就是它。',
+ demo:'llm',
+ quiz:{q:'「大模型」的「大」，到底大在哪？',o:['装它的服务器体积很大','学过的文字和参数特别多','收费很贵','只能处理很大的问题'],a:1,
+  why:'「大」指训练数据量 + 模型参数量巨大，跟体积、价格、问题大小都没关系。'},
+ rel:['token','context','rag','ai']},
+
+{id:'token',term:'Token',full:'Token',cn:'词元 / 令牌',zone:'ai',lv:2,
+ tl:'AI 处理文字的最小单位，也是它<b>收费和记长度的尺子</b>。不是「一个字」，也不是「一个词」。',
+ ana:'把文字想成<b>乐高积木</b>：AI 不认识整句话，先把话拆成一堆积木，再一块块拼着理解、一块块往外吐。你付的钱、它记住的长度，都按积木块数算。',
+ scn:'Codex 提示「上下文剩 12%」，那个百分比就是剩余 Token；文章里说「这个词 3 个 token」，就是在说它被切成了 3 块。',
+ demo:'token',
+ quiz:{q:'「我爱吃苹果」大概会被切成几个 Token？',o:['1 个（一整句）','5 个（一个字一块）','11 个（一个字母一块）','看心情'],a:1,
+  why:'中文通常一个字 ≈ 一个 Token；英文长单词反而会被拆成好几块，所以「按字数估钱」在中文里基本准，在英文里会算错。'},
+ rel:['llm','context']},
+
+{id:'context',term:'上下文窗口',full:'Context Window',cn:'上下文窗口',zone:'ai',lv:2,
+ tl:'AI <b>一次性能看到多少内容的上限</b>。超出的部分它真的就忘了，不是装傻。',
+ ana:'像一间<b>只能坐 20 人的小会议室</b>：新来一个人，就得挤走最早来的那个。你和它聊到第 50 轮，它忘了第 1 轮说的话，就是被挤出去了。',
+ scn:'Codex 提示「上下文快满了，建议 /compact」——就是会议室坐不下了，让你把前面的对话压缩一下腾地方。',
+ demo:'ctx',rel:['token','llm','rag']},
+
+{id:'prompt',term:'Prompt',full:'Prompt',cn:'提示词',zone:'ai',lv:1,
+ tl:'你发给 AI 的那段话。<b>它写的每一个字都在影响答案</b>，所以「会提问」本身就是一门技术。',
+ ana:'就像<b>给下属派活</b>：你说「写个方案」他给你一堆废话；你说「写给 30 岁女性看的、500 字、开头要有钩子」，出来的东西完全不一样。',
+ scn:'公众号圈说的「提示词工程」「咒语」，本质就是把活派清楚。你让我「用苏格拉底提问法问我」，那句话就是 Prompt。',
+ demo:'prompt',
+ quiz:{q:'想让 AI 答得更好，最便宜有效的一招是？',o:['把问题写得更长','给它几个你想要的样子当例子','多说几次「请」','换更贵的模型'],a:1,
+  why:'这招叫「少样本」（Few-shot）：先给它 2～3 个你想要的样子，它立刻知道你要什么。比调参数、换模型都划算。'},
+ rel:['sysprompt','cot','llm']},
+
+{id:'sysprompt',term:'System Prompt',full:'System Prompt',cn:'系统提示词',zone:'ai',lv:2,
+ tl:'<b>每次对话都自动生效、但你看不见</b>的那段「岗位说明书」。定了 AI 的人设、口气和底线。',
+ ana:'普通 Prompt 是你<b>每次说的话</b>；System Prompt 是公司<b>提前发给它的员工手册</b>：你是谁、该怎么说话、什么不能说。',
+ scn:'你给我写的 SOUL.md、龙之心客服智能体的设定，本质上就是 System Prompt——它在每一次对话里都起作用，你看不见但它一直在。',
+ demo:null,rel:['prompt','agent']},
+
+{id:'hallu',term:'幻觉',full:'Hallucination',cn:'AI 幻觉 / 一本正经胡说',zone:'ai',lv:1,
+ tl:'AI <b>编造不存在的事实，还说得特别自信</b>：假的书名、假的法条、假的数据，全都能给你编圆了。',
+ ana:'像考试遇到不会的题，<b>凭感觉编了个答案，还写得很笃定</b>。它不是故意骗你——它只是在算「什么听起来最像对的」。',
+ scn:'你让 AI 找五行针灸的原文出处，它可能给你编一个页码。<b>凡是引用、数据、人名，一定要自己核一遍</b>。',
+ demo:'hallu',
+ quiz:{q:'哪种做法最能减少 AI 瞎编？',o:['把温度调到 0','让它先查你的资料再回答（RAG）','每次都提醒它「不许编」','换个更大的模型'],a:1,
+  why:'让它先翻你的资料再回答（RAG），答案有出处就不容易编。「不许编」这种叮嘱基本没用，它做不到。'},
+ rel:['rag','llm']},
+
+{id:'temp',term:'温度',full:'Temperature',cn:'温度参数',zone:'ai',lv:2,
+ tl:'控制 AI 回答<b>「稳」还是「野」</b>的旋钮。数字越大越天马行空，越小越死板。',
+ ana:'温度低 = <b>会计在做报表</b>（每次都一样，稳）；温度高 = <b>李白喝醉了写诗</b>（每次都不一样，时有惊喜时有翻车）。',
+ scn:'写代码、查数据、做表格 → 调低（0～0.3）；写公众号标题、想创意、头脑风暴 → 调高（0.7～1）。大多数工具默认 0.7 左右。',
+ demo:'temp',rel:['llm','prompt']},
+
+{id:'agent',term:'Agent',full:'AI Agent',cn:'智能体',zone:'ai',lv:2,abbr:true,
+ tl:'<b>不只回答问题，而是自己把活干完</b>的 AI：会拆步骤、会调工具、干完才来找你。',
+ ana:'普通 AI 是<b>你问我答的客服</b>；Agent 是<b>外包员工</b>——你说「帮我调研竞品定价写成报告」，它自己搜、自己整理、自己写，最后把成品给你。',
+ scn:'你让 WorkBuddy「做个名词工具」，它自己拆任务、读文件、写代码、跑测试，干完一次性给你结果——这就是 Agent 模式。',
+ demo:'agent',
+ quiz:{q:'下面哪个更像 Agent 而不是普通聊天 AI？',o:['问一句答一句的百科','你说目标，它自己搜资料→整理→写报告→交给你','只能聊天的客服机器人','需要你一步步指挥的工具'],a:1,
+  why:'判断标准一句话：聊天机器人给你「步骤清单」，Agent 直接给你「可以验收的成品」。'},
+ rel:['mcp','tool','workflow']},
+
+{id:'rag',term:'RAG',full:'Retrieval-Augmented Generation',cn:'检索增强生成',zone:'ai',lv:3,abbr:true,
+ tl:'先让 AI <b>去你的资料里翻一遍</b>，再拿着翻到的内容回答你，而不是凭记忆瞎编。',
+ ana:'等于<b>开卷考试</b>。不 RAG 是闭卷（凭训练记忆答，容易编）；RAG 是先发它一堆参考资料，让它照着答，还能告诉你答案出自第几页。',
+ scn:'你把五行针灸的资料喂给它，问「护持一行怎么判断」，它从你资料里翻完再答——这就是 RAG。公众号说「给 AI 挂个知识库」，挂的就是这个。',
+ demo:'rag',rel:['embed','vdb','hallu','llm']},
+
+{id:'embed',shot:'embed',term:'Embedding',full:'Embedding',cn:'向量化 / 嵌入',zone:'ai',lv:3,
+ tl:'把文字<b>变成一串数字</b>，让电脑能算「这两句话像不像」。意思相近的话，数字也挨得近。',
+ ana:'给每段话发一个<b>数学指纹</b>。电脑不认字只认数，有了指纹它就能算出「护持一行」和「主导一行」其实说的是一回事。',
+ scn:'你搜「怎么判断五行人」，即使文章里一个字都没出现「判断」两个字，也能被搜出来——靠的就是这个。RAG 底层全靠它。',
+ demo:null,rel:['rag','vdb']},
+
+{id:'vdb',term:'向量数据库',full:'Vector Database',cn:'向量数据库',zone:'ai',lv:3,
+ tl:'专门存「数字指纹」的数据库，<b>按意思找，不按字面找</b>。',
+ ana:'普通图书馆<b>按书名找书</b>；向量数据库是<b>按「讲的是什么」找书</b>——你说个大概意思，它把相关的都给你搬出来。',
+ scn:'你给公众号历史文章做个「能对话的知识库」，文章就存在这种库里。常见产品：Pinecone、Milvus、Chroma。',
+ demo:null,rel:['embed','rag']},
+
+{id:'ft',term:'微调',full:'Fine-tuning',cn:'微调 / 精调',zone:'ai',lv:3,
+ tl:'在已经训练好的模型上，<b>再用你自己的数据练一遍</b>，让它养成某种固定风格或习惯。',
+ ana:'预训练是<b>读完大学</b>（啥都学点）；微调是<b>上岗培训</b>（只在你们公司干，学会你们的黑话和规矩）。LoRA 是一种省钱的微调法，只改模型的一小部分。',
+ scn:'「用龙梅老师的文章微调一个模型」，就是让它学会她的语气和说法。<b>注意：微调不能让它知道新知识</b>，那是 RAG 的活。',
+ demo:'ft',
+ quiz:{q:'想让 AI 学会你公司的新规定（每周都在变），该用哪个？',o:['微调','RAG（挂知识库）','换更大的模型','调高温度'],a:1,
+  why:'微调是把知识「刻进脑子」，改起来慢又贵，适合固定风格；RAG 是给它一本书随时翻，内容变了改书就行。经常变的东西用 RAG。'},
+ rel:['rag','llm']},
+
+{id:'multi',shot:'multi',term:'多模态',full:'Multimodal',cn:'多模态',zone:'ai',lv:1,
+ tl:'AI 不只会读字，还<b>能看图、听声音、看视频</b>，混在一起理解。',
+ ana:'以前它是<b>只能看文档的文员</b>，现在是<b>能看照片、能听语音、能看视频的全能助理</b>。',
+ scn:'你把群聊截图直接丢给我，我能读出里面的发言并做统计——这就是多模态。以前必须你先把字打出来才行。',
+ demo:null,rel:['llm','vlm']},
+
+{id:'reason',term:'推理模型',full:'Reasoning Model / LRM',cn:'推理模型',zone:'ai',lv:2,abbr:true,
+ tl:'<b>先想清楚再回答</b>的模型。回答前会在后台一步步推演、自我检查，难题更强，但更慢更贵。',
+ ana:'普通模型是<b>脱口而出</b>；推理模型是<b>打草稿再交卷</b>。做数学题、写代码、复杂决策，草稿这一步差别巨大。',
+ scn:'DeepSeek-R1、GPT 的 o 系列、Claude 的「扩展思考」都是这类。<b>日常闲聊用它 = 用大炮打蚊子</b>，又慢又贵。',
+ demo:null,rel:['cot','llm']},
+
+{id:'cot',term:'思维链',full:'Chain of Thought / CoT',cn:'思维链',zone:'ai',lv:2,abbr:true,
+ tl:'让 AI <b>把思考过程写出来再给结论</b>。就这一句话，正确率能提升一大截。',
+ ana:'像数学考试<b>要写解题步骤，不能只写答案</b>。写着写着，它自己就发现哪步错了。',
+ scn:'在提问后面加一句「<b>请一步一步思考</b>」，是全网验证过最省事的提分技巧。你现在就可以试。',
+ demo:null,rel:['reason','prompt']},
+
+{id:'param',term:'参数',full:'Parameters',cn:'参数 / 7B、70B',zone:'ai',lv:2,
+ tl:'模型内部的「旋钮」数量，粗暴理解就是<b>脑容量</b>。B = 十亿，7B 就是 70 亿个旋钮。',
+ ana:'像<b>音响上的 EQ 均衡器</b>：旋钮越多，能调出的声音越细腻。但旋钮多不等于好听，还得看调没调好。',
+ scn:'文章里说「本地跑个 7B 的小模型」，就是说它脑容量小、对电脑要求低、也便宜。<b>参数大 ≠ 一定更好用</b>，小模型精调后干专项活可能更合适。',
+ demo:null,rel:['llm','quant']},
+
+{id:'moe',term:'MoE',full:'Mixture of Experts',cn:'混合专家模型',zone:'ai',lv:3,abbr:true,
+ tl:'模型内部养了一群「专科医生」，<b>每个问题只叫醒相关的几个</b>，不用全员上岗。',
+ ana:'大公司里有法务、财务、技术、市场。MoE 不是每次开会都叫齐所有人，而是<b>谁相关叫谁</b>——所以「总人数很多，干活却不慢」。',
+ scn:'DeepSeek、Mixtral 都用这招，所以能做到「模型很大但很便宜」。文章里说「MoE 架构」就是在夸这一点。',
+ demo:'moe',rel:['param','llm']},
+
+{id:'oss',term:'开源 / 闭源',full:'Open Source / Closed Source',cn:'开源模型 / 闭源模型',zone:'ai',lv:1,
+ tl:'<b>开源</b>：模型文件公开，谁都能下载、改、自己部署（DeepSeek、Qwen、Llama）。<b>闭源</b>：只让你通过官方入口用，看不到里面（GPT、Claude）。',
+ ana:'开源 = <b>给你菜谱和食材</b>，你想怎么改怎么改，但得自己有厨房；闭源 = <b>直接去饭店吃</b>，省心，但菜单由别人定。',
+ scn:'你在 WorkBuddy 里配智谱、DeepSeek 的 API 用国产开源模型，成本低、数据可控；用 Claude 则是闭源，省心但按量付费。',
+ demo:'oss',rel:['local','llm']},
+
+{id:'local',term:'本地部署',full:'Local Deployment',cn:'本地部署 / 端侧 AI',zone:'ai',lv:2,
+ tl:'把模型<b>装在你自己的电脑或手机上跑</b>，数据不出门，断网也能用。',
+ ana:'用网盘 vs <b>把文件存在自己硬盘</b>。前者方便但要联网、要信对方；后者慢一点、占地方，但东西在你手里。',
+ scn:'你在自己电脑上装 Ollama 跑 DeepSeek，就是本地部署。好处：隐私好、不花钱；代价：能力比云端大模型弱一截。',
+ demo:null,rel:['oss','quant']},
+
+{id:'quant',term:'量化 / 蒸馏',full:'Quantization / Distillation',cn:'模型减肥三件套',zone:'ai',lv:3,
+ tl:'<b>量化</b>：把模型数字精度压低，体积变小跑得更快（画质略降）。<b>蒸馏</b>：让小模型跟着大模型学，把本事浓缩进小身板。',
+ ana:'量化 = <b>高清视频转标清</b>：画质差一点，但手机能放；蒸馏 = <b>名师带徒弟</b>：徒弟没师傅懂得多，但够用且便宜。',
+ scn:'文章里说「量化版」「4bit」「蒸馏模型」，都是同一个意思：让大模型能塞进你的电脑里跑。',
+ demo:null,rel:['local','param']},
+
+{id:'ctxeng',term:'上下文工程',full:'Context Engineering',cn:'上下文工程',zone:'ai',lv:3,new:true,
+ tl:'2025 年火起来的说法：不纠结「这一句怎么问」，而是研究<b>「在它开口前，该把哪些资料、规则、工具结果摆到它面前」</b>。',
+ ana:'提示词工程是<b>琢磨怎么问这一句</b>；上下文工程是<b>给它准备一整个文件夹的参考资料，还分好类、排好序</b>。',
+ scn:'你给 AI 挂飞书知识库、挂公众号历史文章、写 CLAUDE.md / SOUL.md，<b>全都是在做上下文工程</b>——你其实早就在做了。',
+ demo:null,rel:['prompt','rag','context']},
+
+{id:'vibe',shot:'vibe',term:'Vibe Coding',full:'Vibe Coding',cn:'氛围编程',zone:'ai',lv:1,new:true,
+ tl:'<b>不看代码、只说人话</b>的写程序方式：你描述想要什么，AI 写，报错就丢回给它改，你全程不看代码写了啥。',
+ ana:'像<b>跟装修师傅说「我要个温馨的客厅」</b>——你不管水电怎么走、瓷砖怎么贴，只看最后效果。不满意就说「再暖一点」。',
+ scn:'这就是你现在用 Codex、WorkBuddy 的方式。这个词 2025 年由 Karpathy 造出来，年底被《柯林斯词典》评为年度词汇。<b>副作用：你因此撞到一堆看不懂的名词——所以才有了这个工具。</b>',
+ demo:null,rel:['agent','llm']},
+
+{id:'world',term:'世界模型',full:'World Model',cn:'世界模型',zone:'ai',lv:3,new:true,
+ tl:'让 AI 在内部<b>建一个物理世界的模拟器</b>，真的懂「球掉地上会弹」「杯子碎了不能用了」。',
+ ana:'现在的大模型<b>很会说话但没常识</b>——你问杯子掉地上会怎样，它能答得头头是道，却并不真懂重力。世界模型要补的就是这块。',
+ scn:'李飞飞的 World Labs 做的 Marble：给它一张照片，生成一个能走进去的 3D 世界。机器人、自动驾驶都指望它当大脑。',
+ demo:null,rel:['embodied','agi']},
+
+{id:'embodied',term:'具身智能',full:'Embodied AI',cn:'具身智能',zone:'ai',lv:2,
+ tl:'AI <b>有了物理身体</b>（机器人），能看、能走、能抓、能在真实世界干活。',
+ ana:'以前 AI 是<b>困在屏幕里的脑子</b>；具身智能是<b>给这个脑子装上手脚</b>，让它能真的端杯子、搬箱子。',
+ scn:'工厂机械臂、送餐机器人、特斯拉 Optimus 都属于这条线。2026 年被普遍认为是它批量落地的一年。',
+ demo:null,rel:['world','agi']},
+
+{id:'aigc',term:'AIGC',full:'AI Generated Content',cn:'AI 生成内容',zone:'ai',lv:1,abbr:true,
+ tl:'AI 干出来的活：<b>写的文章、画的图、剪的视频、写的代码</b>，统称 AIGC。',
+ ana:'AI 是<b>能力</b>，AIGC 是<b>结果</b>。就像「会做饭」是能力，「那盘菜」是结果。',
+ scn:'公众号圈说「AIGC 降本增效」，意思就是用 AI 批量出内容。你用 AI 写的每一篇推文都是 AIGC。',
+ demo:null,rel:['llm','multi']},
+
+{id:'transformer',term:'Transformer',full:'Transformer Architecture',cn:'Transformer 架构',zone:'ai',lv:3,
+ tl:'2017 年谷歌提出的架构，<b>今天几乎所有大模型的地基</b>。GPT 里的 T 就是它。',
+ ana:'它让 AI 学会了<b>「注意力」</b>：读一句话时知道该重点看哪几个词，而不是平均用力。',
+ scn:'你基本只会在这两种地方见到它：讲技术原理的文章、模型发布会的 PPT。<b>知道它是「地基」就够了，不用懂细节。</b>',
+ demo:null,rel:['attention','llm']},
+
+{id:'attention',term:'注意力机制',full:'Attention Mechanism',cn:'注意力机制',zone:'ai',lv:3,
+ tl:'让模型读一句话时，<b>自动判断哪些词更重要</b>，把算力花在刀刃上。',
+ ana:'你看集体照会<b>自动聚焦在熟人脸上、忽略背景</b>——注意力机制就是让 AI 也学会这件事。',
+ scn:'它藏在 Transformer 里面，平时看不见。但这正是「为什么长文章 AI 有时候抓不住重点」的根源：注意力被分散了。',
+ demo:null,rel:['transformer','context']},
+
+{id:'emerge',term:'涌现能力',full:'Emergent Abilities',cn:'涌现能力',zone:'ai',lv:3,
+ tl:'模型大到某个临界点后，<b>突然会了之前完全没教过的能力</b>。',
+ ana:'水到了 0°C <b>突然结冰</b>——不是慢慢变硬，是量变到质变的那个瞬间。',
+ scn:'小模型不会推理、不会写代码，模型一大突然都会了。这也是为什么大家如此执着于「做大」。',
+ demo:null,rel:['param','scaling']},
+
+{id:'scaling',term:'规模法则',full:'Scaling Law',cn:'规模法则',zone:'ai',lv:3,
+ tl:'一条被反复验证的规律：<b>模型、数据、算力一起变大，能力就可预测地变强</b>。',
+ ana:'像<b>「多练多进步」</b>的经验法则——过去十年 AI 飞速进步的核心信仰，整个行业都在按这个公式堆资源。',
+ scn:'发布会里说「我们又刷了 SOTA」，背后的逻辑就是这条。但 2025 年后开始有人质疑：单纯堆规模，边际收益在变小。',
+ demo:null,rel:['emerge','param']},
+
+/* ---------- 编程基础区 ---------- */
+{id:'api',term:'API',full:'Application Programming Interface',cn:'接口',zone:'code',lv:1,abbr:true,
+ tl:'两个软件之间<b>传话的窗口</b>：你按格式递请求进去，它按格式返回结果出来。',
+ ana:'就是餐厅里的<b>服务员</b>。你不用进厨房，把点单递给服务员，他去厨房下单再把菜端回来。你永远看不到厨房里发生了什么。',
+ scn:'你用<b>极致了 API 抓公众号数据</b>：发一个文章链接过去，它返回阅读量、点赞数。你不用知道它怎么爬的——这就是 API。',
+ demo:'api',
+ quiz:{q:'别人给你一个 API，你其实拿到了什么？',o:['对方的程序源码','一个能按格式收发数据的窗口','对方的数据库密码','一个软件安装包'],a:1,
+  why:'API 只是「窗口」：你按它要求的格式递东西进去，它按格式把结果递出来。里面怎么实现的，你不需要知道，也拿不到。'},
+ rel:['apikey','json','sdk']},
+
+{id:'apikey',term:'API Key',full:'API Key',cn:'密钥 / 钥匙',zone:'code',lv:2,
+ tl:'调用 API 的<b>一串密码</b>，证明「是你」，也决定<b>账单算谁的</b>。',
+ ana:'就是<b>门禁卡 + 记账卡</b>：刷卡进门，刷了什么全记在你账上。',
+ scn:'你在 WorkBuddy 里填的智谱 Key、极致了 Key（JZLdd9…）都是 API Key。<b>泄露了别人就能花你的钱</b>——所以别截图发群里、别提交到公开仓库。',
+ demo:null,rel:['api','env']},
+
+{id:'terminal',shot:'terminal',term:'终端 / CLI',full:'Terminal / Command Line',cn:'命令行 / 黑窗口',zone:'code',lv:1,abbr:true,
+ tl:'那个<b>黑底白字、只能用键盘打字</b>的窗口。没有图标可点，全靠输命令。',
+ ana:'平时用软件是<b>看菜单点菜</b>，终端是<b>直接跟厨师喊「来份蛋炒饭，不要葱」</b>。更快更精确，但你得知道菜名。',
+ scn:'你用过 <code>claude -p</code> 这种命令——那个黑窗口就是终端。教程里写「打开终端输入 xxx」，就是让你在那儿打字。',
+ demo:null,rel:['deploy','git']},
+
+{id:'deploy',shot:'deploy',term:'部署',full:'Deploy / Deployment',cn:'上线 / 部署',zone:'code',lv:2,
+ tl:'把你做的东西<b>放到公网上，让别人能访问</b>。没部署前，它只活在你自己电脑里。',
+ ana:'就像<b>把菜从自家厨房搬到店里开卖</b>。在自己电脑上能跑 ≠ 别人能打开。',
+ scn:'我把这个名词工具做完之后「发布成链接」给你，那一步就是部署——你拿到链接才能在手机上打开。',
+ demo:null,rel:['server','terminal']},
+
+{id:'env',shot:'env',term:'环境变量',full:'Environment Variables',cn:'环境变量',zone:'code',lv:2,
+ tl:'存在电脑里的<b>一组「暗号」</b>，程序运行时自己去取，不用写死在代码里。',
+ ana:'像<b>贴在冰箱上的便签</b>：写着你家 WiFi 密码。谁住这儿谁都能看到，但不用把密码刻在每个电器上。',
+ scn:'教程让你「配置环境变量」再填 API Key，就是为了<b>密码不写进代码里</b>——代码传上去，密码不会跟着泄露。',
+ demo:null,rel:['apikey','server']},
+
+{id:'git',shot:'git',term:'Git / 仓库',full:'Git / Repository',cn:'版本管理 / 代码仓库',zone:'code',lv:2,
+ tl:'给文件<b>拍快照、留后路</b>的系统。改崩了能一键回到昨天的样子。',
+ ana:'就像<b>写文章时的「另存为 v1、v2、v3 最终版、最终版2」</b>——但 Git 是自动的，还能精确回到任意一个版本。',
+ scn:'GitHub 上那些开源项目（比如你装过的 Hermes Agent）都放在 Git 仓库里。文章里说「克隆仓库」「提交 commit」，说的就是这套。',
+ demo:null,rel:['terminal','deploy']},
+
+{id:'json',shot:'json',term:'JSON',full:'JavaScript Object Notation',cn:'数据格式',zone:'code',lv:2,
+ tl:'程序之间<b>交换数据用的统一格式</b>。长得像大括号套键值对，人和机器都看得懂。',
+ ana:'就是<b>一张填好的表格</b>：左边是项目名，右边是内容。不管你是中美英哪国的程序，都认这张表。',
+ scn:'你调极致了 API，它返回的就是 JSON：<code>{"read":12000,"like":340}</code>。看到满屏花括号和引号，那就是 JSON。',
+ demo:null,rel:['api','db']},
+
+{id:'febe',shot:'febe',term:'前端 / 后端',full:'Frontend / Backend',cn:'前台 / 后台',zone:'code',lv:1,
+ tl:'<b>前端</b>：你看得见、点得到的界面。<b>后端</b>：在服务器上看不见的那一半，负责算和存。',
+ ana:'餐厅里，<b>前厅</b>是你坐的位子、菜单、装修（前端）；<b>后厨</b>是别人不让你进、但菜从那儿出来的地方（后端）。',
+ scn:'这个名词小抄，你看到的页面是前端；词库数据和搜索逻辑，在手机本地跑的也是「端」上的活。',
+ demo:null,rel:['server','db']},
+
+{id:'db',shot:'db',term:'数据库',full:'Database',cn:'数据库',zone:'code',lv:2,
+ tl:'<b>专门用来存数据、查数据</b>的地方，比 Excel 能存得多、查得快。',
+ ana:'就像一个<b>超级规整的档案室</b>：东西按编号放好，你要什么它一秒就给你翻出来。',
+ scn:'你的飞书多维表格，本质就是一个<b>你能直接看懂的数据库</b>。文章里说「写入数据库」，跟「写进飞书表格」是一回事。',
+ demo:null,rel:['json','febe']},
+
+{id:'sandbox',shot:'sandbox',term:'沙箱',full:'Sandbox',cn:'沙箱 / 隔离环境',zone:'code',lv:2,
+ tl:'一个<b>隔离出来的围栏</b>：AI 在里面随便折腾，出了事也伤不到你的真实文件。',
+ ana:'就是<b>儿童沙池</b>——孩子在里面怎么挖、怎么扬，沙子都飞不出池子。',
+ scn:'Codex、WorkBuddy 跑代码时会问你「是否允许」，或者限定在某个文件夹里操作。<b>那个围栏就是沙箱</b>，别嫌它烦，它在保护你。',
+ demo:null,rel:['agent','terminal']},
+
+{id:'dep',term:'依赖 / 装包',full:'Dependency / Package',cn:'依赖 / 装包',zone:'code',lv:2,
+ tl:'你的程序<b>要借别人写好的零件才能跑</b>。装这些零件的过程叫「装依赖」。',
+ ana:'做菜不用自己种菜：<b>酱油、盐都是买来的</b>。这些买来的东西就是「依赖」，少了哪样菜都做不成。',
+ scn:'教程里让你先跑 <code>npm install</code> 或 <code>pip install</code>，那就是在<b>一次性把缺的零件全买回来</b>。',
+ demo:null,rel:['terminal','sdk']},
+
+{id:'bug',term:'Bug / 调试',full:'Bug / Debug',cn:'故障 / 排错',zone:'code',lv:1,
+ tl:'<b>Bug</b> = 程序出错、跑歪了。<b>调试（Debug）</b> = 找哪里错了并修好。',
+ ana:'就像<b>灯不亮了</b>：Bug 是故障本身；Debug 是你去查「是灯泡坏了、开关坏了、还是跳闸了」。',
+ scn:'你让 AI 改代码时说「报错了」，最好<b>把红色报错信息整段复制给它</b>——那行字就是它定位 Bug 的线索。',
+ demo:null,rel:['terminal','dep']},
+
+{id:'server',shot:'server',term:'服务器 / 端口',full:'Server / Port',cn:'服务器 / 端口',zone:'code',lv:2,
+ tl:'<b>服务器</b>：24 小时开着、专门给别人提供服务的电脑。<b>端口</b>：这台电脑上的不同「窗口号」。',
+ ana:'服务器 = <b>一栋楼</b>；端口 = <b>楼里的门牌号</b>。你要找哪家公司，得先到楼，再报门牌。',
+ scn:'你启动本地预览时看到的 <code>localhost:52356</code>：localhost 是你自己电脑（那栋楼），52356 是端口（门牌号）。',
+ demo:null,rel:['deploy','febe']},
+
+{id:'sdk',shot:'sdk',term:'SDK / 框架',full:'SDK / Framework',cn:'开发工具包 / 框架',zone:'code',lv:2,abbr:true,
+ tl:'<b>SDK</b>：别人打包好的一整套工具，拿来就能用。<b>框架</b>：规定好结构的「半成品」，你往里填内容。',
+ ana:'SDK = <b>宜家买回来的整套厨房</b>（柜子、螺丝、说明书全有）；框架 = <b>已经搭好的毛坯房</b>，格局定了，你负责装修。',
+ scn:'「国信证券 Skill」「极致了 SDK」这类东西，就是别人替你把复杂的调用封装好了，你只管调。',
+ demo:null,rel:['api','dep']},
+
+/* ---------- AI 区补充 ---------- */
+{id:'tool',term:'工具调用',full:'Function Calling / Tool Use',cn:'工具调用 / 函数调用',zone:'ai',lv:2,
+ tl:'让 AI <b>不只是说话，还能真的去干活</b>：查天气、搜网页、读文件、发消息。',
+ ana:'以前的 AI 是<b>只能动嘴的顾问</b>；会工具调用之后，它<b>有了手</b>——你说查一下，它真去查。',
+ scn:'你在 WorkBuddy 里说「帮我读一下这个 Excel」，它真的去读文件——背后就是工具调用。<b>没有它，Agent 就是个只会说话的空壳。</b>',
+ demo:null,rel:['agent','mcp']},
+
+{id:'memory',term:'长期记忆',full:'Memory',cn:'记忆',zone:'ai',lv:2,
+ tl:'AI <b>跨对话记住你</b>的能力：你的偏好、你的项目、你上次说过什么。',
+ ana:'<b>上下文</b>是这场会议的白板（散会就擦）；<b>记忆</b>是你的档案柜（一直留着）。',
+ scn:'你希望 AI 记得你做五行针灸、记得你的持仓——那就属于记忆。目前多数工具要你<b>自己把资料挂上去</b>它才有。',
+ demo:null,rel:['context','rag']},
+
+/* ---------- 杂词 / 软件区 ---------- */
+{id:'blender',shot:'blender',term:'Blender',full:'Blender',cn:'开源 3D 软件',zone:'misc',lv:1,
+ tl:'一个<b>免费的 3D 建模 / 动画软件</b>。跟 AI 没关系，但 AI 圈常拿它当后期加工工具，所以你会撞到。',
+ ana:'就是<b>免费的 3D 版 Photoshop</b>：能建模型、能渲染、能做动画，还不要钱。',
+ scn:'文章里说「AI 生成 3D 模型后导入 Blender 调整」，就是拿它当精修工具。<b>你不用装，知道它是个 3D 软件就行。</b>',
+ demo:null,rel:[]},
+
+{id:'comfyui',shot:'comfyui',term:'ComfyUI',full:'ComfyUI',cn:'AI 绘图工作流工具',zone:'misc',lv:2,
+ tl:'一个<b>用「连线」方式搭 AI 画图流程</b>的工具。比网页版复杂，但能精确控制每一步。',
+ ana:'网页生图工具是<b>傻瓜相机</b>；ComfyUI 是<b>单反 + 一桌子镜头</b>——麻烦，但能出别人出不来的效果。',
+ scn:'文章里晒的「ComfyUI 工作流」，就是一张连满线的流程图。<b>看到别人发那个图，知道它是「画图的配方」就够了。</b>',
+ demo:null,rel:['workflow']},
+
+{id:'saas',shot:'saas',term:'SaaS',full:'Software as a Service',cn:'软件即服务',zone:'misc',lv:1,abbr:true,
+ tl:'<b>不用装、打开网页就能用、按月付费</b>的软件。',
+ ana:'以前买软件是<b>买一台机器回家</b>；SaaS 是<b>租一台，按月付</b>，坏了有人修，随时能退。',
+ scn:'飞书、腾讯文档、极致了数据，全是 SaaS。<b>你几乎没装过什么，却每天都在用 SaaS。</b>',
+ demo:null,rel:[]},
+
+{id:'workflow',term:'工作流',full:'Workflow',cn:'工作流',zone:'misc',lv:2,
+ tl:'<b>把一堆步骤串成一条固定流水线</b>，每次都按这个顺序跑。',
+ ana:'像<b>工厂的传送带</b>：第一步、第二步、第三步，都是设计时就定死的，谁来都一样。',
+ scn:'你那套「抓公众号文章 → 写入飞书选题池 → 生成 3 篇 → 1/3/5/7 天追踪数据」，就是一个工作流。',
+ demo:null,rel:['agent','comfyui']},
+
+{id:'geo',term:'GEO',full:'Generative Engine Optimization',cn:'生成引擎优化',zone:'misc',lv:2,abbr:true,new:true,
+ tl:'2025 年后冒出来的新词：<b>让 AI 在回答问题时优先提到你、引用你</b>的优化方法。',
+ ana:'SEO 是<b>让百度把你排前面</b>；GEO 是<b>让 AI 回答时把你当答案</b>。战场从搜索结果页，搬到了 AI 的回答里。',
+ scn:'你做公众号，以后要考虑的不只是「搜得到」，还有<b>「AI 会不会引用我这篇」</b>。这就是 GEO 在说的事。',
+ demo:null,rel:['saas']},
+
+{id:'wrapper',term:'套壳',full:'Wrapper',cn:'套壳 / 壳产品',zone:'misc',lv:1,
+ tl:'圈内略带贬义的说法：<b>只是在别人的大模型外面包了一层界面</b>，自己没什么技术。',
+ ana:'就像<b>把别人做的蛋糕换个盘子端出来</b>，说是自己烤的。',
+ scn:'看到有人说「这产品就是个套壳」，意思是在质疑：<b>它除了接了 GPT/Claude 的 API，自己还有什么？</b>',
+ demo:null,rel:['api','saas']},
+
+{id:'slop',term:'Slop',full:'AI Slop',cn:'AI 泔水 / 垃圾内容',zone:'misc',lv:2,new:true,
+ tl:'圈内吐槽词：指<b>那种一眼 AI 味、又多又没营养的内容</b>。',
+ ana:'就是<b>流水线快餐</b>：能吃，量还大，但你吃完什么都不记得。',
+ scn:'你刷到那种「不是一个工具，而是一套方法论」式的空话套话文章，就是典型的 slop。<b>2026 年这个词出现了变体：workslop（AI 生成的敷衍工作成果）。</b>',
+ demo:null,rel:['aigc']},
+
+{id:'pdoom',term:'P(doom)',full:'Probability of Doom',cn:'AI 毁灭人类的概率',zone:'misc',lv:2,new:true,
+ tl:'极客圈黑话：<b>你个人认为「AI 导致人类完蛋」的概率是多少</b>。数字越大越悲观。',
+ ana:'就像<b>朋友聚会时互报「你觉得明天会下雨吗」</b>——只不过问的是人类存亡，而且大家是半开玩笑地报。',
+ scn:'有人在群里说「我的 P(doom) 是 15%」，他是在<b>半认真地表达他对 AI 风险的担忧程度</b>。不是正经术语，是圈内行话。',
+ demo:null,rel:['agi']},
+
+{id:'silicon',term:'硅基员工',full:'Silicon-based Employee',cn:'AI 员工',zone:'misc',lv:1,
+ tl:'把 AI 当员工看的说法：<b>不用休息、不用社保、不会离职</b>。',
+ ana:'就是<b>一个永远不会请假的临时工</b>。活能干，但关键决策还得你来。',
+ scn:'文章里说「雇了 3 个硅基员工」，通常是指他配了 3 个 AI 智能体分别干不同的活。',
+ demo:null,rel:['agent','solopreneur']},
+
+{id:'solopreneur',term:'一人公司',full:'One-person Company / Solopreneur',cn:'超级个体',zone:'misc',lv:1,
+ tl:'<b>一个人 + 一堆 AI = 一家公司</b>的说法。',
+ ana:'以前你要招文案、设计、剪辑、客服；现在是<b>你一个人指挥一群 AI 干这些活</b>。',
+ scn:'你现在做的事（公众号 + 五行针灸 IP + 自动化工具），<b>正是这个模式的典型样本</b>。',
+ demo:null,rel:['silicon','agent']},
+
+{id:'plugin',shot:'plugin',term:'插件',full:'Plugin / Extension',cn:'插件 / 扩展',zone:'misc',lv:1,
+ tl:'<b>给软件加装的新功能</b>，不用重装软件，装上就有。',
+ ana:'就像给手机<b>装 App</b>：手机还是那个手机，装了相机 App 就有了新本事。',
+ scn:'Obsidian 的 Claudian 插件、浏览器的油猴脚本，都是插件。<b>「装个插件」= 加个功能，不是换软件。</b>',
+ demo:null,rel:['mcp','sdk']},
+
+{id:'llms',term:'llms.txt',full:'llms.txt / llm-wiki',cn:'给 AI 看的说明书',zone:'misc',lv:2,new:true,
+ tl:'<b>不是标准术语，是圈子里的新说法</b>：一个专门写给 AI 看的纯文本说明文件，让 AI 一眼看懂你的网站。',
+ ana:'网页是<b>给人看的带图带排版的页面</b>；llms.txt 是<b>给 AI 看的纯文字版摘要</b>，没花哨东西，方便它快速消化。',
+ scn:'你在技术文档里看到「我们提供 llms.txt」，指的就是这个文件。<b>看到这类自造缩写别慌：先查有没有标准定义，没有就当它是小圈子黑话。</b>',
+ demo:null,rel:['geo','rag']},
+
+/* ---------- 缩写速查区（独有词条） ---------- */
+{id:'mcp',term:'MCP',full:'Model Context Protocol',cn:'模型上下文协议',zone:'abbr',lv:2,abbr:true,
+ tl:'AI 连接外部工具的<b>统一插头标准</b>。以前每个工具各接各的，有了它就像 USB-C，一个口通吃。',
+ ana:'以前 AI 连飞书、连数据库、连网盘，每个都得<b>单独写一套线</b>（各种奇形怪状的充电口）。MCP 就是<b>统一成 Type-C</b>，插上就能用。',
+ scn:'你在 Claude Code / Codex 里装 MCP，装完 AI 就能直接读你的飞书多维表格、直接搜网页，<b>不用你复制粘贴</b>。',
+ demo:null,
+ quiz:{q:'MCP 解决的是什么问题？',o:['让模型更聪明','让 AI 能用统一方式连接各种外部工具和数据','让 AI 回答更快','让 API 更便宜'],a:1,
+  why:'MCP 不管模型聪不聪明，它管的是「接得上」：一个标准接口，接文件、数据库、飞书、浏览器都行，不用每个都单独开发。'},
+ rel:['api','tool','agent']},
+
+{id:'agi',term:'AGI',full:'Artificial General Intelligence',cn:'通用人工智能',zone:'abbr',lv:2,abbr:true,
+ tl:'<b>在所有领域都达到人类水平</b>的 AI。现在的 AI 都是「偏科生」，AGI 是「全科学霸」。',
+ ana:'现在的 AI <b>下棋超强但不会做饭</b>；AGI 是<b>什么都能干到人类水平</b>。目前还没实现。',
+ scn:'看到有人说「AGI 已经实现了」，<b>基本可以打个问号</b>。到 2026 年，业内对此仍有巨大分歧。',
+ demo:null,rel:['world','embodied','pdoom']},
+
+{id:'lora',term:'LoRA',full:'Low-Rank Adaptation',cn:'低秩适配（省钱微调法）',zone:'abbr',lv:3,abbr:true,
+ tl:'一种<b>省钱的微调方法</b>：不改动原模型，只训练一个很小的「附加模块」。',
+ ana:'不是<b>重写整本书</b>，而是<b>在书里夹几页便签</b>——效果接近，成本低几十倍，便签还能随时换。',
+ scn:'AI 绘画圈的「风格模型」（比如某个画风 LoRA），就是这么来的：<b>文件只有几十 MB，插上就能换风格。</b>',
+ demo:null,rel:['ft','param']},
+
+{id:'rlhf',term:'RLHF',full:'Reinforcement Learning from Human Feedback',cn:'人类反馈强化学习',zone:'abbr',lv:3,abbr:true,
+ tl:'让 AI 变「懂礼貌、像人话」的关键一步：<b>请人来给回答打分，好答案加分，模型照着改</b>。',
+ ana:'像<b>老师批改作文</b>：指出哪句好哪句差，学生反复修改，慢慢就摸准了老师的口味。',
+ scn:'为什么现在的 AI 说话不像个搜索引擎，而像个助理？<b>主要就是 RLHF 的功劳。</b>',
+ demo:null,rel:['ft','llm']},
+
+{id:'a2a',term:'A2A',full:'Agent-to-Agent Protocol',cn:'智能体间通信协议',zone:'abbr',lv:3,abbr:true,new:true,
+ tl:'2025 年谷歌提出的协议：<b>让不同公司做的 AI 智能体能互相派活、报进度、协同干活</b>。',
+ ana:'MCP 管「AI 接工具」，A2A 管「AI 和 AI 组队」——一个是<b>接外设的 USB</b>，一个是<b>同事之间的群聊</b>。',
+ scn:'文章里说「多智能体协同」，背后的协议就是这个。<b>两个协议是互补的，不是竞争关系。</b>',
+ demo:null,rel:['mcp','agent']},
+
+{id:'gpu',shot:'gpu',term:'GPU',full:'Graphics Processing Unit',cn:'显卡 / 图形处理器',zone:'abbr',lv:1,abbr:true,
+ tl:'<b>训练和大模型跑起来靠的那块芯片</b>。AI 热潮把英伟达送上天的那个东西。',
+ ana:'CPU 是<b>一个老教授</b>，什么都会但一次只能做一件事；GPU 是<b>一万个小学生</b>，每人算一道简单题，一起算就飞快。',
+ scn:'文章里说「算力」「卡」「H100」「4090」，说的都是 GPU。<b>你本地跑模型跑不动，多半卡在它身上。</b>',
+ demo:null,rel:['local','param']},
+
+{id:'nlp',term:'NLP',full:'Natural Language Processing',cn:'自然语言处理',zone:'abbr',lv:2,abbr:true,
+ tl:'<b>让电脑理解人类语言</b>的这个技术领域。大模型的老本行。',
+ ana:'就是<b>教电脑「听懂人话」</b>的学科：分词、翻译、情感分析、问答，都归它管。',
+ scn:'这是个<b>老词</b>（比大模型早几十年）。看到论文或老文章里的 NLP，你就当它是「语言相关的 AI 技术」就行。',
+ demo:null,rel:['llm','aigc']},
+
+{id:'sota',term:'SOTA',full:'State of the Art',cn:'当前最强水平',zone:'abbr',lv:2,abbr:true,
+ tl:'「<b>目前全世界最好的成绩</b>」。模型发布会最爱用的词。',
+ ana:'就是<b>「打破世界纪录」</b>的意思。',
+ scn:'看到「刷新 SOTA」，意思是<b>它在某个测试榜上拿了第一</b>。注意：<b>考分高 ≠ 干你的活好使</b>，亲手试才算数。',
+ demo:null,rel:['scaling','param']},
+
+{id:'xai',term:'XAI',full:'Explainable AI',cn:'可解释 AI',zone:'abbr',lv:3,abbr:true,
+ tl:'要求 AI <b>说清楚「你为什么这么答」</b>的技术方向。',
+ ana:'医生不能只开药，<b>还得解释为什么开这个药</b>。XAI 就是要求 AI 也做到这一点。',
+ scn:'医疗、金融、法律场景里必须有它——<b>不能给个黑箱结果就完事</b>。这也是 AI 落地的合规门槛之一。',
+ demo:null,rel:['hallu','agi']},
+
+{id:'tts',term:'TTS / STT',full:'Text-to-Speech / Speech-to-Text',cn:'语音合成 / 语音转文字',zone:'abbr',lv:1,abbr:true,
+ tl:'<b>TTS</b> = 文字变语音（AI 念给你听）；<b>STT</b> = 语音变文字（把说的话转成字）。',
+ ana:'TTS 是<b>朗读员</b>，STT 是<b>速记员</b>。方向相反，都是「打通声音和文字」的翻译。',
+ scn:'你把薛辉老师课程的录音转成逐字稿，用的就是 STT；把文章读成音频发公众号，用的是 TTS。',
+ demo:null,rel:['aigc','multi']},
+
+{id:'vlm',term:'VLM',full:'Vision-Language Model',cn:'视觉语言模型',zone:'abbr',lv:2,abbr:true,
+ tl:'<b>既能看图又能读字</b>的模型，是「多模态」的主力。',
+ ana:'普通 LLM 是<b>只会读书的文员</b>；VLM 是<b>能看照片还能跟你聊照片的人</b>。',
+ scn:'你把群聊截图丢给我让我统计发言——<b>背后干活的就是 VLM。</b>',
+ demo:null,rel:['multi','llm']},
+
+{id:'slm',term:'SLM',full:'Small Language Model',cn:'小语言模型',zone:'abbr',lv:2,abbr:true,
+ tl:'<b>个头小、能塞进手机或电脑本地跑</b>的模型。能力弱一些，但快、省、隐私好。',
+ ana:'大模型是<b>云端的大型服务器</b>；小模型是<b>你口袋里的计算器</b>——功能少，但随时能用、不花钱。',
+ scn:'文章里说「端侧 AI」「手机本地跑模型」，跑的就是 SLM。<b>2026 年的一个大趋势。</b>',
+ demo:null,rel:['local','quant','param']},
+
+{id:'benchmark',term:'Benchmark',full:'Benchmark',cn:'基准测试 / 跑分',zone:'abbr',lv:2,abbr:true,
+ tl:'<b>给模型出的标准化考卷</b>，用来比较谁强谁弱。',
+ ana:'就是 AI 界的<b>高考 + 大学排行榜</b>。数学卷、代码卷、常识卷，各考各的。',
+ scn:'发布会上的柱状图全来自 Benchmark。<b>但记住：榜单第一不等于你的活它干得最好。</b>',
+ demo:null,rel:['sota','llm']},
+
+{id:'ref',shot:'ref',term:'reference',full:'Reference / Reference Documentation',cn:'参考资料（给 AI 看的说明书）',zone:'misc',lv:1,new:true,
+ tl:'技能包（Skill）里的 <b>references/ 文件夹</b>，装的是「主文件放不下、又不必一上来就全读」的详细资料。AI 平时只记文件名，<b>用到了才去翻那一本</b>。',
+ ana:'就像<b>菜谱书后面的附录</b>：正文只写「盐适量」，具体选什么盐、不同盐差在哪，全在附录里，做菜时才翻。',
+ scn:'你让我拆的 dev-expert 技能里就有 <b>39 个 reference</b>（错误账本、阶段导航、事故复盘……）。AI 先只记名字，碰到具体活才去读对应那份。',
+ demo:null,rel:['agent','context'],
+ quiz:{q:'技能包里的 references/ 是干嘛的？',o:['每次启用都全部读一遍','把详细资料分开存，AI 用到了才读那一本','给用户看的产品说明书','技能的运行日志'],a:1,
+ why:'AI 的「记性」（上下文窗口）有容量，一次全读会挤爆。所以详细资料分开存，用到哪本翻哪本。'}},
+
+{id:'tpl',shot:'tpl',term:'templates',full:'Templates / File Templates',cn:'模板（填空就能用的半成品）',zone:'misc',lv:1,new:true,
+ tl:'技能包里的 <b>templates/ 文件夹</b>，装的是现成的文件骨架。要用时复制一份，<b>把里面的占位符换成真内容</b>，就直接变成你的文件。',
+ ana:'就像<b>印刷好的合同范本</b>：格式和条款都印好了，你只要填名字、金额、日期。',
+ scn:'我给你做的「软件开发标准流程」技能里就有 <b>9 个模板</b>（进度表、规范、体检脚本……）。以后你开新项目，我复制一套、把项目名一填，框架立刻就位。',
+ demo:null,rel:['workflow','git'],
+ quiz:{q:'templates/ 和 references/ 最大的区别是什么？',o:['两个是同一个东西的不同叫法','templates 是填空的半成品，复制一份填上就变成真文件','templates 是给 AI 读的说明书，references 才会被复制出去','templates 每次都必须读，references 不用'],a:1,
+ why:'templates 是「骨架」（合同范本），会被复制出去变成你的文件；references 是「资料」（附录），只给 AI 查，不会变成你的东西。'}},
+
+{id:'prog',shot:'prog',term:'progress',full:'Progress',cn:'进度（做到哪一步了）',zone:'misc',lv:1,new:true,
+ tl:'项目里的 <b>PROGRESS.md</b> 是进度枢纽文件：记着<b>现在到第几步、下一步做什么、做完的标志是什么</b>。AI 每次开工先读它，收工更新它。',
+ ana:'就像<b>装修时贴在门上的施工进度表</b>：水电 → 贴砖 → 刷墙，今天划到哪、明天该谁进场，一目了然。',
+ scn:'名词小抄的 PROGRESS.md 里写着「当前阶段：6 运维 + 7 迭代、v1.2、最大缺口是词库 72→150」。你问「下一步做什么」，我读它就能答。',
+ demo:null,rel:['workflow','git']},
+
+
+{id:'skill',shot:'skill',term:'Skill',full:'Agent Skill',cn:'技能包 / 技能',zone:'misc',lv:1,new:true,
+ tl:'把一套固定的做事方法<b>写成一个文件夹</b>，AI 遇到这类活就自己翻出来照着做。里面有 SKILL.md 说明书，还能带脚本和参考资料。',
+ ana:'就像<b>给新来的员工一本岗位手册</b>：不用每次从头交代，他把手册翻开、按步骤做就行。',
+ scn:'你电脑上的「五行针灸」「薛辉IP方法论」「软件开发标准流程」都是技能包。你说「拆一本书」，我自己会去翻对应的那本手册 —— 不用你提醒我用哪个。',
+ demo:null,rel:['ref','tpl','plugin','agent'],
+ quiz:{q:'技能包（Skill）和你当场打的一句提示词，最大的区别是什么？',
+ o:['技能包更长，所以更厉害','技能包存在硬盘上能反复用，而且 AI 会自己判断该不该用','技能包要另外花钱','技能包只有 Claude 能用'],a:1,
+ why:'技能包是硬盘上的文件夹，永远在那儿；AI 靠文件开头写的简介判断这次该不该翻它。提示词是你当场打的一句话，说完就没了。'}},
+
+{id:'slash',term:'/slash command',full:'Slash Command',cn:'斜杠命令',zone:'code',lv:1,new:true,
+ tl:'在输入框里打一个<b>以 / 开头的短命令</b>（比如 /commit），就等于喊 AI 执行一套预先写好的流程。',
+ ana:'像<b>遥控器上的「观影模式」键</b>：按一下，关灯、降幕布、开音响，一串动作一个键搞定。',
+ scn:'在 Claude Code 里打 /commit，它就自动看改了什么、写好提交说明。跟技能包的区别：<b>斜杠命令是你主动喊</b>才执行，技能包是 AI 自己判断该不该用。',
+ demo:null,rel:['skill','cli','terminal']},
+
+{id:'hook',term:'hook',full:'Hook',cn:'钩子 / 自动开关',zone:'code',lv:2,new:true,
+ tl:'给 AI 的行为<b>挂一个自动开关</b>：只要发生某件事（它要改文件、要跑命令），就<b>必然</b>触发另一个动作。',
+ ana:'像<b>家门上的门磁报警器</b>：不管谁开门，铃都响 —— 不需要你记得去按。',
+ scn:'可以设「AI 每次改完文件自动跑一遍格式化」，也可以设「禁止改 check.py 这种关键文件」。跟技能包的区别：钩子是<b>必定执行</b>的硬规则，技能包是 AI 自己看着办的软建议。',
+ demo:null,rel:['skill','slash','workflow']},
+
+{id:'subagent',shot:'subagent',term:'subagent',full:'Subagent',cn:'子代理 / 分身',zone:'ai',lv:2,new:true,
+ tl:'主 AI <b>派出几个小 AI 分头干活</b>。每个小 AI 有自己的任务、自己的记忆，干完把结论交回来。',
+ ana:'像<b>总厨把洗菜、切配、炒菜分给三个帮厨</b>：各干各的，最后汇总成一桌菜。',
+ scn:'我说「去把项目文件扫一遍找线索」时，派出去的就是只读的探索型子代理 —— 它不会乱改你的文件，只把结果带回来。最大的好处：<b>查来的大量内容不占主对话的记忆</b>。',
+ demo:null,rel:['agent','context','tool'],
+ quiz:{q:'为什么要把活派给子代理，而不是主 AI 自己干？',
+ o:['子代理比主 AI 聪明','子代理速度快十倍','子代理自己开一份记忆，不把主对话挤爆，还能并行','子代理不要钱'],a:2,
+ why:'子代理有独立的上下文窗口，查资料的海量内容不会污染主对话；几个子代理还能同时干活。它并不比主 AI 更聪明，也不免费。'}},
+
+{id:'toolcall',term:'tool use',full:'Tool Use / Function Calling',cn:'工具调用',zone:'ai',lv:2,
+ tl:'AI 不只会聊天，它能<b>主动调用外部工具</b>：读文件、跑命令、搜网页、写表格。模型负责决定「用哪个工具、传什么参数」，程序负责真的去执行。',
+ ana:'像<b>电话客服帮你下单</b>：他（模型）负责听懂你要什么、决定点哪个按钮，真正下单的动作由系统（工具）完成。',
+ scn:'你让我「把这篇文章的阅读数填进飞书表格」，我先调抓数据的工具、再调写表格的工具 —— 这一整串动作就是工具调用。',
+ demo:null,rel:['agent','api','mcp','tool']},
+
+{id:'distill',term:'distillation',full:'Knowledge Distillation',cn:'知识蒸馏',zone:'ai',lv:3,
+ tl:'把<b>大模型的本事压缩进小模型</b>：让小模型学着模仿大模型的输出，个头小得多，能力保留大半。',
+ ana:'像<b>老师傅带徒弟</b>：徒弟背不下师傅几十年的经验，但跟着看了几万个案例后，出手也有七八分像。',
+ scn:'这个词在圈里还有个引申用法：把一本书、一门课<b>蒸馏成一套技能包</b>（你做的「拆书」就是），意思一样 —— 从一大坨里提炼出能反复用的精华。',
+ demo:null,rel:['slm','ft','param']},
+
+{id:'infer',term:'inference',full:'Inference',cn:'推理 / 跑模型',zone:'ai',lv:2,
+ tl:'模型<b>训练好之后，拿它干活</b>这一步叫推理。你问一句、它答一句，就是一次推理。',
+ ana:'训练是<b>上学</b>（好几年、花大钱），推理是<b>上班</b>（每天干活、按次算钱）。',
+ scn:'你调 API 按字数（token）计费，付的就是推理的钱；训练的钱厂商已经替你花过了，跟你无关。',
+ demo:null,rel:['param','token','api','ft']},
+
+{id:'zeroshot',term:'zero-shot / few-shot',full:'Zero-shot / Few-shot',cn:'零样本 / 少样本',zone:'ai',lv:2,
+ tl:'<b>一个例子都不给</b>，直接让 AI 干活，叫零样本；<b>先给两三个范例</b>让它照着做，叫少样本。',
+ ana:'零样本是<b>甩一句「你看着办」</b>；少样本是<b>先示范两遍「要这种感觉」</b>。',
+ scn:'你让我「按刘润的风格写」是零样本；你贴三段刘润原文说「照这个调性来」就是少样本 —— 后者通常更像。',
+ demo:null,rel:['prompt','sysprompt','cot']},
+
+{id:'guardrail',term:'guardrail',full:'Guardrail',cn:'护栏 / 安全边界',zone:'ai',lv:2,
+ tl:'给 AI 加的<b>硬性约束和检查</b>，防止它说出不该说的话、做出不该做的操作。',
+ ana:'像<b>山路边的护栏</b>：平时看不见它，车要冲出去的时候它才起作用。',
+ scn:'「不许删用户文件」「涉及医疗要提示就医」「发布前必须跑 check.py」—— 这些全是护栏。',
+ demo:null,rel:['hallu','agent','hook']},
+
+{id:'orchestr',term:'orchestrator',full:'Orchestration',cn:'编排 / 调度',zone:'ai',lv:3,
+ tl:'一个「总指挥」负责<b>把大任务拆开、分给合适的模块、再把结果拼回去</b>。它自己通常不干活，只管调度：观察 → 思考 → 派活 → 看结果 → 再想。',
+ ana:'像<b>婚庆总策划</b>：他自己不摄影不化妆，但谁什么时候上场、出了岔子怎么补，全听他调度。',
+ scn:'我帮你看 Claude Code 源码时说的「协调器 + 工具三件套」就是这个。你问「下一步做什么」，本质上也是我在做编排。',
+ demo:null,rel:['agent','toolcall','subagent','workflow']},
+
+{id:'cli',shot:'cli',term:'CLI',full:'Command Line Interface',cn:'命令行界面',zone:'code',lv:1,new:true,abbr:true,
+ tl:'<b>在黑窗口里打字指挥电脑</b>的方式：没有按钮、没有鼠标，全靠敲命令。Codex、Claude Code 就是命令行工具。',
+ ana:'图形界面是<b>看菜单点菜</b>，命令行是<b>直接跟后厨报菜名</b> —— 快，但得先记住菜名。',
+ scn:'你在终端里敲 git log --oneline、python check.py，用的就是命令行。',
+ demo:null,rel:['terminal','git'],
+ quiz:{q:'命令行（CLI）和平时点的图标、按钮，区别在哪？',
+ o:['命令行更高级，普通人用不了','命令行靠打字下指令，图形界面靠鼠标点；干的是同一件事','命令行不要装软件','命令行只能在 Mac 上用'],a:1,
+ why:'两者只是操作方式不同，干的事一样。命令行的好处是能写进脚本批量执行、能远程操作，代价是得记命令。'}},
+
+{id:'repo',term:'repo',full:'Repository',cn:'代码仓库',zone:'code',lv:1,
+ tl:'一个项目<b>所有文件 + 全部修改历史</b>放在一起，叫仓库。放本地就是文件夹里那个隐藏的 .git，放网上（GitHub）就是远程仓库。',
+ ana:'像<b>一份带修改痕迹的稿子</b>：不光有最新版，还留着每一版谁改的、改了哪句。',
+ scn:'名词小抄这个文件夹就是一个仓库，你在里面敲 git log 能看到每一次改动是谁做的、做了什么、为什么。',
+ demo:null,rel:['git','dep']},
+
+{id:'commit',term:'commit',full:'Commit',cn:'提交 / 存个档',zone:'code',lv:1,
+ tl:'把当前的改动<b>正式记一笔</b>，形成一个存档点，附一句说明「这次改了啥」。',
+ ana:'像<b>打游戏存盘</b>：存完才敢继续往前走，走岔了能读档重来。',
+ scn:'每次给名词小抄加完词，我都会提交一次并写清楚「v1.4 新增 36 个词」，再打个版本标签 —— 哪天出问题，一句话就能退回存档点。',
+ demo:null,rel:['git','repo','deploy']},
+
+{id:'branch',term:'branch',full:'Branch',cn:'分支',zone:'code',lv:2,
+ tl:'从主线<b>岔出去一条独立的工作线</b>，在上面随便折腾，不影响主线；满意了再合并回去。',
+ ana:'像<b>写文章先复制一份草稿改</b>：改砸了删掉，原文一个字没动。',
+ scn:'你现在「先存档到版本存档/，再改真文件」就是人肉版分支；用 Git 分支可以一键在新旧之间来回切。',
+ demo:null,rel:['git','commit','repo']},
+
+{id:'diff',term:'diff',full:'Difference',cn:'差异 / 改了哪些',zone:'code',lv:1,
+ tl:'把两个版本<b>逐行对比，标出哪里加了、哪里删了</b>。',
+ ana:'像<b>Word 的修订模式</b>：新增的字标出来，删掉的字划掉。',
+ scn:'你问「你这次到底改了啥」，我敲 git diff 就能把改动一行行列给你看 —— 不靠我嘴说，靠机器对。',
+ demo:null,rel:['git','commit'],
+ quiz:{q:'想确认「这次到底改了哪些内容」，最靠谱的做法是？',
+ o:['问 AI 自己说','看文件修改时间','跑 diff 把新旧版本逐行对比','重新写一遍'],a:2,
+ why:'diff 是机器逐行比对的结果，不会漏也不会记错；靠人（或 AI）口述最容易漏掉细节。'}},
+
+{id:'md',shot:'md',term:'Markdown',full:'Markdown / .md',cn:'轻量标记语言',zone:'code',lv:1,new:true,
+ tl:'一种<b>用符号表示格式</b>的纯文本写法：# 是标题、**文字** 是加粗、- 是列表。文件后缀是 .md。',
+ ana:'像<b>写稿时随手做的标记</b>：画个圈表示这是小标题，波浪线表示要加粗 —— 就算不排版也照样读得懂。',
+ scn:'你的 SPEC.md、PROGRESS.md、CHANGELOG.md，还有 Obsidian 里所有笔记，全是 Markdown。这也是我最爱读的格式。',
+ demo:null,rel:['fm','json','yaml']},
+
+{id:'yaml',term:'YAML',full:'YAML Ain not Markup Language',cn:'一种配置文件格式',zone:'code',lv:2,
+ tl:'一种<b>靠缩进表示层级</b>的配置写法，常用来写设置项。比 JSON 好读，但对缩进极其敏感 —— 多一个空格就报错。',
+ ana:'像<b>填表</b>：左边项目名、右边值，靠对齐看出谁归谁管。',
+ scn:'每个技能包最上面那段被 --- 包起来的 name、description 就是 YAML 写法，它有个专门名字叫 frontmatter。',
+ demo:null,rel:['md','fm','json']},
+
+{id:'fm',shot:'fm',term:'frontmatter',full:'Frontmatter',cn:'文件头 / 元信息',zone:'code',lv:2,new:true,
+ tl:'Markdown 文件<b>最开头用 --- 包起来的那一小块</b>，写这个文件的属性：叫什么名字、干什么用、什么时候该被用上。',
+ ana:'像<b>简历顶部的姓名电话</b>：正文还没开始，先让你知道这是谁的、管什么的。',
+ scn:'每个技能包的 SKILL.md 开头都有它，我靠里面那句 description 判断「这活该不该翻这个技能」。<b>写错了，这个技能就永远不会被自动用上。</b>',
+ demo:null,rel:['md','yaml','skill']},
+
+{id:'path',term:'path',full:'File Path',cn:'路径 / 文件地址',zone:'code',lv:1,
+ tl:'文件在电脑里的<b>完整地址</b>，一层层指到它。Windows 用反斜杠，网页和 Mac 用正斜杠。',
+ ana:'跟<b>快递地址</b>一个意思：省市区加门牌号，一层层指到那一户。',
+ scn:'你让我「改 site 里的 index.html」，我得拿到完整地址（C 盘 → Users → 87120 → 项目 → site）才找得到。只说文件名，我可能改错另一个同名文件。',
+ demo:null,rel:['terminal','repo']},
+
+{id:'port',term:'port',full:'Port',cn:'端口',zone:'code',lv:2,
+ tl:'一台电脑上同时跑着很多服务，<b>端口号用来区分该把请求交给谁</b>。网址里冒号后面那个数就是，比如 :3000、:8080。',
+ ana:'像<b>办公楼里的门牌号</b>：地址把你带到这栋楼，门牌号决定你进哪家公司。',
+ scn:'名词小抄现在的线上地址里带着 3000，那就是它对外服务的端口。同一台机器上再开一个服务，就得换个号。',
+ demo:null,rel:['localhost','server','deploy']},
+
+{id:'localhost',term:'localhost',full:'Localhost / 127.0.0.1',cn:'本机地址',zone:'code',lv:2,
+ tl:'指代<b>你自己这台电脑</b>的地址，通常是 127.0.0.1。访问它就等于访问本机，数据不出网。',
+ ana:'像<b>给自己家打电话</b>：拨的是自己号码，不走外面的线路。',
+ scn:'我在本地起个预览让你先看网页效果，地址就是 127.0.0.1 加端口 —— 只有你这台电脑能打开，别人访问不了，所以放心试。',
+ demo:null,rel:['port','server','deploy']},
+
+{id:'runtime',term:'runtime',full:'Runtime',cn:'运行时 / 运行环境',zone:'code',lv:2,
+ tl:'程序<b>跑起来时所依赖的那套环境</b>：哪个语言的解释器、什么版本、装了哪些包。',
+ ana:'像<b>电器的电压和插头</b>：机器本身没问题，插座不对也转不起来。',
+ scn:'你电脑上同时装着 Python 3.13 和 Node 22，跑脚本时常报「版本不对」，那就是运行环境没对上 —— 换对解释器就好了。',
+ demo:null,rel:['dep','env','pkg']},
+
+{id:'pkg',term:'package',full:'Package / Library',cn:'软件包 / 依赖包',zone:'code',lv:1,
+ tl:'别人写好的<b>现成功能模块</b>，装了就能直接用，不用自己从零写。pip install、npm install 就是装包。',
+ ana:'像<b>宜家买现成的抽屉模块</b>：不用从砍树开始，买回来装上就能用。',
+ scn:'极致了数据、JustOneAPI 提供的 SDK 就是包 —— 装上之后我用几行代码就能抓公众号数据，不用自己写一堆网络请求。',
+ demo:null,rel:['dep','sdk','runtime']},
+
+{id:'debug',term:'debug',full:'Debugging',cn:'调试 / 找错',zone:'code',lv:1,
+ tl:'<b>找错、定位、修好</b>的全过程。debug 字面意思就是「把虫子（bug）捉出来」。',
+ ana:'像<b>修漏水</b>：先关总闸定范围，再一段段敲墙定位，最后换掉裂的那一截。',
+ scn:'项目里的 ERROR.log 就是调试账本：踩过什么坑、怎么发现的、怎么修的，下次不用重新摸一遍。',
+ demo:null,rel:['bug','log','terminal']},
+
+{id:'log',term:'log',full:'Log File',cn:'日志',zone:'code',lv:1,
+ tl:'程序运行时<b>自动记下的流水账</b>：什么时候、做了什么、出了什么错。',
+ ana:'像<b>飞机上的黑匣子</b>：平时没人看，出事了靠它还原当时发生了什么。',
+ scn:'你项目里有两种日志别搞混：ERROR.log 是出错才记、给 AI 排错用的；CHANGELOG.md 是每次上线都记、给你看更新了啥的。',
+ demo:null,rel:['debug','bug']},
+
+{id:'cron',shot:'cron',term:'cron',full:'Cron Expression',cn:'定时表达式',zone:'code',lv:2,new:true,
+ tl:'用一排数字表示「<b>什么时候自动跑</b>」：分 时 日 月 周。比如 0 9 * * 1 就是每周一早上 9 点。',
+ ana:'像<b>药盒上标的「周一早饭后」</b>：几个格子一填，什么时候吃药就写死了。',
+ scn:'名词小抄每周一 9 点自己去抓新词、重新上线，背后就是这么一条定时规则。星号表示「每一个」，最后一位 1 表示星期一。',
+ demo:null,rel:['automation','server','deploy'],
+ quiz:{q:'定时表达式「0 9 * * 1」表示什么时候执行？',
+ o:['每天 9 点 0 分','每周一早上 9:00','每月 1 号 9 点','9 月 1 号 0 点'],a:1,
+ why:'五段依次是 分 时 日 月 周：第 1 段 0 是整分，第 2 段 9 是 9 点，中间两个星号是「每天、每月」，最后 1 是星期一。合起来就是每周一 9:00。'}},
+
+{id:'obsidian',shot:'obsidian',term:'Obsidian',full:'Obsidian',cn:'双链笔记软件',zone:'misc',lv:1,
+ tl:'把笔记<b>存在你自己电脑本地</b>的软件，最大特点是笔记之间能用双括号互相链接，久了长成一张知识网。',
+ ana:'普通笔记是<b>一本本独立的本子</b>，Obsidian 是<b>贴满线索的墙</b>：哪两件事有关，一根线连起来。',
+ scn:'你的《Codex技能与插件清单》就在 Obsidian 里，配上 Claudian 插件后，能让 AI 直接读懂你整个笔记库再回答。',
+ demo:null,rel:['md','local','plugin','rag']},
+
+{id:'bitable',shot:'bitable',term:'Bitable',full:'Bitable / Multi-dimensional Table',cn:'多维表格',zone:'misc',lv:1,new:true,
+ tl:'飞书里的<b>在线数据库</b>：一张表就是一个库，每行一条记录、每列一个字段。能切表格/看板/画册多种视图，还能让程序通过接口自动读写。',
+ ana:'普通 Excel 是<b>一张纸</b>，多维表格是<b>带档案柜的系统</b>：纸还是那张纸，但能被很多人同时改、被程序自动填。',
+ scn:'你的公众号选题池、文章库、1/3/5/7 天数据追踪都建在飞书多维表格里 —— 我抓完数据直接写进去，不用你手工粘贴。',
+ demo:null,rel:['db','api','febe','saas']},
+
+{id:'webhook',shot:'webhook',term:'webhook',full:'Webhook',cn:'回调 / 反向通知',zone:'misc',lv:2,new:true,
+ tl:'你给别人留一个网址，<b>他那边一出事就往这个网址发一条消息</b>。不用你不停去问「好了没」。',
+ ana:'查快递：普通接口是<b>你不停刷新物流</b>，回调是<b>快递到了直接给你打电话</b>。',
+ scn:'飞书群里加个自定义机器人，本质上就是给它一个回调地址 —— 我这边一有结果就往里推消息，你不用盯着等。',
+ demo:null,rel:['api','server','automation'],
+ quiz:{q:'「回调（webhook）」和普通的「接口调用」，最关键的区别是什么？',
+ o:['回调更安全','回调更快','回调是对方出事时主动通知你，普通接口要你自己不停去问','回调只能用在飞书'],a:2,
+ why:'普通接口是你主动发问、它才回答，你不问它就沉默；回调是你先留个网址，对方有动静时主动把消息推过来。'}},
+
+{id:'automation',term:'automation',full:'Scheduled Task / Automation',cn:'定时自动任务',zone:'misc',lv:1,new:true,
+ tl:'设定好时间，<b>到时候程序自己跑一遍</b>，不用你在场、不用你点任何按钮。',
+ ana:'像<b>定时的电饭煲</b>：出门前设好，回家饭已经好了。',
+ scn:'名词小抄每周一 9 点自动抓新词并重新上线，就是一条自动任务 —— 你什么都不用做，周一打开就是新的。',
+ demo:null,rel:['cron','workflow','deploy']},
+
+{id:'rollback',term:'rollback',full:'Rollback',cn:'回滚 / 退版本',zone:'misc',lv:1,
+ tl:'新版本出问题，<b>退回上一个能用的版本</b>。',
+ ana:'像<b>手机系统更新后卡死，恢复成上一个版本</b>。',
+ scn:'名词小抄每次上线前都先存档、再打一个版本标签（v1.1、v1.2、v1.3…），就是为了出事能一句话退回去。',
+ demo:null,rel:['git','backup','deploy']},
+
+{id:'backup',term:'backup',full:'Backup',cn:'备份',zone:'misc',lv:1,
+ tl:'把文件<b>再复制一份放到别处</b>，原件坏了还有副本。',
+ ana:'像<b>家门钥匙在邻居家放一把</b>。',
+ scn:'跑一次备份脚本会把整个项目打包一份。注意：你现在备份还在 C 盘同一块硬盘上，最好指定一个网盘目录一起存。',
+ demo:null,rel:['rollback','git']},
+
+{id:'smoke',term:'smoke test',full:'Smoke Test',cn:'冒烟测试',zone:'misc',lv:2,
+ tl:'上线前<b>先跑一遍最关键的几个功能</b>，确认「没冒烟」（没炸），再谈细测。',
+ ana:'像<b>新电器插上电，先看会不会冒烟</b>：冒烟就别往下测了。',
+ scn:'体检脚本里「页面能打开、词条都在、脚本没语法错」这几项就是冒烟测试 —— 先保证没炸，再查细节。',
+ demo:null,rel:['regress','bug','deploy']},
+
+{id:'regress',term:'regression test',full:'Regression Test',cn:'回归测试',zone:'misc',lv:2,
+ tl:'改完新东西后，<b>把老功能重新跑一遍</b>，确认没被改坏。',
+ ana:'像<b>装修完卫生间，回头检查水管、电路、墙皮有没有被波及</b>。',
+ scn:'每次加完词，体检脚本都会拿当前版本和「版本存档」里的旧版对比，确认老词条没被误删 —— 这就是回归检查。',
+ demo:null,rel:['smoke','bug','git']},
+
+{id:'scaffold',term:'scaffold',full:'Scaffold / Boilerplate',cn:'脚手架 / 样板工程',zone:'code',lv:2,
+ tl:'一个<b>搭好架子、能直接往里填内容的空项目</b>：目录结构、配置文件、示例文件都齐了。',
+ ana:'像<b>精装房交付</b>：水电墙都做好了，你搬家具进去就能住。',
+ scn:'「软件开发标准流程」那个技能包里带的 templates 文件夹就是脚手架 —— 新项目一装，进度表、规范、体检脚本全自动生成。',
+ demo:null,rel:['tpl','skill','repo']},
+
+{id:'readme',term:'README',full:'README.md',cn:'项目说明书',zone:'misc',lv:1,
+ tl:'放在项目根目录的<b>第一份说明书</b>：这项目是干嘛的、怎么装、怎么用。',
+ ana:'像<b>新家电开箱第一页的快速入门</b>。',
+ scn:'你的技能包传到 GitHub 后，README.md 就是别人点进来看到的第一页 —— 一句话说清它能干什么、怎么装，别人才愿意用。',
+ demo:null,rel:['md','repo','scaffold']}
+];
+</script>
+<script>
+/* ============ 逻辑 ============ */
+var ZONES={ai:{n:'AI 核心',e:'🧠'},code:{n:'编程基础',e:'⌨️'},misc:{n:'杂词 / 软件',e:'🧩'},abbr:{n:'缩写速查',e:'🔤'}};
+var LV={1:'入门',2:'进阶',3:'硬核'};
+var STORE={fav:{},read:{}};
+try{var raw=localStorage.getItem('mingcixiaochao');if(raw)STORE=JSON.parse(raw)}catch(e){}
+function save(){try{localStorage.setItem('mingcixiaochao',JSON.stringify(STORE))}catch(e){}}
+
+var screenEl=document.getElementById('screen');
+var stack=[],cur='home',curArg=null,QI=0,PICKED=null,timers=[];
+
+function esc(s){return String(s).replace(/&(?!\w+;)/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function strip(s){return esc(String(s).replace(/<[^>]+>/g,''))}
+function byId(id){for(var i=0;i<WORDS.length;i++){if(WORDS[i].id===id)return WORDS[i]}return null}
+function clearTimers(){timers.forEach(clearTimeout);timers=[]}
+function push(fn,t){timers.push(setTimeout(fn,t))}
+function go(v,a){if(cur)stack.push({v:cur,a:curArg});cur=v;curArg=a;render()}
+function back(){var p=stack.pop();if(p){cur=p.v;curArg=p.a;render()}}
+
+function render(){
+  clearTimers();
+  var h='';
+  if(cur==='home')h=viewHome();
+  else if(cur==='list')h=viewList(curArg);
+  else if(cur==='detail')h=viewDetail(curArg);
+  else if(cur==='quiz')h=viewQuiz();
+  else if(cur==='fav')h=viewFav();
+  screenEl.innerHTML=h;
+  window.scrollTo(0,0);
+  document.getElementById('q').value=(cur==='list'&&curArg&&curArg.q)?curArg.q:'';
+  syncTab();
+  if(cur==='detail')startDemo();
+}
+function syncTab(){
+  var t=document.querySelectorAll('#tabbar div');
+  for(var i=0;i<t.length;i++){
+    var k=t[i].getAttribute('data-tab');
+    t[i].className=(k===cur||(cur==='list'&&k==='home')||(cur==='detail'&&k==='home'))?'on':'';
+  }
+}
+
+function rowHTML(w,isAbbr){
+  var f=STORE.fav[w.id]?'on':'';
+  var inner=isAbbr
+   ? '<div class="abbrline"><span class="a">'+w.term+(w.shot&&SHOTS[w.shot]?' 🖼':'')+'</span><span class="f">'+w.full+' · '+strip(w.cn)+'</span></div>'
+     +'<div class="rd">'+strip(w.tl)+'</div>'
+   : '<div class="rn">'+w.term+(w.new?' <span class="badge">NEW</span>':'')
+     +' <span class="chip lv">'+LV[w.lv]+'</span></div>'
+     +'<div class="rd">'+strip(w.cn)+' — '+strip(w.tl)+'</div>';
+  return '<div class="row" data-go="detail" data-id="'+w.id+'"><div class="rt">'+inner+'</div>'
+    +'<div class="star '+f+'" data-star="'+w.id+'">★</div></div>';
+}
+function searchWords(q){
+  q=String(q).toLowerCase();
+  return WORDS.filter(function(w){
+    return (w.term+' '+w.full+' '+w.cn+' '+strip(w.tl)+' '+strip(w.ana||'')+' '+strip(w.scn||'')).toLowerCase().indexOf(q)>-1;
+  });
+}
+function listHTML(o,isAbbr){
+  var list=(o&&o.q)?searchWords(o.q):WORDS.filter(function(w){return w.zone===o.z});
+  if(!list.length)return '<div class="empty"><span class="e">🔍</span>没找到「'+esc((o&&o.q)||'')+'」<br>换个说法试试，比如搜「让AI先查资料」</div>';
+  return list.map(function(w){return rowHTML(w,isAbbr)}).join('');
+}
+
+function dailyWord(){
+  var d=new Date(),n=Math.floor(d.getTime()/86400000);
+  var core=WORDS.filter(function(w){return w.demo});
+  return core.length?core[n%core.length]:WORDS[0];
+}
+
+function viewHome(){
+  var dw=dailyWord();
+  var news=WORDS.filter(function(w){return w.new});
+  var h='<div class="view">';
+  h+='<div class="daily"><div class="lbl">📅 每日一词</div>'
+   +'<div class="w">'+dw.term+' <em>'+strip(dw.cn)+'</em></div>'
+   +'<div class="d">'+strip(dw.tl)+'</div>'
+   +'<div class="go" data-go="detail" data-id="'+dw.id+'">'+(dw.demo?'看动画演示 →':'看详解 →')+'</div></div>';
+  h+='<div class="zones">';
+  ['ai','code','misc','abbr'].forEach(function(z){
+    var c=WORDS.filter(function(w){return w.zone===z||(z==='abbr'&&w.abbr)}).length;
+    h+='<div class="zone" data-go="list" data-z="'+z+'"><div class="e">'+ZONES[z].e+'</div>'
+     +'<div class="n">'+ZONES[z].n+'</div><div class="c">'+c+' 个词</div></div>';
+  });
+  h+='</div>';
+  if(news.length){
+    h+='<div class="secttl"><span>🆕 最近新增</span></div>';
+    news.forEach(function(w){h+=rowHTML(w,false)});
+  }
+  h+='<div class="secttl"><span>🔥 最该先搞懂的 8 个</span></div>';
+  ['llm','token','context','prompt','hallu','agent','rag','api'].forEach(function(id){
+    var w=byId(id);if(w)h+=rowHTML(w,false);
+  });
+  h+='<p class="tip">共 '+WORDS.length+' 个词 · 每周一自动联网补新词<br>遇到看不懂的，直接在搜索框用大白话描述也行</p>';
+  h+=footer();
+  return h+'</div>';
+}
+function footer(){return '<footer>AI 名词小抄 · v1 · 词库更新 2026-09-08<br>收藏和答题记录只存在你手机上</footer>'}
+
+function viewList(o){
+  var isAbbr=o.z==='abbr';
+  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div>'
+   +'<div class="t">'+(o.q?'搜索“'+esc(o.q)+'”':ZONES[o.z].n)+'</div></div>';
+  h+='<div id="listBox">'+listHTML(o,isAbbr)+'</div>'+footer()+'</div>';
+  return h;
+}
+
+function viewDetail(id){
+  var w=byId(id);if(!w)return '<div class="empty">没找到这个词</div>';
+  STORE.read[id]=1;save();
+  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">词条</div></div>';
+  h+='<div style="display:flex;align-items:flex-start;gap:8px"><div style="flex:1">'
+   +'<div class="dterm">'+w.term+'</div><div class="dfull">'+w.full+'</div>'
+   +'<div class="dcn">中文：'+w.cn+'</div></div>'
+   +'<div class="star '+(STORE.fav[id]?'on':'')+'" data-star="'+id+'" style="font-size:24px">★</div></div>';
+  h+='<div class="chips"><span class="chip">'+ZONES[w.zone].n+'</span><span class="chip lv">'+LV[w.lv]+'</span>'
+   +(w.new?'<span class="chip" style="background:var(--new);color:#fff">本周新词</span>':'')+'</div>';
+  h+='<div class="blk"><div class="h">💬 说人话</div><div class="b">'+w.tl+'</div></div>';
+  h+='<div class="blk"><div class="h">🍜 打个比方</div><div class="b">'+w.ana+'</div></div>';
+  if(w.shot&&SHOTS[w.shot])h+='<div class="blk"><div class="h">🖼 它长什么样</div>'
+   +'<div class="demoname">手绘示意图，只画关键部位，去掉了真实界面里那些干扰项</div>'
+   +shotHTML(w.shot)+'</div>';
+  h+='<div class="blk"><div class="h">📍 你会在哪撞见它</div><div class="b">'+w.scn+'</div></div>';
+  if(w.demo)h+='<div class="blk"><div class="h">🎬 看图就懂</div><div class="demoname">'
+   +(w.demo==='token'||w.demo==='temp'?'下面会自动演示一遍，演完你可以自己动手试':'下面会自动演示一遍')+'</div>'
+   +demoHTML(w.demo)+'</div>';
+  if(w.rel&&w.rel.length){
+    h+='<div class="blk rel"><div class="h">🔗 相关词</div>';
+    w.rel.forEach(function(r){var x=byId(r);
+      if(x)h+='<div class="row" data-go="detail" data-id="'+r+'"><div class="rt"><div class="rn">'+x.term+'</div>'
+        +'<div class="rd">'+strip(x.cn)+'</div></div></div>';});
+    h+='</div>';
+  }
+  h+='<button class="btn ghost" data-back="1">← 回去继续看</button>'+footer()+'</div>';
+  return h;
+}
+
+/* ---------- 演示组件 ---------- */
+function demoHTML(k){
+  if(k==='kit')return '<div class="kit">'
+   +'<div class="lv1">AI 人工智能（最大的筐）</div><div class="ar">└─ 里面装着 ↓</div>'
+   +'<div class="lv1 in2">机器学习 ML（造它的方法）</div><div class="ar">└─ 里面装着 ↓</div>'
+   +'<div class="lv1 in3">深度学习 DL（最能打的一支）</div><div class="ar">└─ 里面装着 ↓</div>'
+   +'<div class="lv1 in4">大模型 → LLM（管文字的那类）→ GPT / Claude / DeepSeek</div></div>'
+   +'<div class="hint">👆 它们是<b>套娃关系</b>，不是平级的。下次有人说「我们用了 AI」，你可以问一句：用的是哪个模型？</div>';
+  if(k==='llm')return '<div class="typing"><span class="q">今天天气</span><span class="o" id="out"></span><span class="caret"></span></div>'
+   +'<div class="hint" id="llmHint">它在猜「下一个最可能的字是什么」…</div>'
+   +'<div class="say" style="margin-top:10px">🔁 换一句：<b>床前明月光，</b>　→　它大概会接「疑是地上霜」。<br>'
+   +'<span style="color:var(--sub);font-size:13px">不是背出来的，是一个字一个字算出来的。</span></div>';
+  if(k==='token')return '<div class="stage" id="tokStage"></div><div class="hint" id="tokHint">准备中…</div>'
+   +'<input class="miniin" id="tokIn" placeholder="▸ 你也来试试：打一句话，看它被切成几块" autocomplete="off">'
+   +'<div class="counter" id="tokCount"></div>';
+  if(k==='ctx')return '<div class="win" id="ctxWin"></div><div class="hint" id="ctxHint">准备中…</div>'
+   +'<div class="say">💡 <b>所以</b>：你和 AI 聊太久，它会「忘了」开头说过的话。遇到它前后矛盾，八成就是被挤出去了——开个新对话就好。</div>';
+  if(k==='prompt')return '<div class="cmp"><div class="side bad"><div class="t">❌ 这么问</div>帮我写个文案</div>'
+   +'<div class="side good"><div class="t">✅ 这么问</div>你是 10 年经验的品牌文案。给 25–35 岁女性写一段 200 字的小红书种草文案，突出成分安全和性价比，别用「绝绝子」，结尾带 3 个话题标签</div></div>'
+   +'<div class="hint">同一个 AI，两种问法，<b>出来的东西天差地别</b>。差别就在：有没有说清<b>角色、对象、格式、限制</b>。</div>';
+  if(k==='hallu')return '<div class="cmp"><div class="side bad"><div class="t">😵 没挂资料时</div>《五行针灸指南》第 137 页提到……<br><span style="color:var(--bad);font-size:12px">（其实书里没这一页，是它编的，还说得很自信）</span></div>'
+   +'<div class="side good"><div class="t">✅ 挂了你的资料（RAG）</div>在你上传的《指南》第三版「护持一行」一节中找到相关段落……<br><span style="color:var(--ok);font-size:12px">（有出处，你可以自己核）</span></div></div>'
+   +'<div class="hint">🔑 <b>凡是引用、数据、人名、法条，一律自己核一遍。</b>它说得不靠谱不是因为坏，是因为它在算「什么听起来最像对的」。</div>';
+  if(k==='temp')return '<div class="say" style="margin:0">「用一句话形容夏天」</div>'
+   +'<input type="range" class="slider" id="tmpS" min="0" max="100" value="70">'
+   +'<div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--faint)">'
+   +'<span>0 死板</span><span id="tmpV" style="color:var(--accent);font-weight:700">0.7</span><span>1.0 发疯</span></div>'
+   +'<div class="say" id="tmpOut"></div>'
+   +'<div class="hint">👆 拖动上面这条滑块试试。<b>写代码、查数据 → 往左；写标题、想创意 → 往右。</b></div>';
+  if(k==='agent')return '<div class="steps" id="agSteps">'
+   +'<div class="step"><div class="num">1</div><div>🎯 收到目标：「帮我调研竞品定价」</div></div>'
+   +'<div class="step"><div class="num">2</div><div>📋 自己拆成：搜资料 → 整理 → 写报告</div></div>'
+   +'<div class="step"><div class="num">3</div><div>🔧 调用工具：联网搜、读文件、跑数据</div></div>'
+   +'<div class="step"><div class="num">4</div><div>👀 看结果，发现不对就重来</div></div>'
+   +'<div class="step"><div class="num">5</div><div>✅ 直到干完，把成品交给你</div></div></div>'
+   +'<div class="hint">🔑 判断标准一句话：<b>聊天机器人给你「步骤清单」，Agent 直接给你「能验收的成品」。</b></div>';
+  if(k==='rag')return '<div class="steps" id="ragSteps">'
+   +'<div class="step"><div class="num">1</div><div>你的问题：护持一行怎么判断？</div></div>'
+   +'<div class="step"><div class="num">2</div><div>📚 去你的资料库里翻相关段落</div></div>'
+   +'<div class="step"><div class="num">3</div><div>把翻到的内容 + 你的问题拼成一个新提示词</div></div>'
+   +'<div class="step"><div class="num">4</div><div>✅ AI 照着资料回答，还能告诉你出自哪篇</div></div></div>'
+   +'<div class="hint" style="margin-top:10px">🔁 上面 4 步会循环播放。关键是第 2 步——<b>不翻资料就会瞎编</b>，这就是 RAG 存在的意义。</div>';
+  if(k==='ft')return '<div class="cmp"><div class="side bad"><div class="t">🎓 微调 Fine-tuning</div>把知识<b>刻进脑子</b><br>· 改起来慢、贵<br>· 适合固定<b>风格</b>（说话口气、格式）<br>· 内容变了得重新练</div>'
+   +'<div class="side good"><div class="t">📖 RAG 挂知识库</div>给它<b>一本随时能翻的书</b><br>· 改起来快、便宜<br>· 适合经常变的<b>知识</b><br>· 内容变了改书就行</div></div>'
+   +'<div class="hint">🔑 记一句就够：<b>要它「像谁说话」用微调；要它「知道什么」用 RAG。</b>实际项目里两个经常一起用。</div>';
+  if(k==='oss')return '<div class="cmp"><div class="side good"><div class="t">🔓 开源（DeepSeek / Qwen / Llama）</div>给你菜谱和食材<br>· 能自己部署、随便改<br>· 便宜、数据不出门<br>· 但你得有「厨房」（技术/显卡）</div>'
+   +'<div class="side bad"><div class="t">🔒 闭源（GPT / Claude）</div>直接去饭店吃<br>· 开箱即用，最强<br>· 按量付费<br>· 数据在别人那儿</div></div>'
+   +'<div class="hint">你在 WorkBuddy 里配智谱、DeepSeek 的 API，走的就是开源那条路；用 Claude 是闭源那条。<b>两条路现在都很能打。</b></div>';
+  if(k==='moe')return '<div class="moe" id="moeBox">'
+   +'<div class="ex">👨‍⚖️ 法务</div><div class="ex">👩‍💻 技术</div><div class="ex">🧮 财务</div>'
+   +'<div class="ex">📈 市场</div><div class="ex">🎨 设计</div><div class="ex">🔧 运维</div></div>'
+   +'<div class="hint" id="moeHint">准备中…</div>'
+   +'<div class="say">💡 <b>每个问题只叫醒相关的两三个专家</b>，不是全员开会。所以「总数很多、算得却不慢」——这就是 MoE 省钱的原理。</div>';
+  if(k==='api')return '<div class="apirow"><div class="apibox hi">你（点单）</div><div class="apiline"><i></i></div>'
+   +'<div class="apibox">服务员 = API</div><div class="apiline"><i></i></div><div class="apibox">厨房 = 服务器</div></div>'
+   +'<div class="hint">你把「文章链接」递给极致了 API → 它去后台爬 → 把「阅读量 1.2 万」递回来。<b>你看不见厨房，也不用会做菜。</b></div>';
+  return '';
+}
+
+/* ---------- 界面实景图：把这个东西长什么样画出来 ---------- */
+var SHOTS={
+comfyui:{h:190,s:''
+ +'<rect x="6" y="6" width="308" height="160" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<circle cx="20" cy="17" r="3" fill="var(--faint)"/><circle cx="31" cy="17" r="3" fill="var(--faint)"/><circle cx="42" cy="17" r="3" fill="var(--faint)"/>'
+ +'<text x="56" y="21" font-size="11" fill="var(--sub)">ComfyUI 的画布</text>'
+ +'<path d="M122 62 C 152 62, 158 72, 186 72" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<path d="M122 106 C 152 106, 158 90, 186 90" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<path d="M244 98 L 244 110" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="18" y="44" width="104" height="36" rx="7" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="70" y="58" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">① 加载模型</text>'
+ +'<text x="70" y="72" font-size="10" fill="var(--sub)" text-anchor="middle">先挑一个 AI 模型</text>'
+ +'<rect x="18" y="88" width="104" height="36" rx="7" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="70" y="102" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">② 写提示词</text>'
+ +'<text x="70" y="116" font-size="10" fill="var(--sub)" text-anchor="middle">描述你要的图</text>'
+ +'<rect x="188" y="52" width="112" height="46" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="244" y="70" font-size="11.5" font-weight="700" fill="var(--accent)" text-anchor="middle">③ 采样器</text>'
+ +'<text x="244" y="86" font-size="10" fill="var(--sub)" text-anchor="middle">真正开始画</text>'
+ +'<rect x="188" y="112" width="112" height="40" rx="7" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="244" y="130" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">④ 保存图片</text>'
+ +'<text x="244" y="144" font-size="10" fill="var(--sub)" text-anchor="middle">图出来了</text>'
+ +'<text x="18" y="181" font-size="10.5" fill="var(--sub)">方块叫「节点」，线是数据怎么走。连好点运行，右边就出图。</text>'},
+
+blender:{h:190,s:''
+ +'<rect x="6" y="6" width="308" height="160" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="14" y="14" width="200" height="144" rx="7" fill="var(--card)" stroke="var(--line)"/>'
+ +'<path d="M108 44 L152 68 L108 92 L64 68 Z" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<path d="M64 68 L108 92 L108 138 L64 114 Z" fill="var(--soft)" stroke="var(--accent)"/>'
+ +'<path d="M152 68 L108 92 L108 138 L152 114 Z" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<path d="M108 92 L108 50" fill="none" stroke="var(--bad)" stroke-width="1.4"/>'
+ +'<path d="M108 92 L152 114" fill="none" stroke="var(--ok)" stroke-width="1.4"/>'
+ +'<path d="M108 92 L64 114" fill="none" stroke="var(--accent)" stroke-width="1.4"/>'
+ +'<text x="118" y="36" font-size="10" fill="var(--sub)">3D 模型在这转</text>'
+ +'<rect x="222" y="14" width="84" height="144" rx="7" fill="var(--card)" stroke="var(--line)"/>'
+ +'<rect x="230" y="24" width="60" height="7" rx="3.5" fill="var(--line)"/>'
+ +'<rect x="230" y="40" width="44" height="7" rx="3.5" fill="var(--accent)"/>'
+ +'<rect x="230" y="56" width="68" height="7" rx="3.5" fill="var(--line)"/>'
+ +'<rect x="230" y="72" width="52" height="7" rx="3.5" fill="var(--line)"/>'
+ +'<rect x="230" y="88" width="60" height="7" rx="3.5" fill="var(--accent)"/>'
+ +'<text x="230" y="112" font-size="10" fill="var(--sub)">右边这排是</text>'
+ +'<text x="230" y="126" font-size="10" fill="var(--sub)">参数面板</text>'
+ +'<rect x="230" y="134" width="68" height="16" rx="8" fill="var(--accent-soft)"/>'
+ +'<text x="264" y="145" font-size="10" fill="var(--accent)" text-anchor="middle">点这里出图</text>'
+ +'<text x="14" y="181" font-size="10" fill="var(--sub)">中间是能转的 3D 模型，右边调材质和灯光</text>'},
+
+terminal:{h:165,s:''
+ +'<rect x="6" y="6" width="308" height="128" rx="9" fill="#161a21" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="9" fill="#252b34"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="#252b34"/>'
+ +'<circle cx="20" cy="17" r="3.2" fill="#5a626e"/><circle cx="31" cy="17" r="3.2" fill="#5a626e"/><circle cx="42" cy="17" r="3.2" fill="#5a626e"/>'
+ +'<text x="16" y="48" font-size="11" fill="#7ee2a0" font-family="monospace">$ claude</text>'
+ +'<text x="72" y="48" font-size="11" fill="#e6edf3" font-family="monospace">帮我写个查词网页</text>'
+ +'<text x="16" y="70" font-size="11" fill="#8b96a5" font-family="monospace">正在改 index.html ...</text>'
+ +'<text x="16" y="88" font-size="11" fill="#7ee2a0" font-family="monospace">完成，改了 1 个文件</text>'
+ +'<text x="16" y="112" font-size="11" fill="#e6edf3" font-family="monospace">$</text>'
+ +'<rect x="28" y="103" width="7" height="13" fill="#e6edf3"/>'
+ +'<text x="14" y="156" font-size="10" fill="var(--sub)">打字指挥电脑的黑窗口，不用鼠标点菜单</text>'},
+
+git:{h:150,s:''
+ +'<text x="14" y="24" font-size="10.5" fill="var(--sub)">每改一次存一个「存档点」，随时能退回</text>'
+ +'<path d="M30 92 L 250 92" fill="none" stroke="var(--line)" stroke-width="2.5"/>'
+ +'<path d="M160 92 L 200 52 L 280 52" fill="none" stroke="var(--line)" stroke-width="2.5"/>'
+ +'<circle cx="40" cy="92" r="7" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>'
+ +'<circle cx="100" cy="92" r="7" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>'
+ +'<circle cx="160" cy="92" r="7" fill="var(--accent)" stroke="var(--accent)" stroke-width="2"/>'
+ +'<circle cx="220" cy="52" r="7" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>'
+ +'<circle cx="270" cy="52" r="7" fill="var(--card)" stroke="var(--accent)" stroke-width="2"/>'
+ +'<text x="40" y="114" font-size="9.5" fill="var(--sub)" text-anchor="middle">第1版</text>'
+ +'<text x="100" y="114" font-size="9.5" fill="var(--sub)" text-anchor="middle">第2版</text>'
+ +'<text x="160" y="114" font-size="9.5" fill="var(--accent)" text-anchor="middle">现在</text>'
+ +'<text x="245" y="40" font-size="9.5" fill="var(--sub)" text-anchor="middle">另开一条线试新写法</text>'
+ +'<text x="14" y="140" font-size="10.5" fill="var(--sub)">改坏了能退回去；试新想法可以另开一条线，成了再合回来。</text>'},
+
+json:{h:152,s:''
+ +'<rect x="6" y="6" width="308" height="112" rx="9" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<text x="18" y="30" font-size="11.5" fill="var(--sub)" font-family="monospace">{</text>'
+ +'<text x="32" y="50" font-size="11.5" font-family="monospace"><tspan fill="var(--accent)">"标题"</tspan><tspan fill="var(--sub)">: </tspan><tspan fill="var(--ok)">"五行针灸入门"</tspan><tspan fill="var(--sub)">,</tspan></text>'
+ +'<text x="32" y="70" font-size="11.5" font-family="monospace"><tspan fill="var(--accent)">"阅读量"</tspan><tspan fill="var(--sub)">: </tspan><tspan fill="var(--bad)">12800</tspan><tspan fill="var(--sub)">,</tspan></text>'
+ +'<text x="32" y="90" font-size="11.5" font-family="monospace"><tspan fill="var(--accent)">"已发布"</tspan><tspan fill="var(--sub)">: </tspan><tspan fill="var(--bad)">true</tspan></text>'
+ +'<text x="18" y="110" font-size="11.5" fill="var(--sub)" font-family="monospace">}</text>'
+ +'<text x="14" y="142" font-size="10" fill="var(--sub)">程序间递数据的标准信封，接口回的就这样</text>'},
+
+db:{h:152,s:''
+ +'<rect x="6" y="6" width="308" height="112" rx="9" fill="var(--card)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="26" rx="9" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="20" width="308" height="12" fill="var(--accent-soft)"/>'
+ +'<text x="22" y="23" font-size="10.5" font-weight="700" fill="var(--accent)">文章标题</text>'
+ +'<text x="150" y="23" font-size="10.5" font-weight="700" fill="var(--accent)">阅读量</text>'
+ +'<text x="244" y="23" font-size="10.5" font-weight="700" fill="var(--accent)">日期</text>'
+ +'<path d="M6 46 L314 46" stroke="var(--line)"/><path d="M6 72 L314 72" stroke="var(--line)"/><path d="M6 98 L314 98" stroke="var(--line)"/>'
+ +'<text x="22" y="64" font-size="11" fill="var(--text)">五行针灸入门</text>'
+ +'<text x="150" y="64" font-size="11" fill="var(--sub)">12800</text>'
+ +'<text x="244" y="64" font-size="11" fill="var(--sub)">09-01</text>'
+ +'<text x="22" y="90" font-size="11" fill="var(--text)">护持一行怎么判断</text>'
+ +'<text x="150" y="90" font-size="11" fill="var(--sub)">8600</text>'
+ +'<text x="244" y="90" font-size="11" fill="var(--sub)">09-03</text>'
+ +'<text x="22" y="116" font-size="11" fill="var(--text)">AI 名词小抄上线</text>'
+ +'<text x="150" y="116" font-size="11" fill="var(--sub)">3200</text>'
+ +'<text x="244" y="116" font-size="11" fill="var(--sub)">09-08</text>'
+ +'<text x="14" y="142" font-size="10" fill="var(--sub)">存数据的地方：一行一条，一列一类</text>'},
+
+febe:{h:172,s:''
+ +'<text x="14" y="22" font-size="10.5" fill="var(--sub)">你看到的，和你看不到的</text>'
+ +'<rect x="14" y="32" width="76" height="112" rx="11" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<rect x="24" y="46" width="56" height="84" rx="5" fill="var(--soft)"/>'
+ +'<rect x="36" y="38" width="32" height="4" rx="2" fill="var(--line)"/>'
+ +'<text x="52" y="84" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">页面</text>'
+ +'<text x="52" y="100" font-size="10" fill="var(--sub)" text-anchor="middle">按钮、排版</text>'
+ +'<text x="52" y="160" font-size="11" font-weight="700" fill="var(--accent)" text-anchor="middle">前端</text>'
+ +'<path d="M96 88 L 118 88" fill="none" stroke="var(--faint)" stroke-width="1.5" marker-end="@@AR@@"/>'
+ +'<rect x="124" y="52" width="80" height="72" rx="9" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<text x="164" y="78" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">后端</text>'
+ +'<text x="164" y="96" font-size="10" fill="var(--sub)" text-anchor="middle">算数据、验权限</text>'
+ +'<text x="164" y="110" font-size="10" fill="var(--sub)" text-anchor="middle">你永远看不见</text>'
+ +'<text x="164" y="160" font-size="11" fill="var(--sub)" text-anchor="middle">后端</text>'
+ +'<path d="M208 88 L 230 88" fill="none" stroke="var(--faint)" stroke-width="1.5" marker-end="@@AR@@"/>'
+ +'<rect x="236" y="52" width="76" height="72" rx="9" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<path d="M244 74 L304 74" stroke="var(--line)"/><path d="M244 92 L304 92" stroke="var(--line)"/><path d="M244 110 L304 110" stroke="var(--line)"/>'
+ +'<text x="274" y="66" font-size="10.5" fill="var(--sub)" text-anchor="middle">数据库</text>'
+ +'<text x="274" y="160" font-size="11" fill="var(--sub)" text-anchor="middle">存东西</text>'},
+
+deploy:{h:138,s:''
+ +'<text x="14" y="22" font-size="10.5" fill="var(--sub)">在自己电脑上能跑 ≠ 别人能用，中间差一步「部署」</text>'
+ +'<rect x="10" y="36" width="84" height="56" rx="9" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="52" y="60" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">你的电脑</text>'
+ +'<text x="52" y="78" font-size="10" fill="var(--sub)" text-anchor="middle">只有你能看</text>'
+ +'<path d="M98 64 L 118 64" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="124" y="36" width="80" height="56" rx="9" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="164" y="60" font-size="11.5" font-weight="700" fill="var(--accent)" text-anchor="middle">部署</text>'
+ +'<text x="164" y="78" font-size="10" fill="var(--sub)" text-anchor="middle">搬到服务器上</text>'
+ +'<path d="M208 64 L 228 64" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="234" y="36" width="80" height="56" rx="9" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="274" y="60" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">一个网址</text>'
+ +'<text x="274" y="78" font-size="10" fill="var(--sub)" text-anchor="middle">谁都能打开</text>'
+ +'<text x="14" y="118" font-size="10.5" fill="var(--sub)">这个词表网页上次发布，就是把文件搬到服务器上去了。</text>'},
+
+vibe:{h:172,s:''
+ +'<text x="14" y="22" font-size="10.5" fill="var(--sub)">你只管说人话，代码全交给 AI</text>'
+ +'<rect x="14" y="34" width="122" height="62" rx="12" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<path d="M40 96 L 52 96 L 44 106 Z" fill="var(--accent-soft)"/>'
+ +'<text x="75" y="58" font-size="11.5" fill="var(--text)" text-anchor="middle">做个能搜词的网页</text>'
+ +'<text x="75" y="76" font-size="11.5" fill="var(--text)" text-anchor="middle">手机上要能用</text>'
+ +'<text x="75" y="116" font-size="10" fill="var(--sub)" text-anchor="middle">你说的话</text>'
+ +'<path d="M142 65 L 164 65" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<text x="153" y="56" font-size="10" fill="var(--accent)" text-anchor="middle">AI</text>'
+ +'<rect x="170" y="34" width="140" height="96" rx="9" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="182" y="46" width="86" height="7" rx="3.5" fill="var(--line)"/>'
+ +'<rect x="182" y="62" width="116" height="7" rx="3.5" fill="var(--accent)"/>'
+ +'<rect x="182" y="78" width="98" height="7" rx="3.5" fill="var(--line)"/>'
+ +'<rect x="182" y="94" width="110" height="7" rx="3.5" fill="var(--line)"/>'
+ +'<rect x="182" y="110" width="72" height="7" rx="3.5" fill="var(--accent)"/>'
+ +'<text x="240" y="150" font-size="10" fill="var(--sub)" text-anchor="middle">它自己写出来的代码</text>'
+ +'<text x="14" y="166" font-size="10" fill="var(--sub)">不看代码不调试，跑起来能用就算过</text>'},
+
+plugin:{h:150,s:''
+ +'<rect x="14" y="30" width="146" height="86" rx="10" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="87" y="62" font-size="12.5" font-weight="700" fill="var(--text)" text-anchor="middle">主程序</text>'
+ +'<text x="87" y="82" font-size="10" fill="var(--sub)" text-anchor="middle">本体自带的功能</text>'
+ +'<rect x="87" y="94" width="60" height="8" rx="4" fill="var(--soft)"/>'
+ +'<rect x="170" y="30" width="140" height="26" rx="7" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="240" y="47" font-size="10.5" fill="var(--accent)" text-anchor="middle">✓ 插件：自动翻译</text>'
+ +'<rect x="170" y="62" width="140" height="26" rx="7" fill="var(--card)" stroke="var(--line)" stroke-dasharray="4 3"/>'
+ +'<text x="240" y="79" font-size="10.5" fill="var(--faint)" text-anchor="middle">空插槽</text>'
+ +'<rect x="170" y="94" width="140" height="26" rx="7" fill="var(--card)" stroke="var(--line)" stroke-dasharray="4 3"/>'
+ +'<text x="240" y="111" font-size="10.5" fill="var(--faint)" text-anchor="middle">空插槽</text>'
+ +'<text x="14" y="140" font-size="10.5" fill="var(--sub)">插上就有这个本事，拔掉就没 —— 不用改主程序本身。</text>'},
+
+saas:{h:156,s:''
+ +'<rect x="10" y="30" width="146" height="96" rx="9" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<rect x="10" y="30" width="146" height="20" rx="9" fill="var(--accent-soft)"/>'
+ +'<rect x="10" y="40" width="146" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="83" y="70" font-size="11" fill="var(--text)" text-anchor="middle">打开网页 → 登录</text>'
+ +'<text x="83" y="90" font-size="11" fill="var(--accent)" text-anchor="middle">马上就能用</text>'
+ +'<text x="83" y="108" font-size="10" fill="var(--sub)" text-anchor="middle">不用装任何东西</text>'
+ +'<text x="83" y="144" font-size="11" font-weight="700" fill="var(--accent)" text-anchor="middle">SaaS（飞书、腾讯文档）</text>'
+ +'<rect x="164" y="30" width="146" height="96" rx="9" fill="var(--card)" stroke="var(--line)"/>'
+ +'<rect x="164" y="30" width="146" height="20" rx="9" fill="var(--soft)"/>'
+ +'<rect x="164" y="40" width="146" height="10" fill="var(--soft)"/>'
+ +'<text x="237" y="70" font-size="11" fill="var(--text)" text-anchor="middle">下载安装包 → 安装</text>'
+ +'<rect x="184" y="82" width="106" height="8" rx="4" fill="var(--soft)"/>'
+ +'<rect x="184" y="82" width="44" height="8" rx="4" fill="var(--faint)"/>'
+ +'<text x="237" y="108" font-size="10" fill="var(--sub)" text-anchor="middle">装在自己电脑上</text>'
+ +'<text x="237" y="144" font-size="11" fill="var(--sub)" text-anchor="middle">传统软件（要下载安装）</text>'},
+
+sandbox:{h:142,s:''
+ +'<rect x="46" y="26" width="228" height="90" rx="12" fill="var(--soft)" stroke="var(--accent)" stroke-dasharray="6 4"/>'
+ +'<text x="160" y="48" font-size="11.5" font-weight="700" fill="var(--accent)" text-anchor="middle">沙箱（隔离出来的小房间）</text>'
+ +'<rect x="70" y="60" width="88" height="42" rx="8" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="114" y="86" font-size="11.5" fill="var(--text)" text-anchor="middle">AI 在这里跑</text>'
+ +'<text x="196" y="80" font-size="10.5" fill="var(--sub)">随便它折腾</text>'
+ +'<text x="196" y="96" font-size="10.5" fill="var(--sub)">碰不到你的文件</text>'
+ +'<path d="M14 71 L 30 71" stroke="var(--bad)" stroke-width="2"/><path d="M16 66 L 28 76" stroke="var(--bad)" stroke-width="2"/>'
+ +'<text x="14" y="100" font-size="10" fill="var(--bad)">危险操作</text>'
+ +'<text x="14" y="132" font-size="10" fill="var(--sub)">关得起来的小房间，搞砸了删掉就行</text>'},
+
+server:{h:162,s:''
+ +'<rect x="50" y="26" width="220" height="106" rx="10" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="160" y="46" font-size="11" fill="var(--sub)" text-anchor="middle">一台服务器（就是一台机器）</text>'
+ +'<rect x="62" y="56" width="46" height="58" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="85" y="78" font-size="11.5" font-weight="700" fill="var(--accent)" text-anchor="middle">:80</text>'
+ +'<text x="85" y="94" font-size="9.5" fill="var(--sub)" text-anchor="middle">网页</text>'
+ +'<rect x="116" y="56" width="46" height="58" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="139" y="78" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">:443</text>'
+ +'<text x="139" y="94" font-size="9.5" fill="var(--sub)" text-anchor="middle">加密网页</text>'
+ +'<rect x="170" y="56" width="46" height="58" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="193" y="78" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">:3000</text>'
+ +'<text x="193" y="94" font-size="9.5" fill="var(--sub)" text-anchor="middle">你的工具</text>'
+ +'<rect x="224" y="56" width="46" height="58" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="247" y="78" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">:8080</text>'
+ +'<text x="247" y="94" font-size="9.5" fill="var(--sub)" text-anchor="middle">测试用</text>'
+ +'<text x="14" y="152" font-size="10.5" fill="var(--sub)">同一个地址，靠冒号后面的门牌号，分开不同的服务。</text>'},
+
+env:{h:142,s:''
+ +'<rect x="10" y="28" width="146" height="76" rx="9" fill="var(--card)" stroke="var(--bad)"/>'
+ +'<text x="83" y="50" font-size="11" font-weight="700" fill="var(--bad)" text-anchor="middle">✕ 直接写死在代码里</text>'
+ +'<text x="24" y="72" font-size="11" fill="var(--sub)" font-family="monospace">key = JZLdd9...</text>'
+ +'<text x="83" y="92" font-size="10" fill="var(--bad)" text-anchor="middle">代码一公开，谁都看得见</text>'
+ +'<rect x="164" y="28" width="146" height="76" rx="9" fill="var(--card)" stroke="var(--ok)"/>'
+ +'<text x="237" y="50" font-size="11" font-weight="700" fill="var(--ok)" text-anchor="middle">✓ 放进环境变量</text>'
+ +'<text x="178" y="72" font-size="11" fill="var(--sub)" font-family="monospace">key = 从外面拿</text>'
+ +'<text x="237" y="92" font-size="10" fill="var(--ok)" text-anchor="middle">代码能公开，钥匙不外泄</text>'
+ +'<text x="14" y="130" font-size="10.5" fill="var(--sub)">把密码、密钥这类东西放在代码外面，换机器只改外面那份。</text>'},
+
+sdk:{h:146,s:''
+ +'<rect x="14" y="30" width="130" height="86" rx="9" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<text x="79" y="52" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">SDK / 框架</text>'
+ +'<rect x="30" y="62" width="36" height="18" rx="4" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<rect x="74" y="62" width="36" height="18" rx="4" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<rect x="30" y="86" width="36" height="18" rx="4" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<rect x="74" y="86" width="36" height="18" rx="4" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="79" y="134" font-size="10.5" fill="var(--sub)" text-anchor="middle">别人做好的零件</text>'
+ +'<path d="M150 73 L 172 73" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="178" y="30" width="130" height="86" rx="9" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="243" y="58" font-size="11.5" font-weight="700" fill="var(--accent)" text-anchor="middle">你的成品</text>'
+ +'<text x="243" y="78" font-size="10" fill="var(--sub)" text-anchor="middle">拼一拼就出来了</text>'
+ +'<text x="243" y="96" font-size="10" fill="var(--sub)" text-anchor="middle">不用从零造轮子</text>'
+ +'<text x="243" y="134" font-size="10.5" fill="var(--sub)" text-anchor="middle">装好就能用</text>'},
+
+gpu:{h:156,s:''
+ +'<defs><pattern id="gpuPat" width="13" height="13" patternUnits="userSpaceOnUse">'
+ +'<rect x="1.5" y="1.5" width="10" height="10" rx="2.5" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="0.6"/></pattern></defs>'
+ +'<rect x="12" y="30" width="144" height="96" rx="9" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="84" y="52" font-size="12.5" font-weight="700" fill="var(--text)" text-anchor="middle">CPU</text>'
+ +'<text x="84" y="70" font-size="10" fill="var(--sub)" text-anchor="middle">几个大力士，一个很强</text>'
+ +'<rect x="46" y="80" width="30" height="22" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<rect x="92" y="80" width="30" height="22" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<rect x="46" y="106" width="30" height="12" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<rect x="92" y="106" width="30" height="12" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<rect x="164" y="30" width="144" height="96" rx="9" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="236" y="52" font-size="12.5" font-weight="700" fill="var(--accent)" text-anchor="middle">GPU</text>'
+ +'<text x="236" y="70" font-size="10" fill="var(--sub)" text-anchor="middle">几千个小工，一起上</text>'
+ +'<rect x="180" y="80" width="112" height="38" fill="url(#gpuPat)"/>'
+ +'<text x="14" y="146" font-size="10" fill="var(--sub)">AI 要的是一起算，所以显卡比 CPU 金贵</text>'},
+
+embed:{h:170,s:''
+ +'<rect x="6" y="6" width="308" height="134" rx="9" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<path d="M160 18 L 160 128" fill="none" stroke="var(--line)" stroke-dasharray="4 4"/>'
+ +'<circle cx="70" cy="52" r="5.5" fill="var(--accent)"/><circle cx="92" cy="40" r="5.5" fill="var(--accent)"/>'
+ +'<circle cx="84" cy="70" r="5.5" fill="var(--accent)"/><circle cx="106" cy="56" r="5.5" fill="var(--accent)"/>'
+ +'<circle cx="62" cy="82" r="5.5" fill="var(--accent)"/>'
+ +'<text x="118" y="36" font-size="10.5" fill="var(--accent)">猫 / 狗 / 老虎</text>'
+ +'<circle cx="200" cy="46" r="5.5" fill="var(--new)"/><circle cx="222" cy="60" r="5.5" fill="var(--new)"/>'
+ +'<circle cx="210" cy="80" r="5.5" fill="var(--new)"/><circle cx="236" cy="66" r="5.5" fill="var(--new)"/>'
+ +'<circle cx="192" cy="92" r="5.5" fill="var(--new)"/>'
+ +'<text x="188" y="116" font-size="10.5" fill="var(--new)">汽车 / 自行车</text>'
+ +'<path d="M84 70 L 210 80" fill="none" stroke="var(--faint)" stroke-dasharray="3 3"/>'
+ +'<text x="147" y="66" font-size="9.5" fill="var(--faint)">离得很远</text>'
+ +'<text x="14" y="160" font-size="10" fill="var(--sub)">把词变成地图上的点，意思越像挨得越近</text>'},
+
+multi:{h:166,s:''
+ +'<rect x="10" y="34" width="72" height="30" rx="7" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="46" y="53" font-size="11.5" fill="var(--text)" text-anchor="middle">文字</text>'
+ +'<rect x="10" y="72" width="72" height="30" rx="7" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="46" y="91" font-size="11.5" fill="var(--text)" text-anchor="middle">图片</text>'
+ +'<rect x="10" y="110" width="72" height="30" rx="7" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="46" y="129" font-size="11.5" fill="var(--text)" text-anchor="middle">声音</text>'
+ +'<path d="M84 49 L 110 74" fill="none" stroke="var(--faint)" stroke-width="1.4"/>'
+ +'<path d="M84 87 L 110 87" fill="none" stroke="var(--faint)" stroke-width="1.4"/>'
+ +'<path d="M84 125 L 110 100" fill="none" stroke="var(--faint)" stroke-width="1.4"/>'
+ +'<rect x="114" y="52" width="84" height="70" rx="10" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="156" y="80" font-size="12" font-weight="700" fill="var(--accent)" text-anchor="middle">AI 模型</text>'
+ +'<text x="156" y="98" font-size="10" fill="var(--sub)" text-anchor="middle">全都看得懂</text>'
+ +'<path d="M202 87 L 224 87" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="230" y="52" width="84" height="70" rx="10" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="272" y="80" font-size="12" font-weight="700" fill="var(--text)" text-anchor="middle">一段回答</text>'
+ +'<text x="272" y="98" font-size="10" fill="var(--sub)" text-anchor="middle">也能出图、出声</text>'
+ +'<text x="14" y="156" font-size="10.5" fill="var(--sub)">不只会聊天，文字图片声音都能一起喂进去 —— 这叫多模态。</text>'},
+
+ref:{h:170,s:''
+ +'<rect x="6" y="6" width="308" height="150" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">一个技能包（Skill）的文件夹</text>'
+ +'<rect x="18" y="36" width="122" height="20" rx="5" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="26" y="50" font-size="10.5" fill="var(--text)">① SKILL.md 主文件</text>'
+ +'<text x="148" y="50" font-size="10" fill="var(--sub)">AI 每次都读</text>'
+ +'<text x="18" y="76" font-size="10.5" fill="var(--text)">② references/ 参考资料</text>'
+ +'<rect x="30" y="84" width="104" height="16" rx="4" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="36" y="95.5" font-size="10" fill="var(--sub)">错误账本.md</text>'
+ +'<rect x="30" y="104" width="104" height="16" rx="4" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="36" y="115.5" font-size="10" fill="var(--sub)">阶段导航.md</text>'
+ +'<rect x="30" y="124" width="104" height="16" rx="4" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="36" y="135.5" font-size="10" fill="var(--sub)">API 说明.md</text>'
+ +'<path d="M140 112 L 160 112" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<rect x="164" y="86" width="138" height="52" rx="8" fill="none" stroke="var(--faint)" stroke-dasharray="4 3"/>'
+ +'<text x="176" y="106" font-size="10" fill="var(--sub)">平时不读</text>'
+ +'<text x="176" y="122" font-size="10" fill="var(--sub)">用到了才翻开这一份</text>'
+ +'<text x="14" y="166" font-size="10" fill="var(--sub)">主文件放不下的详细资料，用到才翻</text>'},
+
+tpl:{h:146,s:''
+ +'<rect x="6" y="6" width="308" height="128" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">模板 = 填空就能用的半成品</text>'
+ +'<rect x="16" y="38" width="122" height="76" rx="8" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="26" y="54" font-size="10" fill="var(--faint)">templates/ 里的模板</text>'
+ +'<rect x="26" y="60" width="100" height="15" rx="3" fill="var(--soft)"/>'
+ +'<text x="32" y="71" font-size="10" fill="var(--sub)">① 项目名</text>'
+ +'<rect x="26" y="79" width="100" height="15" rx="3" fill="var(--soft)"/>'
+ +'<text x="32" y="90" font-size="10" fill="var(--sub)">② 日期</text>'
+ +'<rect x="26" y="98" width="100" height="15" rx="3" fill="var(--soft)"/>'
+ +'<text x="32" y="109" font-size="10" fill="var(--sub)">③ 一句话描述</text>'
+ +'<path d="M144 76 L 166 76" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="172" y="38" width="130" height="76" rx="8" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="182" y="54" font-size="10" fill="var(--faint)">复制出来填好的真文件</text>'
+ +'<text x="182" y="74" font-size="10.5" fill="var(--text)">AI 名词小抄</text>'
+ +'<text x="182" y="92" font-size="10" fill="var(--sub)">2026-09-09</text>'
+ +'<text x="182" y="110" font-size="10" fill="var(--sub)">查名词用的手机网页</text>'
+ +'<text x="14" y="142" font-size="10" fill="var(--sub)">复制一份，把占位符换成真内容</text>'},
+
+prog:{h:166,s:''
+ +'<rect x="6" y="6" width="308" height="142" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">PROGRESS.md · 项目进度表</text>'
+ +'<rect x="16" y="34" width="288" height="24" rx="6" fill="var(--accent-soft)"/>'
+ +'<text x="26" y="50" font-size="10.5" fill="var(--text)">当前阶段：6 运维 + 7 迭代　v1.2</text>'
+ +'<text x="20" y="76" font-size="10" fill="var(--sub)">✓ 0 立项　✓ 1 需求　✓ 2 设计</text>'
+ +'<text x="20" y="94" font-size="10" fill="var(--sub)">✓ 3 编码　✓ 4 测试　✓ 5 部署</text>'
+ +'<text x="20" y="112" font-size="10" fill="var(--text)">✓ 6 运维　○ 7 迭代 ← 下一步</text>'
+ +'<line x1="18" y1="122" x2="302" y2="122" stroke="var(--line)"/>'
+ +'<text x="18" y="138" font-size="10" fill="var(--sub)">下一步：词库 72 → 150~200</text>'
+ +'<text x="14" y="162" font-size="10" fill="var(--sub)">AI 开工先读它，就知道做到哪一步</text>'},
+
+
+skill:{h:186,s:''
+ +'<rect x="6" y="6" width="308" height="172" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">技能包：你说需求，AI 自己挑手册</text>'
+ +'<rect x="16" y="36" width="182" height="24" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="24" y="51" font-size="10" fill="var(--text)">①「把这本书拆成技能」</text>'
+ +'<path d="M106 60 L 106 74" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<text x="24" y="88" font-size="10" fill="var(--sub)">② AI 扫一遍所有技能的简介</text>'
+ +'<rect x="16" y="94" width="88" height="22" rx="5" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="24" y="109" font-size="10" fill="var(--sub)">五行针灸</text>'
+ +'<rect x="114" y="94" width="88" height="22" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="122" y="109" font-size="10" fill="var(--text)">拆书成技能</text>'
+ +'<rect x="212" y="94" width="88" height="22" rx="5" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="220" y="109" font-size="10" fill="var(--sub)">薛辉IP</text>'
+ +'<path d="M158 116 L 158 128" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<rect x="46" y="134" width="228" height="34" rx="6" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="56" y="149" font-size="10" fill="var(--text)">③ 翻开这本，按步骤 1→2→3 执行</text>'
+ +'<text x="56" y="163" font-size="10" fill="var(--sub)">不用你提醒它用哪一个</text>'
+ +'<text x="14" y="180" font-size="10" fill="var(--sub)">存硬盘上的岗位手册，AI 判断该不该用</text>'},
+
+subagent:{h:180,s:''
+ +'<rect x="6" y="6" width="308" height="166" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">子代理：主 AI 派活给几个小 AI</text>'
+ +'<rect x="106" y="34" width="108" height="26" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="124" y="51" font-size="10" fill="var(--text)">主 AI（跟你对话那个）</text>'
+ +'<path d="M160 60 L 60 76" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<path d="M160 60 L 160 76" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<path d="M160 60 L 260 76" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<rect x="14" y="80" width="92" height="42" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="22" y="95" font-size="10" fill="var(--text)">小 A：读文件</text>'
+ +'<text x="22" y="111" font-size="10" fill="var(--sub)">自己的一份记忆</text>'
+ +'<rect x="114" y="80" width="92" height="42" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="122" y="95" font-size="10" fill="var(--text)">小 B：搜代码</text>'
+ +'<text x="122" y="111" font-size="10" fill="var(--sub)">自己的一份记忆</text>'
+ +'<rect x="214" y="80" width="92" height="42" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="222" y="95" font-size="10" fill="var(--text)">小 C：写测试</text>'
+ +'<text x="222" y="111" font-size="10" fill="var(--sub)">自己的一份记忆</text>'
+ +'<path d="M30 134 L 290 134" fill="none" stroke="var(--line)" stroke-width="1.2"/>'
+ +'<path d="M160 134 L 160 126" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<text x="16" y="150" font-size="10" fill="var(--sub)">干完把结果交回来，不占主对话的记忆</text>'
+ +'<text x="14" y="166" font-size="10" fill="var(--sub)">分头干活 + 各自记忆，主对话不会被撑爆</text>'},
+
+cli:{h:160,s:''
+ +'<rect x="6" y="6" width="308" height="132" rx="8" fill="#1b1f2a" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="8" fill="#2a3040"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="#2a3040"/>'
+ +'<circle cx="20" cy="17" r="3" fill="#e06c75"/>'
+ +'<circle cx="32" cy="17" r="3" fill="#e5c07b"/>'
+ +'<circle cx="44" cy="17" r="3" fill="#98c379"/>'
+ +'<text x="60" y="21" font-size="10" fill="#9aa5b5">命令行窗口（黑窗口）</text>'
+ +'<text x="18" y="48" font-size="10.5" fill="#e6e9ef">$ git log --oneline</text>'
+ +'<text x="18" y="68" font-size="10" fill="#98c379">54cc45b v1.3 新增三词</text>'
+ +'<text x="18" y="86" font-size="10" fill="#98c379">a4fa59d 接入开发流程</text>'
+ +'<text x="18" y="108" font-size="10.5" fill="#e6e9ef">$</text>'
+ +'<rect x="30" y="99" width="7" height="12" fill="#e6e9ef"/>'
+ +'<text x="230" y="108" font-size="10" fill="#9aa5b5">← 敲命令的地方</text>'
+ +'<text x="14" y="152" font-size="10" fill="var(--sub)">黑窗口里打字指挥电脑，就是命令行</text>'},
+
+md:{h:170,s:''
+ +'<rect x="6" y="6" width="308" height="146" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">Markdown：加几个符号就有格式</text>'
+ +'<rect x="14" y="34" width="138" height="98" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="22" y="50" font-size="10" fill="var(--faint)">文件里写的源码</text>'
+ +'<text x="22" y="70" font-size="10" fill="var(--text)"># 大标题</text>'
+ +'<text x="22" y="90" font-size="10" fill="var(--text)">**重点**</text>'
+ +'<text x="22" y="110" font-size="10" fill="var(--text)">- 列表第一项</text>'
+ +'<text x="22" y="128" font-size="10" fill="var(--text)">[链接](网址)</text>'
+ +'<path d="M158 83 L 168 83" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<rect x="174" y="34" width="132" height="98" rx="6" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="182" y="50" font-size="10" fill="var(--faint)">显示出来是这样</text>'
+ +'<text x="182" y="72" font-size="13" fill="var(--text)">大标题</text>'
+ +'<text x="182" y="94" font-size="10" font-weight="700" fill="var(--text)">重点</text>'
+ +'<text x="182" y="112" font-size="10" fill="var(--text)">• 列表第一项</text>'
+ +'<text x="182" y="130" font-size="10" fill="var(--accent)">链接</text>'
+ +'<text x="14" y="164" font-size="10" fill="var(--sub)">纯文本加几个符号，人和机器都读得懂</text>'},
+
+fm:{h:165,s:''
+ +'<rect x="6" y="6" width="308" height="142" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">文件最开头那块属性区</text>'
+ +'<rect x="16" y="34" width="196" height="102" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<rect x="16" y="34" width="196" height="58" rx="6" fill="var(--accent-soft)"/>'
+ +'<rect x="16" y="64" width="196" height="28" fill="var(--accent-soft)"/>'
+ +'<text x="24" y="50" font-size="10" fill="var(--text)">---</text>'
+ +'<text x="24" y="68" font-size="10" fill="var(--text)">name: 五行针灸</text>'
+ +'<text x="24" y="84" font-size="10" fill="var(--text)">description: 什么时候用</text>'
+ +'<text x="24" y="100" font-size="10" fill="var(--text)">---</text>'
+ +'<text x="24" y="118" font-size="10" fill="var(--sub)"># 正文从这里开始</text>'
+ +'<text x="24" y="134" font-size="10" fill="var(--sub)">（技能的具体步骤）</text>'
+ +'<path d="M216 64 L 232 64" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<text x="238" y="58" font-size="10" fill="var(--text)">这块就是</text>'
+ +'<text x="238" y="74" font-size="10" fill="var(--text)">frontmatter</text>'
+ +'<text x="238" y="96" font-size="10" fill="var(--sub)">AI 靠它判断</text>'
+ +'<text x="238" y="112" font-size="10" fill="var(--sub)">这个技能该不该用</text>'
+ +'<text x="14" y="158" font-size="10" fill="var(--sub)">写错了，这个技能就永远不会被自动用上</text>'},
+
+cron:{h:170,s:''
+ +'<rect x="6" y="6" width="308" height="146" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">一排数字定死什么时候跑</text>'
+ +'<rect x="18" y="36" width="52" height="34" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="40" y="58" font-size="12" fill="var(--text)">0</text>'
+ +'<rect x="76" y="36" width="52" height="34" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="98" y="58" font-size="12" fill="var(--text)">9</text>'
+ +'<rect x="134" y="36" width="52" height="34" rx="5" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="156" y="58" font-size="12" fill="var(--text)">*</text>'
+ +'<rect x="192" y="36" width="52" height="34" rx="5" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="214" y="58" font-size="12" fill="var(--text)">*</text>'
+ +'<rect x="250" y="36" width="52" height="34" rx="5" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="272" y="58" font-size="12" fill="var(--text)">1</text>'
+ +'<text x="38" y="84" font-size="10" fill="var(--sub)">分</text>'
+ +'<text x="96" y="84" font-size="10" fill="var(--sub)">时</text>'
+ +'<text x="154" y="84" font-size="10" fill="var(--sub)">日</text>'
+ +'<text x="212" y="84" font-size="10" fill="var(--sub)">月</text>'
+ +'<text x="270" y="84" font-size="10" fill="var(--sub)">周</text>'
+ +'<rect x="18" y="94" width="284" height="44" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="28" y="112" font-size="10" fill="var(--text)">0 9 * * 1 = 每周一 早上 9:00 自动跑</text>'
+ +'<text x="28" y="130" font-size="10" fill="var(--sub)">星号是「每一个」，最后一位 1 是星期一</text>'
+ +'<text x="14" y="164" font-size="10" fill="var(--sub)">定好时间，到时候程序自己跑，不用你在场</text>'},
+
+bitable:{h:185,s:''
+ +'<rect x="6" y="6" width="308" height="160" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">一张表就是一个在线数据库</text>'
+ +'<rect x="214" y="30" width="46" height="18" rx="4" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="226" y="43" font-size="10" fill="var(--text)">表格</text>'
+ +'<rect x="264" y="30" width="46" height="18" rx="4" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="276" y="43" font-size="10" fill="var(--sub)">看板</text>'
+ +'<rect x="16" y="56" width="288" height="96" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<rect x="16" y="56" width="288" height="20" rx="6" fill="var(--soft)"/>'
+ +'<rect x="16" y="66" width="288" height="10" fill="var(--soft)"/>'
+ +'<text x="24" y="70" font-size="10" fill="var(--sub)">标题</text>'
+ +'<text x="148" y="70" font-size="10" fill="var(--sub)">阅读数</text>'
+ +'<text x="212" y="70" font-size="10" fill="var(--sub)">点赞</text>'
+ +'<text x="262" y="70" font-size="10" fill="var(--sub)">状态</text>'
+ +'<path d="M16 84 L304 84" stroke="var(--line)" stroke-width="1"/>'
+ +'<text x="24" y="98" font-size="10" fill="var(--text)">五行针灸入门</text>'
+ +'<text x="148" y="98" font-size="10" fill="var(--text)">4821</text>'
+ +'<text x="212" y="98" font-size="10" fill="var(--text)">63</text>'
+ +'<text x="262" y="98" font-size="10" fill="var(--ok)">已发布</text>'
+ +'<path d="M16 108 L304 108" stroke="var(--line)" stroke-width="1"/>'
+ +'<text x="24" y="122" font-size="10" fill="var(--text)">护持一行的秘密</text>'
+ +'<text x="148" y="122" font-size="10" fill="var(--text)">3150</text>'
+ +'<text x="212" y="122" font-size="10" fill="var(--text)">41</text>'
+ +'<text x="262" y="122" font-size="10" fill="var(--sub)">待发</text>'
+ +'<path d="M16 132 L304 132" stroke="var(--line)" stroke-width="1"/>'
+ +'<text x="24" y="146" font-size="10" fill="var(--text)">木型人怎么判断</text>'
+ +'<text x="148" y="146" font-size="10" fill="var(--text)">2870</text>'
+ +'<text x="212" y="146" font-size="10" fill="var(--text)">38</text>'
+ +'<text x="262" y="146" font-size="10" fill="var(--sub)">待发</text>'
+ +'<text x="14" y="178" font-size="10" fill="var(--sub)">多人能同时改，程序也能自动往里写</text>'},
+
+webhook:{h:168,s:''
+ +'<rect x="6" y="6" width="308" height="144" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">出事他通知你，不用你一直问</text>'
+ +'<rect x="14" y="38" width="80" height="50" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="26" y="60" font-size="10" fill="var(--text)">飞书群</text>'
+ +'<text x="26" y="76" font-size="10" fill="var(--sub)">有事发生</text>'
+ +'<path d="M98 63 L 124 63" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<text x="100" y="52" font-size="10" fill="var(--accent)">通知</text>'
+ +'<rect x="130" y="41" width="62" height="44" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="140" y="61" font-size="10" fill="var(--text)">你留的</text>'
+ +'<text x="140" y="77" font-size="10" fill="var(--text)">网址</text>'
+ +'<path d="M196 63 L 222 63" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<rect x="228" y="38" width="80" height="50" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="240" y="60" font-size="10" fill="var(--text)">你的程序</text>'
+ +'<text x="240" y="76" font-size="10" fill="var(--sub)">收到就处理</text>'
+ +'<rect x="14" y="98" width="292" height="40" rx="6" fill="var(--card)" stroke="var(--line)" stroke-dasharray="4 3"/>'
+ +'<text x="24" y="114" font-size="10" fill="var(--sub)">普通接口：你得隔一会儿问一次好了没</text>'
+ +'<text x="24" y="130" font-size="10" fill="var(--sub)">回调：好了他自己打电话给你</text>'
+ +'<text x="14" y="162" font-size="10" fill="var(--sub)">把网址留给对方，出事时他主动发过来</text>'},
+
+obsidian:{h:172,s:''
+ +'<rect x="6" y="6" width="308" height="148" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
+ +'<rect x="6" y="18" width="308" height="10" fill="var(--accent-soft)"/>'
+ +'<text x="18" y="21" font-size="11" fill="var(--sub)">笔记之间用双括号连起来</text>'
+ +'<rect x="16" y="38" width="86" height="46" rx="6" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="24" y="58" font-size="10" fill="var(--text)">五行针灸.md</text>'
+ +'<text x="24" y="74" font-size="10" fill="var(--sub)">提到龙梅老师</text>'
+ +'<rect x="118" y="38" width="86" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="126" y="58" font-size="10" fill="var(--text)">龙梅老师.md</text>'
+ +'<text x="126" y="74" font-size="10" fill="var(--sub)">提到护持一行</text>'
+ +'<rect x="220" y="38" width="86" height="46" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="228" y="58" font-size="10" fill="var(--text)">护持一行.md</text>'
+ +'<text x="228" y="74" font-size="10" fill="var(--sub)">提到五行针灸</text>'
+ +'<path d="M102 55 L 114 55" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<path d="M204 55 L 216 55" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<path d="M266 84 L 266 104 L 60 104 L 60 84" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
+ +'<rect x="16" y="114" width="288" height="28" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="26" y="132" font-size="10" fill="var(--sub)">连得多了，就长成一张能顺着走的知识网</text>'
+ +'<text x="14" y="166" font-size="10" fill="var(--sub)">文件存本地，配插件能让 AI 读整个笔记库</text>'}
+};
+
+function shotSVG(k){
+  var s=SHOTS[k];if(!s)return '';
+  var id='arw_'+k;
+  return '<svg viewBox="0 0 320 '+s.h+'" xmlns="http://www.w3.org/2000/svg">'
+   +'<defs><marker id="'+id+'" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">'
+   +'<path d="M2 1L8 5L2 9" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>'
+   +s.s.split('@@AR@@').join('url(#'+id+')')+'</svg>';
+}
+function shotHTML(k){
+  if(!SHOTS[k])return '';
+  return '<div class="shotbox" data-zoom="'+k+'">'+shotSVG(k)
+   +'<div class="zt">👆 点一下放大看</div></div>';
+}
+function openZoom(k){
+  if(!SHOTS[k]||document.getElementById('zmask'))return;
+  var d=document.createElement('div');d.className='zmask';d.id='zmask';
+  d.innerHTML='<div class="zin">'+shotSVG(k)+'<div class="zc">点任意处关闭</div></div>';
+  d.addEventListener('click',function(){d.parentNode.removeChild(d)});
+  document.body.appendChild(d);
+}
+
+/* ---------- 动画驱动 ---------- */
+function tokenize(s){
+  var out=[],re=/[\u4e00-\u9fa5]|[A-Za-z]+|\d+|[^\sA-Za-z0-9\u4e00-\u9fa5]/g,m;
+  while((m=re.exec(s))!==null){var t=m[0];
+    if(/[A-Za-z]{5,}/.test(t)){var i=0;while(i<t.length){out.push(t.slice(i,i+4));i+=4}}
+    else out.push(t);}
+  return out;
+}
+function startDemo(){
+  var w=byId(curArg);if(!w||!w.demo)return;
+  var k=w.demo;
+  if(k==='llm')runLLM();
+  if(k==='token')runToken();
+  if(k==='ctx')runCtx();
+  if(k==='temp')runTemp();
+  if(k==='agent'||k==='rag')runSteps(k==='agent'?'#agSteps':'#ragSteps');
+  if(k==='moe')runMoe();
+}
+function runSteps(sel){
+  var steps=document.querySelectorAll(sel+' .step');if(!steps.length)return;
+  var n=steps.length,i=0;
+  (function loop(){
+    for(var j=0;j<steps.length;j++)steps[j].classList.remove('on');
+    if(i<n){steps[i].classList.add('on');i++}
+    else{i=0;push(loop,1400);return}
+    push(loop,1600);
+  })();
+}
+function runLLM(){
+  var out=document.getElementById('out'),hint=document.getElementById('llmHint');
+  if(!out)return;
+  var seq=['真','好','啊'],tips=['「真」——概率最高','「好」——接在真后面最顺','「啊」——可以收尾了'];
+  push(function(){hint.innerHTML='它先看到「<b>今天天气</b>」，然后开始猜下一个字…'},500);
+  seq.forEach(function(c,n){
+    push(function(){out.textContent+=c;
+      hint.innerHTML='吐出第 '+(n+1)+' 个字：<b style="color:var(--accent)">'+c+'</b>　'+tips[n];},1400+n*1000);
+  });
+  push(function(){hint.innerHTML='✅ 看出来了吗？<b>它不是一个字一个字想好了再写，是每次只猜下一个最可能的字，串起来就成了句子。</b>'},1400+seq.length*1000+300);
+}
+function runToken(){
+  var stage=document.getElementById('tokStage'),hint=document.getElementById('tokHint'),
+      inp=document.getElementById('tokIn'),cnt=document.getElementById('tokCount');
+  if(!stage)return;
+  var demo='我爱吃苹果',toks=tokenize(demo);
+  var hints=['先拿到你说的话…','AI 不认识整句，先把它拆成积木块','中文基本一个字一块','每块就是一个 Token','拆完才能算钱、算长度'];
+  stage.innerHTML=toks.map(function(t){return '<span class="tok">'+esc(t)+'</span>'}).join('');
+  var spans=stage.querySelectorAll('.tok');
+  toks.forEach(function(t,i){
+    push(function(){if(spans[i])spans[i].classList.add('on');
+      hint.innerHTML='<b>'+(i+1)+'</b> / '+toks.length+' 块 — '+hints[Math.min(i,hints.length-1)];},400+i*430);
+  });
+  push(function(){
+    hint.innerHTML='✅ 拆完了：<b>'+toks.length+' 个 Token</b>。中文一般一个字一块，记「字数 ≈ Token 数」基本够用。'
+     +'<br><span style="color:var(--faint)">（真实分词器会把「苹果」这类常见词合并，实际会略少，但数量级一样。）</span>';},
+    400+toks.length*430+300);
+  if(inp)inp.addEventListener('input',function(){
+    var v=inp.value.trim();
+    if(!v){stage.innerHTML=toks.map(function(t){return '<span class="tok on">'+esc(t)+'</span>'}).join('');cnt.textContent='';return}
+    var tk=tokenize(v),show=tk.slice(0,60),col=['#3566f0','#7b4ff0','#1f9d55','#f2622e','#f6a623'];
+    stage.innerHTML=show.map(function(t,i){
+      return '<span class="tok on" style="border-color:'+col[i%5]+';color:'+col[i%5]+'">'+esc(t)+'</span>'}).join('')
+      +(tk.length>60?'<span class="tok on">…还有 '+(tk.length-60)+' 块</span>':'');
+    cnt.textContent='你这句 = '+tk.length+' 个 Token';
+  });
+}
+function runCtx(){
+  var win=document.getElementById('ctxWin'),hint=document.getElementById('ctxHint');
+  if(!win)return;
+  var msgs=['第 1 轮：帮我写个公众号标题','第 2 轮：再短一点','第 3 轮：换成五行针灸主题的',
+            '第 4 轮：加个 emoji','第 5 轮：再改改','第 6 轮：还是第一个好',
+            '第 7 轮：再加个数字','第 8 轮：好了就用第一个'];
+  var caps=4,i=0,nodes=[];
+  msgs.forEach(function(m,n){
+    var d=document.createElement('div');d.className='msg';d.textContent=m;win.appendChild(d);nodes.push(d);
+  });
+  (function loop(){
+    if(i<msgs.length){
+      if(i>=caps){nodes[i-caps].classList.add('out');hint.innerHTML='⚠️ 桌子坐不下了！<b>第 '+(i-caps+1)+' 轮被挤了出去</b>，它从此<b>真的忘了</b>那句话。';}
+      else{hint.innerHTML='会议室还能坐：已用 <b>'+(i+1)+' / '+caps+'</b>，都还记得。';}
+      nodes[i].classList.add('on');i++;push(loop,1500);
+    }else{
+      push(function(){
+        nodes.forEach(function(nd){nd.classList.remove('on');nd.classList.remove('out')});
+        i=0;loop();},2600);
+    }
+  })();
+}
+function runTemp(){
+  var s=document.getElementById('tmpS'),v=document.getElementById('tmpV'),o=document.getElementById('tmpOut');
+  if(!s)return;
+  var map=[[0,0,'夏天很热。','夏天天气炎热，气温较高。','夏天是一年中最热的季节，气温高。'],
+   [1,0.3,'夏天很热，注意防暑。','夏季气温升高，需注意防晒与补水。','夏天是一年中最热的季节，建议做好防暑降温。'],
+   [2,0.7,'夏天的风裹着热浪，连蝉都懒得叫了。','骄阳似火，树荫下的老冰棍是夏天唯一的救赎。','夏天像个不讲道理的孩子，一上来就把热全倒给你。'],
+   [3,1.0,'夏天是一万只蝉同时尖叫的午后，是柏油路上融化的影子，是西瓜第一口时甜到发慌的红色。','太阳把云烤成棉花糖，风一吹，全是热乎乎的、黏答答的、属于七月的味道。','夏天在汽水冒泡的瞬间抵达，在蝉鸣里凝固，在傍晚的雷雨中仓皇退场。']];
+  function upd(){
+    var val=parseInt(s.value,10),t=(val/100).toFixed(1);
+    var tier=val<25?0:val<50?1:val<80?2:3;
+    v.textContent=t;
+    var arr=map[tier][2+Math.floor(Math.random()*3)];
+    o.innerHTML='<b style="color:var(--accent)">温度 '+t+'：</b>'+arr;
+  }
+  s.addEventListener('input',upd);upd();
+}
+function runMoe(){
+  var box=document.getElementById('moeBox'),hint=document.getElementById('moeHint');
+  if(!box)return;
+  var ex=box.querySelectorAll('.ex');
+  var qs=[['「这个合同条款有风险吗？」',[0,2]],['「帮我把这段 Python 改得快一点」',[1,5]],['「这个月投放 ROI 怎么算」',[2,3]],['「给新品写个小红书标题」',[3,4]]];
+  var i=0;
+  (function loop(){
+    ex.forEach(function(e){e.classList.remove('on')});
+    var q=qs[i%qs.length];
+    q[1].forEach(function(k){ex[k].classList.add('on')});
+    hint.innerHTML='问题：'+q[0]+'　→　只叫醒 <b>'+q[1].length+' 个</b>相关专家，其余 4 个继续睡觉 💤';
+    i++;push(loop,2200);
+  })();
+}
+
+/* ---------- 测验 / 收藏 ---------- */
+function viewQuiz(){
+  var qs=WORDS.filter(function(w){return w.quiz});
+  var fav=qs.filter(function(w){return STORE.fav[w.id]});
+  var pool=fav.length?fav.concat(qs):qs;
+  if(!pool.length)return '<div class="empty"><span class="e">🎯</span>还没有能出题的词<br>等词库再扩充一批就有了</div>';
+  var q=pool[QI%pool.length];
+  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">考考我</div></div>';
+  h+='<div class="qbox"><div class="qnum">第 '+(QI+1)+' 题 · 题库 '+pool.length+' 题'
+   +(fav.length?' · 优先出你收藏的词':'')+'</div><div class="qtxt">'+q.quiz.q+'</div>';
+  q.quiz.o.forEach(function(o,i){
+    var cls='';
+    if(PICKED!==null){if(i===q.quiz.a)cls=' right';else if(i===PICKED)cls=' wrong'}
+    h+='<div class="opt '+cls+'" data-pick="'+i+'">'+String.fromCharCode(65+i)+'. '+esc(o)+'</div>';
+  });
+  if(PICKED!==null){
+    h+='<div class="expl">'+(PICKED===q.quiz.a?'✅ 答对了！':'❌ 正确答案：'+String.fromCharCode(65+q.quiz.a)+'。')+' '+q.quiz.why+'</div>';
+    h+='<button class="btn" data-next="1">下一题 →</button>';
+  }else h+='<button class="btn" disabled>选一个答案</button>';
+  h+='<button class="btn ghost" data-go="detail" data-id="'+q.id+'">看看这个词的详解</button>';
+  h+='</div><p class="tip">💡 星标收藏的词会优先出现在题目里</p>'+footer()+'</div>';
+  return h;
+}
+function viewFav(){
+  var list=WORDS.filter(function(w){return STORE.fav[w.id]});
+  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">我的收藏</div></div>';
+  if(!list.length)h+='<div class="empty"><span class="e">⭐</span>还没有收藏<br><br>在任意词条右上角点个星<br>它就会出现在这里</div>';
+  else{list.forEach(function(w){h+=rowHTML(w,false)});
+    h+='<button class="btn" data-go="quiz">🎯 用收藏的词考考我</button>';}
+  return h+footer()+'</div>';
+}
+
+/* ---------- 事件 ---------- */
+document.getElementById('screen').addEventListener('click',function(e){
+  var n;
+  if((n=e.target.closest('[data-star]'))){
+    var id=n.getAttribute('data-star');STORE.fav[id]=!STORE.fav[id];save();
+    n.classList.toggle('on',!!STORE.fav[id]);return;
+  }
+  if((n=e.target.closest('[data-back]'))){clearTimers();back();return}
+  if((n=e.target.closest('[data-zoom]'))){openZoom(n.getAttribute('data-zoom'));return}
+  if((n=e.target.closest('[data-pick]'))){PICKED=parseInt(n.getAttribute('data-pick'),10);render();return}
+  if((n=e.target.closest('[data-next]'))){QI++;PICKED=null;render();return}
+  if((n=e.target.closest('[data-go]'))){
+    var v=n.getAttribute('data-go');
+    if(v==='detail')go('detail',n.getAttribute('data-id'));
+    else if(v==='list')go('list',{z:n.getAttribute('data-z'),q:''});
+    else if(v==='fav')go('fav');
+    else if(v==='quiz'){QI=0;PICKED=null;go('quiz')}
+  }
+});
+document.getElementById('q').addEventListener('input',function(){
+  var v=this.value.trim();
+  if(v){if(cur!=='list'){stack.push({v:cur,a:curArg});cur='list';curArg={z:'ai',q:v}}
+    else curArg={z:curArg.z,q:v};
+    var box=document.getElementById('listBox');
+    if(box)box.innerHTML=listHTML(curArg,false);
+    var t=document.querySelector('#screen .topbar .t');if(t)t.textContent='搜索“'+v+'”';
+  }else if(cur==='list'){back();}
+});
+document.getElementById('tabbar').addEventListener('click',function(e){
+  var n=e.target.closest('[data-tab]');if(!n)return;
+  var k=n.getAttribute('data-tab');
+  stack=[];
+  if(k==='quiz'){QI=0;PICKED=null;go('quiz')}
+  else if(k==='fav')go('fav');
+  else{cur='home';curArg=null;render()}
+});
+document.getElementById('cnt').textContent=WORDS.length+' 词';
+render();
+</script>
+</body>
+</html>
