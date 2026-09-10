@@ -186,6 +186,17 @@ main{padding:12px 14px 96px}
 .abbrline .a{font-weight:800;font-size:15px;color:var(--accent);min-width:58px;display:inline-block}
 .abbrline .f{font-size:11.5px;color:var(--faint)}
 footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 10px;line-height:1.8}
+/* v2.0 随查三件套：一句话 / 别搞混 / 真实对话 */
+.one{background:var(--accent-soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:12px;padding:13px 15px;font-size:17px;font-weight:700;line-height:1.62;margin:12px 0 2px}
+.blk.cf .h{color:var(--bad)}
+.blk.cf .b{font-size:14px}
+.blk.talk .dl{font-size:13.5px;line-height:1.72;background:var(--soft);border-radius:10px;
+  padding:8px 12px;margin-top:6px}
+.blk.talk .dl+.dl{margin-top:6px}
+.missbox{text-align:center;margin-top:14px;padding:14px;background:var(--soft);border-radius:12px}
+.missbox .mt{font-size:13px;color:var(--sub);margin-bottom:8px}
+.missbox .ms{font-size:11.5px;color:var(--faint);margin-top:8px;line-height:1.7}
 </style>
 </head>
 <body data-page-node-id="QxIqCOXUCHxgQ7vOMDn8QF">
@@ -214,13 +225,13 @@ var WORDS=[
  demo:'kit',
  quiz:{q:'下面哪个说法是对的？',o:['AI 是大类，ChatGPT 只是其中一个产品','ChatGPT 就是 AI 的全部','AI 和机器学习是一个东西','AI 必须有实体机器人'],a:0,
  why:'AI 是最大的筐 → 机器学习是造它的方法 → 深度学习是最能打的一支 → 大模型是产物 → GPT/Claude/DeepSeek 是具体产品。它们是套娃关系，不是同一个东西。'},
- rel:['llm','ml','agent']},
+ rel:['llm','ml','agent'],al:['人工智能','机器智能','人工智能技术','AI技术'],one:'让机器干以前只有人能干的活',cf:'它是一大类技术的统称，不是某一个具体产品',dlg:['甲：这功能谁做的？','乙：AI 自动生成的，没人手写']},
 
 {id:'ml',term:'机器学习 / ML',full:'Machine Learning',cn:'机器学习',zone:'ai',lv:2,abbr:true,
  tl:'造 AI 的一种方法：<b>不给机器写死规则，让它自己从大量例子里总结规律</b>。',
  ana:'教小孩认猫，老办法是写规则「尖耳朵+长尾巴+会喵喵叫=猫」；机器学习是<b>直接给它看十万张猫片</b>，让它自己总结猫长什么样。',
  scn:'你刷抖音「猜你喜欢」、邮箱自动拦垃圾邮件，背后都是机器学习——没人写规则，它自己从你的行为里学的。',
- demo:null,rel:['ai','llm']},
+ demo:null,rel:['ai','llm'],al:['机器学习','训练模型','机器学习算法'],one:'不写死规则，让机器自己从数据里找规律',cf:'机器学习只是实现 AI 的一条路，不等于 AI 全部',dlg:['甲：它怎么知道该推荐啥？','乙：看了几万条历史数据自己学的']},
 
 {id:'llm',term:'LLM',full:'Large Language Model',cn:'大语言模型 / 大模型',zone:'ai',lv:1,abbr:true,
  tl:'在海量的文字上训练出来的超大程序，核心本事只有一个：<b>猜下一个字是什么</b>。',
@@ -229,7 +240,7 @@ var WORDS=[
  demo:'llm',
  quiz:{q:'「大模型」的「大」，到底大在哪？',o:['学过的文字和参数特别多','装它的服务器体积很大','收费很贵','只能处理很大的问题'],a:0,
  why:'「大」指训练数据量 + 模型参数量巨大，跟体积、价格、问题大小都没关系。'},
- rel:['token','context','rag','ai']},
+ rel:['token','context','rag','ai'],al:['大模型','大语言模型','语言模型','大模'],one:'读了海量文本、专会接话茬的巨大模型',cf:'大模型专指语言类模型，不等于所有 AI',dlg:['甲：你用的哪个模型？','乙：GPT 那种大模型']},
 
 {id:'token',term:'Token',full:'Token',cn:'词元 / 令牌',zone:'ai',lv:2,
  tl:'AI 处理文字的最小单位，也是它<b>收费和记长度的尺子</b>。不是「一个字」，也不是「一个词」。',
@@ -238,13 +249,13 @@ var WORDS=[
  demo:'token',
  quiz:{q:'「我爱吃苹果」大概会被切成几个 Token？',o:['5 个（一个字一块）','1 个（一整句）','11 个（一个字母一块）','看心情'],a:0,
  why:'中文通常一个字 ≈ 一个 Token；英文长单词反而会被拆成好几块，所以「按字数估钱」在中文里基本准，在英文里会算错。'},
- rel:['llm','context']},
+ rel:['llm','context'],al:['词元','令牌','分词','字数','计费单位','tokens'],one:'AI 数文字的单位，不等于「字」',cf:'一个英文词常切成 2-3 个 token，中文多是一字一个',dlg:['甲：怎么又超了？','乙：你说太多，token 用完了']},
 
 {id:'context',term:'上下文窗口',full:'Context Window',cn:'上下文窗口',zone:'ai',lv:2,
  tl:'AI <b>一次性能看到多少内容的上限</b>。超出的部分它真的就忘了，不是装傻。',
  ana:'像一间<b>只能坐 20 人的小会议室</b>：新来一个人，就得挤走最早来的那个。你和它聊到第 50 轮，它忘了第 1 轮说的话，就是被挤出去了。',
  scn:'Codex 提示「上下文快满了，建议 /compact」——就是会议室坐不下了，让你把前面的对话压缩一下腾地方。',
- demo:'ctx',rel:['token','llm','rag']},
+ demo:'ctx',rel:['token','llm','rag'],al:['上下文','上下文长度','记忆长度','能记住多少','窗口','context window','上下文限制'],one:'AI 一次能同时看到的字数上限',cf:'超了不会报错，它会悄悄忘掉最早的内容',dlg:['甲：它怎么忘了开头说的？','乙：超出上下文窗口，被挤掉了']},
 
 {id:'prompt',term:'Prompt',full:'Prompt',cn:'提示词',zone:'ai',lv:1,
  tl:'你发给 AI 的那段话。<b>它写的每一个字都在影响答案</b>，所以「会提问」本身就是一门技术。',
@@ -253,13 +264,13 @@ var WORDS=[
  demo:'prompt',
  quiz:{q:'想让 AI 答得更好，最便宜有效的一招是？',o:['把问题写得更长','换更贵的模型','多说几次「请」','给它几个你想要的样子当例子'],a:3,
  why:'这招叫「少样本」（Few-shot）：先给它 2～3 个你想要的样子，它立刻知道你要什么。比调参数、换模型都划算。'},
- rel:['sysprompt','cot','llm']},
+ rel:['sysprompt','cot','llm'],al:['提示词','提示语','咒语','指令','提问词','prompt词'],one:'你给 AI 下的那句话，说清要它干啥',cf:'不是几个关键词，是一段完整的话，越具体越好',dlg:['甲：我写的它老答偏','乙：提示词没说清要什么格式']},
 
 {id:'sysprompt',term:'System Prompt',full:'System Prompt',cn:'系统提示词',zone:'ai',lv:2,
  tl:'<b>每次对话都自动生效、但你看不见</b>的那段「岗位说明书」。定了 AI 的人设、口气和底线。',
  ana:'普通 Prompt 是你<b>每次说的话</b>；System Prompt 是公司<b>提前发给它的员工手册</b>：你是谁、该怎么说话、什么不能说。',
  scn:'你给我写的 SOUL.md、龙之心客服智能体的设定，本质上就是 System Prompt——它在每一次对话里都起作用，你看不见但它一直在。',
- demo:null,rel:['prompt','agent']},
+ demo:null,rel:['prompt','agent'],al:['系统提示词','系统指令','人设','预设指令','system prompt'],one:'对话开始前偷偷塞给 AI 的长期规矩',cf:'你说的每句叫 prompt，这个是后台固定的人设',dlg:['甲：它怎么知道自己是客服？','乙：系统提示词里写好了身份']},
 
 {id:'hallu',term:'幻觉',full:'Hallucination',cn:'AI 幻觉 / 一本正经胡说',zone:'ai',lv:1,
  tl:'AI <b>编造不存在的事实，还说得特别自信</b>：假的书名、假的法条、假的数据，全都能给你编圆了。',
@@ -268,13 +279,13 @@ var WORDS=[
  demo:'hallu',
  quiz:{q:'哪种做法最能减少 AI 瞎编？',o:['让它先查你的资料再回答（RAG）','把温度调到 0','每次都提醒它「不许编」','换个更大的模型'],a:0,
  why:'让它先翻你的资料再回答（RAG），答案有出处就不容易编。「不许编」这种叮嘱基本没用，它做不到。'},
- rel:['rag','llm']},
+ rel:['rag','llm'],al:['幻觉','胡说','编的','瞎编','一本正经胡说','乱说','造假'],one:'AI 一本正经地编造不存在的事实',cf:'它不是故意骗你，是真分不清自己知不知道',dlg:['甲：这书名是真的？','乙：查了没有，它幻觉了']},
 
 {id:'temp',term:'温度',full:'Temperature',cn:'温度参数',zone:'ai',lv:2,
  tl:'控制 AI 回答<b>「稳」还是「野」</b>的旋钮。数字越大越天马行空，越小越死板。',
  ana:'温度低 = <b>会计在做报表</b>（每次都一样，稳）；温度高 = <b>李白喝醉了写诗</b>（每次都不一样，时有惊喜时有翻车）。',
  scn:'写代码、查数据、做表格 → 调低（0～0.3）；写公众号标题、想创意、头脑风暴 → 调高（0.7～1）。大多数工具默认 0.7 左右。',
- demo:'temp',rel:['llm','prompt']},
+ demo:'temp',rel:['llm','prompt'],al:['温度','随机性','temperature','创造性参数','发散度'],one:'控制 AI 是照本宣科还是天马行空',cf:'调低不等于变聪明，只是更保守、花样更少',dlg:['甲：每次结果都不一样','乙：温度调高了，让它更有创意']},
 
 {id:'agent',term:'Agent',full:'AI Agent',cn:'智能体',zone:'ai',lv:2,abbr:true,
  tl:'<b>不只回答问题，而是自己把活干完</b>的 AI：会拆步骤、会调工具、干完才来找你。',
@@ -283,25 +294,25 @@ var WORDS=[
  demo:'agent',
  quiz:{q:'下面哪个更像 Agent 而不是普通聊天 AI？',o:['问一句答一句的百科','只能聊天的客服机器人','你说目标，它自己搜资料→整理→写报告→交给你','需要你一步步指挥的工具'],a:2,
  why:'判断标准一句话：聊天机器人给你「步骤清单」，Agent 直接给你「可以验收的成品」。'},
- rel:['mcp','tool','workflow']},
+ rel:['mcp','tool','workflow'],al:['智能体','代理','agent模式','AI代理','智能代理'],one:'能自己拆解任务、动手干活的 AI',cf:'聊天机器人只动嘴，Agent 会真的去点、去改文件',dlg:['甲：它自己就去改代码了？','乙：嗯，开着 Agent 模式呢']},
 
 {id:'rag',term:'RAG',full:'Retrieval-Augmented Generation',cn:'检索增强生成',zone:'ai',lv:3,abbr:true,
  tl:'先让 AI <b>去你的资料里翻一遍</b>，再拿着翻到的内容回答你，而不是凭记忆瞎编。',
  ana:'等于<b>开卷考试</b>。不 RAG 是闭卷（凭训练记忆答，容易编）；RAG 是先发它一堆参考资料，让它照着答，还能告诉你答案出自第几页。',
  scn:'你把五行针灸的资料喂给它，问「护持一行怎么判断」，它从你资料里翻完再答——这就是 RAG。公众号说「给 AI 挂个知识库」，挂的就是这个。',
- demo:'rag',rel:['embed','vdb','hallu','llm']},
+ demo:'rag',rel:['embed','vdb','hallu','llm'],al:['检索增强','外挂知识库','查资料再回答','知识库问答','rag技术'],one:'先翻你的资料，再照着资料回答',cf:'RAG 不改模型本身，只是临时给它参考资料',dlg:['甲：它怎么知道我公司的事？','乙：接了知识库，走的 RAG']},
 
 {id:'embed',shot:'embed',term:'Embedding',full:'Embedding',cn:'向量化 / 嵌入',zone:'ai',lv:3,
  tl:'把文字<b>变成一串数字</b>，让电脑能算「这两句话像不像」。意思相近的话，数字也挨得近。',
  ana:'给每段话发一个<b>数学指纹</b>。电脑不认字只认数，有了指纹它就能算出「护持一行」和「主导一行」其实说的是一回事。',
  scn:'你搜「怎么判断五行人」，即使文章里一个字都没出现「判断」两个字，也能被搜出来——靠的就是这个。RAG 底层全靠它。',
- demo:null,rel:['rag','vdb']},
+ demo:null,rel:['rag','vdb'],al:['向量化','嵌入','embedding','转成数字','向量表示'],one:'把文字变成一串数字，好让机器比相似度',cf:'向量化不是压缩，是为了能算出「意思近不近」',dlg:['甲：怎么搜「变笨」能出别的词？','乙：靠 embedding 比语义']},
 
 {id:'vdb',term:'向量数据库',full:'Vector Database',cn:'向量数据库',zone:'ai',lv:3,
  tl:'专门存「数字指纹」的数据库，<b>按意思找，不按字面找</b>。',
  ana:'普通图书馆<b>按书名找书</b>；向量数据库是<b>按「讲的是什么」找书</b>——你说个大概意思，它把相关的都给你搬出来。',
  scn:'你给公众号历史文章做个「能对话的知识库」，文章就存在这种库里。常见产品：Pinecone、Milvus、Chroma。',
- demo:null,rel:['embed','rag']},
+ demo:null,rel:['embed','rag'],al:['向量数据库','向量库','向量检索','相似度搜索'],one:'专门存那串数字、按「意思像不像」搜的库',cf:'普通数据库是精确匹配，它按语义相近排序',dlg:['甲：资料太多放哪？','乙：塞向量数据库，随时检索']},
 
 {id:'ft',term:'微调',full:'Fine-tuning',cn:'微调 / 精调',zone:'ai',lv:3,
  tl:'在已经训练好的模型上，<b>再用你自己的数据练一遍</b>，让它养成某种固定风格或习惯。',
@@ -310,109 +321,109 @@ var WORDS=[
  demo:'ft',
  quiz:{q:'想让 AI 学会你公司的新规定（每周都在变），该用哪个？',o:['RAG（挂知识库）','微调','换更大的模型','调高温度'],a:0,
  why:'微调是把知识「刻进脑子」，改起来慢又贵，适合固定风格；RAG 是给它一本书随时翻，内容变了改书就行。经常变的东西用 RAG。'},
- rel:['rag','llm']},
+ rel:['rag','llm'],al:['微调','精调','finetune','finetuning','训练自己的模型'],one:'拿现成模型再喂自己的数据，让它更懂你',cf:'微调会改模型参数；RAG 只外挂资料，不改模型',dlg:['甲：让它学会我的文风？','乙：那得微调，光提示词不够']},
 
 {id:'multi',shot:'multi',term:'多模态',full:'Multimodal',cn:'多模态',zone:'ai',lv:1,
  tl:'AI 不只会读字，还<b>能看图、听声音、看视频</b>，混在一起理解。',
  ana:'以前它是<b>只能看文档的文员</b>，现在是<b>能看照片、能听语音、能看视频的全能助理</b>。',
  scn:'你把群聊截图直接丢给我，我能读出里面的发言并做统计——这就是多模态。以前必须你先把字打出来才行。',
- demo:null,rel:['llm','vlm']},
+ demo:null,rel:['llm','vlm'],al:['多模态','多模态模型','图文音视','能看图'],one:'能同时处理文字、图、声音、视频的 AI',cf:'不支持的类型它也会硬答，别被唬住',dlg:['甲：能让它看这张表吗？','乙：可以，这模型是多模态的']},
 
 {id:'reason',term:'推理模型',full:'Reasoning Model / LRM',cn:'推理模型',zone:'ai',lv:2,abbr:true,
  tl:'<b>先想清楚再回答</b>的模型。回答前会在后台一步步推演、自我检查，难题更强，但更慢更贵。',
  ana:'普通模型是<b>脱口而出</b>；推理模型是<b>打草稿再交卷</b>。做数学题、写代码、复杂决策，草稿这一步差别巨大。',
  scn:'DeepSeek-R1、GPT 的 o 系列、Claude 的「扩展思考」都是这类。<b>日常闲聊用它 = 用大炮打蚊子</b>，又慢又贵。',
- demo:null,rel:['cot','llm']},
+ demo:null,rel:['cot','llm'],al:['推理模型','慢思考','深度思考','o1','思维链模型'],one:'回答前先自己想一通，慢但更准',cf:'不是啥题都该用，简单问答会又慢又贵',dlg:['甲：怎么等这么久？','乙：推理模型，它在一步一步想']},
 
 {id:'cot',term:'思维链',full:'Chain of Thought / CoT',cn:'思维链',zone:'ai',lv:2,abbr:true,
  tl:'让 AI <b>把思考过程写出来再给结论</b>。就这一句话，正确率能提升一大截。',
  ana:'像数学考试<b>要写解题步骤，不能只写答案</b>。写着写着，它自己就发现哪步错了。',
  scn:'在提问后面加一句「<b>请一步一步思考</b>」，是全网验证过最省事的提分技巧。你现在就可以试。',
- demo:null,rel:['reason','prompt']},
+ demo:null,rel:['reason','prompt'],al:['思维链','一步步想','chain of thought','分步思考','推理过程'],one:'让 AI 把思考过程写出来，答案更靠谱',cf:'你让它「一步步想」，就是在用思维链',dlg:['甲：怎么让它少错？','乙：加一句「请一步步 reasoning」']},
 
 {id:'param',term:'参数',full:'Parameters',cn:'参数 / 7B、70B',zone:'ai',lv:2,
  tl:'模型内部的「旋钮」数量，粗暴理解就是<b>脑容量</b>。B = 十亿，7B 就是 70 亿个旋钮。',
  ana:'像<b>音响上的 EQ 均衡器</b>：旋钮越多，能调出的声音越细腻。但旋钮多不等于好听，还得看调没调好。',
  scn:'文章里说「本地跑个 7B 的小模型」，就是说它脑容量小、对电脑要求低、也便宜。<b>参数大 ≠ 一定更好用</b>，小模型精调后干专项活可能更合适。',
- demo:null,rel:['llm','quant']},
+ demo:null,rel:['llm','quant'],al:['参数','参数量','模型大小','7b','70b','多少B'],one:'模型脑容量，B 越大越聪明也越吃硬件',cf:'参数多不等于一定好用，还得看训练数据',dlg:['甲：7B 和 70B 啥区别？','乙：参数量，后者强很多也更慢']},
 
 {id:'moe',term:'MoE',full:'Mixture of Experts',cn:'混合专家模型',zone:'ai',lv:3,abbr:true,
  tl:'模型内部养了一群「专科医生」，<b>每个问题只叫醒相关的几个</b>，不用全员上岗。',
  ana:'大公司里有法务、财务、技术、市场。MoE 不是每次开会都叫齐所有人，而是<b>谁相关叫谁</b>——所以「总人数很多，干活却不慢」。',
  scn:'DeepSeek、Mixtral 都用这招，所以能做到「模型很大但很便宜」。文章里说「MoE 架构」就是在夸这一点。',
- demo:'moe',rel:['param','llm']},
+ demo:'moe',rel:['param','llm'],al:['混合专家','moe架构','专家模型','多个小模型'],one:'一堆小模型组团，每次只叫醒用得上的几个',cf:'不是多个模型投票，是路由挑几个来答',dlg:['甲：这么大怎么跑得动？','乙：MoE，每次只激活一部分']},
 
 {id:'oss',term:'开源 / 闭源',full:'Open Source / Closed Source',cn:'开源模型 / 闭源模型',zone:'ai',lv:1,
  tl:'<b>开源</b>：模型文件公开，谁都能下载、改、自己部署（DeepSeek、Qwen、Llama）。<b>闭源</b>：只让你通过官方入口用，看不到里面（GPT、Claude）。',
  ana:'开源 = <b>给你菜谱和食材</b>，你想怎么改怎么改，但得自己有厨房；闭源 = <b>直接去饭店吃</b>，省心，但菜单由别人定。',
  scn:'你在 WorkBuddy 里配智谱、DeepSeek 的 API 用国产开源模型，成本低、数据可控；用 Claude 则是闭源，省心但按量付费。',
- demo:'oss',rel:['local','llm']},
+ demo:'oss',rel:['local','llm'],al:['开源','闭源','开源模型','免费模型','权重公开'],one:'开源=模型文件公开可自部署；闭源=只能用他家接口',cf:'开源不等于能免费商用，要看具体许可证',dlg:['甲：能下载到本地吗？','乙：开源模型可以，闭源不行']},
 
 {id:'local',term:'本地部署',full:'Local Deployment',cn:'本地部署 / 端侧 AI',zone:'ai',lv:2,
  tl:'把模型<b>装在你自己的电脑或手机上跑</b>，数据不出门，断网也能用。',
  ana:'用网盘 vs <b>把文件存在自己硬盘</b>。前者方便但要联网、要信对方；后者慢一点、占地方，但东西在你手里。',
  scn:'你在自己电脑上装 Ollama 跑 DeepSeek，就是本地部署。好处：隐私好、不花钱；代价：能力比云端大模型弱一截。',
- demo:null,rel:['oss','quant']},
+ demo:null,rel:['oss','quant'],al:['本地部署','本地运行','离线跑','端侧','私有化部署','装自己电脑上'],one:'把模型装在你自己电脑上跑，不联网也行',cf:'本地能保隐私，但效果通常弱于云端大模型',dlg:['甲：数据不能外传','乙：那就本地部署一套']},
 
 {id:'quant',term:'量化 / 蒸馏',full:'Quantization / Distillation',cn:'模型减肥三件套',zone:'ai',lv:3,
  tl:'<b>量化</b>：把模型数字精度压低，体积变小跑得更快（画质略降）。<b>蒸馏</b>：让小模型跟着大模型学，把本事浓缩进小身板。',
  ana:'量化 = <b>高清视频转标清</b>：画质差一点，但手机能放；蒸馏 = <b>名师带徒弟</b>：徒弟没师傅懂得多，但够用且便宜。',
  scn:'文章里说「量化版」「4bit」「蒸馏模型」，都是同一个意思：让大模型能塞进你的电脑里跑。',
- demo:null,rel:['local','param']},
+ demo:null,rel:['local','param'],al:['量化','蒸馏','剪枝','模型压缩','减肥','int4','int8'],one:'给模型瘦身，少占显存、跑得更快',cf:'量化是降精度，蒸馏是小模型学大模型，不是一回事',dlg:['甲：显卡跑不动','乙：量化到 4bit 试试']},
 
 {id:'ctxeng',term:'上下文工程',full:'Context Engineering',cn:'上下文工程',zone:'ai',lv:3,new:true,
  tl:'2025 年火起来的说法：不纠结「这一句怎么问」，而是研究<b>「在它开口前，该把哪些资料、规则、工具结果摆到它面前」</b>。',
  ana:'提示词工程是<b>琢磨怎么问这一句</b>；上下文工程是<b>给它准备一整个文件夹的参考资料，还分好类、排好序</b>。',
  scn:'你给 AI 挂飞书知识库、挂公众号历史文章、写 CLAUDE.md / SOUL.md，<b>全都是在做上下文工程</b>——你其实早就在做了。',
- demo:null,rel:['prompt','rag','context']},
+ demo:null,rel:['prompt','rag','context'],al:['上下文工程','context engineering','喂资料','提示词工程升级版'],one:'研究该往 AI 眼前放哪些信息，让它答得准',cf:'提示词工程只打磨一句话，它管的是整个信息环境',dlg:['甲：光改提示词不管用','乙：得做上下文工程，把资料喂对']},
 
 {id:'vibe',shot:'vibe',term:'Vibe Coding',full:'Vibe Coding',cn:'氛围编程',zone:'ai',lv:1,new:true,
  tl:'<b>不看代码、只说人话</b>的写程序方式：你描述想要什么，AI 写，报错就丢回给它改，你全程不看代码写了啥。',
  ana:'像<b>跟装修师傅说「我要个温馨的客厅」</b>——你不管水电怎么走、瓷砖怎么贴，只看最后效果。不满意就说「再暖一点」。',
  scn:'这就是你现在用 Codex、WorkBuddy 的方式。这个词 2025 年由 Karpathy 造出来，年底被《柯林斯词典》评为年度词汇。<b>副作用：你因此撞到一堆看不懂的名词——所以才有了这个工具。</b>',
- demo:null,rel:['agent','llm']},
+ demo:null,rel:['agent','llm'],al:['氛围编程','vibe coding','凭感觉写','不看懂代码','让AI写'],one:'不看代码，只管说需求、能跑就行',cf:'适合做小玩具；要长期维护的项目不能这么干',dlg:['甲：你看懂它写的代码了吗？','乙：没看，能跑就行，vibe coding']},
 
 {id:'world',term:'世界模型',full:'World Model',cn:'世界模型',zone:'ai',lv:3,new:true,
  tl:'让 AI 在内部<b>建一个物理世界的模拟器</b>，真的懂「球掉地上会弹」「杯子碎了不能用了」。',
  ana:'现在的大模型<b>很会说话但没常识</b>——你问杯子掉地上会怎样，它能答得头头是道，却并不真懂重力。世界模型要补的就是这块。',
  scn:'李飞飞的 World Labs 做的 Marble：给它一张照片，生成一个能走进去的 3D 世界。机器人、自动驾驶都指望它当大脑。',
- demo:null,rel:['embodied','agi']},
+ demo:null,rel:['embodied','agi'],al:['世界模型','world model','物理常识模型','预测下一步'],one:'让 AI 脑内模拟真实世界，能预判后果',cf:'大多还在研究阶段，别跟「多模态」混为一谈',dlg:['甲：它懂物理吗？','乙：有点儿，靠世界模型在推演']},
 
 {id:'embodied',term:'具身智能',full:'Embodied AI',cn:'具身智能',zone:'ai',lv:2,
  tl:'AI <b>有了物理身体</b>（机器人），能看、能走、能抓、能在真实世界干活。',
  ana:'以前 AI 是<b>困在屏幕里的脑子</b>；具身智能是<b>给这个脑子装上手脚</b>，让它能真的端杯子、搬箱子。',
  scn:'工厂机械臂、送餐机器人、特斯拉 Optimus 都属于这条线。2026 年被普遍认为是它批量落地的一年。',
- demo:null,rel:['world','agi']},
+ demo:null,rel:['world','agi'],al:['具身智能','机器人','人形机器人','有身体的AI'],one:'给 AI 装上身体，能在现实里动手干活',cf:'不等于机器人，老式机器人没有大模型大脑',dlg:['甲：机器人也算 AI？','乙：有大脑的才叫具身智能']},
 
 {id:'aigc',term:'AIGC',full:'AI Generated Content',cn:'AI 生成内容',zone:'ai',lv:1,abbr:true,
  tl:'AI 干出来的活：<b>写的文章、画的图、剪的视频、写的代码</b>，统称 AIGC。',
  ana:'AI 是<b>能力</b>，AIGC 是<b>结果</b>。就像「会做饭」是能力，「那盘菜」是结果。',
  scn:'公众号圈说「AIGC 降本增效」，意思就是用 AI 批量出内容。你用 AI 写的每一篇推文都是 AIGC。',
- demo:null,rel:['llm','multi']},
+ demo:null,rel:['llm','multi'],al:['AIGC','AI生成','生成式AI','AI创作','自动生成内容'],one:'由 AI 生产出来的文章、图、视频',cf:'AIGC 指产出物，生成式 AI 指技术本身',dlg:['甲：这篇谁写的？','乙：AIGC，机器生成的']},
 
 {id:'transformer',term:'Transformer',full:'Transformer Architecture',cn:'Transformer 架构',zone:'ai',lv:3,
  tl:'2017 年谷歌提出的架构，<b>今天几乎所有大模型的地基</b>。GPT 里的 T 就是它。',
  ana:'它让 AI 学会了<b>「注意力」</b>：读一句话时知道该重点看哪几个词，而不是平均用力。',
  scn:'你基本只会在这两种地方见到它：讲技术原理的文章、模型发布会的 PPT。<b>知道它是「地基」就够了，不用懂细节。</b>',
- demo:null,rel:['attention','llm']},
+ demo:null,rel:['attention','llm'],al:['transformer','Transformer架构','注意力架构','大模型基础架构'],one:'现代大模型的地基架构，靠注意力读懂上下文',cf:'它是模型结构，不是某个具体产品',dlg:['甲：GPT 的 T 是啥？','乙：Transformer，它的底层架构']},
 
 {id:'attention',term:'注意力机制',full:'Attention Mechanism',cn:'注意力机制',zone:'ai',lv:3,
  tl:'让模型读一句话时，<b>自动判断哪些词更重要</b>，把算力花在刀刃上。',
  ana:'你看集体照会<b>自动聚焦在熟人脸上、忽略背景</b>——注意力机制就是让 AI 也学会这件事。',
  scn:'它藏在 Transformer 里面，平时看不见。但这正是「为什么长文章 AI 有时候抓不住重点」的根源：注意力被分散了。',
- demo:null,rel:['transformer','context']},
+ demo:null,rel:['transformer','context'],al:['注意力','attention','自注意力','关注重点'],one:'让模型自己判断该重点看哪些词',cf:'跟人的「注意力」只是比喻，本质是加权计算',dlg:['甲：它怎么知道主语是谁？','乙：注意力机制在算关联']},
 
 {id:'emerge',term:'涌现能力',full:'Emergent Abilities',cn:'涌现能力',zone:'ai',lv:3,
  tl:'模型大到某个临界点后，<b>突然会了之前完全没教过的能力</b>。',
  ana:'水到了 0°C <b>突然结冰</b>——不是慢慢变硬，是量变到质变的那个瞬间。',
  scn:'小模型不会推理、不会写代码，模型一大突然都会了。这也是为什么大家如此执着于「做大」。',
- demo:null,rel:['param','scaling']},
+ demo:null,rel:['param','scaling'],al:['涌现','涌现能力','突然就会了','量变到质变'],one:'模型大到一定程度，突然会了没教过的能力',cf:'不是设计出来的，是规模堆出来的副产品',dlg:['甲：没人教它翻译啊','乙：涌现的，规模到了自然就会']},
 
 {id:'scaling',term:'规模法则',full:'Scaling Law',cn:'规模法则',zone:'ai',lv:3,
  tl:'一条被反复验证的规律：<b>模型、数据、算力一起变大，能力就可预测地变强</b>。',
  ana:'像<b>「多练多进步」</b>的经验法则——过去十年 AI 飞速进步的核心信仰，整个行业都在按这个公式堆资源。',
  scn:'发布会里说「我们又刷了 SOTA」，背后的逻辑就是这条。但 2025 年后开始有人质疑：单纯堆规模，边际收益在变小。',
- demo:null,rel:['emerge','param']},
+ demo:null,rel:['emerge','param'],al:['规模法则','scaling law','越大越强','堆规模'],one:'模型变大、数据变多，效果按规律变好',cf:'有边际递减，不是无限堆就一定更强',dlg:['甲：为啥都在比谁模型大？','乙：scaling law，大了就强']},
 
 /* ---------- 编程基础区 ---------- */
 {id:'api',term:'API',full:'Application Programming Interface',cn:'接口',zone:'code',lv:1,abbr:true,
@@ -422,171 +433,171 @@ var WORDS=[
  demo:'api',
  quiz:{q:'别人给你一个 API，你其实拿到了什么？',o:['对方的程序源码','对方的数据库密码','一个能按格式收发数据的窗口','一个软件安装包'],a:2,
  why:'API 只是「窗口」：你按它要求的格式递东西进去，它按格式把结果递出来。里面怎么实现的，你不需要知道，也拿不到。'},
- rel:['apikey','json','sdk']},
+ rel:['apikey','json','sdk'],al:['接口','api接口','调用','开放接口','对接'],one:'软件之间说话的窗口，你问它答',cf:'API 是通道规则，SDK 是帮你用通道的工具箱',dlg:['甲：数据怎么拿？','乙：调他们家 API']},
 
 {id:'apikey',term:'API Key',full:'API Key',cn:'密钥 / 钥匙',zone:'code',lv:2,
  tl:'调用 API 的<b>一串密码</b>，证明「是你」，也决定<b>账单算谁的</b>。',
  ana:'就是<b>门禁卡 + 记账卡</b>：刷卡进门，刷了什么全记在你账上。',
  scn:'你在 WorkBuddy 里填的智谱 Key、极致了 Key（JZLdd9…）都是 API Key。<b>泄露了别人就能花你的钱</b>——所以别截图发群里、别提交到公开仓库。',
- demo:null,rel:['api','env']},
+ demo:null,rel:['api','env'],al:['密钥','钥匙','api key','秘钥','Access Key','通行证'],one:'调用 AI 服务的通行证，一串密码',cf:'别发群里、别提交到 Git，泄露就按量扣钱',dlg:['甲：怎么突然欠费了？','乙：Key 泄露了，被人刷了']},
 
 {id:'terminal',shot:'terminal',term:'终端 / CLI',full:'Terminal / Command Line',cn:'命令行 / 黑窗口',zone:'code',lv:1,abbr:true,
  tl:'那个<b>黑底白字、只能用键盘打字</b>的窗口。没有图标可点，全靠输命令。',
  ana:'平时用软件是<b>看菜单点菜</b>，终端是<b>直接跟厨师喊「来份蛋炒饭，不要葱」</b>。更快更精确，但你得知道菜名。',
  scn:'你用过 <code>claude -p</code> 这种命令——那个黑窗口就是终端。教程里写「打开终端输入 xxx」，就是让你在那儿打字。',
- demo:null,rel:['deploy','git']},
+ demo:null,rel:['deploy','git'],al:['终端','命令行','黑窗口','cmd','powershell','控制台','小黑框'],one:'用打字命令操作电脑的黑窗口',cf:'终端是那个窗口，Shell 是里面跑的程序',dlg:['甲：让我点哪儿？','乙：没有按钮，在终端里敲命令']},
 
 {id:'deploy',shot:'deploy',term:'部署',full:'Deploy / Deployment',cn:'上线 / 部署',zone:'code',lv:2,
  tl:'把你做的东西<b>放到公网上，让别人能访问</b>。没部署前，它只活在你自己电脑里。',
  ana:'就像<b>把菜从自家厨房搬到店里开卖</b>。在自己电脑上能跑 ≠ 别人能打开。',
  scn:'我把这个名词工具做完之后「发布成链接」给你，那一步就是部署——你拿到链接才能在手机上打开。',
- demo:null,rel:['server','terminal']},
+ demo:null,rel:['server','terminal'],al:['部署','上线','发布','放到网上','deploy'],one:'把你做的东西搬到服务器上让别人能访问',cf:'本地能跑不叫上线，别人能打开才算部署成功',dlg:['甲：我这儿能用啊','乙：你没部署，别人打不开']},
 
 {id:'env',shot:'env',term:'环境变量',full:'Environment Variables',cn:'环境变量',zone:'code',lv:2,
  tl:'存在电脑里的<b>一组「暗号」</b>，程序运行时自己去取，不用写死在代码里。',
  ana:'像<b>贴在冰箱上的便签</b>：写着你家 WiFi 密码。谁住这儿谁都能看到，但不用把密码刻在每个电器上。',
  scn:'教程让你「配置环境变量」再填 API Key，就是为了<b>密码不写进代码里</b>——代码传上去，密码不会跟着泄露。',
- demo:null,rel:['apikey','server']},
+ demo:null,rel:['apikey','server'],al:['环境变量','env','配置变量','.env','系统变量'],one:'存在系统里的配置项，密码之类都放这',cf:'改了环境变量通常要重启程序才生效',dlg:['甲：密码写哪？','乙：放环境变量，别写死在代码里']},
 
 {id:'git',shot:'git',term:'Git / 仓库',full:'Git / Repository',cn:'版本管理 / 代码仓库',zone:'code',lv:2,
  tl:'给文件<b>拍快照、留后路</b>的系统。改崩了能一键回到昨天的样子。',
  ana:'就像<b>写文章时的「另存为 v1、v2、v3 最终版、最终版2」</b>——但 Git 是自动的，还能精确回到任意一个版本。',
  scn:'GitHub 上那些开源项目（比如你装过的 Hermes Agent）都放在 Git 仓库里。文章里说「克隆仓库」「提交 commit」，说的就是这套。',
- demo:null,rel:['terminal','deploy']},
+ demo:null,rel:['terminal','deploy'],al:['git','版本管理','代码仓库','仓库','版本控制','存档'],one:'给文件做存档，随时能回到任意一版',cf:'Git 是工具，GitHub 是存代码的网站，两回事',dlg:['甲：改坏了怎么办？','乙：git 回退一版就行']},
 
 {id:'json',shot:'json',term:'JSON',full:'JavaScript Object Notation',cn:'数据格式',zone:'code',lv:2,
  tl:'程序之间<b>交换数据用的统一格式</b>。长得像大括号套键值对，人和机器都看得懂。',
  ana:'就是<b>一张填好的表格</b>：左边是项目名，右边是内容。不管你是中美英哪国的程序，都认这张表。',
  scn:'你调极致了 API，它返回的就是 JSON：<code>{"read":12000,"like":340}</code>。看到满屏花括号和引号，那就是 JSON。',
- demo:null,rel:['api','db']},
+ demo:null,rel:['api','db'],al:['json','数据格式','键值对','配置文件','接口数据'],one:'程序之间传数据用的统一格式',cf:'多一个逗号、少一个逗号都会解析失败',dlg:['甲：返回的是啥？','乙：一段 JSON，字段都在里面']},
 
 {id:'febe',shot:'febe',term:'前端 / 后端',full:'Frontend / Backend',cn:'前台 / 后台',zone:'code',lv:1,
  tl:'<b>前端</b>：你看得见、点得到的界面。<b>后端</b>：在服务器上看不见的那一半，负责算和存。',
  ana:'餐厅里，<b>前厅</b>是你坐的位子、菜单、装修（前端）；<b>后厨</b>是别人不让你进、但菜从那儿出来的地方（后端）。',
  scn:'这个名词小抄，你看到的页面是前端；词库数据和搜索逻辑，在手机本地跑的也是「端」上的活。',
- demo:null,rel:['server','db']},
+ demo:null,rel:['server','db'],al:['前端','后端','前台','后台','页面','服务端'],one:'前端是你看得见的页面，后端是看不见的服务器',cf:'全栈指前后端都能写，不是一种语言',dlg:['甲：这活归谁？','乙：页面归前端，数据归后端']},
 
 {id:'db',shot:'db',term:'数据库',full:'Database',cn:'数据库',zone:'code',lv:2,
  tl:'<b>专门用来存数据、查数据</b>的地方，比 Excel 能存得多、查得快。',
  ana:'就像一个<b>超级规整的档案室</b>：东西按编号放好，你要什么它一秒就给你翻出来。',
  scn:'你的飞书多维表格，本质就是一个<b>你能直接看懂的数据库</b>。文章里说「写入数据库」，跟「写进飞书表格」是一回事。',
- demo:null,rel:['json','febe']},
+ demo:null,rel:['json','febe'],al:['数据库','db','存数据的','数据表','sql'],one:'专门存数据、方便查的仓库',cf:'数据库不是 Excel，它靠结构和索引提速',dlg:['甲：数据存哪？','乙：放数据库，别放文件里']},
 
 {id:'sandbox',shot:'sandbox',term:'沙箱',full:'Sandbox',cn:'沙箱 / 隔离环境',zone:'code',lv:2,
  tl:'一个<b>隔离出来的围栏</b>：AI 在里面随便折腾，出了事也伤不到你的真实文件。',
  ana:'就是<b>儿童沙池</b>——孩子在里面怎么挖、怎么扬，沙子都飞不出池子。',
  scn:'Codex、WorkBuddy 跑代码时会问你「是否允许」，或者限定在某个文件夹里操作。<b>那个围栏就是沙箱</b>，别嫌它烦，它在保护你。',
- demo:null,rel:['agent','terminal']},
+ demo:null,rel:['agent','terminal'],al:['沙箱','隔离环境','sandbox','安全区','隔离运行'],one:'隔离出来的试验场，搞坏了也不影响外面',cf:'沙箱不是虚拟机专属，容器、权限限制也算',dlg:['甲：让它随便跑代码？','乙：放沙箱里，炸了也没事']},
 
 {id:'dep',term:'依赖 / 装包',full:'Dependency / Package',cn:'依赖 / 装包',zone:'code',lv:2,
  tl:'你的程序<b>要借别人写好的零件才能跑</b>。装这些零件的过程叫「装依赖」。',
  ana:'做菜不用自己种菜：<b>酱油、盐都是买来的</b>。这些买来的东西就是「依赖」，少了哪样菜都做不成。',
  scn:'教程里让你先跑 <code>npm install</code> 或 <code>pip install</code>，那就是在<b>一次性把缺的零件全买回来</b>。',
- demo:null,rel:['terminal','sdk']},
+ demo:null,rel:['terminal','sdk'],al:['依赖','装包','依赖包','第三方库','install','npm install'],one:'你的程序要借用别人写好的代码',cf:'依赖装太多会互相冲突，能少就少',dlg:['甲：跑不起来，缺东西','乙：依赖没装全，先执行安装']},
 
 {id:'bug',term:'Bug / 调试',full:'Bug / Debug',cn:'故障 / 排错',zone:'code',lv:1,
  tl:'<b>Bug</b> = 程序出错、跑歪了。<b>调试（Debug）</b> = 找哪里错了并修好。',
  ana:'就像<b>灯不亮了</b>：Bug 是故障本身；Debug 是你去查「是灯泡坏了、开关坏了、还是跳闸了」。',
  scn:'你让 AI 改代码时说「报错了」，最好<b>把红色报错信息整段复制给它</b>——那行字就是它定位 Bug 的线索。',
- demo:null,rel:['terminal','dep']},
+ demo:null,rel:['terminal','dep'],al:['bug','故障','报错','出问题了','缺陷','毛病'],one:'程序没按你想的跑，出了岔子',cf:'报错是看得见的 bug；算错但不报错的更可怕',dlg:['甲：页面白屏了','乙：有 bug，看看报错日志']},
 
 {id:'server',shot:'server',term:'服务器 / 端口',full:'Server / Port',cn:'服务器 / 端口',zone:'code',lv:2,
  tl:'<b>服务器</b>：24 小时开着、专门给别人提供服务的电脑。<b>端口</b>：这台电脑上的不同「窗口号」。',
  ana:'服务器 = <b>一栋楼</b>；端口 = <b>楼里的门牌号</b>。你要找哪家公司，得先到楼，再报门牌。',
  scn:'你启动本地预览时看到的 <code>localhost:52356</code>：localhost 是你自己电脑（那栋楼），52356 是端口（门牌号）。',
- demo:null,rel:['deploy','febe']},
+ demo:null,rel:['deploy','febe'],al:['服务器','server','主机','云主机','云服务'],one:'24 小时开着、专门跑你程序的一台电脑',cf:'服务器是机器，端口是它身上的门牌号',dlg:['甲：网站放哪？','乙：租了台服务器跑着']},
 
 {id:'sdk',shot:'sdk',term:'SDK / 框架',full:'SDK / Framework',cn:'开发工具包 / 框架',zone:'code',lv:2,abbr:true,
  tl:'<b>SDK</b>：别人打包好的一整套工具，拿来就能用。<b>框架</b>：规定好结构的「半成品」，你往里填内容。',
  ana:'SDK = <b>宜家买回来的整套厨房</b>（柜子、螺丝、说明书全有）；框架 = <b>已经搭好的毛坯房</b>，格局定了，你负责装修。',
  scn:'「国信证券 Skill」「极致了 SDK」这类东西，就是别人替你把复杂的调用封装好了，你只管调。',
- demo:null,rel:['api','dep']},
+ demo:null,rel:['api','dep'],al:['sdk','框架','开发包','工具库','framework'],one:'官方打包好的工具箱，省得你从零写',cf:'API 是接口规则，SDK 是已经封装好的现成代码',dlg:['甲：要自己写吗？','乙：不用，官方有 SDK']},
 
 /* ---------- AI 区补充 ---------- */
 {id:'tool',term:'工具调用',full:'Function Calling / Tool Use',cn:'工具调用 / 函数调用',zone:'ai',lv:2,
  tl:'让 AI <b>不只是说话，还能真的去干活</b>：查天气、搜网页、读文件、发消息。',
  ana:'以前的 AI 是<b>只能动嘴的顾问</b>；会工具调用之后，它<b>有了手</b>——你说查一下，它真去查。',
  scn:'你在 WorkBuddy 里说「帮我读一下这个 Excel」，它真的去读文件——背后就是工具调用。<b>没有它，Agent 就是个只会说话的空壳。</b>',
- demo:null,rel:['agent','mcp']},
+ demo:null,rel:['agent','mcp'],al:['工具调用','函数调用','function call','tools','插件调用'],one:'让 AI 能调用外部工具，不只是嘴上说说',cf:'AI 只决定「用哪个工具」，真正执行的是程序',dlg:['甲：它怎么查到天气的？','乙：通过工具调用去查接口']},
 
 {id:'memory',term:'长期记忆',full:'Memory',cn:'记忆',zone:'ai',lv:2,
  tl:'AI <b>跨对话记住你</b>的能力：你的偏好、你的项目、你上次说过什么。',
  ana:'<b>上下文</b>是这场会议的白板（散会就擦）；<b>记忆</b>是你的档案柜（一直留着）。',
  scn:'你希望 AI 记得你做五行针灸、记得你的持仓——那就属于记忆。目前多数工具要你<b>自己把资料挂上去</b>它才有。',
- demo:null,rel:['context','rag']},
+ demo:null,rel:['context','rag'],al:['记忆','长期记忆','memory','记住偏好','历史记忆'],one:'跨对话记住你的偏好和背景',cf:'不是模型变聪明了，是系统把要点存下来再喂回去',dlg:['甲：它记得我叫啥？','乙：开了记忆功能就会记住']},
 
 /* ---------- 杂词 / 软件区 ---------- */
 {id:'blender',shot:'blender',term:'Blender',full:'Blender',cn:'开源 3D 软件',zone:'misc',lv:1,
  tl:'一个<b>免费的 3D 建模 / 动画软件</b>。跟 AI 没关系，但 AI 圈常拿它当后期加工工具，所以你会撞到。',
  ana:'就是<b>免费的 3D 版 Photoshop</b>：能建模型、能渲染、能做动画，还不要钱。',
  scn:'文章里说「AI 生成 3D 模型后导入 Blender 调整」，就是拿它当精修工具。<b>你不用装，知道它是个 3D 软件就行。</b>',
- demo:null,rel:[]},
+ demo:null,rel:[],al:['blender','3d软件','三维建模','建模软件'],one:'免费开源的 3D 建模渲染软件',cf:'它是软件名，不是 AI 工具',dlg:['甲：这模型用什么做的？','乙：Blender，免费的']},
 
 {id:'comfyui',shot:'comfyui',term:'ComfyUI',full:'ComfyUI',cn:'AI 绘图工作流工具',zone:'misc',lv:2,
  tl:'一个<b>用「连线」方式搭 AI 画图流程</b>的工具。比网页版复杂，但能精确控制每一步。',
  ana:'网页生图工具是<b>傻瓜相机</b>；ComfyUI 是<b>单反 + 一桌子镜头</b>——麻烦，但能出别人出不来的效果。',
  scn:'文章里晒的「ComfyUI 工作流」，就是一张连满线的流程图。<b>看到别人发那个图，知道它是「画图的配方」就够了。</b>',
- demo:null,rel:['workflow']},
+ demo:null,rel:['workflow'],al:['comfyui','comfy','绘图工作流','AI绘图','节点式绘图','stable diffusion'],one:'用连线搭流程来做 AI 绘图的工具',cf:'比网页版难上手，但流程可复用、能批量出图',dlg:['甲：这图怎么批量出？','乙：ComfyUI 搭个工作流']},
 
 {id:'saas',shot:'saas',term:'SaaS',full:'Software as a Service',cn:'软件即服务',zone:'misc',lv:1,abbr:true,
  tl:'<b>不用装、打开网页就能用、按月付费</b>的软件。',
  ana:'以前买软件是<b>买一台机器回家</b>；SaaS 是<b>租一台，按月付</b>，坏了有人修，随时能退。',
  scn:'飞书、腾讯文档、极致了数据，全是 SaaS。<b>你几乎没装过什么，却每天都在用 SaaS。</b>',
- demo:null,rel:[]},
+ demo:null,rel:[],al:['saas','订阅制软件','云端软件','租用软件'],one:'按月付费用的在线软件，不用自己装',cf:'买断是一次性，SaaS 是持续付费、持续更新',dlg:['甲：要装吗？','乙：不用，SaaS 打开网页就能用']},
 
 {id:'workflow',term:'工作流',full:'Workflow',cn:'工作流',zone:'misc',lv:2,
  tl:'<b>把一堆步骤串成一条固定流水线</b>，每次都按这个顺序跑。',
  ana:'像<b>工厂的传送带</b>：第一步、第二步、第三步，都是设计时就定死的，谁来都一样。',
  scn:'你那套「抓公众号文章 → 写入飞书选题池 → 生成 3 篇 → 1/3/5/7 天追踪数据」，就是一个工作流。',
- demo:null,rel:['agent','comfyui']},
+ demo:null,rel:['agent','comfyui'],al:['工作流','流程','自动化流程','流水线','工作流编排'],one:'把一串步骤串起来自动跑',cf:'工作流是设计好的固定流程，Agent 会自己临时决定',dlg:['甲：还得手动点三次','乙：做成工作流，一次跑完']},
 
 {id:'geo',term:'GEO',full:'Generative Engine Optimization',cn:'生成引擎优化',zone:'misc',lv:2,abbr:true,new:true,
  tl:'2025 年后冒出来的新词：<b>让 AI 在回答问题时优先提到你、引用你</b>的优化方法。',
  ana:'SEO 是<b>让百度把你排前面</b>；GEO 是<b>让 AI 回答时把你当答案</b>。战场从搜索结果页，搬到了 AI 的回答里。',
  scn:'你做公众号，以后要考虑的不只是「搜得到」，还有<b>「AI 会不会引用我这篇」</b>。这就是 GEO 在说的事。',
- demo:null,rel:['saas']},
+ demo:null,rel:['saas'],al:['geo','生成引擎优化','AI搜索优化','让AI推荐我','ai seo'],one:'让你的内容更容易被 AI 引用和推荐',cf:'SEO 争搜索排名，GEO 是让 AI 直接引用你',dlg:['甲：怎么让 AI 提到我家？','乙：做 GEO，内容写得像答案']},
 
 {id:'wrapper',term:'套壳',full:'Wrapper',cn:'套壳 / 壳产品',zone:'misc',lv:1,
  tl:'圈内略带贬义的说法：<b>只是在别人的大模型外面包了一层界面</b>，自己没什么技术。',
  ana:'就像<b>把别人做的蛋糕换个盘子端出来</b>，说是自己烤的。',
  scn:'看到有人说「这产品就是个套壳」，意思是在质疑：<b>它除了接了 GPT/Claude 的 API，自己还有什么？</b>',
- demo:null,rel:['api','saas']},
+ demo:null,rel:['api','saas'],al:['套壳','壳','包装','换皮','wrapper','二道贩子'],one:'包一层壳就当自家产品，里子是别人的模型',cf:'套壳不全是贬义，很多好产品也基于大模型做',dlg:['甲：这是自研的吗？','乙：套壳，底层用的别人的']},
 
 {id:'slop',term:'Slop',full:'AI Slop',cn:'AI 泔水 / 垃圾内容',zone:'misc',lv:2,new:true,
  tl:'圈内吐槽词：指<b>那种一眼 AI 味、又多又没营养的内容</b>。',
  ana:'就是<b>流水线快餐</b>：能吃，量还大，但你吃完什么都不记得。',
  scn:'你刷到那种「不是一个工具，而是一套方法论」式的空话套话文章，就是典型的 slop。<b>2026 年这个词出现了变体：workslop（AI 生成的敷衍工作成果）。</b>',
- demo:null,rel:['aigc']},
+ demo:null,rel:['aigc'],al:['slop','AI垃圾内容','泔水','AI灌水','机器味文章','低质内容'],one:'AI 批量生成的低质内容，看着像样其实没料',cf:'跟幻觉不同：幻觉是事实错，slop 是没价值',dlg:['甲：这文章怎么一股AI味','乙：典型 slop，全是空话']},
 
 {id:'pdoom',term:'P(doom)',full:'Probability of Doom',cn:'AI 毁灭人类的概率',zone:'misc',lv:2,new:true,
  tl:'极客圈黑话：<b>你个人认为「AI 导致人类完蛋」的概率是多少</b>。数字越大越悲观。',
  ana:'就像<b>朋友聚会时互报「你觉得明天会下雨吗」</b>——只不过问的是人类存亡，而且大家是半开玩笑地报。',
  scn:'有人在群里说「我的 P(doom) 是 15%」，他是在<b>半认真地表达他对 AI 风险的担忧程度</b>。不是正经术语，是圈内行话。',
- demo:null,rel:['agi']},
+ demo:null,rel:['agi'],al:['pdoom','毁灭概率','AI风险','世界末日概率','p(doom)'],one:'圈内人估的「AI 把人类搞砸」的概率',cf:'是主观估计值，不是科学测算结果',dlg:['甲：他老说 p(doom)','乙：就是他估的 AI 出事概率']},
 
 {id:'silicon',term:'硅基员工',full:'Silicon-based Employee',cn:'AI 员工',zone:'misc',lv:1,
  tl:'把 AI 当员工看的说法：<b>不用休息、不用社保、不会离职</b>。',
  ana:'就是<b>一个永远不会请假的临时工</b>。活能干，但关键决策还得你来。',
  scn:'文章里说「雇了 3 个硅基员工」，通常是指他配了 3 个 AI 智能体分别干不同的活。',
- demo:null,rel:['agent','solopreneur']},
+ demo:null,rel:['agent','solopreneur'],al:['硅基员工','AI员工','数字员工','机器人员工','AI同事'],one:'把 AI 当成一个不用发工资的员工来派活',cf:'它不会主动干活，任务还是得你来分派和验收',dlg:['甲：团队就你一个人？','乙：还有几个硅基员工']},
 
 {id:'solopreneur',term:'一人公司',full:'One-person Company / Solopreneur',cn:'超级个体',zone:'misc',lv:1,
  tl:'<b>一个人 + 一堆 AI = 一家公司</b>的说法。',
  ana:'以前你要招文案、设计、剪辑、客服；现在是<b>你一个人指挥一群 AI 干这些活</b>。',
  scn:'你现在做的事（公众号 + 五行针灸 IP + 自动化工具），<b>正是这个模式的典型样本</b>。',
- demo:null,rel:['silicon','agent']},
+ demo:null,rel:['silicon','agent'],al:['一人公司','超级个体','个体户','一个人创业','solo创业'],one:'一个人加一堆 AI 工具，撑起一门生意',cf:'不等于自由职业，它强调靠系统和 AI 放大产能',dlg:['甲：公司几个人？','乙：就我，加一堆 AI 工具']},
 
 {id:'plugin',shot:'plugin',term:'插件',full:'Plugin / Extension',cn:'插件 / 扩展',zone:'misc',lv:1,
  tl:'<b>给软件加装的新功能</b>，不用重装软件，装上就有。',
  ana:'就像给手机<b>装 App</b>：手机还是那个手机，装了相机 App 就有了新本事。',
  scn:'Obsidian 的 Claudian 插件、浏览器的油猴脚本，都是插件。<b>「装个插件」= 加个功能，不是换软件。</b>',
- demo:null,rel:['mcp','sdk']},
+ demo:null,rel:['mcp','sdk'],al:['插件','扩展','plugin','addon','外挂'],one:'给软件额外加功能的小模块',cf:'插件依赖主程序，独立软件能单独运行',dlg:['甲：想加个功能','乙：装个插件就行']},
 
 {id:'llms',term:'llms.txt',full:'llms.txt / llm-wiki',cn:'给 AI 看的说明书',zone:'misc',lv:2,new:true,
  tl:'<b>不是标准术语，是圈子里的新说法</b>：一个专门写给 AI 看的纯文本说明文件，让 AI 一眼看懂你的网站。',
  ana:'网页是<b>给人看的带图带排版的页面</b>；llms.txt 是<b>给 AI 看的纯文字版摘要</b>，没花哨东西，方便它快速消化。',
  scn:'你在技术文档里看到「我们提供 llms.txt」，指的就是这个文件。<b>看到这类自造缩写别慌：先查有没有标准定义，没有就当它是小圈子黑话。</b>',
- demo:null,rel:['geo','rag']},
+ demo:null,rel:['geo','rag'],al:['llms.txt','给AI看的说明书','AI说明书','llms'],one:'放网站根目录、专门写给 AI 看的介绍文件',cf:'robots.txt 管爬虫能否抓取，llms.txt 告诉 AI 你是谁',dlg:['甲：怎么让 AI 了解我站？','乙：放个 llms.txt']},
 
 /* ---------- 缩写速查区（独有词条） ---------- */
 {id:'mcp',term:'MCP',full:'Model Context Protocol',cn:'模型上下文协议',zone:'abbr',lv:2,abbr:true,
@@ -596,79 +607,79 @@ var WORDS=[
  demo:null,
  quiz:{q:'MCP 解决的是什么问题？',o:['让模型更聪明','让 API 更便宜','让 AI 回答更快','让 AI 能用统一方式连接各种外部工具和数据'],a:3,
  why:'MCP 不管模型聪不聪明，它管的是「接得上」：一个标准接口，接文件、数据库、飞书、浏览器都行，不用每个都单独开发。'},
- rel:['api','tool','agent']},
+ rel:['api','tool','agent'],al:['mcp','模型上下文协议','AI接口标准','AI的usb'],one:'AI 连接外部工具的统一插口标准',cf:'它是接口标准不是工具；装了 MCP server 才有能力',dlg:['甲：怎么让 AI 读我表格？','乙：接个 MCP server']},
 
 {id:'agi',term:'AGI',full:'Artificial General Intelligence',cn:'通用人工智能',zone:'abbr',lv:2,abbr:true,
  tl:'<b>在所有领域都达到人类水平</b>的 AI。现在的 AI 都是「偏科生」，AGI 是「全科学霸」。',
  ana:'现在的 AI <b>下棋超强但不会做饭</b>；AGI 是<b>什么都能干到人类水平</b>。目前还没实现。',
  scn:'看到有人说「AGI 已经实现了」，<b>基本可以打个问号</b>。到 2026 年，业内对此仍有巨大分歧。',
- demo:null,rel:['world','embodied','pdoom']},
+ demo:null,rel:['world','embodied','pdoom'],al:['agi','通用人工智能','强人工智能','通用AI'],one:'什么活都能干、跟人一样通用的 AI',cf:'现在所有模型都是专用型，AGI 还没实现',dlg:['甲：现在到 AGI 了吗？','乙：差得远，还在专用阶段']},
 
 {id:'lora',term:'LoRA',full:'Low-Rank Adaptation',cn:'低秩适配（省钱微调法）',zone:'abbr',lv:3,abbr:true,
  tl:'一种<b>省钱的微调方法</b>：不改动原模型，只训练一个很小的「附加模块」。',
  ana:'不是<b>重写整本书</b>，而是<b>在书里夹几页便签</b>——效果接近，成本低几十倍，便签还能随时换。',
  scn:'AI 绘画圈的「风格模型」（比如某个画风 LoRA），就是这么来的：<b>文件只有几十 MB，插上就能换风格。</b>',
- demo:null,rel:['ft','param']},
+ demo:null,rel:['ft','param'],al:['lora','低秩适配','轻量微调','画风模型','lora模型'],one:'只训练一小部分参数，便宜快速地改模型',cf:'LoRA 是省钱的微调法，效果略逊于全量微调',dlg:['甲：想换个画风','乙：挂个 LoRA，不用重训']},
 
 {id:'rlhf',term:'RLHF',full:'Reinforcement Learning from Human Feedback',cn:'人类反馈强化学习',zone:'abbr',lv:3,abbr:true,
  tl:'让 AI 变「懂礼貌、像人话」的关键一步：<b>请人来给回答打分，好答案加分，模型照着改</b>。',
  ana:'像<b>老师批改作文</b>：指出哪句好哪句差，学生反复修改，慢慢就摸准了老师的口味。',
  scn:'为什么现在的 AI 说话不像个搜索引擎，而像个助理？<b>主要就是 RLHF 的功劳。</b>',
- demo:null,rel:['ft','llm']},
+ demo:null,rel:['ft','llm'],al:['rlhf','人类反馈','强化学习','对齐','打分训练'],one:'靠人类打分教 AI 什么叫「答得好」',cf:'它让 AI 更听话，但不增加知识量',dlg:['甲：它怎么这么会说话？','乙：RLHF 调过的，更合人偏好']},
 
 {id:'a2a',term:'A2A',full:'Agent-to-Agent Protocol',cn:'智能体间通信协议',zone:'abbr',lv:3,abbr:true,new:true,
  tl:'2025 年谷歌提出的协议：<b>让不同公司做的 AI 智能体能互相派活、报进度、协同干活</b>。',
  ana:'MCP 管「AI 接工具」，A2A 管「AI 和 AI 组队」——一个是<b>接外设的 USB</b>，一个是<b>同事之间的群聊</b>。',
  scn:'文章里说「多智能体协同」，背后的协议就是这个。<b>两个协议是互补的，不是竞争关系。</b>',
- demo:null,rel:['mcp','agent']},
+ demo:null,rel:['mcp','agent'],al:['a2a','智能体通信','agent互通','多智能体协议'],one:'让不同 AI 智能体之间能互相派活的规矩',cf:'MCP 连工具，A2A 连智能体，对象不同',dlg:['甲：两个 AI 能协作吗？','乙：走 A2A 协议就行']},
 
 {id:'gpu',shot:'gpu',term:'GPU',full:'Graphics Processing Unit',cn:'显卡 / 图形处理器',zone:'abbr',lv:1,abbr:true,
  tl:'<b>训练和大模型跑起来靠的那块芯片</b>。AI 热潮把英伟达送上天的那个东西。',
  ana:'CPU 是<b>一个老教授</b>，什么都会但一次只能做一件事；GPU 是<b>一万个小学生</b>，每人算一道简单题，一起算就飞快。',
  scn:'文章里说「算力」「卡」「H100」「4090」，说的都是 GPU。<b>你本地跑模型跑不动，多半卡在它身上。</b>',
- demo:null,rel:['local','param']},
+ demo:null,rel:['local','param'],al:['gpu','显卡','图形处理器','显存','算力卡'],one:'专门并行算数的芯片，训练和跑模型靠它',cf:'显存不够，再强的 GPU 也跑不动大模型',dlg:['甲：为什么这么慢？','乙：你用 CPU 跑的，得用 GPU']},
 
 {id:'nlp',term:'NLP',full:'Natural Language Processing',cn:'自然语言处理',zone:'abbr',lv:2,abbr:true,
  tl:'<b>让电脑理解人类语言</b>的这个技术领域。大模型的老本行。',
  ana:'就是<b>教电脑「听懂人话」</b>的学科：分词、翻译、情感分析、问答，都归它管。',
  scn:'这是个<b>老词</b>（比大模型早几十年）。看到论文或老文章里的 NLP，你就当它是「语言相关的 AI 技术」就行。',
- demo:null,rel:['llm','aigc']},
+ demo:null,rel:['llm','aigc'],al:['nlp','自然语言处理','文本处理','语言技术'],one:'让计算机读懂、生成人类语言的技术',cf:'分词、翻译、摘要都算 NLP，不只是聊天机器人',dlg:['甲：这算 AI 哪块？','乙：NLP，处理文字的']},
 
 {id:'sota',term:'SOTA',full:'State of the Art',cn:'当前最强水平',zone:'abbr',lv:2,abbr:true,
  tl:'「<b>目前全世界最好的成绩</b>」。模型发布会最爱用的词。',
  ana:'就是<b>「打破世界纪录」</b>的意思。',
  scn:'看到「刷新 SOTA」，意思是<b>它在某个测试榜上拿了第一</b>。注意：<b>考分高 ≠ 干你的活好使</b>，亲手试才算数。',
- demo:null,rel:['scaling','param']},
+ demo:null,rel:['scaling','param'],al:['sota','最强','当前最好','state of the art','业界最佳'],one:'某项指标上目前公开的最好成绩',cf:'SOTA 常指某个榜单，不代表你用起来最好',dlg:['甲：这模型厉害吗？','乙：榜单 SOTA，但很贵']},
 
 {id:'xai',term:'XAI',full:'Explainable AI',cn:'可解释 AI',zone:'abbr',lv:3,abbr:true,
  tl:'要求 AI <b>说清楚「你为什么这么答」</b>的技术方向。',
  ana:'医生不能只开药，<b>还得解释为什么开这个药</b>。XAI 就是要求 AI 也做到这一点。',
  scn:'医疗、金融、法律场景里必须有它——<b>不能给个黑箱结果就完事</b>。这也是 AI 落地的合规门槛之一。',
- demo:null,rel:['hallu','agi']},
+ demo:null,rel:['hallu','agi'],al:['xai','可解释AI','模型解释','黑盒解释','可解释性'],one:'研究怎么把 AI 的决策讲明白',cf:'大模型目前大多还是黑盒，可解释性很有限',dlg:['甲：为什么拒我？','乙：说不清，可解释性还不行']},
 
 {id:'tts',term:'TTS / STT',full:'Text-to-Speech / Speech-to-Text',cn:'语音合成 / 语音转文字',zone:'abbr',lv:1,abbr:true,
  tl:'<b>TTS</b> = 文字变语音（AI 念给你听）；<b>STT</b> = 语音变文字（把说的话转成字）。',
  ana:'TTS 是<b>朗读员</b>，STT 是<b>速记员</b>。方向相反，都是「打通声音和文字」的翻译。',
  scn:'你把薛辉老师课程的录音转成逐字稿，用的就是 STT；把文章读成音频发公众号，用的是 TTS。',
- demo:null,rel:['aigc','multi']},
+ demo:null,rel:['aigc','multi'],al:['tts','stt','语音合成','语音转文字','文字转语音','朗读'],one:'TTS 文字变语音，STT 语音变文字',cf:'别搞反：T 在前是输出语音，S 在前是识别语音',dlg:['甲：让它读出来','乙：接个 TTS 就行']},
 
 {id:'vlm',term:'VLM',full:'Vision-Language Model',cn:'视觉语言模型',zone:'abbr',lv:2,abbr:true,
  tl:'<b>既能看图又能读字</b>的模型，是「多模态」的主力。',
  ana:'普通 LLM 是<b>只会读书的文员</b>；VLM 是<b>能看照片还能跟你聊照片的人</b>。',
  scn:'你把群聊截图丢给我让我统计发言——<b>背后干活的就是 VLM。</b>',
- demo:null,rel:['multi','llm']},
+ demo:null,rel:['multi','llm'],al:['vlm','视觉语言模型','能看懂图的模型','图文模型'],one:'既能看图又能聊天的模型',cf:'VLM 指模型能力，多模态是更大的范畴',dlg:['甲：能识图吗？','乙：VLM，可以']},
 
 {id:'slm',term:'SLM',full:'Small Language Model',cn:'小语言模型',zone:'abbr',lv:2,abbr:true,
  tl:'<b>个头小、能塞进手机或电脑本地跑</b>的模型。能力弱一些，但快、省、隐私好。',
  ana:'大模型是<b>云端的大型服务器</b>；小模型是<b>你口袋里的计算器</b>——功能少，但随时能用、不花钱。',
  scn:'文章里说「端侧 AI」「手机本地跑模型」，跑的就是 SLM。<b>2026 年的一个大趋势。</b>',
- demo:null,rel:['local','quant','param']},
+ demo:null,rel:['local','quant','param'],al:['slm','小模型','小语言模型','轻量模型'],one:'参数小、能在手机或电脑上跑的模型',cf:'小模型不等于弱，垂类小模型常比大模型划算',dlg:['甲：本地跑哪个？','乙：SLM，小模型不卡']},
 
 {id:'benchmark',term:'Benchmark',full:'Benchmark',cn:'基准测试 / 跑分',zone:'abbr',lv:2,abbr:true,
  tl:'<b>给模型出的标准化考卷</b>，用来比较谁强谁弱。',
  ana:'就是 AI 界的<b>高考 + 大学排行榜</b>。数学卷、代码卷、常识卷，各考各的。',
  scn:'发布会上的柱状图全来自 Benchmark。<b>但记住：榜单第一不等于你的活它干得最好。</b>',
- demo:null,rel:['sota','llm']},
+ demo:null,rel:['sota','llm'],al:['benchmark','跑分','基准测试','评测','榜单','benchmark测试'],one:'用统一考题给模型打分的测试',cf:'跑分高不等于你的场景好用，容易被针对性优化',dlg:['甲：哪个模型强？','乙：看 benchmark 榜单']},
 
 {id:'ref',shot:'ref',term:'reference',full:'Reference / Reference Documentation',cn:'参考资料（给 AI 看的说明书）',zone:'misc',lv:1,new:true,
  tl:'技能包（Skill）里的 <b>references/ 文件夹</b>，装的是「主文件放不下、又不必一上来就全读」的详细资料。AI 平时只记文件名，<b>用到了才去翻那一本</b>。',
@@ -676,7 +687,7 @@ var WORDS=[
  scn:'你让我拆的 dev-expert 技能里就有 <b>39 个 reference</b>（错误账本、阶段导航、事故复盘……）。AI 先只记名字，碰到具体活才去读对应那份。',
  demo:null,rel:['agent','context'],
  quiz:{q:'技能包里的 references/ 是干嘛的？',o:['每次启用都全部读一遍','技能的运行日志','给用户看的产品说明书','把详细资料分开存，AI 用到了才读那一本'],a:3,
- why:'AI 的「记性」（上下文窗口）有容量，一次全读会挤爆。所以详细资料分开存，用到哪本翻哪本。'}},
+ why:'AI 的「记性」（上下文窗口）有容量，一次全读会挤爆。所以详细资料分开存，用到哪本翻哪本。'},al:['reference','参考资料','引用','参考文献','给AI看的资料'],one:'给 AI 参考的背景材料，不是让它执行的命令',cf:'reference 只读不改；命令才是让它动手',dlg:['甲：这些文件干啥的？','乙：reference，当资料给 AI 看']},
 
 {id:'tpl',shot:'tpl',term:'templates',full:'Templates / File Templates',cn:'模板（填空就能用的半成品）',zone:'misc',lv:1,new:true,
  tl:'技能包里的 <b>templates/ 文件夹</b>，装的是现成的文件骨架。要用时复制一份，<b>把里面的占位符换成真内容</b>，就直接变成你的文件。',
@@ -684,13 +695,13 @@ var WORDS=[
  scn:'我给你做的「软件开发标准流程」技能里就有 <b>9 个模板</b>（进度表、规范、体检脚本……）。以后你开新项目，我复制一套、把项目名一填，框架立刻就位。',
  demo:null,rel:['workflow','git'],
  quiz:{q:'templates/ 和 references/ 最大的区别是什么？',o:['templates 是填空的半成品，复制一份填上就变成真文件','两个是同一个东西的不同叫法','templates 是给 AI 读的说明书，references 才会被复制出去','templates 每次都必须读，references 不用'],a:0,
- why:'templates 是「骨架」（合同范本），会被复制出去变成你的文件；references 是「资料」（附录），只给 AI 查，不会变成你的东西。'}},
+ why:'templates 是「骨架」（合同范本），会被复制出去变成你的文件；references 是「资料」（附录），只给 AI 查，不会变成你的东西。'},al:['templates','模板','样板','填空模板','模版'],one:'填空就能用的半成品',cf:'模板是起手式，scaffold 会生成一整套文件',dlg:['甲：从哪开始写？','乙：拿模板改']},
 
 {id:'prog',shot:'prog',term:'progress',full:'Progress',cn:'进度（做到哪一步了）',zone:'misc',lv:1,new:true,
  tl:'项目里的 <b>PROGRESS.md</b> 是进度枢纽文件：记着<b>现在到第几步、下一步做什么、做完的标志是什么</b>。AI 每次开工先读它，收工更新它。',
  ana:'就像<b>装修时贴在门上的施工进度表</b>：水电 → 贴砖 → 刷墙，今天划到哪、明天该谁进场，一目了然。',
  scn:'名词小抄的 PROGRESS.md 里写着「当前阶段：6 运维 + 7 迭代、v1.2、最大缺口是词库 72→150」。你问「下一步做什么」，我读它就能答。',
- demo:null,rel:['workflow','git']},
+ demo:null,rel:['workflow','git'],al:['progress','进度','做到哪了','进展','进度表'],one:'记录活干到哪一步了',cf:'进度文件是快照，不是流水账日志',dlg:['甲：上次做到哪了？','乙：看 progress 文件']},
 
 
 {id:'skill',shot:'skill',term:'Skill',full:'Agent Skill',cn:'技能包 / 技能',zone:'misc',lv:1,new:true,
@@ -700,19 +711,19 @@ var WORDS=[
  demo:null,rel:['ref','tpl','plugin','agent'],
  quiz:{q:'技能包（Skill）和你当场打的一句提示词，最大的区别是什么？',
  o:['技能包存在硬盘上能反复用，而且 AI 会自己判断该不该用','技能包更长，所以更厉害','技能包要另外花钱','技能包只有 Claude 能用'],a:0,
- why:'技能包是硬盘上的文件夹，永远在那儿；AI 靠文件开头写的简介判断这次该不该翻它。提示词是你当场打的一句话，说完就没了。'}},
+ why:'技能包是硬盘上的文件夹，永远在那儿；AI 靠文件开头写的简介判断这次该不该翻它。提示词是你当场打的一句话，说完就没了。'},al:['skill','技能','技能包','手册','sop','方法论包'],one:'把一套做事方法打包，AI 需要时自动加载',cf:'技能是它读的手册，工具是它调用的能力',dlg:['甲：它怎么这么懂流程？','乙：装了个 skill']},
 
 {id:'slash',term:'/slash command',full:'Slash Command',cn:'斜杠命令',zone:'code',lv:1,new:true,
  tl:'在输入框里打一个<b>以 / 开头的短命令</b>（比如 /commit），就等于喊 AI 执行一套预先写好的流程。',
  ana:'像<b>遥控器上的「观影模式」键</b>：按一下，关灯、降幕布、开音响，一串动作一个键搞定。',
  scn:'在 Claude Code 里打 /commit，它就自动看改了什么、写好提交说明。跟技能包的区别：<b>斜杠命令是你主动喊</b>才执行，技能包是 AI 自己判断该不该用。',
- demo:null,rel:['skill','cli','terminal']},
+ demo:null,rel:['skill','cli','terminal'],al:['斜杠命令','slash command','/命令','快捷指令','自定义命令'],one:'打一个斜杠就能触发的固定指令',cf:'斜杠命令你手动触发，技能是 AI 自己判断要不要用',dlg:['甲：怎么一键跑检查？','乙：设个 /check 斜杠命令']},
 
 {id:'hook',term:'hook',full:'Hook',cn:'钩子 / 自动开关',zone:'code',lv:2,new:true,
  tl:'给 AI 的行为<b>挂一个自动开关</b>：只要发生某件事（它要改文件、要跑命令），就<b>必然</b>触发另一个动作。',
  ana:'像<b>家门上的门磁报警器</b>：不管谁开门，铃都响 —— 不需要你记得去按。',
  scn:'可以设「AI 每次改完文件自动跑一遍格式化」，也可以设「禁止改 check.py 这种关键文件」。跟技能包的区别：钩子是<b>必定执行</b>的硬规则，技能包是 AI 自己看着办的软建议。',
- demo:null,rel:['skill','slash','workflow']},
+ demo:null,rel:['skill','slash','workflow'],al:['hook','钩子','触发器','自动开关','回调点'],one:'在特定时刻自动触发的一段脚本',cf:'钩子是被动触发，命令是你主动调用',dlg:['甲：每次提交都检查？','乙：加个 hook 自动跑']},
 
 {id:'subagent',shot:'subagent',term:'subagent',full:'Subagent',cn:'子代理 / 分身',zone:'ai',lv:2,new:true,
  tl:'主 AI <b>派出几个小 AI 分头干活</b>。每个小 AI 有自己的任务、自己的记忆，干完把结论交回来。',
@@ -721,43 +732,43 @@ var WORDS=[
  demo:null,rel:['agent','context','tool'],
  quiz:{q:'为什么要把活派给子代理，而不是主 AI 自己干？',
  o:['子代理比主 AI 聪明','子代理速度快十倍','子代理不要钱','子代理自己开一份记忆，不把主对话挤爆，还能并行'],a:3,
- why:'子代理有独立的上下文窗口，查资料的海量内容不会污染主对话；几个子代理还能同时干活。它并不比主 AI 更聪明，也不免费。'}},
+ why:'子代理有独立的上下文窗口，查资料的海量内容不会污染主对话；几个子代理还能同时干活。它并不比主 AI 更聪明，也不免费。'},al:['子代理','subagent','分身','子智能体','小弟','派出去的AI'],one:'主 AI 派出去单独干活的小弟，干完回来汇报',cf:'子代理看不到主对话全过程，只拿到派给它的任务',dlg:['甲：它自己又开了一个？','乙：嗯，派了个 subagent 去查']},
 
 {id:'toolcall',term:'tool use',full:'Tool Use / Function Calling',cn:'工具调用',zone:'ai',lv:2,
  tl:'AI 不只会聊天，它能<b>主动调用外部工具</b>：读文件、跑命令、搜网页、写表格。模型负责决定「用哪个工具、传什么参数」，程序负责真的去执行。',
  ana:'像<b>电话客服帮你下单</b>：他（模型）负责听懂你要什么、决定点哪个按钮，真正下单的动作由系统（工具）完成。',
  scn:'你让我「把这篇文章的阅读数填进飞书表格」，我先调抓数据的工具、再调写表格的工具 —— 这一整串动作就是工具调用。',
- demo:null,rel:['agent','api','mcp','tool']},
+ demo:null,rel:['agent','api','mcp','tool'],al:['tool use','工具使用','function calling','函数调用','调工具'],one:'AI 决定用哪个工具、传什么参数',cf:'跟 skill 区分：工具是动手的，技能是看的',dlg:['甲：它自己会去搜吗？','乙：会，tool use 开着']},
 
 {id:'distill',term:'distillation',full:'Knowledge Distillation',cn:'知识蒸馏',zone:'ai',lv:3,
  tl:'把<b>大模型的本事压缩进小模型</b>：让小模型学着模仿大模型的输出，个头小得多，能力保留大半。',
  ana:'像<b>老师傅带徒弟</b>：徒弟背不下师傅几十年的经验，但跟着看了几万个案例后，出手也有七八分像。',
  scn:'这个词在圈里还有个引申用法：把一本书、一门课<b>蒸馏成一套技能包</b>（你做的「拆书」就是），意思一样 —— 从一大坨里提炼出能反复用的精华。',
- demo:null,rel:['slm','ft','param']},
+ demo:null,rel:['slm','ft','param'],al:['蒸馏','知识蒸馏','distillation','模型压缩','老师教学生'],one:'大模型教小模型，把本事压缩到小身板里',cf:'蒸馏会损失一部分能力，不是原样照搬',dlg:['甲：小的怎么也会？','乙：从大模型蒸馏来的']},
 
 {id:'infer',term:'inference',full:'Inference',cn:'推理 / 跑模型',zone:'ai',lv:2,
  tl:'模型<b>训练好之后，拿它干活</b>这一步叫推理。你问一句、它答一句，就是一次推理。',
  ana:'训练是<b>上学</b>（好几年、花大钱），推理是<b>上班</b>（每天干活、按次算钱）。',
  scn:'你调 API 按字数（token）计费，付的就是推理的钱；训练的钱厂商已经替你花过了，跟你无关。',
- demo:null,rel:['param','token','api','ft']},
+ demo:null,rel:['param','token','api','ft'],al:['推理','inference','跑模型','生成','预测','前向计算'],one:'模型跑起来给你答案的过程',cf:'训练是学习，推理是使用；两者花的算力差很多',dlg:['甲：训练还是推理？','乙：推理，直接用现成的']},
 
 {id:'zeroshot',term:'zero-shot / few-shot',full:'Zero-shot / Few-shot',cn:'零样本 / 少样本',zone:'ai',lv:2,
  tl:'<b>一个例子都不给</b>，直接让 AI 干活，叫零样本；<b>先给两三个范例</b>让它照着做，叫少样本。',
  ana:'零样本是<b>甩一句「你看着办」</b>；少样本是<b>先示范两遍「要这种感觉」</b>。',
  scn:'你让我「按刘润的风格写」是零样本；你贴三段刘润原文说「照这个调性来」就是少样本 —— 后者通常更像。',
- demo:null,rel:['prompt','sysprompt','cot']},
+ demo:null,rel:['prompt','sysprompt','cot'],al:['零样本','少样本','zero-shot','few-shot','不给例子','给几个例子'],one:'零样本不给例子，少样本给几个例子',cf:'例子不是越多越好，3-5 个通常就够',dlg:['甲：要不要给例子？','乙：给 3 个，few-shot 更稳']},
 
 {id:'guardrail',term:'guardrail',full:'Guardrail',cn:'护栏 / 安全边界',zone:'ai',lv:2,
  tl:'给 AI 加的<b>硬性约束和检查</b>，防止它说出不该说的话、做出不该做的操作。',
  ana:'像<b>山路边的护栏</b>：平时看不见它，车要冲出去的时候它才起作用。',
  scn:'「不许删用户文件」「涉及医疗要提示就医」「发布前必须跑 check.py」—— 这些全是护栏。',
- demo:null,rel:['hallu','agent','hook']},
+ demo:null,rel:['hallu','agent','hook'],al:['护栏','guardrail','安全边界','过滤','风控','审查'],one:'限制 AI 别说不该说的规矩',cf:'护栏是外部加的约束，不是模型自己的判断',dlg:['甲：它怎么突然拒答？','乙：触发护栏了']},
 
 {id:'orchestr',term:'orchestrator',full:'Orchestration',cn:'编排 / 调度',zone:'ai',lv:3,
  tl:'一个「总指挥」负责<b>把大任务拆开、分给合适的模块、再把结果拼回去</b>。它自己通常不干活，只管调度：观察 → 思考 → 派活 → 看结果 → 再想。',
  ana:'像<b>婚庆总策划</b>：他自己不摄影不化妆，但谁什么时候上场、出了岔子怎么补，全听他调度。',
  scn:'我帮你看 Claude Code 源码时说的「协调器 + 工具三件套」就是这个。你问「下一步做什么」，本质上也是我在做编排。',
- demo:null,rel:['agent','toolcall','subagent','workflow']},
+ demo:null,rel:['agent','toolcall','subagent','workflow'],al:['编排','调度','orchestrator','总控','协调者'],one:'负责分派任务、协调多个 AI 的总管',cf:'编排器自己不干活，只负责派活和收结果',dlg:['甲：谁在指挥？','乙：有个 orchestrator 在调度']},
 
 {id:'cli',shot:'cli',term:'CLI',full:'Command Line Interface',cn:'命令行界面',zone:'code',lv:1,new:true,abbr:true,
  tl:'<b>在黑窗口里打字指挥电脑</b>的方式：没有按钮、没有鼠标，全靠敲命令。Codex、Claude Code 就是命令行工具。',
@@ -766,25 +777,25 @@ var WORDS=[
  demo:null,rel:['terminal','git'],
  quiz:{q:'命令行（CLI）和平时点的图标、按钮，区别在哪？',
  o:['命令行更高级，普通人用不了','命令行只能在 Mac 上用','命令行不要装软件','命令行靠打字下指令，图形界面靠鼠标点；干的是同一件事'],a:3,
- why:'两者只是操作方式不同，干的事一样。命令行的好处是能写进脚本批量执行、能远程操作，代价是得记命令。'}},
+ why:'两者只是操作方式不同，干的事一样。命令行的好处是能写进脚本批量执行、能远程操作，代价是得记命令。'},al:['cli','命令行界面','命令行工具','终端工具','黑框工具'],one:'没有界面、靠敲命令来用的工具',cf:'CLI 是这类工具统称，终端是你敲命令那个窗口',dlg:['甲：这软件怎么没界面？','乙：CLI 工具，敲命令用']},
 
 {id:'repo',term:'repo',full:'Repository',cn:'代码仓库',zone:'code',lv:1,
  tl:'一个项目<b>所有文件 + 全部修改历史</b>放在一起，叫仓库。放本地就是文件夹里那个隐藏的 .git，放网上（GitHub）就是远程仓库。',
  ana:'像<b>一份带修改痕迹的稿子</b>：不光有最新版，还留着每一版谁改的、改了哪句。',
  scn:'名词小抄这个文件夹就是一个仓库，你在里面敲 git log 能看到每一次改动是谁做的、做了什么、为什么。',
- demo:null,rel:['git','dep']},
+ demo:null,rel:['git','dep'],al:['repo','仓库','代码仓库','项目','repository'],one:'一个项目的文件夹，连着它的全部修改历史',cf:'Git 仓库是带历史的目录，普通文件夹没有历史',dlg:['甲：代码放哪？','乙：建个 repo 传上去']},
 
 {id:'commit',term:'commit',full:'Commit',cn:'提交 / 存个档',zone:'code',lv:1,
  tl:'把当前的改动<b>正式记一笔</b>，形成一个存档点，附一句说明「这次改了啥」。',
  ana:'像<b>打游戏存盘</b>：存完才敢继续往前走，走岔了能读档重来。',
  scn:'每次给名词小抄加完词，我都会提交一次并写清楚「v1.4 新增 36 个词」，再打个版本标签 —— 哪天出问题，一句话就能退回存档点。',
- demo:null,rel:['git','repo','deploy']},
+ demo:null,rel:['git','repo','deploy'],al:['commit','提交','存档','存一版','提交代码'],one:'给当前的改动拍张快照存下来',cf:'commit 只存本地，push 才是传到网上',dlg:['甲：改好了怎么存？','乙：commit 一下，写清改了啥']},
 
 {id:'branch',term:'branch',full:'Branch',cn:'分支',zone:'code',lv:2,
  tl:'从主线<b>岔出去一条独立的工作线</b>，在上面随便折腾，不影响主线；满意了再合并回去。',
  ana:'像<b>写文章先复制一份草稿改</b>：改砸了删掉，原文一个字没动。',
  scn:'你现在「先存档到版本存档/，再改真文件」就是人肉版分支；用 Git 分支可以一键在新旧之间来回切。',
- demo:null,rel:['git','commit','repo']},
+ demo:null,rel:['git','commit','repo'],al:['branch','分支','支线','开个分支','并行开发'],one:'从主线岔出来的一条独立开发线',cf:'开分支不等于复制文件，它只是换了个指针',dlg:['甲：怕改坏主线','乙：开个分支，好了再合并']},
 
 {id:'diff',term:'diff',full:'Difference',cn:'差异 / 改了哪些',zone:'code',lv:1,
  tl:'把两个版本<b>逐行对比，标出哪里加了、哪里删了</b>。',
@@ -793,67 +804,67 @@ var WORDS=[
  demo:null,rel:['git','commit'],
  quiz:{q:'想确认「这次到底改了哪些内容」，最靠谱的做法是？',
  o:['问 AI 自己说','看文件修改时间','重新写一遍','跑 diff 把新旧版本逐行对比'],a:3,
- why:'diff 是机器逐行比对的结果，不会漏也不会记错；靠人（或 AI）口述最容易漏掉细节。'}},
+ why:'diff 是机器逐行比对的结果，不会漏也不会记错；靠人（或 AI）口述最容易漏掉细节。'},al:['diff','差异','改了哪些','对比','变更'],one:'两个版本之间到底改了什么',cf:'diff 只显示文本差异，改了图片看不出来',dlg:['甲：它到底动了啥？','乙：看 diff']},
 
 {id:'md',shot:'md',term:'Markdown',full:'Markdown / .md',cn:'轻量标记语言',zone:'code',lv:1,new:true,
  tl:'一种<b>用符号表示格式</b>的纯文本写法：# 是标题、**文字** 是加粗、- 是列表。文件后缀是 .md。',
  ana:'像<b>写稿时随手做的标记</b>：画个圈表示这是小标题，波浪线表示要加粗 —— 就算不排版也照样读得懂。',
  scn:'你的 SPEC.md、PROGRESS.md、CHANGELOG.md，还有 Obsidian 里所有笔记，全是 Markdown。这也是我最爱读的格式。',
- demo:null,rel:['fm','json','yaml']},
+ demo:null,rel:['fm','json','yaml'],al:['markdown','md','md文件','标记语言','.md'],one:'用 # 和 * 这类符号排版的纯文本格式',cf:'Markdown 是源文件，看到的排版是渲染后的效果',dlg:['甲：这文件啥格式？','乙：Markdown，记事本都能开']},
 
 {id:'yaml',term:'YAML',full:'YAML Ain not Markup Language',cn:'一种配置文件格式',zone:'code',lv:2,
  tl:'一种<b>靠缩进表示层级</b>的配置写法，常用来写设置项。比 JSON 好读，但对缩进极其敏感 —— 多一个空格就报错。',
  ana:'像<b>填表</b>：左边项目名、右边值，靠对齐看出谁归谁管。',
  scn:'每个技能包最上面那段被 --- 包起来的 name、description 就是 YAML 写法，它有个专门名字叫 frontmatter。',
- demo:null,rel:['md','fm','json']},
+ demo:null,rel:['md','fm','json'],al:['yaml','yml','配置文件','缩进配置'],one:'用缩进表示层级的配置文件格式',cf:'对缩进极其敏感，多一个空格就报错',dlg:['甲：配置写哪？','乙：写进 yaml 文件']},
 
 {id:'fm',shot:'fm',term:'frontmatter',full:'Frontmatter',cn:'文件头 / 元信息',zone:'code',lv:2,new:true,
  tl:'Markdown 文件<b>最开头用 --- 包起来的那一小块</b>，写这个文件的属性：叫什么名字、干什么用、什么时候该被用上。',
  ana:'像<b>简历顶部的姓名电话</b>：正文还没开始，先让你知道这是谁的、管什么的。',
  scn:'每个技能包的 SKILL.md 开头都有它，我靠里面那句 description 判断「这活该不该翻这个技能」。<b>写错了，这个技能就永远不会被自动用上。</b>',
- demo:null,rel:['md','yaml','skill']},
+ demo:null,rel:['md','yaml','skill'],al:['frontmatter','文件头','元信息','头部信息','yaml头'],one:'Markdown 最上面用三横线包起来的元信息',cf:'它是给程序读的，不会显示在正文里',dlg:['甲：开头那三横线是啥？','乙：frontmatter，存标签用的']},
 
 {id:'path',term:'path',full:'File Path',cn:'路径 / 文件地址',zone:'code',lv:1,
  tl:'文件在电脑里的<b>完整地址</b>，一层层指到它。Windows 用反斜杠，网页和 Mac 用正斜杠。',
  ana:'跟<b>快递地址</b>一个意思：省市区加门牌号，一层层指到那一户。',
  scn:'你让我「改 site 里的 index.html」，我得拿到完整地址（C 盘 → Users → 87120 → 项目 → site）才找得到。只说文件名，我可能改错另一个同名文件。',
- demo:null,rel:['terminal','repo']},
+ demo:null,rel:['terminal','repo'],al:['path','路径','文件地址','目录','地址'],one:'文件在电脑里的具体位置',cf:'相对路径跟着当前目录变，绝对路径不会',dlg:['甲：找不到文件','乙：路径写错了']},
 
 {id:'port',term:'port',full:'Port',cn:'端口',zone:'code',lv:2,
  tl:'一台电脑上同时跑着很多服务，<b>端口号用来区分该把请求交给谁</b>。网址里冒号后面那个数就是，比如 :3000、:8080。',
  ana:'像<b>办公楼里的门牌号</b>：地址把你带到这栋楼，门牌号决定你进哪家公司。',
  scn:'名词小抄现在的线上地址里带着 3000，那就是它对外服务的端口。同一台机器上再开一个服务，就得换个号。',
- demo:null,rel:['localhost','server','deploy']},
+ demo:null,rel:['localhost','server','deploy'],al:['port','端口','端口号','8080','端口占用'],one:'一台服务器上区分不同服务的门牌号',cf:'端口被占用就启动失败，换一个号就行',dlg:['甲：起不来，说被占用','乙：换个端口']},
 
 {id:'localhost',term:'localhost',full:'Localhost / 127.0.0.1',cn:'本机地址',zone:'code',lv:2,
  tl:'指代<b>你自己这台电脑</b>的地址，通常是 127.0.0.1。访问它就等于访问本机，数据不出网。',
  ana:'像<b>给自己家打电话</b>：拨的是自己号码，不走外面的线路。',
  scn:'我在本地起个预览让你先看网页效果，地址就是 127.0.0.1 加端口 —— 只有你这台电脑能打开，别人访问不了，所以放心试。',
- demo:null,rel:['port','server','deploy']},
+ demo:null,rel:['port','server','deploy'],al:['localhost','本机','127.0.0.1','本地服务','本地地址'],one:'指你自己这台电脑的地址',cf:'localhost 只有你自己能访问，别人打不开',dlg:['甲：链接发我看看','乙：localhost 的，你看不了']},
 
 {id:'runtime',term:'runtime',full:'Runtime',cn:'运行时 / 运行环境',zone:'code',lv:2,
  tl:'程序<b>跑起来时所依赖的那套环境</b>：哪个语言的解释器、什么版本、装了哪些包。',
  ana:'像<b>电器的电压和插头</b>：机器本身没问题，插座不对也转不起来。',
  scn:'你电脑上同时装着 Python 3.13 和 Node 22，跑脚本时常报「版本不对」，那就是运行环境没对上 —— 换对解释器就好了。',
- demo:null,rel:['dep','env','pkg']},
+ demo:null,rel:['dep','env','pkg'],al:['runtime','运行时','运行环境','执行环境'],one:'程序真正跑起来时依赖的那套环境',cf:'写代码的环境和跑起来的环境可以不一样',dlg:['甲：我这儿能跑啊','乙：runtime 版本不一样']},
 
 {id:'pkg',term:'package',full:'Package / Library',cn:'软件包 / 依赖包',zone:'code',lv:1,
  tl:'别人写好的<b>现成功能模块</b>，装了就能直接用，不用自己从零写。pip install、npm install 就是装包。',
  ana:'像<b>宜家买现成的抽屉模块</b>：不用从砍树开始，买回来装上就能用。',
  scn:'极致了数据、JustOneAPI 提供的 SDK 就是包 —— 装上之后我用几行代码就能抓公众号数据，不用自己写一堆网络请求。',
- demo:null,rel:['dep','sdk','runtime']},
+ demo:null,rel:['dep','sdk','runtime'],al:['package','软件包','依赖包','安装包','包管理','npm包'],one:'打包好的可复用代码，装了就能用',cf:'包之间会互相依赖，版本对不上就装不上',dlg:['甲：缺个功能','乙：装个 package']},
 
 {id:'debug',term:'debug',full:'Debugging',cn:'调试 / 找错',zone:'code',lv:1,
  tl:'<b>找错、定位、修好</b>的全过程。debug 字面意思就是「把虫子（bug）捉出来」。',
  ana:'像<b>修漏水</b>：先关总闸定范围，再一段段敲墙定位，最后换掉裂的那一截。',
  scn:'项目里的 ERROR.log 就是调试账本：踩过什么坑、怎么发现的、怎么修的，下次不用重新摸一遍。',
- demo:null,rel:['bug','log','terminal']},
+ demo:null,rel:['bug','log','terminal'],al:['debug','调试','找错','排查','打断点','排错'],one:'找出程序为什么不对，并修好',cf:'不是瞎改，是先复现、再定位、再改',dlg:['甲：怎么修的？','乙：debug 半天才找到']},
 
 {id:'log',term:'log',full:'Log File',cn:'日志',zone:'code',lv:1,
  tl:'程序运行时<b>自动记下的流水账</b>：什么时候、做了什么、出了什么错。',
  ana:'像<b>飞机上的黑匣子</b>：平时没人看，出事了靠它还原当时发生了什么。',
  scn:'你项目里有两种日志别搞混：ERROR.log 是出错才记、给 AI 排错用的；CHANGELOG.md 是每次上线都记、给你看更新了啥的。',
- demo:null,rel:['debug','bug']},
+ demo:null,rel:['debug','bug'],al:['log','日志','运行记录','报错记录','日志文件'],one:'程序自己记下来的流水账',cf:'日志记的是事实，不替你分析原因',dlg:['甲：刚才为啥失败？','乙：看日志']},
 
 {id:'cron',shot:'cron',term:'cron',full:'Cron Expression',cn:'定时表达式',zone:'code',lv:2,new:true,
  tl:'用一排数字表示「<b>什么时候自动跑</b>」：分 时 日 月 周。比如 0 9 * * 1 就是每周一早上 9 点。',
@@ -862,19 +873,19 @@ var WORDS=[
  demo:null,rel:['automation','server','deploy'],
  quiz:{q:'定时表达式「0 9 * * 1」表示什么时候执行？',
  o:['每天 9 点 0 分','每月 1 号 9 点','每周一早上 9:00','9 月 1 号 0 点'],a:2,
- why:'五段依次是 分 时 日 月 周：第 1 段 0 是整分，第 2 段 9 是 9 点，中间两个星号是「每天、每月」，最后 1 是星期一。合起来就是每周一 9:00。'}},
+ why:'五段依次是 分 时 日 月 周：第 1 段 0 是整分，第 2 段 9 是 9 点，中间两个星号是「每天、每月」，最后 1 是星期一。合起来就是每周一 9:00。'},al:['cron','定时','定时任务','定时表达式','每周一','crontab'],one:'写成一行表达式的定时规则',cf:'cron 只管触发时间，任务本身要另写',dlg:['甲：怎么每周自动跑？','乙：配个 cron']},
 
 {id:'obsidian',shot:'obsidian',term:'Obsidian',full:'Obsidian',cn:'双链笔记软件',zone:'misc',lv:1,
  tl:'把笔记<b>存在你自己电脑本地</b>的软件，最大特点是笔记之间能用双括号互相链接，久了长成一张知识网。',
  ana:'普通笔记是<b>一本本独立的本子</b>，Obsidian 是<b>贴满线索的墙</b>：哪两件事有关，一根线连起来。',
  scn:'你的《Codex技能与插件清单》就在 Obsidian 里，配上 Claudian 插件后，能让 AI 直接读懂你整个笔记库再回答。',
- demo:null,rel:['md','local','plugin','rag']},
+ demo:null,rel:['md','local','plugin','rag'],al:['obsidian','黑曜石','双链笔记','笔记软件','ob'],one:'本地存储的笔记软件，笔记之间能互相链接',cf:'它的笔记是本地 md 文件，所以 AI 工具好接入',dlg:['甲：笔记存哪？','乙：Obsidian，本地 md 文件']},
 
 {id:'bitable',shot:'bitable',term:'Bitable',full:'Bitable / Multi-dimensional Table',cn:'多维表格',zone:'misc',lv:1,new:true,
  tl:'飞书里的<b>在线数据库</b>：一张表就是一个库，每行一条记录、每列一个字段。能切表格/看板/画册多种视图，还能让程序通过接口自动读写。',
  ana:'普通 Excel 是<b>一张纸</b>，多维表格是<b>带档案柜的系统</b>：纸还是那张纸，但能被很多人同时改、被程序自动填。',
  scn:'你的公众号选题池、文章库、1/3/5/7 天数据追踪都建在飞书多维表格里 —— 我抓完数据直接写进去，不用你手工粘贴。',
- demo:null,rel:['db','api','febe','saas']},
+ demo:null,rel:['db','api','febe','saas'],al:['多维表格','bitable','飞书表格','飞书多维表格','数据表'],one:'飞书里能当数据库用的在线表格',cf:'它不是 Excel，字段有类型、记录能关联',dlg:['甲：选题池放哪？','乙：飞书多维表格']},
 
 {id:'webhook',shot:'webhook',term:'webhook',full:'Webhook',cn:'回调 / 反向通知',zone:'misc',lv:2,new:true,
  tl:'你给别人留一个网址，<b>他那边一出事就往这个网址发一条消息</b>。不用你不停去问「好了没」。',
@@ -883,58 +894,78 @@ var WORDS=[
  demo:null,rel:['api','server','automation'],
  quiz:{q:'「回调（webhook）」和普通的「接口调用」，最关键的区别是什么？',
  o:['回调更安全','回调是对方出事时主动通知你，普通接口要你自己不停去问','回调更快','回调只能用在飞书'],a:1,
- why:'普通接口是你主动发问、它才回答，你不问它就沉默；回调是你先留个网址，对方有动静时主动把消息推过来。'}},
+ why:'普通接口是你主动发问、它才回答，你不问它就沉默；回调是你先留个网址，对方有动静时主动把消息推过来。'},al:['webhook','回调','反向通知','推送','事件通知'],one:'有事情发生时，对方主动推给你的通知',cf:'API 是你去问，webhook 是它主动告诉你',dlg:['甲：怎么知道更新了？','乙：配个 webhook 推给我']},
 
 {id:'automation',term:'automation',full:'Scheduled Task / Automation',cn:'定时自动任务',zone:'misc',lv:1,new:true,
  tl:'设定好时间，<b>到时候程序自己跑一遍</b>，不用你在场、不用你点任何按钮。',
  ana:'像<b>定时的电饭煲</b>：出门前设好，回家饭已经好了。',
  scn:'名词小抄每周一 9 点自动抓新词并重新上线，就是一条自动任务 —— 你什么都不用做，周一打开就是新的。',
- demo:null,rel:['cron','workflow','deploy']},
+ demo:null,rel:['cron','workflow','deploy'],al:['自动化','自动任务','定时任务','automation','定时执行'],one:'到点自动跑的一段流程',cf:'自动化按固定剧本跑，Agent 会自己想办法',dlg:['甲：每周能自动补词吗？','乙：建个 automation']},
 
 {id:'rollback',term:'rollback',full:'Rollback',cn:'回滚 / 退版本',zone:'misc',lv:1,
  tl:'新版本出问题，<b>退回上一个能用的版本</b>。',
  ana:'像<b>手机系统更新后卡死，恢复成上一个版本</b>。',
  scn:'名词小抄每次上线前都先存档、再打一个版本标签（v1.1、v1.2、v1.3…），就是为了出事能一句话退回去。',
- demo:null,rel:['git','backup','deploy']},
+ demo:null,rel:['git','backup','deploy'],al:['回滚','rollback','退版本','恢复','退回'],one:'出问题了退回上一个能用的版本',cf:'回滚前先存档当前版本，不然回不来了',dlg:['甲：新版的坏了','乙：回滚到上一版']},
 
 {id:'backup',term:'backup',full:'Backup',cn:'备份',zone:'misc',lv:1,
  tl:'把文件<b>再复制一份放到别处</b>，原件坏了还有副本。',
  ana:'像<b>家门钥匙在邻居家放一把</b>。',
  scn:'跑一次备份脚本会把整个项目打包一份。注意：你现在备份还在 C 盘同一块硬盘上，最好指定一个网盘目录一起存。',
- demo:null,rel:['rollback','git']},
+ demo:null,rel:['rollback','git'],al:['备份','backup','存档','拷贝一份','留底'],one:'额外存一份，防止原文件没了',cf:'备份和 Git 两回事：备份存整份文件，Git 存改动',dlg:['甲：改之前要不要存？','乙：先备份一份']},
 
 {id:'smoke',term:'smoke test',full:'Smoke Test',cn:'冒烟测试',zone:'misc',lv:2,
  tl:'上线前<b>先跑一遍最关键的几个功能</b>，确认「没冒烟」（没炸），再谈细测。',
  ana:'像<b>新电器插上电，先看会不会冒烟</b>：冒烟就别往下测了。',
  scn:'体检脚本里「页面能打开、词条都在、脚本没语法错」这几项就是冒烟测试 —— 先保证没炸，再查细节。',
- demo:null,rel:['regress','bug','deploy']},
+ demo:null,rel:['regress','bug','deploy'],al:['冒烟测试','smoke test','快速验证','通不通'],one:'先粗略跑一遍确认没炸',cf:'冒烟只验证能不能启动，不验证功能对不对',dlg:['甲：测了吗？','乙：只做了冒烟，能打开']},
 
 {id:'regress',term:'regression test',full:'Regression Test',cn:'回归测试',zone:'misc',lv:2,
  tl:'改完新东西后，<b>把老功能重新跑一遍</b>，确认没被改坏。',
  ana:'像<b>装修完卫生间，回头检查水管、电路、墙皮有没有被波及</b>。',
  scn:'每次加完词，体检脚本都会拿当前版本和「版本存档」里的旧版对比，确认老词条没被误删 —— 这就是回归检查。',
- demo:null,rel:['smoke','bug','git']},
+ demo:null,rel:['smoke','bug','git'],al:['回归测试','regression','改坏了吗','复查'],one:'改完之后复查老功能有没有被改坏',cf:'冒烟看能不能用，回归看老功能还好不好',dlg:['甲：加完功能测了吗？','乙：跑了回归，都还在']},
 
 {id:'scaffold',term:'scaffold',full:'Scaffold / Boilerplate',cn:'脚手架 / 样板工程',zone:'code',lv:2,
  tl:'一个<b>搭好架子、能直接往里填内容的空项目</b>：目录结构、配置文件、示例文件都齐了。',
  ana:'像<b>精装房交付</b>：水电墙都做好了，你搬家具进去就能住。',
  scn:'「软件开发标准流程」那个技能包里带的 templates 文件夹就是脚手架 —— 新项目一装，进度表、规范、体检脚本全自动生成。',
- demo:null,rel:['tpl','skill','repo']},
+ demo:null,rel:['tpl','skill','repo'],al:['脚手架','scaffold','样板工程','项目骨架','初始化'],one:'一键生成的项目骨架，目录和文件都铺好',cf:'脚手架给一整套结构，模板只是单个文件',dlg:['甲：从零建太麻烦','乙：用脚手架生成一套']},
 
 {id:'readme',term:'README',full:'README.md',cn:'项目说明书',zone:'misc',lv:1,
  tl:'放在项目根目录的<b>第一份说明书</b>：这项目是干嘛的、怎么装、怎么用。',
  ana:'像<b>新家电开箱第一页的快速入门</b>。',
  scn:'你的技能包传到 GitHub 后，README.md 就是别人点进来看到的第一页 —— 一句话说清它能干什么、怎么装，别人才愿意用。',
- demo:null,rel:['md','repo','scaffold']}
+ demo:null,rel:['md','repo','scaffold'],al:['readme','说明书','项目说明','自述文件','介绍文档'],one:'项目根目录那份介绍文档',cf:'README 讲怎么用，文档讲细节，不是一回事',dlg:['甲：怎么上手？','乙：先看 README']},
+{id:'rot',term:'Context rot',full:'Context rot / 越用越笨',cn:'上下文腐烂 / 越用越笨',zone:'ai',lv:2,tl:'对话越拉越长，AI 就开始忘事、犯蠢、前后矛盾。<b>不是它变笨了，是它的注意力被稀释了</b>。',ana:'像办公桌越堆越乱——你要找的东西还在，但就是翻不着。',scn:'你用 Codex 改一个项目改了两小时，它开始重复犯同一个错，这就是上下文腐烂了。开个新会话、只把关键结论贴进去，它立刻就清醒。',al:['变笨','越用越笨','上下文腐烂','上下文污染','注意力稀释','干久了就蠢','犯蠢','越聊越糊'],one:'聊太久，AI 就开始忘事、犯蠢',cf:'不是模型变差了，是塞进上下文的垃圾太多',dlg:['甲：它后面越改越离谱','乙：上下文腐烂了，开个新会话'],rel:['context','token','prompt'],new:true},
+{id:'syc',term:'Sycophancy',full:'Sycophancy',cn:'拍马屁 / 谄媚',zone:'ai',lv:2,tl:'AI 一味附和你，你说啥它都说对。<b>它是在讨好你，不是在讲真话</b>。',ana:'像那种永远说「您说得对」的下属——听着舒服，其实没帮你把关。',scn:'你问「我这个方案是不是没问题」，它回「非常完善」，其实漏洞一堆。想听真话就把问题改成「请找出这个方案的三个问题」。',al:['拍马屁','谄媚','马屁精','附和','讨好','说好话','一味赞同','老说我对'],one:'它一味说你对，其实是在讨好你',cf:'跟幻觉不同：幻觉是瞎编，这是明知也不反驳',dlg:['甲：它说我方案完美','乙：拍马屁呢，让它挑毛病试试'],rel:['hallu','rlhf','prompt'],new:true},
+{id:'compact',term:'Compaction',full:'Context compaction / /clear',cn:'压缩 / 清空',zone:'ai',lv:2,tl:'把长对话压成一段摘要，腾出空间继续干。<b>相当于给 AI 做一次「划重点」</b>。',ana:'像会议纪要：两小时讨论压成一页纸，重点还在，废话没了。',scn:'Claude Code 里打 /compact 或 /clear 就是在干这个。长任务干到一半感觉它开始糊了，压一下再继续，比硬撑着强。',al:['清空','压缩','上下文压缩','划重点','清会话','重开','compact','clear'],one:'把长对话压成摘要，腾地方继续干',cf:'压缩会丢细节；清空是从零开始，两者不一样',dlg:['甲：它越聊越糊','乙：/compact 压一下'],rel:['context','rot','token'],new:true},
+{id:'quota',term:'Quota / Rate limit',full:'Quota / Rate limit',cn:'额度 / 限流',zone:'code',lv:1,tl:'服务商给你定的用量上限。<b>用完就停，不是坏了</b>。',ana:'像手机流量包：用完就断网，或者给你限速到能聊但很慢。',scn:'Codex 报错「You have exceeded your quota」、调极致了 API 返回 429，都是这个。看一眼重置时间，或者换个模型、换把 Key。',al:['额度','限流','配额','超额','429','用超了','用完','rate limit','超了','没额度'],one:'服务商给的用量上限，用完就停',cf:'限流是短时间太快；额度用完是总量没了',dlg:['甲：怎么突然不干了？','乙：额度用完，看下重置时间'],rel:['apikey','token','api'],new:true},
+{id:'hitl',term:'Human-in-the-loop',full:'Human-in-the-loop',cn:'人在环内 / 人工把关',zone:'ai',lv:2,tl:'关键步骤必须由人点头，AI 才能往下走。<b>你不点头，它就停在那儿等你</b>。',ana:'像审批流：机器能干活，但签字这一步得人来。',scn:'Codex 要改你 Obsidian 里的笔记前弹一句「确认要改吗」，这就是人在环内。涉及删文件、花钱、发公众号的操作，一定要开着。',al:['人在环内','人工确认','需要审批','人工把关','要我点头','human in the loop','确认一下'],one:'关键步骤必须你点头，AI 才继续',cf:'不等于「全自动」的反面，是自动跑但关键处卡一下',dlg:['甲：它怎么老问我？','乙：开着人在环内，重要操作要你确认'],rel:['agent','guardrail','orchestr'],new:true},
+{id:'handoff',term:'Handoff',full:'Session handoff',cn:'交接 / 换班',zone:'ai',lv:2,tl:'一个 AI 干到一半，把进度交代给下一个接着干。<b>不交接，就得从头讲一遍</b>。',ana:'像换班：交班的人得把「干到哪、坑在哪」写给接班的人。',scn:'你上午用 Codex 写到一半关了，下午开新会话它啥都不记得——这时候该让它先写一份交接说明，你下次贴给新会话，一秒接上。',al:['交接','换班','换会话','交班','接着干','继续上次','handoff','接着做'],one:'把进度交代清楚，换一个 AI 接着干',cf:'记忆是系统自动存；交接是你主动让它写下来',dlg:['甲：昨天那个活接着做','乙：先让它写份交接说明'],rel:['memory','context','subagent'],new:true},
+{id:'nondet',term:'Non-determinism',full:'Non-determinism',cn:'非确定性 / 每次不一样',zone:'ai',lv:3,tl:'同一个问题问两遍，答案不一样。<b>这是 AI 的天性，不是 bug</b>。',ana:'像同一个厨师炒两次同一道菜，味道总有点差别。',scn:'你让 AI 生成公众号标题，每次给的都不一样。想要稳定结果，就把要求写死（格式、字数、风格），再把温度调低。',al:['非确定性','每次不一样','不稳定','随机性','结果不一样','时好时坏','两次不一样'],one:'同样的问题，两次答案不一样',cf:'不是出错了，是模型本来就带随机采样',dlg:['甲：刚才还好好的，这次又变了','乙：非确定性，把要求写死点'],rel:['temp','infer','benchmark'],new:true},
+{id:'spec',term:'Spec',full:'Specification',cn:'需求说明 / 先说清楚',zone:'ai',lv:1,tl:'动手之前，先把「要做成什么样」写清楚。<b>写给 AI 看，也写给自己看</b>。',ana:'像装修前的设计图：没图纸就开工，返工的是你自己。',scn:'让 Codex 做东西前，先让它出一份 spec：要做什么、不做什么、怎么算做完。你确认后它再动手，返工能少一大半。',al:['需求说明','规格','设计方案','验收标准','先说清楚','spec','需求文档','要做成啥样'],one:'动手前先把要做成啥样写清楚',cf:'spec 说「做成什么样」，prompt 是「这一句怎么问」',dlg:['甲：直接让它写吧','乙：先出个 spec 你确认再动手'],rel:['prompt','ctxeng','vibe'],new:true},
+{id:'grill',term:'Grilling',full:'Grilling',cn:'烤问 / 先反问你',zone:'misc',lv:2,tl:'不让 AI 直接开干，先反过来追问你一堆问题。<b>问清楚再动手，返工少</b>。',ana:'像老中医问诊：不先问清楚就开方子，多半不对症。',scn:'你说「帮我做个名词词典」，它先问：给谁用？手机上还是电脑上？要不要离线？——问完再干，比直接开写靠谱得多。',al:['烤问','反问','先问我','追问','问清楚','grilling','先别动手'],one:'先反过来问你一堆，问清楚再干',cf:'不是它在偷懒，问得越细后面返工越少',dlg:['甲：它怎么老问我问题？','乙：在烤问你，问清了才动手'],rel:['spec','prompt','agent'],new:true},
+{id:'dryrun',term:'Dry run',full:'Dry run',cn:'预演 / 先别真改',zone:'code',lv:2,tl:'先跑一遍看看会做什么，但<b>不真的动手改</b>。',ana:'像消防演习：流程走一遍，但不真放火。',scn:'让 Codex 批量改你飞书多维表格的字段前，先说一句「先别改，把你要改的清单列给我看」——这就是预演。',al:['预演','试运行','先别改','dry run','演练','先看不改','模拟执行','列个清单'],one:'先跑一遍看看会改啥，但不真改',cf:'预演不改任何东西；真跑会直接落盘',dlg:['甲：怕它改错','乙：让它先 dry run，列清单给你看'],rel:['hitl','rollback','sandbox'],new:true}
 ];
 </script>
 <script>
 /* ============ 逻辑 ============ */
 var ZONES={ai:{n:'AI 核心',e:'🧠'},code:{n:'编程基础',e:'⌨️'},misc:{n:'杂词 / 软件',e:'🧩'},abbr:{n:'缩写速查',e:'🔤'}};
 var LV={1:'入门',2:'进阶',3:'硬核'};
-var STORE={fav:{},read:{}};
-try{var raw=localStorage.getItem('mingcixiaochao');if(raw)STORE=JSON.parse(raw)}catch(e){}
+var STORE={fav:{},read:{},hist:[],miss:{}};
+try{var raw=localStorage.getItem('mingcixiaochao');if(raw){var p=JSON.parse(raw);
+  STORE.fav=p.fav||{};STORE.read=p.read||{};STORE.hist=p.hist||[];STORE.miss=p.miss||{}}}catch(e){}
 function save(){try{localStorage.setItem('mingcixiaochao',JSON.stringify(STORE))}catch(e){}}
+/* 浏览历史：最近看的排前面，去重，最多留 12 个 */
+function markView(id){
+  STORE.hist=[id].concat((STORE.hist||[]).filter(function(x){return x!==id})).slice(0,12);save();
+}
+/* 搜不到时用户点「记下来」：存本地，下次补词时优先补 */
+function addMiss(q){
+  q=String(q||'').trim();if(!q)return;
+  STORE.miss=STORE.miss||{};STORE.miss[q]=(STORE.miss[q]||0)+1;save();
+}
 
 var screenEl=document.getElementById('screen');
 var stack=[],cur='home',curArg=null,QI=0,PICKED=null,timers=[];
@@ -980,16 +1011,53 @@ function rowHTML(w,isAbbr){
   return '<div class="row" data-go="detail" data-id="'+w.id+'"><div class="rt">'+inner+'</div>'
     +'<div class="star '+f+'" data-star="'+w.id+'">★</div></div>';
 }
+/* 一个词所有可被搜到的文本：词、全称、中文、别名、释义、类比、场景 */
+function hayOf(w){
+  return (w.term+' '+w.full+' '+w.cn+' '+((w.al||[]).join(' '))+' '
+    +strip(w.tl)+' '+strip(w.ana||'')+' '+strip(w.scn||'')+' '+strip(w.one||'')).toLowerCase();
+}
 function searchWords(q){
-  q=String(q).toLowerCase();
+  q=String(q).toLowerCase().trim();if(!q)return [];
+  /* 先把查询按空格拆开，每个片段都要命中（搜「ai 幻觉」= 同时含两者） */
+  var parts=q.split(/\s+/);
   return WORDS.filter(function(w){
-    return (w.term+' '+w.full+' '+w.cn+' '+strip(w.tl)+' '+strip(w.ana||'')+' '+strip(w.scn||'')).toLowerCase().indexOf(q)>-1;
+    var hay=hayOf(w);
+    return parts.every(function(p){return hay.indexOf(p)>-1});
   });
 }
+/* 搜不到时的兜底：模糊找最接近的 N 个（逐字命中 + 连续两字加权） */
+function nearWords(q,n){
+  q=String(q).toLowerCase().trim();if(!q)return [];
+  var scored=[];
+  WORDS.forEach(function(w){
+    var hay=hayOf(w),sc=0,used={},i;
+    for(i=0;i<q.length;i++){var c=q[i];if(used[c])continue;if(hay.indexOf(c)>-1){sc++;used[c]=1}}
+    if(q.length>1)for(i=0;i+1<q.length;i++){if(hay.indexOf(q.substr(i,2))>-1)sc+=2}
+    if(sc>0)scored.push({w:w,sc:sc});
+  });
+  scored.sort(function(a,b){return b.sc-a.sc});
+  return scored.slice(0,n).map(function(x){return x.w});
+}
+function missHTML(q){
+  var near=nearWords(q,3);
+  var h='<div class="empty"><span class="e">🔍</span>没找到「'+esc(q)+'」<br>'
+   +(near.length?'你要找的可能是这几个：':'试试搜「套壳」「变笨」「额度」这种大白话')+'</div>';
+  if(near.length)h+=near.map(function(w){return rowHTML(w,false)}).join('');
+  var noted=(STORE.miss||{})[String(q).trim()];
+  h+='<div class="missbox"><div class="mt">都不是？</div>'
+   +'<button class="btn ghost" data-miss="'+esc(q)+'">'+(noted?'✅ 已记下了':'📌 记下来，下次补上')+'</button>'
+   +'<div class="ms">记下后存在你手机本地，不上传；下次加词时我优先补它</div></div>';
+  return h;
+}
 function listHTML(o,isAbbr){
-  var list=(o&&o.q)?searchWords(o.q):WORDS.filter(function(w){return w.zone===o.z});
-  if(!list.length)return '<div class="empty"><span class="e">🔍</span>没找到「'+esc((o&&o.q)||'')+'」<br>换个说法试试，比如搜「让AI先查资料」</div>';
-  return list.map(function(w){return rowHTML(w,isAbbr)}).join('');
+  if(o&&o.q){
+    var list=searchWords(o.q);
+    if(!list.length)return missHTML(o.q);
+    return list.map(function(w){return rowHTML(w,isAbbr)}).join('');
+  }
+  var zl=WORDS.filter(function(w){return w.zone===o.z});
+  if(!zl.length)return '<div class="empty"><span class="e">📭</span>这个分区还没词</div>';
+  return zl.map(function(w){return rowHTML(w,isAbbr)}).join('');
 }
 
 function dailyWord(){
@@ -1013,6 +1081,11 @@ function viewHome(){
      +'<div class="n">'+ZONES[z].n+'</div><div class="c">'+c+' 个词</div></div>';
   });
   h+='</div>';
+  var hv=(STORE.hist||[]).map(byId).filter(Boolean).slice(0,5);
+  if(hv.length){
+    h+='<div class="secttl"><span>🕘 最近查看</span></div>';
+    hv.forEach(function(w){h+=rowHTML(w,false)});
+  }
   if(news.length){
     h+='<div class="secttl"><span>🆕 最近新增</span></div>';
     news.forEach(function(w){h+=rowHTML(w,false)});
@@ -1037,7 +1110,7 @@ function viewList(o){
 
 function viewDetail(id){
   var w=byId(id);if(!w)return '<div class="empty">没找到这个词</div>';
-  STORE.read[id]=1;save();
+  STORE.read[id]=1;markView(id);
   var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">词条</div></div>';
   h+='<div style="display:flex;align-items:flex-start;gap:8px"><div style="flex:1">'
    +'<div class="dterm">'+w.term+'</div><div class="dfull">'+w.full+'</div>'
@@ -1045,12 +1118,18 @@ function viewDetail(id){
    +'<div class="star '+(STORE.fav[id]?'on':'')+'" data-star="'+id+'" style="font-size:24px">★</div></div>';
   h+='<div class="chips"><span class="chip">'+ZONES[w.zone].n+'</span><span class="chip lv">'+LV[w.lv]+'</span>'
    +(w.new?'<span class="chip" style="background:var(--new);color:#fff">本周新词</span>':'')+'</div>';
+  if(w.one)h+='<div class="one">'+esc(w.one)+'</div>';
   h+='<div class="blk"><div class="h">💬 说人话</div><div class="b">'+w.tl+'</div></div>';
   h+='<div class="blk"><div class="h">🍜 打个比方</div><div class="b">'+w.ana+'</div></div>';
+  if(w.cf)h+='<div class="blk cf"><div class="h">⚠️ 别搞混</div><div class="b">'+esc(w.cf)+'</div></div>';
   if(w.shot&&SHOTS[w.shot])h+='<div class="blk"><div class="h">🖼 它长什么样</div>'
    +'<div class="demoname">手绘示意图，只画关键部位，去掉了真实界面里那些干扰项</div>'
    +shotHTML(w.shot)+'</div>';
   h+='<div class="blk"><div class="h">📍 你会在哪撞见它</div><div class="b">'+w.scn+'</div></div>';
+  if(w.dlg&&w.dlg.length){
+    h+='<div class="blk talk"><div class="h">🗣 真实对话里长这样</div>'
+     +w.dlg.map(function(d){return '<div class="dl">'+esc(d)+'</div>'}).join('')+'</div>';
+  }
   if(w.demo)h+='<div class="blk"><div class="h">🎬 看图就懂</div><div class="demoname">'
    +(w.demo==='token'||w.demo==='temp'?'下面会自动演示一遍，演完你可以自己动手试':'下面会自动演示一遍')+'</div>'
    +demoHTML(w.demo)+'</div>';
@@ -1852,6 +1931,9 @@ document.getElementById('screen').addEventListener('click',function(e){
   if((n=e.target.closest('[data-star]'))){
     var id=n.getAttribute('data-star');STORE.fav[id]=!STORE.fav[id];save();
     n.classList.toggle('on',!!STORE.fav[id]);return;
+  }
+  if((n=e.target.closest('[data-miss]'))){
+    addMiss(n.getAttribute('data-miss'));render();return;
   }
   if((n=e.target.closest('[data-back]'))){clearTimers();back();return}
   if((n=e.target.closest('[data-zoom]'))){openZoom(n.getAttribute('data-zoom'));return}
