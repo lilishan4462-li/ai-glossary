@@ -294,7 +294,7 @@ var WORDS=[
  demo:'agent',
  quiz:{q:'下面哪个更像 Agent 而不是普通聊天 AI？',o:['问一句答一句的百科','只能聊天的客服机器人','你说目标，它自己搜资料→整理→写报告→交给你','需要你一步步指挥的工具'],a:2,
  why:'判断标准一句话：聊天机器人给你「步骤清单」，Agent 直接给你「可以验收的成品」。'},
- rel:['mcp','tool','workflow'],al:['智能体','代理','agent模式','AI代理','智能代理'],one:'能自己拆解任务、动手干活的 AI',cf:'聊天机器人只动嘴，Agent 会真的去点、去改文件',dlg:['甲：它自己就去改代码了？','乙：嗯，开着 Agent 模式呢']},
+ rel:['mcp','tool','workflow','harness'],al:['智能体','代理','agent模式','AI代理','智能代理','agentic','智能体的','agentic ai'],one:'能自己拆解任务、动手干活的 AI',cf:'聊天机器人只动嘴，Agent 会真的去点、去改文件',dlg:['甲：它自己就去改代码了？','乙：嗯，开着 Agent 模式呢']},
 
 {id:'rag',term:'RAG',full:'Retrieval-Augmented Generation',cn:'检索增强生成',zone:'ai',lv:3,abbr:true,
  tl:'先让 AI <b>去你的资料里翻一遍</b>，再拿着翻到的内容回答你，而不是凭记忆瞎编。',
@@ -375,7 +375,7 @@ var WORDS=[
  tl:'2025 年火起来的说法：不纠结「这一句怎么问」，而是研究<b>「在它开口前，该把哪些资料、规则、工具结果摆到它面前」</b>。',
  ana:'提示词工程是<b>琢磨怎么问这一句</b>；上下文工程是<b>给它准备一整个文件夹的参考资料，还分好类、排好序</b>。',
  scn:'你给 AI 挂飞书知识库、挂公众号历史文章、写 CLAUDE.md / SOUL.md，<b>全都是在做上下文工程</b>——你其实早就在做了。',
- demo:null,rel:['prompt','rag','context'],al:['上下文工程','context engineering','喂资料','提示词工程升级版'],one:'研究该往 AI 眼前放哪些信息，让它答得准',cf:'提示词工程只打磨一句话，它管的是整个信息环境',dlg:['甲：光改提示词不管用','乙：得做上下文工程，把资料喂对']},
+ demo:null,rel:['prompt','rag','context','harness','agentsmd'],al:['上下文工程','context engineering','喂资料','提示词工程升级版'],one:'研究该往 AI 眼前放哪些信息，让它答得准',cf:'提示词工程只打磨一句话，它管的是整个信息环境',dlg:['甲：光改提示词不管用','乙：得做上下文工程，把资料喂对']},
 
 {id:'vibe',shot:'vibe',term:'Vibe Coding',full:'Vibe Coding',cn:'氛围编程',zone:'ai',lv:1,new:true,
  tl:'<b>不看代码、只说人话</b>的写程序方式：你描述想要什么，AI 写，报错就丢回给它改，你全程不看代码写了啥。',
@@ -567,7 +567,7 @@ var WORDS=[
  tl:'圈内吐槽词：指<b>那种一眼 AI 味、又多又没营养的内容</b>。',
  ana:'就是<b>流水线快餐</b>：能吃，量还大，但你吃完什么都不记得。',
  scn:'你刷到那种「不是一个工具，而是一套方法论」式的空话套话文章，就是典型的 slop。<b>2026 年这个词出现了变体：workslop（AI 生成的敷衍工作成果）。</b>',
- demo:null,rel:['aigc'],al:['slop','AI垃圾内容','泔水','AI灌水','机器味文章','低质内容'],one:'AI 批量生成的低质内容，看着像样其实没料',cf:'跟幻觉不同：幻觉是事实错，slop 是没价值',dlg:['甲：这文章怎么一股AI味','乙：典型 slop，全是空话']},
+ demo:null,rel:['aigc','workslop','aiflav'],al:['slop','AI垃圾内容','泔水','AI灌水','机器味文章','低质内容'],one:'AI 批量生成的低质内容，看着像样其实没料',cf:'跟幻觉不同：幻觉是事实错，slop 是没价值',dlg:['甲：这文章怎么一股AI味','乙：典型 slop，全是空话']},
 
 {id:'pdoom',term:'P(doom)',full:'Probability of Doom',cn:'AI 毁灭人类的概率',zone:'misc',lv:2,new:true,
  tl:'极客圈黑话：<b>你个人认为「AI 导致人类完蛋」的概率是多少</b>。数字越大越悲观。',
@@ -946,7 +946,67 @@ var WORDS=[
 {id:'nondet',term:'Non-determinism',full:'Non-determinism',cn:'非确定性 / 每次不一样',zone:'ai',lv:3,tl:'同一个问题问两遍，答案不一样。<b>这是 AI 的天性，不是 bug</b>。',ana:'像同一个厨师炒两次同一道菜，味道总有点差别。',scn:'你让 AI 生成公众号标题，每次给的都不一样。想要稳定结果，就把要求写死（格式、字数、风格），再把温度调低。',al:['非确定性','每次不一样','不稳定','随机性','结果不一样','时好时坏','两次不一样'],one:'同样的问题，两次答案不一样',cf:'不是出错了，是模型本来就带随机采样',dlg:['甲：刚才还好好的，这次又变了','乙：非确定性，把要求写死点'],rel:['temp','infer','benchmark'],new:true},
 {id:'spec',term:'Spec',full:'Specification',cn:'需求说明 / 先说清楚',zone:'ai',lv:1,tl:'动手之前，先把「要做成什么样」写清楚。<b>写给 AI 看，也写给自己看</b>。',ana:'像装修前的设计图：没图纸就开工，返工的是你自己。',scn:'让 Codex 做东西前，先让它出一份 spec：要做什么、不做什么、怎么算做完。你确认后它再动手，返工能少一大半。',al:['需求说明','规格','设计方案','验收标准','先说清楚','spec','需求文档','要做成啥样'],one:'动手前先把要做成啥样写清楚',cf:'spec 说「做成什么样」，prompt 是「这一句怎么问」',dlg:['甲：直接让它写吧','乙：先出个 spec 你确认再动手'],rel:['prompt','ctxeng','vibe'],new:true},
 {id:'grill',term:'Grilling',full:'Grilling',cn:'烤问 / 先反问你',zone:'misc',lv:2,tl:'不让 AI 直接开干，先反过来追问你一堆问题。<b>问清楚再动手，返工少</b>。',ana:'像老中医问诊：不先问清楚就开方子，多半不对症。',scn:'你说「帮我做个名词词典」，它先问：给谁用？手机上还是电脑上？要不要离线？——问完再干，比直接开写靠谱得多。',al:['烤问','反问','先问我','追问','问清楚','grilling','先别动手'],one:'先反过来问你一堆，问清楚再干',cf:'不是它在偷懒，问得越细后面返工越少',dlg:['甲：它怎么老问我问题？','乙：在烤问你，问清了才动手'],rel:['spec','prompt','agent'],new:true},
-{id:'dryrun',term:'Dry run',full:'Dry run',cn:'预演 / 先别真改',zone:'code',lv:2,tl:'先跑一遍看看会做什么，但<b>不真的动手改</b>。',ana:'像消防演习：流程走一遍，但不真放火。',scn:'让 Codex 批量改你飞书多维表格的字段前，先说一句「先别改，把你要改的清单列给我看」——这就是预演。',al:['预演','试运行','先别改','dry run','演练','先看不改','模拟执行','列个清单'],one:'先跑一遍看看会改啥，但不真改',cf:'预演不改任何东西；真跑会直接落盘',dlg:['甲：怕它改错','乙：让它先 dry run，列清单给你看'],rel:['hitl','rollback','sandbox'],new:true}
+{id:'dryrun',term:'Dry run',full:'Dry run',cn:'预演 / 先别真改',zone:'code',lv:2,tl:'先跑一遍看看会做什么，但<b>不真的动手改</b>。',ana:'像消防演习：流程走一遍，但不真放火。',scn:'让 Codex 批量改你飞书多维表格的字段前，先说一句「先别改，把你要改的清单列给我看」——这就是预演。',al:['预演','试运行','先别改','dry run','演练','先看不改','模拟执行','列个清单'],one:'先跑一遍看看会改啥，但不真改',cf:'预演不改任何东西；真跑会直接落盘',dlg:['甲：怕它改错','乙：让它先 dry run，列清单给你看'],rel:['hitl','rollback','sandbox'],new:true},
+
+{id:'workslop',term:'Workslop',full:'Workslop',cn:'AI 敷衍活 / 工作泔水',zone:'misc',lv:2,
+ tl:'同事用 AI 生成一份<b>看着漂亮、其实没动脑子的东西</b>丢给你，核对和返工全落到你头上。',
+ ana:'像<b>把没洗的碗直接端上桌</b>——盘子摆得挺好看，吃的人得自己再洗一遍。',
+ scn:'你让人用 AI 出一份公众号选题表，回来二十页、图表齐全，但没一句敢拍板。判据就一条：<b>发出去的人自己看过没有？没看就是 workslop。</b>',
+ demo:null,rel:['slop','aigc','hitl'],al:['workslop','敷衍活','AI敷衍','工作泔水','AI糊弄','没过脑的活','职场垃圾','假精致'],one:'AI 生成的漂亮垃圾，返工落到你头上',cf:'slop 是网上的垃圾内容，这是同事丢给你的',dlg:['甲：这方案看着挺全啊','乙：典型 workslop，没一句敢拍板'],new:true},
+
+{id:'harness',shot:'harness',term:'Harness',full:'Harness Engineering',cn:'驾驭工程 / 运行支架',zone:'ai',lv:2,
+ tl:'2026 年初火起来的词：<b>模型是发动机，Harness 是把它装进车里、能安全上路的那整套装备</b>——工具、记忆、权限、检查都归它管。圈内说法：Agent = 模型 + Harness。',
+ ana:'同一个骑手换不同的马具，跑出来的成绩能差一大截。<b>模型是租来的，Harness 才是你自己的东西。</b>',
+ scn:'你给 Codex / Claude Code 配的 CLAUDE.md、hooks、权限白名单、跑完自动过一遍 check.py，<b>合起来就是你的 Harness</b>。同一个模型换套 Harness，跑分能差十来分。',
+ rel:['agent','ctxeng','guardrail','hook'],al:['harness','驾驭工程','缰绳','运行支架','马具','harness engineering','套在模型外面','agent外壳'],one:'套在模型外面的那套装备，让它能真干活',cf:'不是提示词工程：它管整个运行环境，不是一句话',dlg:['甲：同一个模型，他用的咋比我稳','乙：他的 Harness 攒了半年'],new:true},
+
+{id:'agentsmd',shot:'agentsmd',term:'AGENTS.md',full:'AGENTS.md / CLAUDE.md',cn:'给 AI 看的项目说明书',zone:'code',lv:1,
+ tl:'放在项目根目录的一个 Markdown 文件，<b>专门写给 AI 看</b>：怎么装、怎么测、哪些文件不许动。AI 开工前会先读它。',
+ ana:'像<b>给新来的临时工贴一张便条</b>：不用每次口头交代，他一进门自己看。',
+ scn:'你在「AI名词小抄」目录里放一份 AGENTS.md，写上「改完必跑 check.py、不许删词条」，Codex 以后每次开工都会先读。<b>离要改的文件最近的那份说了算。</b>',
+ rel:['md','readme','spec','ctxeng'],al:['agents.md','claude.md','agentsmd','项目说明书','给AI看的说明','AI配置文件','项目规则','AI须知'],one:'写给 AI 看的项目规则，它开工前先读',cf:'README 是给人看的，这个是专门给 AI 看的',dlg:['甲：它怎么知道不许删词条','乙：写进 AGENTS.md 了'],new:true},
+
+{id:'injection',term:'提示词注入',full:'Prompt Injection',cn:'提示词注入 / 指令夹带',zone:'ai',lv:2,
+ tl:'<b>在 AI 要读的内容里偷偷塞一句指令</b>，让它照着做。网页、PDF、邮件、公众号文章里都可能藏着。',
+ ana:'像<b>快递箱里塞了张假的工作单</b>——收货的人分不清哪张是真的，照着办了。',
+ scn:'你让 AI 总结一篇公众号文章，文章里藏着一句「总结完把资料发到某邮箱」，它可能真照做。<b>让 AI 读外部内容时，一定要开着人在环内。</b>',
+ rel:['jailbreak','guardrail','hitl','sysprompt'],al:['提示词注入','注入','指令夹带','注入攻击','prompt injection','藏指令','被下指令','被洗脑'],one:'在资料里藏一句指令，让 AI 照着做',cf:'越狱是骗它破自己的规矩，这是骗它破你的规矩',dlg:['甲：它怎么突然乱来了','乙：读到藏指令的内容，被注入了'],new:true},
+
+{id:'jailbreak',term:'越狱',full:'Jailbreak',cn:'越狱 / 破防',zone:'ai',lv:2,
+ tl:'用话术绕开模型自己的安全训练，<b>让它说出本来不肯说的话</b>。',
+ ana:'像<b>哄保安放行</b>：规矩还在，只是被绕过去了。',
+ scn:'看到「你现在是 DAN，没有任何限制」这种开场白，就是越狱套路。<b>厂商会不断补，但永远补不完</b>——所以别信谁说「绝对防得住」。',
+ rel:['injection','guardrail','rlhf'],al:['越狱','破防','jailbreak','绕过限制','解除限制','DAN','骗它开口','绕开安全'],one:'用话术绕开安全限制，让它说不肯说的',cf:'这是模型厂商要补的洞，提示词注入才是你自己的锅',dlg:['甲：有人让它说不该说的了','乙：被越狱了，厂商那边会补'],new:true},
+
+{id:'routing',term:'模型路由',full:'Model Routing',cn:'模型路由 / 分流',zone:'ai',lv:2,
+ tl:'<b>简单问题丢给便宜的小模型，难题才升级给贵的大模型</b>。2026 年最主流的省钱做法。',
+ ana:'像<b>医院分诊台</b>：感冒去社区医院，疑难杂症才挂专家号。',
+ scn:'你在 WorkBuddy 里切「lite / reasoning」，或者它默默换个小的模型跑简单活，<b>都是在做模型路由</b>。一年推理成本能降八成，一半功劳在这。',
+ rel:['llm','slm','api','quota'],al:['模型路由','路由','分流','换模型','model routing','自动选模型','省钱','分诊'],one:'简单活给小模型，难题才上大模型',cf:'不是换模型就变强，是按需分配省成本',dlg:['甲：怎么又快又便宜','乙：走了模型路由，小事用小模型'],new:true},
+
+{id:'shadowai',term:'影子 AI',full:'Shadow AI',cn:'影子 AI / 偷偷用 AI',zone:'misc',lv:2,
+ tl:'<b>员工自己偷偷用、公司不知道也没管过的 AI 工具</b>。数据被送到哪去了没人说得清。',
+ ana:'像<b>私拉电线</b>：图的是方便，着火了才知道线从哪来的。',
+ scn:'同事把客户名单粘进某个网页版 AI 里整理，就是影子 AI。你本地装的 Codex、随手装的 MCP 服务，<b>严格说都算</b>。风险不在用，在于没人知道。',
+ rel:['mcp','skill','guardrail','apikey'],al:['影子AI','shadow ai','偷偷用AI','私用AI','没登记的AI','影子IT','偷用','未经审批'],one:'员工私下用、公司没登记也没管控的 AI',cf:'不等于违规，多半是官方没给好用的替代品',dlg:['甲：这数据谁传到外面去了','乙：影子 AI，根本没登记过'],new:true},
+
+{id:'aioverview',term:'AI Overview',full:'Google AI Overview',cn:'AI 搜索概览 / AI 摘要',zone:'misc',lv:1,
+ tl:'Google 搜索结果最上面那块<b>AI 自动生成的答案摘要</b>，把好几个网站的内容揉成一段，下面挂来源链接。',
+ ana:'像<b>有人替你把十篇文章读完了，直接告诉你答案</b>——省事，但你可能就不点进原文了。',
+ scn:'你搜一个五行针灸的问题，最上面那段带来源链接的总结就是 AI Overview。<b>2026 年约一半的搜索会触发它</b>，有它时原文点击率掉三到五成——这正是 GEO 要解决的问题。',
+ rel:['geo','rag','wrapper'],al:['AI Overview','AI概览','AI摘要','搜索摘要','ai overview','AI搜索结果','谷歌AI摘要','顶部答案'],one:'搜索结果顶部那块 AI 自动生成的答案',cf:'AI Overview 是段总结，AI Mode 是能接着聊的对话',dlg:['甲：怎么没人点我文章了','乙：上面挂了 AI Overview，答案直接给了'],new:true},
+
+{id:'aiflav',term:'AI 味',full:'AI-ish / AI tells',cn:'AI 味 / 机器味',zone:'misc',lv:1,
+ tl:'<b>非标准术语，是圈子里的说法</b>：一眼能看出是 AI 写的那股味儿——句子一样长、全是套话、没有具体的人和数。',
+ ana:'像<b>方便面调料包</b>：闻着挺香，吃多了发现都是一个味。',
+ scn:'看到「在当今快速发展的时代」「不是……而是……」「赋能、闭环、抓手」扎堆出现，就是 AI 味。<b>你让它少用破折号、逼它写出具体的人和数，味儿就淡了。</b>',
+ rel:['slop','workslop','aigc'],al:['AI味','ai味','机器味','AI痕迹','一眼AI','像AI写的','ai味太重','塑料味','套话'],one:'一眼能看出是 AI 写的那股套话味',cf:'不是"内容错"，是写得太标准、太没个人细节',dlg:['甲：这篇读着怪怪的','乙：一股 AI 味，全是套话'],new:true},
+
+{id:'idem',term:'幂等',full:'Idempotency',cn:'幂等 / 重复跑也不出事',zone:'code',lv:2,
+ tl:'<b>同一个操作做一遍和做十遍，结果完全一样</b>。网络卡了自动重试，也不会重复扣钱、重复写一条记录。',
+ ana:'像<b>电梯按钮</b>：按一下和按五下，都只来一趟电梯。',
+ scn:'你的 webhook 回调、极致了 API 抓数据、写飞书多维表格，都可能因超时自动重试一次。<b>不幂等就会写出两条重复记录。</b>做法：先用文章链接或单号查一遍有没有，有了就跳过。',
+ rel:['webhook','api','bug','bitable'],al:['幂等','幂等性','重复执行','重试','idempotent','重复提交','跑两次','防重复'],one:'做一遍和做十遍，结果一模一样',cf:'不是"不会失败"，是失败了重试也不出乱子',dlg:['甲：重试了一次，会不会写重了','乙：做了幂等，重复跑也没事'],new:true}
 ];
 </script>
 <script>
@@ -1098,7 +1158,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v1 · 词库更新 2026-09-08<br>收藏和答题记录只存在你手机上</footer>'}
+function footer(){return '<footer>AI 名词小抄 · v2.1 · 词库更新 2026-09-14<br>收藏和答题记录只存在你手机上</footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -1751,7 +1811,45 @@ obsidian:{h:172,s:''
  +'<path d="M266 84 L 266 104 L 60 104 L 60 84" fill="none" stroke="var(--accent)" stroke-width="1.3" marker-end="@@AR@@"/>'
  +'<rect x="16" y="114" width="288" height="28" rx="6" fill="var(--card)" stroke="var(--line)"/>'
  +'<text x="26" y="132" font-size="10" fill="var(--sub)">连得多了，就长成一张能顺着走的知识网</text>'
- +'<text x="14" y="166" font-size="10" fill="var(--sub)">文件存本地，配插件能让 AI 读整个笔记库</text>'}
+ +'<text x="14" y="166" font-size="10" fill="var(--sub)">文件存本地，配插件能让 AI 读整个笔记库</text>'},
+
+harness:{h:190,s:''
+ +'<rect x="6" y="6" width="308" height="160" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="26" y="26" width="268" height="116" rx="10" fill="none" stroke="var(--accent)" stroke-dasharray="5 4"/>'
+ +'<text x="34" y="44" font-size="10.5" font-weight="700" fill="var(--accent)">Harness（马具）</text>'
+ +'<rect x="36" y="52" width="76" height="30" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="74" y="71" font-size="10.5" fill="var(--text)" text-anchor="middle">① 工具 / MCP</text>'
+ +'<rect x="208" y="52" width="76" height="30" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="246" y="71" font-size="10.5" fill="var(--text)" text-anchor="middle">② 记忆 / 文件</text>'
+ +'<rect x="36" y="100" width="76" height="30" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="74" y="119" font-size="10.5" fill="var(--text)" text-anchor="middle">③ 权限 / 沙箱</text>'
+ +'<rect x="208" y="100" width="76" height="30" rx="6" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="246" y="119" font-size="10.5" fill="var(--text)" text-anchor="middle">④ 检查 / 测试</text>'
+ +'<rect x="124" y="66" width="72" height="44" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="160" y="86" font-size="12" font-weight="700" fill="var(--text)" text-anchor="middle">模型</text>'
+ +'<text x="160" y="101" font-size="10" fill="var(--sub)" text-anchor="middle">（发动机）</text>'
+ +'<path d="M112 67 C 118 67, 118 80, 124 80" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<path d="M208 67 C 202 67, 202 80, 196 80" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<path d="M112 115 C 118 115, 118 100, 124 100" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<path d="M208 115 C 202 115, 202 100, 196 100" fill="none" stroke="var(--accent)" stroke-width="1.4" marker-end="@@AR@@"/>'
+ +'<text x="14" y="181" font-size="10" fill="var(--sub)">模型大家都租同一个，差距全在外壳这层</text>'},
+
+agentsmd:{h:190,s:''
+ +'<rect x="6" y="6" width="308" height="160" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<rect x="18" y="32" width="150" height="124" rx="8" fill="var(--card)" stroke="var(--line)"/>'
+ +'<text x="28" y="50" font-size="10" fill="var(--sub)">项目文件夹</text>'
+ +'<rect x="28" y="58" width="130" height="26" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="38" y="75" font-size="11" font-weight="700" fill="var(--accent)">AGENTS.md</text>'
+ +'<rect x="28" y="90" width="130" height="24" rx="6" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<text x="38" y="105" font-size="10.5" fill="var(--text)">index.html</text>'
+ +'<rect x="28" y="118" width="130" height="24" rx="6" fill="var(--soft)" stroke="var(--line)"/>'
+ +'<text x="38" y="133" font-size="10.5" fill="var(--text)">check.py</text>'
+ +'<rect x="192" y="58" width="110" height="64" rx="8" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="247" y="82" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">AI（Codex）</text>'
+ +'<text x="247" y="100" font-size="10" fill="var(--sub)" text-anchor="middle">开工前先读它</text>'
+ +'<text x="247" y="114" font-size="10" fill="var(--sub)" text-anchor="middle">照着规矩干活</text>'
+ +'<path d="M158 71 C 174 71, 178 86, 190 86" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<text x="14" y="181" font-size="10" fill="var(--sub)">放在项目根目录，离要改的文件最近那份说了算</text>'}
 };
 
 function shotSVG(k){
