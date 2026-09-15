@@ -9,6 +9,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default" data-page-node-id="MBBrfLUlCFGzQNH6wDpiIY">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233566f0'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E词%3C/text%3E%3C/svg%3E" data-page-node-id="PRr72PnAJyG5H8L9UrFdSD">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233566f0'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E词%3C/text%3E%3C/svg%3E" data-page-node-id="8A15KDJS1fATQ7DiCxBSPd">
+<link rel="manifest" href="./manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
 <title>AI 名词小抄</title>
 <style>
 :root{
@@ -201,6 +203,8 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
 </head>
 <body data-page-node-id="QxIqCOXUCHxgQ7vOMDn8QF">
 <div class="app" data-page-node-id="2HOiqko75zo5cnnR0WqVXA">
+  <div id="updBar" style="display:none;position:sticky;top:0;z-index:40;background:#1f9d55;color:#fff;
+    text-align:center;font-size:12.5px;padding:8px 12px;cursor:pointer">🔄 词库已更新到最新版，点这里刷新</div>
   <div class="hd" data-page-node-id="531YSBDUGMRi0KF5ACNSSk">
     <div class="hdrow" data-page-node-id="fqxD1QvU28rWgIJUA5gGoZ"><span class="brand" data-page-node-id="3R4A6HCfYKgZAyMlmKTm3t">AI 名词<span data-page-node-id="IQrgBXzur7VUM5ejup5T3F">小抄</span></span>
       <span class="brandsub" data-page-node-id="9EkykKrKOlMaS4GqjfU6IY">看不懂的词，说人话给你听</span><span class="cnt" id="cnt" data-page-node-id="cBCezoC5kSzbSbtFOSlvPD"></span></div>
@@ -1158,7 +1162,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v2.1 · 词库更新 2026-09-14<br>收藏和答题记录只存在你手机上</footer>'}
+function footer(){return '<footer>AI 名词小抄 · v3.0 · 词库更新 2026-09-15<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -2065,6 +2069,36 @@ document.getElementById('tabbar').addEventListener('click',function(e){
 });
 document.getElementById('cnt').textContent=WORDS.length+' 词';
 render();
+
+/* ── v3.0 PWA：Service Worker 注册 + 更新提示 ── */
+if('serviceWorker' in navigator){
+  var _updBg=function(){
+    fetch('./index.html',{cache:'reload'}).then(function(r){return r.text()}).then(function(t){
+      caches.match('./index.html').then(function(old){
+        if(!old)return;
+        old.text().then(function(ot){
+          if(ot!==t){
+            caches.open('aigc-glossary-v3.0').then(function(c){c.put('./index.html',new Response(t))});
+            var b=document.getElementById('updBar');if(b)b.style.display='block';
+          }
+        });
+      });
+    }).catch(function(){});
+  };
+  navigator.serviceWorker.register('./sw.js').then(function(reg){
+    /* 已被 SW 接管的页面：SW 检测到新版会 postMessage 过来 */
+    navigator.serviceWorker.addEventListener('message',function(e){
+      if(e.data&&e.data.type==='UPDATED'){
+        var b=document.getElementById('updBar');if(b)b.style.display='block';
+      }
+    });
+    /* 首次进页面也主动对一次版本（覆盖 SW 未接管时的场景） */
+    _updBg();
+  }).catch(function(){});
+}
+var _updBar=document.getElementById('updBar');
+if(_updBar)_updBar.addEventListener('click',function(){location.reload()});
+
 </script>
 </body>
 </html>
