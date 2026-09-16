@@ -1088,8 +1088,8 @@ function render(){
   window.scrollTo(0,0);
   document.getElementById('q').value=(cur==='list'&&curArg&&curArg.q)?curArg.q:'';
   syncTab();
-  if(cur==='detail')startDemo();
-  if(isDesk()&&deskId&&(cur==='home'||cur==='list'||cur==='fav'))startDemo();
+  if(cur==='detail')startDemo(curArg);
+  if(isDesk()&&deskId&&(cur==='home'||cur==='list'||cur==='fav'))startDemo(deskId);
 }
 
 /* v5.0 桌面模式：点词/点相关词只刷新右栏，不跳页 */
@@ -1100,7 +1100,7 @@ function deskShow(id){
   deskId=id;
   r.innerHTML='<div class="view v-detail">'+detailInner(id)+'</div>';
   r.scrollTop=0;
-  startDemo();
+  startDemo(id);
 }
 function syncTab(){
   var t=document.querySelectorAll('#tabbar div');
@@ -1208,7 +1208,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v5.0 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v5.1 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -1936,8 +1936,10 @@ function tokenize(s){
     else out.push(t);}
   return out;
 }
-function startDemo(){
-  var w=byId(curArg);if(!w||!w.demo)return;
+function startDemo(wordId){
+  /* v5.1 修复：桌面分栏下页面停在首页/列表，curArg 不是词 id，
+     必须由调用方显式传入词 id，否则动画全都不启动 */
+  var w=byId(wordId);if(!w||!w.demo)return;
   var k=w.demo;
   if(k==='llm')runLLM();
   if(k==='token')runToken();
@@ -2133,7 +2135,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v5.0').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v5.1').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
