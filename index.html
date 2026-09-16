@@ -200,33 +200,27 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
 .missbox .mt{font-size:13px;color:var(--sub);margin-bottom:8px}
 .missbox .ms{font-size:11.5px;color:var(--faint);margin-top:8px;line-height:1.7}
 
-/* ===== v4.0 桌面横版适配（≥900px 生效；手机端不受任何影响） ===== */
+/* ===== v5.0 桌面横版适配·方案A 左右分栏（≥900px 生效；手机端不受任何影响） ===== */
 @media (min-width:900px){
-  /* 整体加宽：手机 520px → 桌面 960px 居中 */
-  .app{max-width:960px}
-  .hd{padding:16px 28px 12px}
-  .brand{font-size:21px}
-  .searchbox{max-width:640px}
-  main{padding:20px 28px 96px}
-  /* 底部标签栏改为居中悬浮胶囊 */
-  .tabbar{max-width:360px;left:50%;transform:translateX(-50%);bottom:16px;
-    border:1px solid var(--line);border-radius:999px;padding:2px 8px;box-shadow:var(--sh)}
-  /* 首页：每日一词横条 + 分区四列 */
-  .v-home .daily{display:flex;align-items:center;gap:18px;padding:18px 24px}
-  .v-home .daily .lbl{flex:none;margin-right:2px}
-  .v-home .daily .w{margin:0;font-size:26px}
-  .v-home .daily .d{flex:1;font-size:14px}
-  .v-home .daily .go{margin-top:0;flex:none}
-  .v-home .zones{grid-template-columns:repeat(4,1fr);gap:12px}
-  /* 列表页：行卡片双列网格 */
-  .v-list #listBox{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .v-list #listBox .row{margin-bottom:0}
-  .v-list #listBox .empty,.v-list #listBox .missbox{grid-column:1/-1}
-  /* 详情页：正文限宽居中，读起来不散 */
-  .v-detail{max-width:720px;margin:0 auto}
-  /* 测验/收藏：适度限宽 */
-  .v-quiz,.v-fav{max-width:760px;margin:0 auto}
-  /* 大图预览遮罩里的内容加宽 */
+  .app{max-width:1160px}
+  .hd{padding:14px 26px 10px}
+  .searchbox{max-width:560px}
+  main{padding:16px 26px 120px}
+  /* 底部导航：通栏实心底栏（v4.0 悬浮胶囊已废弃，不再遮挡内容） */
+  .tabbar{max-width:1160px}
+  /* 双栏骨架：左 400px 导航/列表，右栏词条详解 */
+  .desk{display:grid;grid-template-columns:400px minmax(0,1fr);gap:20px;align-items:start}
+  .dk-left{min-width:0}
+  .dk-left .view{animation:none}
+  .dk-right{position:sticky;top:118px;max-height:calc(100vh - 176px);overflow-y:auto;
+    border:1px solid var(--line);border-radius:16px;padding:16px 20px 18px;background:var(--bg)}
+  .dk-hint{color:var(--faint);font-size:13.5px;text-align:center;padding:70px 16px;line-height:2}
+  /* 左栏列表保持单列（400px 塞不下双列） */
+  .v-list #listBox{display:block}
+  .v-list #listBox .row{margin-bottom:8px}
+  /* 独立详情页/测验页（如从手机状态切过来）限宽居中 */
+  .v-detail{max-width:760px;margin:0 auto}
+  .v-quiz{max-width:720px;margin:0 auto}
   .zmask .zin{max-width:860px}
 }
 </style>
@@ -1072,6 +1066,8 @@ function push(fn,t){timers.push(setTimeout(fn,t))}
 function go(v,a){if(cur)stack.push({v:cur,a:curArg});cur=v;curArg=a;render()}
 function back(){var p=stack.pop();if(p){cur=p.v;curArg=p.a;render()}}
 
+function isDesk(){return window.matchMedia('(min-width:900px)').matches}
+
 function render(){
   clearTimers();
   var h='';
@@ -1080,11 +1076,31 @@ function render(){
   else if(cur==='detail')h=viewDetail(curArg);
   else if(cur==='quiz')h=viewQuiz();
   else if(cur==='fav')h=viewFav();
+  /* v5.0 桌面分栏：首页/列表/收藏进左栏，右栏常驻显示当前词详解 */
+  if(isDesk()&&(cur==='home'||cur==='list'||cur==='fav')){
+    var rightHtml=deskId
+      ?'<div class="view v-detail">'+detailInner(deskId)+'</div>'
+      :'<div class="dk-hint">👈 点左边任意一个词<br>详解会显示在这里</div>';
+    h='<div class="desk"><div class="dk-left">'+h+'</div>'
+     +'<div class="dk-right" id="dkRight">'+rightHtml+'</div></div>';
+  }
   screenEl.innerHTML=h;
   window.scrollTo(0,0);
   document.getElementById('q').value=(cur==='list'&&curArg&&curArg.q)?curArg.q:'';
   syncTab();
   if(cur==='detail')startDemo();
+  if(isDesk()&&deskId&&(cur==='home'||cur==='list'||cur==='fav'))startDemo();
+}
+
+/* v5.0 桌面模式：点词/点相关词只刷新右栏，不跳页 */
+var deskId=null;
+function deskShow(id){
+  var r=document.getElementById('dkRight');
+  if(!r){go('detail',id);return}
+  deskId=id;
+  r.innerHTML='<div class="view v-detail">'+detailInner(id)+'</div>';
+  r.scrollTop=0;
+  startDemo();
 }
 function syncTab(){
   var t=document.querySelectorAll('#tabbar div');
@@ -1192,7 +1208,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v4.0 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v5.0 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -1202,11 +1218,10 @@ function viewList(o){
   return h;
 }
 
-function viewDetail(id){
+function detailInner(id){
   var w=byId(id);if(!w)return '<div class="empty">没找到这个词</div>';
   STORE.read[id]=1;markView(id);
-  var h='<div class="view v-detail"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">词条</div></div>';
-  h+='<div style="display:flex;align-items:flex-start;gap:8px"><div style="flex:1">'
+  var h='<div style="display:flex;align-items:flex-start;gap:8px"><div style="flex:1">'
    +'<div class="dterm">'+w.term+'</div><div class="dfull">'+w.full+'</div>'
    +'<div class="dcn">中文：'+w.cn+'</div></div>'
    +'<div class="star '+(STORE.fav[id]?'on':'')+'" data-star="'+id+'" style="font-size:24px">★</div></div>';
@@ -1234,6 +1249,12 @@ function viewDetail(id){
         +'<div class="rd">'+strip(x.cn)+'</div></div></div>';});
     h+='</div>';
   }
+  return h;
+}
+function viewDetail(id){
+  var w=byId(id);if(!w)return '<div class="empty">没找到这个词</div>';
+  var h='<div class="view v-detail"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">词条</div></div>';
+  h+=detailInner(id);
   h+='<button class="btn ghost" data-back="1">← 回去继续看</button>'+footer()+'</div>';
   return h;
 }
@@ -2073,7 +2094,11 @@ document.getElementById('screen').addEventListener('click',function(e){
   if((n=e.target.closest('[data-next]'))){QI++;PICKED=null;render();return}
   if((n=e.target.closest('[data-go]'))){
     var v=n.getAttribute('data-go');
-    if(v==='detail')go('detail',n.getAttribute('data-id'));
+    if(v==='detail'){
+      /* v5.0 桌面分栏：当前在首页/列表/收藏时点词 → 只刷新右栏 */
+      if(isDesk()&&(cur==='home'||cur==='list'||cur==='fav'))deskShow(n.getAttribute('data-id'));
+      else go('detail',n.getAttribute('data-id'));
+    }
     else if(v==='list')go('list',{z:n.getAttribute('data-z'),q:''});
     else if(v==='fav')go('fav');
     else if(v==='quiz'){QI=0;PICKED=null;go('quiz')}
@@ -2108,7 +2133,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v3.1').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v5.0').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
