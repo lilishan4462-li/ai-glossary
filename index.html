@@ -199,6 +199,36 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
 .missbox{text-align:center;margin-top:14px;padding:14px;background:var(--soft);border-radius:12px}
 .missbox .mt{font-size:13px;color:var(--sub);margin-bottom:8px}
 .missbox .ms{font-size:11.5px;color:var(--faint);margin-top:8px;line-height:1.7}
+
+/* ===== v4.0 桌面横版适配（≥900px 生效；手机端不受任何影响） ===== */
+@media (min-width:900px){
+  /* 整体加宽：手机 520px → 桌面 960px 居中 */
+  .app{max-width:960px}
+  .hd{padding:16px 28px 12px}
+  .brand{font-size:21px}
+  .searchbox{max-width:640px}
+  main{padding:20px 28px 96px}
+  /* 底部标签栏改为居中悬浮胶囊 */
+  .tabbar{max-width:360px;left:50%;transform:translateX(-50%);bottom:16px;
+    border:1px solid var(--line);border-radius:999px;padding:2px 8px;box-shadow:var(--sh)}
+  /* 首页：每日一词横条 + 分区四列 */
+  .v-home .daily{display:flex;align-items:center;gap:18px;padding:18px 24px}
+  .v-home .daily .lbl{flex:none;margin-right:2px}
+  .v-home .daily .w{margin:0;font-size:26px}
+  .v-home .daily .d{flex:1;font-size:14px}
+  .v-home .daily .go{margin-top:0;flex:none}
+  .v-home .zones{grid-template-columns:repeat(4,1fr);gap:12px}
+  /* 列表页：行卡片双列网格 */
+  .v-list #listBox{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .v-list #listBox .row{margin-bottom:0}
+  .v-list #listBox .empty,.v-list #listBox .missbox{grid-column:1/-1}
+  /* 详情页：正文限宽居中，读起来不散 */
+  .v-detail{max-width:720px;margin:0 auto}
+  /* 测验/收藏：适度限宽 */
+  .v-quiz,.v-fav{max-width:760px;margin:0 auto}
+  /* 大图预览遮罩里的内容加宽 */
+  .zmask .zin{max-width:860px}
+}
 </style>
 </head>
 <body data-page-node-id="QxIqCOXUCHxgQ7vOMDn8QF">
@@ -1133,7 +1163,7 @@ function dailyWord(){
 function viewHome(){
   var dw=dailyWord();
   var news=WORDS.filter(function(w){return w.new});
-  var h='<div class="view">';
+  var h='<div class="view v-home">';
   h+='<div class="daily"><div class="lbl">📅 每日一词</div>'
    +'<div class="w">'+dw.term+' <em>'+strip(dw.cn)+'</em></div>'
    +'<div class="d">'+strip(dw.tl)+'</div>'
@@ -1162,11 +1192,11 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v3.1 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v4.0 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
-  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div>'
+  var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div>'
    +'<div class="t">'+(o.q?'搜索“'+esc(o.q)+'”':ZONES[o.z].n)+'</div></div>';
   h+='<div id="listBox">'+listHTML(o,isAbbr)+'</div>'+footer()+'</div>';
   return h;
@@ -1175,7 +1205,7 @@ function viewList(o){
 function viewDetail(id){
   var w=byId(id);if(!w)return '<div class="empty">没找到这个词</div>';
   STORE.read[id]=1;markView(id);
-  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">词条</div></div>';
+  var h='<div class="view v-detail"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">词条</div></div>';
   h+='<div style="display:flex;align-items:flex-start;gap:8px"><div style="flex:1">'
    +'<div class="dterm">'+w.term+'</div><div class="dfull">'+w.full+'</div>'
    +'<div class="dcn">中文：'+w.cn+'</div></div>'
@@ -2002,7 +2032,7 @@ function viewQuiz(){
   var pool=fav.length?fav.concat(qs):qs;
   if(!pool.length)return '<div class="empty"><span class="e">🎯</span>还没有能出题的词<br>等词库再扩充一批就有了</div>';
   var q=pool[QI%pool.length];
-  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">考考我</div></div>';
+  var h='<div class="view v-quiz"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">考考我</div></div>';
   h+='<div class="qbox"><div class="qnum">第 '+(QI+1)+' 题 · 题库 '+pool.length+' 题'
    +(fav.length?' · 优先出你收藏的词':'')+'</div><div class="qtxt">'+q.quiz.q+'</div>';
   q.quiz.o.forEach(function(o,i){
@@ -2020,7 +2050,7 @@ function viewQuiz(){
 }
 function viewFav(){
   var list=WORDS.filter(function(w){return STORE.fav[w.id]});
-  var h='<div class="view"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">我的收藏</div></div>';
+  var h='<div class="view v-fav"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">我的收藏</div></div>';
   if(!list.length)h+='<div class="empty"><span class="e">⭐</span>还没有收藏<br><br>在任意词条右上角点个星<br>它就会出现在这里</div>';
   else{list.forEach(function(w){h+=rowHTML(w,false)});
     h+='<button class="btn" data-go="quiz">🎯 用收藏的词考考我</button>';}
