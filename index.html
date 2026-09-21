@@ -72,6 +72,11 @@ main{padding:12px 14px 96px}
 .secttl{font-size:12.5px;color:var(--sub);font-weight:700;margin:18px 0 8px;
   display:flex;align-items:center;justify-content:space-between}
 .secttl .more{font-weight:400;font-size:12px;color:var(--accent);cursor:pointer}
+/* v6.2：列表页难度筛选条 */
+.chipsbar{display:flex;gap:7px;margin:2px 0 10px;flex-wrap:wrap}
+.fchip{padding:6px 13px;border-radius:15px;font-size:12px;font-weight:700;cursor:pointer;
+  background:var(--card);border:1px solid var(--line);color:var(--sub)}
+.fchip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
   border-radius:12px;padding:11px 13px;margin-bottom:8px;cursor:pointer}
 .row .rt{flex:1;min-width:0}
@@ -1229,7 +1234,9 @@ function listHTML(o,isAbbr){
   /* v6.0：三个新入口页 —— 最该先搞懂 / 最近新增 / 今日推荐 */
   if(o&&o.sp==='hot'){
     return ['llm','token','context','prompt','hallu','agent','rag','api','mcp','skill']
-      .map(byId).filter(Boolean).map(function(w){return rowHTML(w,false)}).join('');
+      .map(byId).filter(Boolean)
+      .sort(function(a,b){return a.lv-b.lv})
+      .map(function(w){return rowHTML(w,false)}).join('');
   }
   if(o&&o.sp==='new'){
     var nl=WORDS.filter(function(w){return w.new}).slice().reverse();
@@ -1238,8 +1245,11 @@ function listHTML(o,isAbbr){
   if(o&&o.sp==='daily'){
     return dailyFive().map(function(w){return rowHTML(w,false)}).join('');
   }
+  /* v6.2：分区列表按难度升序 + 可按难度筛选 */
   var zl=WORDS.filter(function(w){return w.zone===o.z});
-  if(!zl.length)return '<div class="empty"><span class="e">📭</span>这个分区还没词</div>';
+  if(o.lv)zl=zl.filter(function(w){return String(w.lv)===String(o.lv)});
+  zl.sort(function(a,b){return a.lv-b.lv});
+  if(!zl.length)return '<div class="empty"><span class="e">📭</span>这个难度下暂无词</div>';
   return zl.map(function(w){return rowHTML(w,isAbbr)}).join('');
 }
 
@@ -1292,7 +1302,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v6.1 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v6.2 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -1302,6 +1312,20 @@ function viewList(o){
     :(o.sp==='daily'?'📅 每日 5 词':ZONES[o.z].n)));
   var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div>'
    +'<div class="t">'+ttl+'</div></div>';
+  /* v6.2：分区列表顶部加难度筛选（全部/入门/进阶/硬核），带各档词数 */
+  if(o.z&&!o.q){
+    var cnt={};
+    WORDS.forEach(function(w){if(w.zone===o.z)cnt[w.lv]=(cnt[w.lv]||0)+1});
+    var total=WORDS.filter(function(w){return w.zone===o.z}).length;
+    var cur=o.lv||'';
+    h+='<div class="chipsbar">';
+    h+='<span class="fchip'+(cur===''?' on':'')+'" data-lvf="">全部 '+total+'</span>';
+    [1,2,3].forEach(function(lv){
+      if(cnt[lv])h+='<span class="fchip'+(cur===String(lv)?' on':'')+'" data-lvf="'+lv+'">'
+        +({1:'入门',2:'进阶',3:'硬核'}[lv])+' '+cnt[lv]+'</span>';
+    });
+    h+='</div>';
+  }
   h+='<div id="listBox">'+listHTML(o,isAbbr)+'</div>'+footer()+'</div>';
   return h;
 }
@@ -2197,6 +2221,10 @@ document.getElementById('screen').addEventListener('click',function(e){
   if((n=e.target.closest('[data-zoom]'))){openZoom(n.getAttribute('data-zoom'));return}
   if((n=e.target.closest('[data-pick]'))){PICKED=parseInt(n.getAttribute('data-pick'),10);render();return}
   if((n=e.target.closest('[data-next]'))){QI++;PICKED=null;render();return}
+  if((n=e.target.closest('[data-lvf]'))){
+    if(cur==='list'&&curArg){curArg.lv=n.getAttribute('data-lvf')||'';render()}
+    return;
+  }
   if((n=e.target.closest('[data-go]'))){
     var v=n.getAttribute('data-go');
     if(v==='detail'){
@@ -2238,7 +2266,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v6.1').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v6.2').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
