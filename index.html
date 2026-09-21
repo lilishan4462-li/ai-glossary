@@ -1034,7 +1034,68 @@ var WORDS=[
  tl:'<b>同一个操作做一遍和做十遍，结果完全一样</b>。网络卡了自动重试，也不会重复扣钱、重复写一条记录。',
  ana:'像<b>电梯按钮</b>：按一下和按五下，都只来一趟电梯。',
  scn:'你的 webhook 回调、极致了 API 抓数据、写飞书多维表格，都可能因超时自动重试一次。<b>不幂等就会写出两条重复记录。</b>做法：先用文章链接或单号查一遍有没有，有了就跳过。',
- rel:['webhook','api','bug','bitable'],al:['幂等','幂等性','重复执行','重试','idempotent','重复提交','跑两次','防重复'],one:'做一遍和做十遍，结果一模一样',cf:'不是"不会失败"，是失败了重试也不出乱子',dlg:['甲：重试了一次，会不会写重了','乙：做了幂等，重复跑也没事'],new:true}
+ rel:['webhook','api','bug','bitable'],al:['幂等','幂等性','重复执行','重试','idempotent','重复提交','跑两次','防重复'],one:'做一遍和做十遍，结果一模一样',cf:'不是"不会失败"，是失败了重试也不出乱子',dlg:['甲：重试了一次，会不会写重了','乙：做了幂等，重复跑也没事'],new:true},
+
+{id:'rsi',term:'RSI',full:'Recursive Self-Improvement',cn:'递归自我改进 / AI 自己造 AI',zone:'ai',lv:3,abbr:true,
+ tl:'<b>AI 自己写代码、自己跑实验、自己改进训练方法，再把成果交给下一代模型</b>。一代比一代强，快到人类跟不上。',
+ ana:'像<b>徒弟熬成师父</b>：学完全部本事，还自己琢磨出更快的练法，再教给下一代——越往后越快。',
+ scn:'2026 年 9 月公众号刷屏的词（起因是 OpenAI 说新模型摸到了 AGI 门槛）。<b>你让 Codex / WorkBuddy 写脚本改自己的配置，就是最原始的一小步。</b>',
+ shot:'rsi',
+ quiz:{q:'RSI 说的是什么？',o:['AI 把答案写得更长','AI 能自己设计下一代更强的模型','AI 联网查资料再回答','AI 一次干好几件事'],a:1,
+ why:'RSI = 递归自我改进：AI 能不能造出比自己更强的下一代。它跟 AGI 一样是个「门槛」概念，不是某项具体功能。'},
+ rel:['agi','agent','scaling','harness'],al:['递归自我改进','自我改进','AI造AI','自己改自己','RSI','递归改进','AI自己造AI','自我迭代'],one:'AI 自己改进自己，一代比一代强',cf:'不等于「AI 有意识」，它只是个能力上的目标',dlg:['甲：RSI 是啥，AI 要造反了？','乙：是说 AI 能自己设计下一代模型'],new:true},
+
+{id:'opaque',term:'不透明循环',full:'Opaque Recurrence / Recurrent Depth',cn:'不透明循环 / 循环深度',zone:'ai',lv:3,
+ tl:'<b>模型不把推理过程用人类能读的话一步步写出来，而是在自己内部转几圈直接给答案</b>。省算力，但外人看不出它怎么想的。',
+ ana:'像<b>心算高手</b>：让他列竖式他也会，但他嫌慢，脑子转两圈直接报答案——你只拿到结果，看不到草稿。',
+ scn:'出处是 TechCrunch 的 AI 术语表（2026 年 9 月），说的是 GPT-6 那类新模型。<b>以后遇到「它想了但你看不懂」，多半就是它。</b>',
+ rel:['cot','reason','xai','hallu'],al:['不透明循环','不透明递归','循环深度','opaque recurrence','recurrent depth','内部循环','看不懂它怎么想','不给草稿'],one:'模型在内部转几圈，不写可读的推理过程',cf:'跟思维链相反：思维链给你看草稿，它不给',dlg:['甲：它怎么得出这个结论的','乙：用了不透明循环，草稿没留下'],new:true},
+
+{id:'neuralese',term:'Neuralese',full:'Neuralese',cn:'神经语 / 机器内部话',zone:'ai',lv:3,
+ tl:'<b>假想中的最坏情况：模型完全用自己内部的数字思考，不再经过人类能读的语言</b>。到那一步，它在想什么对我们就是纯黑箱。',
+ ana:'像两个人<b>用只有他俩懂的暗号聊天</b>：话确实说了，但你一个字也听不懂。',
+ scn:'2026 年 9 月跟着不透明循环一起火起来。<b>目前还没有任何已发布的模型真这么干，OpenAI 也否认新模型是神经语。</b>',
+ rel:['opaque','xai','cot','reason'],al:['神经语','神经语言','机器内部话','neuralese','黑箱思考','机器暗语','内部暗号','看不懂的思考'],one:'模型用人类读不懂的内部暗号思考',cf:'目前只是假想场景，还没有模型真这么干',dlg:['甲：它在想啥我们能看见吗','乙：真用上神经语，就彻底看不见了'],new:true},
+
+{id:'collapse',term:'模型塌缩',full:'Model Collapse',cn:'模型塌缩 / 越练越傻',zone:'ai',lv:2,
+ tl:'<b>拿 AI 生成的内容去训练下一代 AI，几代之后模型越练越傻</b>：少见的说法先消失，剩下的全是套话。',
+ ana:'像<b>复印件的复印件</b>：第一张还清楚，复印十次之后字迹发糊，细节全丢了。',
+ scn:'出处是 Nature 2024 那篇论文，圈里也叫它「AI 近亲繁殖」。<b>跟你直接相关：网上 AI 泔水越多，以后的模型越容易学到泔水。</b>',
+ quiz:{q:'模型塌缩是怎么发生的？',o:['模型太大跑不动了','训练数据里混进太多 AI 自己生成的东西','显卡坏了算错数','用户提的问题太难'],a:1,
+ why:'Nature 论文的说法：AI 的产出污染了下一代的训练集，几代之后模型忘掉真实数据里那些「边边角角」，只剩套话。掺入真实数据能延缓。'},
+ rel:['slop','workslop','aigc','distill','ft'],al:['模型塌缩','模型崩溃','越练越傻','model collapse','AI近亲繁殖','数据污染','模型退化','训练退化'],one:'用AI生成的东西训练AI，越练越傻',cf:'不是模型坏了，是训练数据被自己的产物污染了',dlg:['甲：AI 写的文章会被抓去训练吗','乙：抓多了会模型塌缩，越练越傻'],new:true},
+
+{id:'agentmem',term:'Agentic Memory',full:'Agentic Memory',cn:'智能体记忆 / AI 自己管记忆',zone:'ai',lv:2,
+ tl:'<b>不再由程序写死「记住什么、什么时候想起来」，而是让 AI 自己决定</b>：存不存、要不要翻旧账、旧记录要不要改。',
+ ana:'以前是<b>按规矩整理档案的档案员</b>；现在是<b>它自己决定笔记本上写什么、哪一页撕掉</b>。',
+ scn:'你给 Codex / WorkBuddy 写的 CLAUDE.md、AGENTS.md 就是「人写死的记忆」。<b>让 AI 自己写自己的笔记，是 2026 年的新方向。</b>',
+ rel:['memory','agent','ctxeng','agentsmd','compact'],al:['智能体记忆','agent记忆','AI记忆','agentic memory','自己管记忆','长期记忆','记忆管理','AI记笔记'],one:'让 AI 自己决定记住什么、忘掉什么',cf:'跟上下文不同：上下文是这次能看多少，记忆是跨对话留下什么',dlg:['甲：它怎么老忘我之前说过的','乙：记忆是写死的，写进 AGENTS.md 才管用'],new:true},
+
+{id:'physical',term:'Physical AI',full:'Physical AI',cn:'物理 AI / 会干活的人工智能',zone:'ai',lv:2,
+ tl:'<b>不只在屏幕上聊天的 AI，而是能感知真实世界、受物理规律约束、还能动手干活的 AI</b>：机器人、自动驾驶、无人机都算。',
+ ana:'聊天 AI 是<b>只会纸上谈兵的参谋</b>；物理 AI 是<b>真上场的选手</b>——得算重量、摩擦、距离，摔了是真摔。',
+ scn:'黄仁勋在英伟达大会上反复讲这个词。<b>你看的人形机器人、自动驾驶新闻，还有你盯的算力传感器赛道，大筐都是它。</b>',
+ rel:['embodied','world','agent','agi'],al:['物理AI','physical ai','实体AI','会干活的AI','物理智能','落地AI','机器人AI','physical'],one:'受真实物理规律约束、能动手干活的 AI',cf:'比具身智能更大：具身只是它下面强调「有身体」的那一种',dlg:['甲：物理 AI 就是人形机器人吗','乙：机器人只是一类，无人机自动驾驶也算'],new:true},
+
+{id:'planexec',term:'Plan-and-Execute',full:'Plan-and-Execute',cn:'先计划后执行 / 计划-执行',zone:'ai',lv:2,
+ tl:'<b>让 AI 先把整件事拆成一张清单，再照着单子一步步干</b>，而不是干一步想一步。你在开工前就能改这张清单。',
+ ana:'像<b>先列菜单再下厨</b>，跟「打开冰箱看一眼决定炒什么」的区别——前者省钱、少返工。',
+ scn:'WorkBuddy / Codex 接长任务时常先给你一张步骤表，就是这个。<b>清单出来先扫一眼，不对就让它改，比事后返工便宜。</b>',
+ rel:['agent','orchestr','subagent','spec','dryrun'],al:['先计划后执行','计划执行','plan and execute','先列清单','分步执行','拆解任务','边想边干','ReAct'],one:'先把活拆成清单，再照着单子干',cf:'另一种是边想边干（ReAct），长任务容易跑偏',dlg:['甲：它上来就动手会不会跑偏','乙：先让它出计划，你改完再执行'],new:true},
+
+{id:'evals',term:'Evals',full:'Evaluations',cn:'评测集 / 自己出的考卷',zone:'code',lv:2,
+ tl:'<b>自己攒的一套考题，每次改完 AI 就让它重考一遍</b>，看是不是变好了、有没有把以前会做的做坏。',
+ ana:'不是<b>高考（公开榜单，跟别人比）</b>，是<b>老师自己出的单元测验</b>——只关心你自己的进度。',
+ scn:'名词小抄项目里的 check.py 就是一套 Evals：<b>每次加完词跑一遍，全绿才准上线，防止补新词补坏了旧功能。</b>',
+ quiz:{q:'Evals 和公开跑分的区别是？',o:['Evals 是自己出的题，跟昨天的自己比','Evals 是官方榜单，跟别人比','Evals 只测运行速度','两者完全是一回事'],a:0,
+ why:'跑分（benchmark）是公开榜单，横向跟别家模型比；Evals 是你针对自己场景攒的考题，纵向看每次改动有没有退步。'},
+ rel:['benchmark','regress','smoke','agent','spec'],al:['评测','评测集','evals','评估','自己出题','考卷','效果评估','evaluation'],one:'自己出的考卷，改一次考一次',cf:'跟跑分不同：跑分跟别人比，评测跟昨天的自己比',dlg:['甲：怎么知道改完没改坏','乙：跑一遍 evals，全绿就没坏'],new:true},
+
+{id:'ramageddon',term:'RAMageddon',full:'RAMageddon',cn:'内存末日 / 内存荒',zone:'misc',lv:2,
+ tl:'<b>AI 公司把内存条抢光了，内存涨价，手机和游戏机跟着变贵</b>。2026 年科技圈的自嘲黑话。',
+ ana:'像<b>演唱会一开票，全城酒店立刻翻倍</b>——不是酒店变好了，是被包圆了。',
+ scn:'出处同样是 TechCrunch 的 AI 术语表。<b>跟你盯的存储、算力赛道是一回事：AI 抢货，整条产业链跟着涨。</b>',
+ rel:['gpu','server'],al:['内存末日','内存荒','内存涨价','RAMageddon','ramageddon','内存短缺','存储涨价','内存危机'],one:'AI 抢光内存条，手机游戏机跟着涨价',cf:'不是真末日，是圈子自嘲的说法',dlg:['甲：手机怎么又贵了','乙：内存末日，货都被 AI 抢走了'],new:true}
 ];
 </script>
 <script>
@@ -1208,7 +1269,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v5.1 · 词库更新 2026-09-16<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v5.2 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -1320,6 +1381,21 @@ function demoHTML(k){
 
 /* ---------- 界面实景图：把这个东西长什么样画出来 ---------- */
 var SHOTS={
+rsi:{h:170,s:''
+ +'<rect x="12" y="18" width="80" height="44" rx="8" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="52" y="40" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">① 模型 v1</text>'
+ +'<text x="52" y="56" font-size="10" fill="var(--sub)" text-anchor="middle">现在的它</text>'
+ +'<path d="M96 40 L 122 40" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="126" y="18" width="92" height="44" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>'
+ +'<text x="172" y="40" font-size="11.5" font-weight="700" fill="var(--accent)" text-anchor="middle">② 自己改自己</text>'
+ +'<text x="172" y="56" font-size="10" fill="var(--sub)" text-anchor="middle">写代码 · 跑实验</text>'
+ +'<path d="M222 40 L 248 40" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<rect x="252" y="18" width="56" height="44" rx="8" fill="var(--card)" stroke="var(--accent)"/>'
+ +'<text x="280" y="40" font-size="11.5" font-weight="700" fill="var(--text)" text-anchor="middle">③ v2 更强</text>'
+ +'<path d="M280 66 C 280 104, 52 104, 52 68" fill="none" stroke="var(--accent)" stroke-width="1.6" marker-end="@@AR@@"/>'
+ +'<text x="166" y="118" font-size="10.5" fill="var(--sub)" text-anchor="middle">改进传给下一代 → 一圈比一圈快</text>'
+ +'<text x="14" y="150" font-size="10.5" fill="var(--sub)">箭头绕回去就是递归：下一代接着改自己。</text>'},
+
 comfyui:{h:190,s:''
  +'<rect x="6" y="6" width="308" height="160" rx="10" fill="var(--soft)" stroke="var(--line)"/>'
  +'<rect x="6" y="6" width="308" height="22" rx="10" fill="var(--accent-soft)"/>'
@@ -2135,7 +2211,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v5.1').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v5.2').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });

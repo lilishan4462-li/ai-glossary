@@ -4,7 +4,7 @@
  * - 同时后台拉最新 index.html，拉到就和缓存里的换
  * - 换完给页面发消息，页面弹「词库已更新，点这里刷新」
  * - 版本号 CHANGE：每次发新版必须 +1（旧缓存整体作废） */
-const CACHE = 'aigc-glossary-v5.1';
+const CACHE = 'aigc-glossary-v5.2';
 const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
