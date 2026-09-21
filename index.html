@@ -1107,9 +1107,9 @@ var WORDS=[
 /* ============ 逻辑 ============ */
 var ZONES={ai:{n:'AI 核心',e:'🧠'},code:{n:'编程基础',e:'⌨️'},misc:{n:'杂词 / 软件',e:'🧩'},abbr:{n:'缩写速查',e:'🔤'}};
 var LV={1:'入门',2:'进阶',3:'硬核'};
-var STORE={fav:{},read:{},hist:[],miss:{}};
+var STORE={fav:{},read:{},hist:[],miss:{},wrong:{},qlog:[]};
 try{var raw=localStorage.getItem('mingcixiaochao');if(raw){var p=JSON.parse(raw);
-  STORE.fav=p.fav||{};STORE.read=p.read||{};STORE.hist=p.hist||[];STORE.miss=p.miss||{}}}catch(e){}
+  STORE.fav=p.fav||{};STORE.read=p.read||{};STORE.hist=p.hist||[];STORE.miss=p.miss||{};STORE.wrong=p.wrong||{};STORE.qlog=p.qlog||[]}}catch(e){}
 function save(){try{localStorage.setItem('mingcixiaochao',JSON.stringify(STORE))}catch(e){}}
 /* 浏览历史：最近看的排前面，去重，最多留 12 个 */
 function markView(id){
@@ -1141,6 +1141,7 @@ function render(){
   else if(cur==='list')h=viewList(curArg);
   else if(cur==='detail')h=viewDetail(curArg);
   else if(cur==='quiz')h=viewQuiz();
+  else if(cur==='qlog')h=viewQLog();
   else if(cur==='fav')h=viewFav();
   /* v5.0 桌面分栏：首页/列表/收藏进左栏，右栏常驻显示当前词详解 */
   if(isDesk()&&(cur==='home'||cur==='list'||cur==='fav')){
@@ -1302,7 +1303,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v6.2 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v6.3 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -2176,27 +2177,113 @@ function runMoe(){
 }
 
 /* ---------- 测验 / 收藏 ---------- */
+/* ── v6.3：考考我改版 ──
+   ① 题库自动生成：没手写题的词用「一句话」自动出两种题（释义选词 / 词选释义），
+      干扰项取同分区的词；题库 20 → 140，新词自动带题
+   ② 每轮随机洗牌组卷 10 题：错题池优先（≤4）→ 全库混合补足
+   ③ 答错进错题池（存本地），答对自动出池；一轮结束给小结
+   ④ 30 天答题记录（按天分组可查） */
+var QPAPER=null,QLOG=[],SCORE=0;
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function autoQuiz(w){
+  var same=WORDS.filter(function(x){return x.id!==w.id&&x.zone===w.zone});
+  var src=shuffle(same.length>=3?same:WORDS.filter(function(x){return x.id!==w.id})).slice(0,3);
+  var def=strip(w.one);
+  var useDef=Math.random()<0.5,q,o;
+  if(useDef){
+    q='「'+def+'」说的是哪个词？';
+    o=shuffle([{t:w.term,ok:1},{t:strip(src[0].term)},{t:strip(src[1].term)},{t:strip(src[2].term)}]);
+  }else{
+    q='「'+w.term+'」是什么意思？';
+    o=shuffle([{t:def,ok:1},{t:strip(src[0].one)},{t:strip(src[1].one)},{t:strip(src[2].one)}]);
+  }
+  var a=0;for(var i=0;i<o.length;i++){if(o[i].ok)a=i}
+  return {w:w,q:q,o:[o[0].t,o[1].t,o[2].t,o[3].t],a:a,
+    why:w.term+'（'+strip(w.cn)+'）：'+def,auto:true};
+}
+function buildPaper(){
+  /* 全库混合洗牌：手写精讲题与自动题自然混排，错题池置顶 */
+  var pool=shuffle(WORDS.slice());
+  var wrong=shuffle(Object.keys(STORE.wrong||{}).filter(function(id){return byId(id)}));
+  var used={},paper=[];
+  function take(w){
+    if(used[w.id]||paper.length>=10)return;
+    used[w.id]=1;
+    paper.push(w.quiz?{w:w,q:w.quiz.q,o:w.quiz.o,a:w.quiz.a,why:w.quiz.why,auto:false}:autoQuiz(w));
+  }
+  wrong.slice(0,4).forEach(function(id){take(byId(id))});
+  pool.forEach(function(w){take(w)});
+  QPAPER=paper.slice(0,10);QLOG=[];SCORE=0;QI=0;PICKED=null;
+}
 function viewQuiz(){
-  var qs=WORDS.filter(function(w){return w.quiz});
-  var fav=qs.filter(function(w){return STORE.fav[w.id]});
-  var pool=fav.length?fav.concat(qs):qs;
-  if(!pool.length)return '<div class="empty"><span class="e">🎯</span>还没有能出题的词<br>等词库再扩充一批就有了</div>';
-  var q=pool[QI%pool.length];
+  if(!QPAPER||!QPAPER.length)buildPaper();
   var h='<div class="view v-quiz"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">考考我</div></div>';
-  h+='<div class="qbox"><div class="qnum">第 '+(QI+1)+' 题 · 题库 '+pool.length+' 题'
-   +(fav.length?' · 优先出你收藏的词':'')+'</div><div class="qtxt">'+q.quiz.q+'</div>';
-  q.quiz.o.forEach(function(o,i){
+  if(QI>=QPAPER.length){
+    var ok=QLOG.filter(function(x){return x.ok}).length;
+    var wl=QLOG.filter(function(x){return !x.ok}).map(function(x){return byId(x.id)}).filter(Boolean);
+    var L=(STORE.qlog||[]);
+    var okN=L.filter(function(x){return x.ok}).length;
+    var pct=L.length?Math.round(okN*100/L.length):0;
+    h+='<div class="qbox"><div class="qnum">本轮小结</div>'
+     +'<div class="qtxt">答对 <b style="font-size:22px">'+ok+'</b> / '+QLOG.length+'</div>'
+     +'<div class="expl">近 30 天累计答题 <b>'+L.length+'</b> 道 · 正确率 <b>'+pct+'%</b></div>';
+    if(wl.length){
+      h+='<div class="expl">错过的这几个已进错题池，下一轮优先重考：</div>';
+      wl.forEach(function(w){h+=rowHTML(w,false)});
+    }else h+='<div class="expl">✅ 全对！下一轮全是新题</div>';
+    h+='<button class="btn" data-rebuild="1">再来一轮（重新组卷）</button></div>';
+    h+='<button class="btn ghost" data-go="qlog">📋 30 天答题记录</button>';
+    h+='<p class="tip">💡 📝 精讲题优先出 · 答错的词进错题池下轮重考</p>'+footer()+'</div>';
+    return h;
+  }
+  var q=QPAPER[QI];
+  var last=(QI===QPAPER.length-1);
+  h+='<div class="qbox"><div class="qnum">第 '+(QI+1)+' / '+QPAPER.length+' 题 · 题库 140 词'
+   +(q.auto?'':' · 📝 精讲题')+'</div><div class="qtxt">'+q.q+'</div>';
+  q.o.forEach(function(o,i){
     var cls='';
-    if(PICKED!==null){if(i===q.quiz.a)cls=' right';else if(i===PICKED)cls=' wrong'}
+    if(PICKED!==null){if(i===q.a)cls=' right';else if(i===PICKED)cls=' wrong'}
     h+='<div class="opt '+cls+'" data-pick="'+i+'">'+String.fromCharCode(65+i)+'. '+esc(o)+'</div>';
   });
   if(PICKED!==null){
-    h+='<div class="expl">'+(PICKED===q.quiz.a?'✅ 答对了！':'❌ 正确答案：'+String.fromCharCode(65+q.quiz.a)+'。')+' '+q.quiz.why+'</div>';
-    h+='<button class="btn" data-next="1">下一题 →</button>';
+    h+='<div class="expl">'+(PICKED===q.a?'✅ 答对了！':'❌ 正确答案：'+String.fromCharCode(65+q.a)+'。')+' '+q.why+'</div>';
+    h+='<button class="btn" data-next="1">'+(last?'看本轮成绩 →':'下一题 →')+'</button>';
   }else h+='<button class="btn" disabled>选一个答案</button>';
-  h+='<button class="btn ghost" data-go="detail" data-id="'+q.id+'">看看这个词的详解</button>';
-  h+='</div><p class="tip">💡 星标收藏的词会优先出现在题目里</p>'+footer()+'</div>';
+  h+='<button class="btn ghost" data-go="detail" data-id="'+q.w.id+'">看看这个词的详解</button>';
+  h+='</div><p class="tip">💡 答错的词会进错题池，下一轮优先重考　·　<button class="morelink" data-go="qlog">📋 答题记录</button></p>'+footer()+'</div>';
   return h;
+}
+/* v6.3：30 天答题记录页（按天分组，可点词进详解） */
+function viewQLog(){
+  var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">📋 答题记录（近 30 天）</div></div>';
+  var log=(STORE.qlog||[]).slice().reverse();
+  if(!log.length){
+    h+='<div class="empty"><span class="e">📋</span>还没有答题记录<br>去「考考我」答几题就有啦</div>';
+  }else{
+    var days={},order=[];
+    log.forEach(function(x){
+      var d=new Date(x.t),k=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+      if(!days[k]){days[k]={ok:0,n:0,items:[]};order.push(k)}
+      days[k].n++;if(x.ok)days[k].ok++;
+      days[k].items.push(x);
+    });
+    order.forEach(function(k){
+      var d=days[k];
+      h+='<div class="secttl"><span>📅 '+k+'</span><span class="more">答 '+d.n+' 题 · 对 '+d.ok+'</span></div>';
+      d.items.forEach(function(x){
+        var w=byId(x.id);if(!w)return;
+        h+='<div class="row" data-go="detail" data-id="'+w.id+'"><div class="rt">'
+          +'<div class="rn">'+w.term+' '+(x.ok?'✅':'❌')+'</div>'
+          +'<div class="rd">'+strip(w.cn)+' — '+strip(w.one||w.tl)+'</div></div>'
+          +'<div class="star"></div></div>';
+      });
+    });
+  }
+  return h+footer()+'</div>';
+}
+function pruneLog(){
+  var cut=Date.now()-30*86400000;
+  if(STORE.qlog&&STORE.qlog.length)STORE.qlog=STORE.qlog.filter(function(x){return x.t>=cut});
 }
 function viewFav(){
   var list=WORDS.filter(function(w){return STORE.fav[w.id]});
@@ -2219,7 +2306,23 @@ document.getElementById('screen').addEventListener('click',function(e){
   }
   if((n=e.target.closest('[data-back]'))){clearTimers();back();return}
   if((n=e.target.closest('[data-zoom]'))){openZoom(n.getAttribute('data-zoom'));return}
-  if((n=e.target.closest('[data-pick]'))){PICKED=parseInt(n.getAttribute('data-pick'),10);render();return}
+  if((n=e.target.closest('[data-pick]'))){
+    if(PICKED===null){
+      PICKED=parseInt(n.getAttribute('data-pick'),10);
+      var qz=QPAPER&&QPAPER[QI];
+      if(qz){
+        var okAns=(PICKED===qz.a);
+        QLOG.push({id:qz.w.id,ok:okAns});
+        STORE.qlog=STORE.qlog||[];
+        STORE.qlog.push({t:Date.now(),id:qz.w.id,ok:okAns});
+        pruneLog();save();
+        if(okAns){SCORE++}
+        else{STORE.wrong=STORE.wrong||{};STORE.wrong[qz.w.id]=1;save()}
+      }
+    }
+    render();return;
+  }
+  if((n=e.target.closest('[data-rebuild]'))){buildPaper();render();return}
   if((n=e.target.closest('[data-next]'))){QI++;PICKED=null;render();return}
   if((n=e.target.closest('[data-lvf]'))){
     if(cur==='list'&&curArg){curArg.lv=n.getAttribute('data-lvf')||'';render()}
@@ -2234,7 +2337,8 @@ document.getElementById('screen').addEventListener('click',function(e){
     }
     else if(v==='list')go('list',{z:n.getAttribute('data-z')||'',sp:n.getAttribute('data-sp')||'',q:''});
     else if(v==='fav')go('fav');
-    else if(v==='quiz'){QI=0;PICKED=null;go('quiz')}
+    else if(v==='quiz'){PICKED=null;go('quiz')}
+    else if(v==='qlog')go('qlog');
   }
 });
 document.getElementById('q').addEventListener('input',function(){
@@ -2266,7 +2370,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v6.2').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v6.3').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
