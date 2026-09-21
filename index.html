@@ -366,13 +366,13 @@ var WORDS=[
  tl:'<b>先想清楚再回答</b>的模型。回答前会在后台一步步推演、自我检查，难题更强，但更慢更贵。',
  ana:'普通模型是<b>脱口而出</b>；推理模型是<b>打草稿再交卷</b>。做数学题、写代码、复杂决策，草稿这一步差别巨大。',
  scn:'DeepSeek-R1、GPT 的 o 系列、Claude 的「扩展思考」都是这类。<b>日常闲聊用它 = 用大炮打蚊子</b>，又慢又贵。',
- demo:null,rel:['cot','llm'],al:['推理模型','慢思考','深度思考','o1','思维链模型'],one:'回答前先自己想一通，慢但更准',cf:'不是啥题都该用，简单问答会又慢又贵',dlg:['甲：怎么等这么久？','乙：推理模型，它在一步一步想']},
+ demo:null,rel:['cot','llm'],al:['推理模型','慢思考','深度思考','o1','思维链模型','LRM','large reasoning model'],one:'回答前先自己想一通，慢但更准',cf:'不是啥题都该用，简单问答会又慢又贵',dlg:['甲：怎么等这么久？','乙：推理模型，它在一步一步想']},
 
 {id:'cot',term:'思维链',full:'Chain of Thought / CoT',cn:'思维链',zone:'ai',lv:2,abbr:true,
  tl:'让 AI <b>把思考过程写出来再给结论</b>。就这一句话，正确率能提升一大截。',
  ana:'像数学考试<b>要写解题步骤，不能只写答案</b>。写着写着，它自己就发现哪步错了。',
  scn:'在提问后面加一句「<b>请一步一步思考</b>」，是全网验证过最省事的提分技巧。你现在就可以试。',
- demo:null,rel:['reason','prompt'],al:['思维链','一步步想','chain of thought','分步思考','推理过程'],one:'让 AI 把思考过程写出来，答案更靠谱',cf:'你让它「一步步想」，就是在用思维链',dlg:['甲：怎么让它少错？','乙：加一句「请一步步 reasoning」']},
+ demo:null,rel:['reason','prompt','opaque'],al:['思维链','一步步想','chain of thought','分步思考','推理过程'],one:'让 AI 把思考过程写出来，答案更靠谱',cf:'你让它「一步步想」，就是在用思维链',dlg:['甲：怎么让它少错？','乙：加一句「请一步步 reasoning」']},
 
 {id:'param',term:'参数',full:'Parameters',cn:'参数 / 7B、70B',zone:'ai',lv:2,
  tl:'模型内部的「旋钮」数量，粗暴理解就是<b>脑容量</b>。B = 十亿，7B 就是 70 亿个旋钮。',
@@ -402,7 +402,7 @@ var WORDS=[
  tl:'<b>量化</b>：把模型数字精度压低，体积变小跑得更快（画质略降）。<b>蒸馏</b>：让小模型跟着大模型学，把本事浓缩进小身板。',
  ana:'量化 = <b>高清视频转标清</b>：画质差一点，但手机能放；蒸馏 = <b>名师带徒弟</b>：徒弟没师傅懂得多，但够用且便宜。',
  scn:'文章里说「量化版」「4bit」「蒸馏模型」，都是同一个意思：让大模型能塞进你的电脑里跑。',
- demo:null,rel:['local','param'],al:['量化','蒸馏','剪枝','模型压缩','减肥','int4','int8'],one:'给模型瘦身，少占显存、跑得更快',cf:'量化是降精度，蒸馏是小模型学大模型，不是一回事',dlg:['甲：显卡跑不动','乙：量化到 4bit 试试']},
+ demo:null,rel:['local','param','distill'],al:['量化','蒸馏','剪枝','模型压缩','减肥','int4','int8'],one:'给模型瘦身，少占显存、跑得更快',cf:'量化是降精度，蒸馏是小模型学大模型，不是一回事',dlg:['甲：显卡跑不动','乙：量化到 4bit 试试']},
 
 {id:'ctxeng',term:'上下文工程',full:'Context Engineering',cn:'上下文工程',zone:'ai',lv:3,new:true,
  tl:'2025 年火起来的说法：不纠结「这一句怎么问」，而是研究<b>「在它开口前，该把哪些资料、规则、工具结果摆到它面前」</b>。',
@@ -478,7 +478,7 @@ var WORDS=[
  tl:'那个<b>黑底白字、只能用键盘打字</b>的窗口。没有图标可点，全靠输命令。',
  ana:'平时用软件是<b>看菜单点菜</b>，终端是<b>直接跟厨师喊「来份蛋炒饭，不要葱」</b>。更快更精确，但你得知道菜名。',
  scn:'你用过 <code>claude -p</code> 这种命令——那个黑窗口就是终端。教程里写「打开终端输入 xxx」，就是让你在那儿打字。',
- demo:null,rel:['deploy','git'],al:['终端','命令行','黑窗口','cmd','powershell','控制台','小黑框'],one:'用打字命令操作电脑的黑窗口',cf:'终端是那个窗口，Shell 是里面跑的程序',dlg:['甲：让我点哪儿？','乙：没有按钮，在终端里敲命令']},
+ demo:null,rel:['deploy','git','cli'],al:['终端','命令行','黑窗口','cmd','powershell','控制台','小黑框'],one:'用打字命令操作电脑的黑窗口',cf:'终端是那个窗口，Shell 是里面跑的程序',dlg:['甲：让我点哪儿？','乙：没有按钮，在终端里敲命令']},
 
 {id:'deploy',shot:'deploy',term:'部署',full:'Deploy / Deployment',cn:'上线 / 部署',zone:'code',lv:2,
  tl:'把你做的东西<b>放到公网上，让别人能访问</b>。没部署前，它只活在你自己电脑里。',
@@ -490,7 +490,7 @@ var WORDS=[
  tl:'存在电脑里的<b>一组「暗号」</b>，程序运行时自己去取，不用写死在代码里。',
  ana:'像<b>贴在冰箱上的便签</b>：写着你家 WiFi 密码。谁住这儿谁都能看到，但不用把密码刻在每个电器上。',
  scn:'教程让你「配置环境变量」再填 API Key，就是为了<b>密码不写进代码里</b>——代码传上去，密码不会跟着泄露。',
- demo:null,rel:['apikey','server'],al:['环境变量','env','配置变量','.env','系统变量'],one:'存在系统里的配置项，密码之类都放这',cf:'改了环境变量通常要重启程序才生效',dlg:['甲：密码写哪？','乙：放环境变量，别写死在代码里']},
+ demo:null,rel:['apikey','server','path'],al:['环境变量','env','配置变量','.env','系统变量'],one:'存在系统里的配置项，密码之类都放这',cf:'改了环境变量通常要重启程序才生效',dlg:['甲：密码写哪？','乙：放环境变量，别写死在代码里']},
 
 {id:'git',shot:'git',term:'Git / 仓库',full:'Git / Repository',cn:'版本管理 / 代码仓库',zone:'code',lv:2,
  tl:'给文件<b>拍快照、留后路</b>的系统。改崩了能一键回到昨天的样子。',
@@ -532,7 +532,7 @@ var WORDS=[
  tl:'<b>Bug</b> = 程序出错、跑歪了。<b>调试（Debug）</b> = 找哪里错了并修好。',
  ana:'就像<b>灯不亮了</b>：Bug 是故障本身；Debug 是你去查「是灯泡坏了、开关坏了、还是跳闸了」。',
  scn:'你让 AI 改代码时说「报错了」，最好<b>把红色报错信息整段复制给它</b>——那行字就是它定位 Bug 的线索。',
- demo:null,rel:['terminal','dep'],al:['bug','故障','报错','出问题了','缺陷','毛病'],one:'程序没按你想的跑，出了岔子',cf:'报错是看得见的 bug；算错但不报错的更可怕',dlg:['甲：页面白屏了','乙：有 bug，看看报错日志']},
+ demo:null,rel:['terminal','dep','debug'],al:['bug','故障','报错','出问题了','缺陷','毛病'],one:'程序没按你想的跑，出了岔子',cf:'报错是看得见的 bug；算错但不报错的更可怕',dlg:['甲：页面白屏了','乙：有 bug，看看报错日志']},
 
 {id:'server',shot:'server',term:'服务器 / 端口',full:'Server / Port',cn:'服务器 / 端口',zone:'code',lv:2,
  tl:'<b>服务器</b>：24 小时开着、专门给别人提供服务的电脑。<b>端口</b>：这台电脑上的不同「窗口号」。',
@@ -640,7 +640,7 @@ var WORDS=[
  demo:null,
  quiz:{q:'MCP 解决的是什么问题？',o:['让模型更聪明','让 API 更便宜','让 AI 回答更快','让 AI 能用统一方式连接各种外部工具和数据'],a:3,
  why:'MCP 不管模型聪不聪明，它管的是「接得上」：一个标准接口，接文件、数据库、飞书、浏览器都行，不用每个都单独开发。'},
- rel:['api','tool','agent'],al:['mcp','模型上下文协议','AI接口标准','AI的usb'],one:'AI 连接外部工具的统一插口标准',cf:'它是接口标准不是工具；装了 MCP server 才有能力',dlg:['甲：怎么让 AI 读我表格？','乙：接个 MCP server']},
+ rel:['api','tool','agent','a2a'],al:['mcp','模型上下文协议','AI接口标准','AI的usb'],one:'AI 连接外部工具的统一插口标准',cf:'它是接口标准不是工具；装了 MCP server 才有能力',dlg:['甲：怎么让 AI 读我表格？','乙：接个 MCP server']},
 
 {id:'agi',term:'AGI',full:'Artificial General Intelligence',cn:'通用人工智能',zone:'abbr',lv:2,abbr:true,
  tl:'<b>在所有领域都达到人类水平</b>的 AI。现在的 AI 都是「偏科生」，AGI 是「全科学霸」。',
@@ -777,7 +777,7 @@ var WORDS=[
  tl:'把<b>大模型的本事压缩进小模型</b>：让小模型学着模仿大模型的输出，个头小得多，能力保留大半。',
  ana:'像<b>老师傅带徒弟</b>：徒弟背不下师傅几十年的经验，但跟着看了几万个案例后，出手也有七八分像。',
  scn:'这个词在圈里还有个引申用法：把一本书、一门课<b>蒸馏成一套技能包</b>（你做的「拆书」就是），意思一样 —— 从一大坨里提炼出能反复用的精华。',
- demo:null,rel:['slm','ft','param'],al:['蒸馏','知识蒸馏','distillation','模型压缩','老师教学生'],one:'大模型教小模型，把本事压缩到小身板里',cf:'蒸馏会损失一部分能力，不是原样照搬',dlg:['甲：小的怎么也会？','乙：从大模型蒸馏来的']},
+ demo:null,rel:['slm','ft','param','quant'],al:['蒸馏','知识蒸馏','distillation','模型压缩','老师教学生'],one:'大模型教小模型，把本事压缩到小身板里',cf:'蒸馏会损失一部分能力，不是原样照搬',dlg:['甲：小的怎么也会？','乙：从大模型蒸馏来的']},
 
 {id:'infer',term:'inference',full:'Inference',cn:'推理 / 跑模型',zone:'ai',lv:2,
  tl:'模型<b>训练好之后，拿它干活</b>这一步叫推理。你问一句、它答一句，就是一次推理。',
@@ -861,7 +861,7 @@ var WORDS=[
  tl:'文件在电脑里的<b>完整地址</b>，一层层指到它。Windows 用反斜杠，网页和 Mac 用正斜杠。',
  ana:'跟<b>快递地址</b>一个意思：省市区加门牌号，一层层指到那一户。',
  scn:'你让我「改 site 里的 index.html」，我得拿到完整地址（C 盘 → Users → 87120 → 项目 → site）才找得到。只说文件名，我可能改错另一个同名文件。',
- demo:null,rel:['terminal','repo'],al:['path','路径','文件地址','目录','地址'],one:'文件在电脑里的具体位置',cf:'相对路径跟着当前目录变，绝对路径不会',dlg:['甲：找不到文件','乙：路径写错了']},
+ demo:null,rel:['terminal','repo','env'],al:['path','路径','文件地址','目录','地址'],one:'文件在电脑里的具体位置',cf:'相对路径跟着当前目录变，绝对路径不会',dlg:['甲：找不到文件','乙：路径写错了']},
 
 {id:'port',term:'port',full:'Port',cn:'端口',zone:'code',lv:2,
  tl:'一台电脑上同时跑着很多服务，<b>端口号用来区分该把请求交给谁</b>。网址里冒号后面那个数就是，比如 :3000、:8080。',
@@ -985,7 +985,7 @@ var WORDS=[
  tl:'同事用 AI 生成一份<b>看着漂亮、其实没动脑子的东西</b>丢给你，核对和返工全落到你头上。',
  ana:'像<b>把没洗的碗直接端上桌</b>——盘子摆得挺好看，吃的人得自己再洗一遍。',
  scn:'你让人用 AI 出一份公众号选题表，回来二十页、图表齐全，但没一句敢拍板。判据就一条：<b>发出去的人自己看过没有？没看就是 workslop。</b>',
- demo:null,rel:['slop','aigc','hitl'],al:['workslop','敷衍活','AI敷衍','工作泔水','AI糊弄','没过脑的活','职场垃圾','假精致'],one:'AI 生成的漂亮垃圾，返工落到你头上',cf:'slop 是网上的垃圾内容，这是同事丢给你的',dlg:['甲：这方案看着挺全啊','乙：典型 workslop，没一句敢拍板'],new:true},
+ demo:null,rel:['slop','aigc','hitl','aiflav'],al:['workslop','敷衍活','AI敷衍','工作泔水','AI糊弄','没过脑的活','职场垃圾','假精致'],one:'AI 生成的漂亮垃圾，返工落到你头上',cf:'slop 是网上的垃圾内容，这是同事丢给你的',dlg:['甲：这方案看着挺全啊','乙：典型 workslop，没一句敢拍板'],new:true},
 
 {id:'harness',shot:'harness',term:'Harness',full:'Harness Engineering',cn:'驾驭工程 / 运行支架',zone:'ai',lv:2,
  tl:'2026 年初火起来的词：<b>模型是发动机，Harness 是把它装进车里、能安全上路的那整套装备</b>——工具、记忆、权限、检查都归它管。圈内说法：Agent = 模型 + Harness。',
@@ -1303,7 +1303,7 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v6.3 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v6.4 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -2189,17 +2189,18 @@ function autoQuiz(w){
   var same=WORDS.filter(function(x){return x.id!==w.id&&x.zone===w.zone});
   var src=shuffle(same.length>=3?same:WORDS.filter(function(x){return x.id!==w.id})).slice(0,3);
   var def=strip(w.one);
-  var useDef=Math.random()<0.5,q,o;
+  var useDef=Math.random()<0.5,q,opts;
   if(useDef){
     q='「'+def+'」说的是哪个词？';
-    o=shuffle([{t:w.term,ok:1},{t:strip(src[0].term)},{t:strip(src[1].term)},{t:strip(src[2].term)}]);
+    opts=shuffle([{t:w.term,id:w.id,ok:1},{t:strip(src[0].term),id:src[0].id},{t:strip(src[1].term),id:src[1].id},{t:strip(src[2].term),id:src[2].id}]);
   }else{
     q='「'+w.term+'」是什么意思？';
-    o=shuffle([{t:def,ok:1},{t:strip(src[0].one)},{t:strip(src[1].one)},{t:strip(src[2].one)}]);
+    opts=shuffle([{t:def,id:w.id,ok:1},{t:strip(src[0].one),id:src[0].id},{t:strip(src[1].one),id:src[1].id},{t:strip(src[2].one),id:src[2].id}]);
   }
-  var a=0;for(var i=0;i<o.length;i++){if(o[i].ok)a=i}
-  return {w:w,q:q,o:[o[0].t,o[1].t,o[2].t,o[3].t],a:a,
-    why:w.term+'（'+strip(w.cn)+'）：'+def,auto:true};
+  var a=0;for(var i=0;i<opts.length;i++){if(opts[i].ok)a=i}
+  return {w:w,q:q,o:[opts[0].t,opts[1].t,opts[2].t,opts[3].t],
+    ids:[opts[0].id,opts[1].id,opts[2].id,opts[3].id],
+    a:a,why:w.term+'（'+strip(w.cn)+'）：'+def,auto:true};
 }
 function buildPaper(){
   /* 全库混合洗牌：手写精讲题与自动题自然混排，错题池置顶 */
@@ -2246,7 +2247,17 @@ function viewQuiz(){
     h+='<div class="opt '+cls+'" data-pick="'+i+'">'+String.fromCharCode(65+i)+'. '+esc(o)+'</div>';
   });
   if(PICKED!==null){
-    h+='<div class="expl">'+(PICKED===q.a?'✅ 答对了！':'❌ 正确答案：'+String.fromCharCode(65+q.a)+'。')+' '+q.why+'</div>';
+    var okAns=(PICKED===q.a);
+    h+='<div class="expl">'+(okAns?'✅ 答对了！':'❌ 正确答案：'+String.fromCharCode(65+q.a)+'。')+' '+q.why+'</div>';
+    if(!okAns&&q.ids&&q.ids[PICKED]&&q.ids[PICKED]!==q.w.id){
+      var pickedW=byId(q.ids[PICKED]);
+      if(pickedW)h+='<div class="expl">你选的 '+String.fromCharCode(65+PICKED)+' 其实是「<b>'+pickedW.term+'</b>」（'+strip(pickedW.cn)+'）：'+strip(pickedW.one)
+       +'　<button class="morelink" data-go="detail" data-id="'+pickedW.id+'">看它的详解 →</button></div>';
+    }
+    if(!okAns){
+      var favCls=STORE.fav[q.w.id]?' on':'';
+      h+='<div class="expl">容易混？<span class="star '+favCls+'" data-star="'+q.w.id+'" style="font-size:19px;cursor:pointer">★</span> 收藏「'+q.w.term+'」，在收藏页重点看</div>';
+    }
     h+='<button class="btn" data-next="1">'+(last?'看本轮成绩 →':'下一题 →')+'</button>';
   }else h+='<button class="btn" disabled>选一个答案</button>';
   h+='<button class="btn ghost" data-go="detail" data-id="'+q.w.id+'">看看这个词的详解</button>';
@@ -2370,7 +2381,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v6.3').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v6.4').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
