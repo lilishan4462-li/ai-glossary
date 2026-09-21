@@ -1226,9 +1226,36 @@ function listHTML(o,isAbbr){
     if(!list.length)return missHTML(o.q);
     return list.map(function(w){return rowHTML(w,isAbbr)}).join('');
   }
+  /* v6.0：三个新入口页 —— 最该先搞懂 / 最近新增 / 今日推荐 */
+  if(o&&o.sp==='hot'){
+    return ['llm','token','context','prompt','hallu','agent','rag','api','mcp','skill']
+      .map(byId).filter(Boolean).map(function(w){return rowHTML(w,false)}).join('');
+  }
+  if(o&&o.sp==='new'){
+    var nl=WORDS.filter(function(w){return w.new}).slice().reverse();
+    return nl.map(function(w){return rowHTML(w,false)}).join('');
+  }
+  if(o&&o.sp==='daily'){
+    return dailyFive().map(function(w){return rowHTML(w,false)}).join('');
+  }
   var zl=WORDS.filter(function(w){return w.zone===o.z});
   if(!zl.length)return '<div class="empty"><span class="e">📭</span>这个分区还没词</div>';
   return zl.map(function(w){return rowHTML(w,isAbbr)}).join('');
+}
+
+/* v6.0：今日 5 词 = 1 主推（当日动画词）+ 4 个相关词（主推词的 rel 优先，不够从热门补） */
+function dailyFive(){
+  var dw=dailyWord();
+  var out=[dw],seen={};seen[dw.id]=1;
+  (dw.rel||[]).forEach(function(id){
+    if(out.length>=5)return;
+    var w=byId(id);if(w&&!seen[id]){out.push(w);seen[id]=1}
+  });
+  ['llm','token','context','prompt','hallu','agent','rag','api','mcp','skill'].forEach(function(id){
+    if(out.length>=5)return;
+    var w=byId(id);if(w&&!seen[id]){out.push(w);seen[id]=1}
+  });
+  return out;
 }
 
 function dailyWord(){
@@ -1238,43 +1265,43 @@ function dailyWord(){
 }
 
 function viewHome(){
+  /* v6.0：首页 = 纯目录，一张具体词都不铺
+     ① 每日一词仍是 1 张大卡，点进去才看今天的 5 个词（1 主推 + 4 相关）
+     ② 入口卡 2×3：第一行「最该先搞懂」「最近新增」，下面四大分区
+     ③ 最近新增点进去 = 全部新词（倒序） */
   var dw=dailyWord();
-  var news=WORDS.filter(function(w){return w.new});
+  var nNew=WORDS.filter(function(w){return w.new}).length;
   var h='<div class="view v-home">';
-  h+='<div class="daily"><div class="lbl">📅 每日一词</div>'
+  h+='<div class="daily" data-go="list" data-sp="daily" style="cursor:pointer">'
+   +'<div class="lbl">📅 每日一词 · 今天共 5 个</div>'
    +'<div class="w">'+dw.term+' <em>'+strip(dw.cn)+'</em></div>'
    +'<div class="d">'+strip(dw.tl)+'</div>'
-   +'<div class="go" data-go="detail" data-id="'+dw.id+'">'+(dw.demo?'看动画演示 →':'看详解 →')+'</div></div>';
+   +'<div class="go">看今天 5 个词 →</div></div>';
   h+='<div class="zones">';
+  h+='<div class="zone" data-go="list" data-sp="hot"><div class="e">🔥</div>'
+   +'<div class="n">最该先搞懂</div><div class="c">10 个词</div></div>';
+  h+='<div class="zone" data-go="list" data-sp="new"><div class="e">🆕</div>'
+   +'<div class="n">最近新增</div><div class="c">新词共 '+nNew+' 个</div></div>';
   ['ai','code','misc','abbr'].forEach(function(z){
     var c=WORDS.filter(function(w){return w.zone===z||(z==='abbr'&&w.abbr)}).length;
     h+='<div class="zone" data-go="list" data-z="'+z+'"><div class="e">'+ZONES[z].e+'</div>'
      +'<div class="n">'+ZONES[z].n+'</div><div class="c">'+c+' 个词</div></div>';
   });
   h+='</div>';
-  var hv=(STORE.hist||[]).map(byId).filter(Boolean).slice(0,5);
-  if(hv.length){
-    h+='<div class="secttl"><span>🕘 最近查看</span></div>';
-    hv.forEach(function(w){h+=rowHTML(w,false)});
-  }
-  if(news.length){
-    h+='<div class="secttl"><span>🆕 最近新增</span></div>';
-    news.forEach(function(w){h+=rowHTML(w,false)});
-  }
-  h+='<div class="secttl"><span>🔥 最该先搞懂的 8 个</span></div>';
-  ['llm','token','context','prompt','hallu','agent','rag','api'].forEach(function(id){
-    var w=byId(id);if(w)h+=rowHTML(w,false);
-  });
   h+='<p class="tip">共 '+WORDS.length+' 个词 · 每周一自动联网补新词<br>遇到看不懂的，直接在搜索框用大白话描述也行</p>';
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v5.2 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v6.0 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
+  var ttl=o.q?'搜索“'+esc(o.q)+'”'
+    :(o.sp==='hot'?'🔥 最该先搞懂的 10 个'
+    :(o.sp==='new'?'🆕 最近新增（全部 '+WORDS.filter(function(w){return w.new}).length+' 个）'
+    :(o.sp==='daily'?'📅 今日推荐 5 个':ZONES[o.z].n)));
   var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div>'
-   +'<div class="t">'+(o.q?'搜索“'+esc(o.q)+'”':ZONES[o.z].n)+'</div></div>';
+   +'<div class="t">'+ttl+'</div></div>';
   h+='<div id="listBox">'+listHTML(o,isAbbr)+'</div>'+footer()+'</div>';
   return h;
 }
@@ -2177,7 +2204,7 @@ document.getElementById('screen').addEventListener('click',function(e){
       if(isDesk()&&(cur==='home'||cur==='list'||cur==='fav'))deskShow(n.getAttribute('data-id'));
       else go('detail',n.getAttribute('data-id'));
     }
-    else if(v==='list')go('list',{z:n.getAttribute('data-z'),q:''});
+    else if(v==='list')go('list',{z:n.getAttribute('data-z')||'',sp:n.getAttribute('data-sp')||'',q:''});
     else if(v==='fav')go('fav');
     else if(v==='quiz'){QI=0;PICKED=null;go('quiz')}
   }
@@ -2211,7 +2238,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v5.2').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v6.0').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
