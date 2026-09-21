@@ -1273,7 +1273,7 @@ function viewHome(){
   var nNew=WORDS.filter(function(w){return w.new}).length;
   var h='<div class="view v-home">';
   h+='<div class="daily" data-go="list" data-sp="daily" style="cursor:pointer">'
-   +'<div class="lbl">📅 每日一词 · 今天共 5 个</div>'
+   +'<div class="lbl">📅 每日 5 词</div>'
    +'<div class="w">'+dw.term+' <em>'+strip(dw.cn)+'</em></div>'
    +'<div class="d">'+strip(dw.tl)+'</div>'
    +'<div class="go">看今天 5 个词 →</div></div>';
@@ -1292,14 +1292,14 @@ function viewHome(){
   h+=footer();
   return h+'</div>';
 }
-function footer(){return '<footer>AI 名词小抄 · v6.0 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+function footer(){return '<footer>AI 名词小抄 · v6.1 · 词库更新 2026-09-21<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
   var ttl=o.q?'搜索“'+esc(o.q)+'”'
     :(o.sp==='hot'?'🔥 最该先搞懂的 10 个'
     :(o.sp==='new'?'🆕 最近新增（全部 '+WORDS.filter(function(w){return w.new}).length+' 个）'
-    :(o.sp==='daily'?'📅 今日推荐 5 个':ZONES[o.z].n)));
+    :(o.sp==='daily'?'📅 每日 5 词':ZONES[o.z].n)));
   var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div>'
    +'<div class="t">'+ttl+'</div></div>';
   h+='<div id="listBox">'+listHTML(o,isAbbr)+'</div>'+footer()+'</div>';
@@ -2238,7 +2238,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v6.0').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v6.1').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
