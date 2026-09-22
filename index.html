@@ -60,7 +60,7 @@ body{background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;
 .brand{font-size:18px;font-weight:800;letter-spacing:-.3px}
 .brand span{color:var(--accent)}
 .brandsub{font-size:11.5px;color:var(--faint);flex:1}
-.cnt{font-size:11.5px;color:var(--faint)}
+.cnt{font-size:11.5px;color:var(--faint);text-align:right;line-height:1.6;padding-left:10px;border-left:1px solid var(--line);white-space:nowrap;flex-shrink:0}
 .searchbox{display:flex;align-items:center;gap:8px;background:var(--card);
   border:1px solid var(--line);border-radius:12px;padding:9px 13px}
 .searchbox input{flex:1;border:0;outline:0;background:transparent;color:var(--text);
@@ -1472,7 +1472,7 @@ function viewAbout(){
   var th=STORE.theme||'auto';
   var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">关于 · AI 名词小抄</div></div>';
   h+='<div class="secttl"><span>📋 基本信息</span></div>'
-   +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">版本 v7.1</div>'
+   +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">版本 v7.2</div>'
    +'<div class="rd">词库 168 个词 · 词库更新 2026-09-22 · 每周一自动联网补新词</div></div></div>'
    +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">🔒 你的数据在你手机上</div>'
    +'<div class="rd">收藏、答题记录、错题池、外观偏好，全部只存在你手机本地，不上传任何服务器。清浏览器数据会一起清掉。</div></div></div>'
@@ -2435,7 +2435,7 @@ function viewQuiz(){
   }
   var q=QPAPER[QI];
   var last=(QI===QPAPER.length-1);
-  h+='<div class="qbox"><div class="qnum">第 '+(QI+1)+' / '+QPAPER.length+' 题 · 题库 140 词'
+  h+='<div class="qbox"><div class="qnum">第 '+(QI+1)+' / '+QPAPER.length+' 题 · 题库 '+WORDS.length+' 词'
    +(q.auto?'':' · 📝 精讲题')+'</div><div class="qtxt">'+q.q+'</div>';
   q.o.forEach(function(o,i){
     var cls='';
@@ -2569,7 +2569,7 @@ document.getElementById('tabbar').addEventListener('click',function(e){
   else if(k==='fav')go('fav');
   else{cur='home';curArg=null;render()}
 });
-document.getElementById('cnt').textContent=WORDS.length+' 词 · 每周一更新';
+document.getElementById('cnt').innerHTML=WORDS.length+' 词<br><span style="font-size:10px">每周一更新</span>';
 render();
 
 /* v7.1：顶栏「AI 名词小抄」在 screen 外，单独绑定跳「关于」页 */
@@ -2585,7 +2585,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v7.1').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v7.2').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
