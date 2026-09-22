@@ -256,7 +256,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
   <div id="updBar" style="display:none;position:sticky;top:0;z-index:40;background:#1f9d55;color:#fff;
     text-align:center;font-size:12.5px;padding:8px 12px;cursor:pointer">🔄 词库已更新到最新版，点这里刷新</div>
   <div class="hd" data-page-node-id="531YSBDUGMRi0KF5ACNSSk">
-    <div class="hdrow" data-page-node-id="fqxD1QvU28rWgIJUA5gGoZ"><span class="brand" data-page-node-id="3R4A6HCfYKgZAyMlmKTm3t">AI 名词<span data-page-node-id="IQrgBXzur7VUM5ejup5T3F">小抄</span></span>
+    <div class="hdrow" data-page-node-id="fqxD1QvU28rWgIJUA5gGoZ"><span class="brand" data-page-node-id="3R4A6HCfYKgZAyMlmKTm3t" data-go="about" style="cursor:pointer">AI 名词<span data-page-node-id="IQrgBXzur7VUM5ejup5T3F">小抄</span></span>
       <span class="brandsub" data-page-node-id="9EkykKrKOlMaS4GqjfU6IY">看不懂的词，说人话给你听</span><span class="cnt" id="cnt" data-page-node-id="cBCezoC5kSzbSbtFOSlvPD"></span></div>
     <div class="searchbox" data-page-node-id="hyFLO1EsxIjKTjVG1FcO2R"><span class="ico" data-page-node-id="Pc2M4oC0DntF1EFpPrUSuh">🔍</span>
       <input id="q" placeholder="搜词、缩写、或一句话描述…" autocomplete="off" data-page-node-id="KuMZIhvWCE8LDd55zIRnuu"></div>
@@ -996,142 +996,144 @@ var WORDS=[
  tl:'一群人<b>共同编辑、互相链接</b>的在线百科。最出名的是维基百科，很多公司内部知识库也是这个形式。',
  ana:'像<b>一本大家都能改的共享笔记本</b>：谁发现错了谁改，条目之间还互相跳转。',
  scn:'公众号里「根据维基百科的定义」就是这么来的；你公司飞书知识库里文档互相链接，也是 wiki 思想。',
- demo:null,rel:['md','opensource'],al:['wiki','维基','维基百科','wikipedia','百科'],one:'大家共同编辑的在线百科',cf:'维基百科只是 wiki 的一种，公司内部知识库也叫 wiki',dlg:['甲：这定义哪来的？','乙：维基百科查的'],new:true},
+ demo:null,rel:['md','opensource'],quiz:{q:'「大家共同编辑、互相链接的在线百科」指的是？',o:['Wiki 维基','RSS 订阅','云盘','爬虫'],a:0,why:'Wiki 就是一群人共同维护的百科，条目之间互相跳转；公司内部知识库常用这个形式。'},al:['wiki','维基','维基百科','wikipedia','百科'],one:'大家共同编辑的在线百科',cf:'维基百科只是 wiki 的一种，公司内部知识库也叫 wiki',dlg:['甲：这定义哪来的？','乙：维基百科查的'],new:true},
 {id:'domain',term:'域名 / 网址',full:'Domain Name',cn:'网址',zone:'misc',lv:1,
  tl:'网站的<b>门牌地址</b>，比如 baidu.com。浏览器地址栏里那串，就是域名加路径。',
  ana:'IP 地址是<b>经纬度坐标</b>，域名是<b>门牌地址</b>——坐标没人记得住，地址好记，系统自动帮你换算。',
  scn:'你分发的名词小抄链接、极致了数据的 dajiala.com，都是域名。买域名一年几十块，忘了续费可能被人抢走。',
- demo:null,rel:['ip','shortlink'],al:['域名','网址','domain','网站地址','url'],one:'网站的好记地址，浏览器靠它找到服务器',cf:'域名是名字，IP 是真实门牌，DNS 负责换算',dlg:['甲：这个链接可靠吗？','乙：看域名，正规机构域名不会乱起'],new:true},
+ demo:null,rel:['ip','shortlink'],quiz:{q:'浏览器地址栏里 baidu.com 这一段叫什么？',o:['IP 地址','域名','端口','缓存'],a:1,why:'域名是好记的网站地址；IP 是真实门牌号，DNS 负责把域名换算成 IP。'},al:['域名','网址','domain','网站地址','url'],one:'网站的好记地址，浏览器靠它找到服务器',cf:'域名是名字，IP 是真实门牌，DNS 负责换算',dlg:['甲：这个链接可靠吗？','乙：看域名，正规机构域名不会乱起'],new:true},
 {id:'ip',term:'IP 地址',full:'IP Address',cn:'网络地址',zone:'misc',lv:1,
  tl:'联网设备在网上的<b>门牌号</b>，形如 192.168.1.5。有它，数据才知道往哪送。',
  ana:'快递单上的<b>收件地址</b>：没有它，包裹不知道往哪送。',
  scn:'文章说「封 IP」就是拉黑这个门牌号；评论区「IP 属地」显示的是你大致位置（省市），不是精确住址。',
- demo:null,rel:['domain'],al:['ip','ip地址','网络地址','ip属地'],one:'联网设备的门牌号，数据靠它找到你',cf:'IP 属地只到省市，不代表具体位置',dlg:['甲：IP 属地能定位到我吗？','乙：只能到省市，精确不到门牌'],new:true},
+ demo:null,rel:['domain'],quiz:{q:'评论区「IP 属地：广东」里的 IP 是什么？',o:['一种视频格式','联网设备的网络门牌号','网速单位','账号等级'],a:1,why:'IP 是联网设备的门牌号；IP 属地只显示到省市，定位不到门牌。'},al:['ip','ip地址','网络地址','ip属地'],one:'联网设备的门牌号，数据靠它找到你',cf:'IP 属地只到省市，不代表具体位置',dlg:['甲：IP 属地能定位到我吗？','乙：只能到省市，精确不到门牌'],new:true},
 {id:'clouddisk',term:'云盘 / 网盘',full:'Cloud Storage',cn:'云盘',zone:'misc',lv:1,
  tl:'把文件<b>存在远方的大服务器上</b>，你随手能取，还能分享给别人。',
  ana:'像<b>银行保险柜</b>：原件放在云端，你在哪台设备都能查，手机丢了文件也不丢。',
  scn:'「资料放网盘，链接自取」是公众号常见话术。把小抄备份到网盘目录，就是为了同一份文件两个地方都有。',
- demo:null,rel:['backup','cloud'],al:['云盘','网盘','云存储','百度网盘','cloud'],one:'把文件存在云端，到哪都能取',cf:'云盘不是无限的，免费额度有限制',dlg:['甲：文件发我','乙：传网盘了，链接发你'],new:true},
+ demo:null,rel:['backup','cloud'],quiz:{q:'「资料放网盘，链接自取」里网盘的本质是？',o:['把文件存在远方服务器上','一种压缩格式','聊天软件','邮箱附件'],a:0,why:'云盘 = 文件存在云端服务器，换设备也能取，还能分享链接。'},al:['云盘','网盘','云存储','百度网盘','cloud'],one:'把文件存在云端，到哪都能取',cf:'云盘不是无限的，免费额度有限制',dlg:['甲：文件发我','乙：传网盘了，链接发你'],new:true},
 {id:'rss',term:'RSS',full:'Really Simple Syndication',cn:'订阅源',zone:'misc',lv:2,
  tl:'网站<b>自动把更新推给你</b>的老协议：把订阅源加进阅读器，新文章自己送上门，不用挨个网站刷。',
  ana:'像<b>订报纸</b>：报社每天把新报纸塞进你家信箱，你不用每天跑报摊看有没有新刊。',
  scn:'很多技术博客和播客还保留 RSS。公众号本身不支持 RSS，所以才会冒出各种「公众号聚合阅读」工具。',
- demo:null,rel:['webhook','automation'],al:['rss','订阅源','rss订阅','feed','rss阅读器'],one:'网站更新自动送上门的订阅方式',cf:'RSS 需要阅读器，浏览器直接打开是一堆代码',dlg:['甲：每天刷太累','乙：用 RSS 订阅，更新自己来'],new:true},
+ demo:null,rel:['webhook','automation'],quiz:{q:'RSS 订阅解决什么问题？',o:['网速太慢','不用挨个网站刷，更新自动送上门','账号安全','图片压缩'],a:1,why:'RSS 像订报纸：新内容自动进阅读器，不用天天跑报摊看。'},al:['rss','订阅源','rss订阅','feed','rss阅读器'],one:'网站更新自动送上门的订阅方式',cf:'RSS 需要阅读器，浏览器直接打开是一堆代码',dlg:['甲：每天刷太累','乙：用 RSS 订阅，更新自己来'],new:true},
 {id:'crawler',term:'爬虫',full:'Web Crawler / Spider',cn:'网络爬虫',zone:'code',lv:2,
  tl:'一段<b>自动抓网页内容的程序</b>：批量访问网页，把想要的数据扒下来。',
  ana:'像<b>派机器人去图书馆抄书</b>：一页页翻、按规则抄，比人快几万倍。',
  scn:'你抓公众号阅读数的极致了 API，背后就是爬虫在干活；大模型训练用的语料，很大一部分也是爬虫扒的。',
- demo:null,rel:['api','opensource'],al:['爬虫','crawler','spider','数据抓取','采集'],one:'自动批量抓网页数据的程序',cf:'爬虫有法律边界，抓公开数据也要守规矩',dlg:['甲：数据哪来的？','乙：爬虫抓的，再清洗一遍'],new:true},
+ demo:null,rel:['api','opensource'],quiz:{q:'自动批量抓网页数据的程序叫？',o:['爬虫','插件','缓存','防火墙'],a:0,why:'爬虫按规则批量访问网页、扒数据；抓公众号阅读数的 API 背后就是它。'},al:['爬虫','crawler','spider','数据抓取','采集'],one:'自动批量抓网页数据的程序',cf:'爬虫有法律边界，抓公开数据也要守规矩',dlg:['甲：数据哪来的？','乙：爬虫抓的，再清洗一遍'],new:true},
 {id:'html',term:'HTML',full:'HyperText Markup Language',cn:'网页骨架',zone:'code',lv:1,
  tl:'网页的<b>骨架</b>：标题、段落、按钮、图片，全靠 HTML 标签描述。你看到的每个网页都是它。',
  ana:'像<b>房子的毛坯结构</b>：墙和门窗位置（HTML）定好了，装修风格（CSS）和电器功能（JS）另算。',
  scn:'整个名词小抄就是一个 HTML 文件，双击就能打开、离线能查，不用装任何东西。',
- demo:null,rel:['css','js','md'],al:['html','网页','超文本','html文件','.html'],one:'网页的骨架语言，描述页面上有什么',cf:'HTML 管结构，CSS 管样子，JS 管动作',dlg:['甲：网页是什么写的？','乙：骨架 HTML，样子 CSS'],new:true},
+ demo:null,rel:['css','js','md'],quiz:{q:'网页的「骨架」是哪个？',o:['CSS','HTML','JS','JSON'],a:1,why:'HTML 描述页面结构；CSS 管样子，JS 管动作。'},al:['html','网页','超文本','html文件','.html'],one:'网页的骨架语言，描述页面上有什么',cf:'HTML 管结构，CSS 管样子，JS 管动作',dlg:['甲：网页是什么写的？','乙：骨架 HTML，样子 CSS'],new:true},
 {id:'css',term:'CSS',full:'Cascading Style Sheets',cn:'层叠样式表',zone:'code',lv:1,
  tl:'管网页<b>长相</b>的：颜色、大小、间距、圆角，全靠它。叫它「网页化妆师」更贴切。',
  ana:'HTML 是<b>素颜穿衣服</b>，CSS 是<b>化妆和穿搭</b>：同一张脸，能化出完全不同的气质。',
  scn:'同事手机上页面被染成粉色，就是浏览器在他手机上改了「化妆效果」——CSS 没变，被外部干预了。',
- demo:null,rel:['html','js'],al:['css','样式','层叠样式表','网页样式'],one:'管网页颜色、大小、间距的化妆师',cf:'CSS 只管好看，改内容还得动 HTML',dlg:['甲：怎么变圆角的？','乙：CSS 一行 border-radius'],new:true},
+ demo:null,rel:['html','js'],quiz:{q:'改网页的颜色、圆角、间距，动的是？',o:['HTML','JS','CSS','IP'],a:2,why:'CSS 是网页化妆师，专管长相；HTML 管内容结构。'},al:['css','样式','层叠样式表','网页样式'],one:'管网页颜色、大小、间距的化妆师',cf:'CSS 只管好看，改内容还得动 HTML',dlg:['甲：怎么变圆角的？','乙：CSS 一行 border-radius'],new:true},
 {id:'js',term:'JavaScript',full:'JavaScript / JS',cn:'网页脚本',zone:'code',lv:1,
  tl:'网页里<b>负责「动起来」</b>的语言：点搜索出结果、答题判对错、存收藏，全是 JS 在跑。',
  ana:'HTML 是骨架、CSS 是化妆，JS 是<b>肌肉和神经</b>：你一点按钮它就有反应。',
  scn:'名词小抄的搜索、收藏、错题池、深色切换，全写在页面里的 JS 上——所以离线也能用，不用问服务器。',
- demo:null,rel:['html','css'],al:['js','javascript','脚本','网页脚本','js代码'],one:'让网页动起来的编程语言',cf:'Java 和 JavaScript 没有血缘关系，纯属碰瓷命名',dlg:['甲：搜索怎么实现的？','乙：页面里的 JS 现算的'],new:true},
+ demo:null,rel:['html','css'],quiz:{q:'点搜索按钮立刻出结果，背后是谁在工作？',o:['JavaScript','HTML','CSS','DNS'],a:0,why:'JS 让网页动起来：搜索、答题判分、存收藏全是它，所以离线也能用。'},al:['js','javascript','脚本','网页脚本','js代码'],one:'让网页动起来的编程语言',cf:'Java 和 JavaScript 没有血缘关系，纯属碰瓷命名',dlg:['甲：搜索怎么实现的？','乙：页面里的 JS 现算的'],new:true},
 {id:'opensource',term:'开源',full:'Open Source',cn:'开源',zone:'code',lv:1,
  tl:'把代码<b>公开出来给大家用、给大家改</b>。对应的叫闭源：只给你用，不给看代码。',
  ana:'开源像<b>公开的菜谱</b>：谁都能照着做、还能改良；闭源像<b>秘方</b>：只卖成品，配方不外传。',
  scn:'DeepSeek 开源了模型权重、Obsidian 免费但闭源、你装的 Codex 是闭源工具——「开源/闭源」是挑工具时的第一道分界线。',
- demo:null,rel:['html','benchmark'],al:['开源','opensource','开放源代码','闭源','开源模型'],one:'代码公开，谁都能看、能改、能用',cf:'开源不等于免费，也不等于可以随便商用，看协议',dlg:['甲：这工具收费吗？','乙：开源的，自己部署免费'],new:true},
+ demo:null,rel:['html','benchmark'],quiz:{q:'「开源」的意思是？',o:['免费使用','代码公开，谁都能看能改','没有版权','软件开放注册'],a:1,why:'开源 = 代码公开；但开源不等于免费随便商用，具体看协议。'},al:['开源','opensource','开放源代码','闭源','开源模型'],one:'代码公开，谁都能看、能改、能用',cf:'开源不等于免费，也不等于可以随便商用，看协议',dlg:['甲：这工具收费吗？','乙：开源的，自己部署免费'],new:true},
 {id:'beta',term:'Beta / 内测',full:'Beta Release',cn:'公测版',zone:'misc',lv:1,
  tl:'软件正式发布前的<b>试穿阶段</b>：功能基本齐了，可能还有小毛病，先给一部分人试用找问题。',
  ana:'像<b>新菜上桌前先请熟客试吃</b>：味道八九不离十，咸淡可能还得调。',
  scn:'公众号里「内测资格」「抢先体验」说的就是 beta。WorkBuddy 也经常上 beta 功能，遇到小毛病别意外。',
- demo:null,rel:['deploy','regress'],al:['beta','内测','公测','试运行','抢先体验'],one:'正式版之前的试穿版本',cf:'beta 有小毛病是正常的，正式版会修',dlg:['甲：这功能怎么有点糙？','乙：beta 阶段，还会打磨'],new:true},
+ demo:null,rel:['deploy','regress'],quiz:{q:'软件的「Beta 版 / 内测版」是什么阶段？',o:['正式发布后的修复版','正式发布前的试穿阶段','淘汰停更的版本','付费版'],a:1,why:'Beta 功能基本齐、可能有小毛病，先给一部分人试用找问题。'},al:['beta','内测','公测','试运行','抢先体验'],one:'正式版之前的试穿版本',cf:'beta 有小毛病是正常的，正式版会修',dlg:['甲：这功能怎么有点糙？','乙：beta 阶段，还会打磨'],new:true},
 {id:'cookie',term:'Cookie',full:'HTTP Cookie',cn:'浏览器小纸条',zone:'code',lv:1,
  tl:'网站<b>存在你浏览器里的一张小纸条</b>，记着「你是谁、登录没、购物车里有啥」。下次再来，它靠这张纸条认出你。',
  ana:'像<b>游泳手环</b>：进场时戴上，储物柜号、是否会员都在上面，出示手环不用每次报手机号。',
  scn:'「清除浏览器 Cookie」= 撕掉所有手环 → 网站都不认识你了，全要重新登录。',
- demo:null,rel:['cache','twofa'],al:['cookie','登录状态','浏览器cookie','清除cookie','小纸条'],one:'网站存你浏览器里的小纸条，用来认人',cf:'Cookie 只存状态不存密码，但泄露了会被冒用',dlg:['甲：为啥老让我重新登录？','乙：Cookie 被清了'],new:true},
+ demo:null,rel:['cache','twofa'],quiz:{q:'「清除 Cookie」之后会发生什么？',o:['手机变快十倍','网站不认识你了，要重新登录','词库被删除','网络断开'],a:1,why:'Cookie 是网站认你的小纸条，清掉了就要全部重新登录。'},al:['cookie','登录状态','浏览器cookie','清除cookie','小纸条'],one:'网站存你浏览器里的小纸条，用来认人',cf:'Cookie 只存状态不存密码，但泄露了会被冒用',dlg:['甲：为啥老让我重新登录？','乙：Cookie 被清了'],new:true},
 {id:'cache',term:'缓存',full:'Cache',cn:'缓存',zone:'code',lv:1,
  tl:'把<b>用过的东西临时存一份在手边</b>，下次直接拿来用，不用重新取。「清缓存」就是清掉这些临时副本。',
  ana:'像<b>把常用调料从储物间挪到灶台边</b>：炒菜快多了，但调料放久了会过期——缓存也一样，可能是旧数据。',
  scn:'手机上「清除缓存」能腾出几个 G，就是扔掉这些临时副本；名词小抄秒开、断网能查，靠的也是缓存。',
- demo:null,rel:['cookie','rot'],al:['缓存','cache','清除缓存','临时文件','缓存清理'],one:'在手边存一份，下次快一点',cf:'缓存是旧副本，出了奇怪问题先清缓存',dlg:['甲：页面怎么还是旧的？','乙：缓存没刷，清一下'],new:true},
+ demo:null,rel:['cookie','rot'],quiz:{q:'「清缓存试试」是在清什么？',o:['聊天记录','用过的东西的临时副本','账号密码','已安装的软件'],a:1,why:'缓存是临时副本，可能是旧数据；出了怪问题先清缓存。'},al:['缓存','cache','清除缓存','临时文件','缓存清理'],one:'在手边存一份，下次快一点',cf:'缓存是旧副本，出了奇怪问题先清缓存',dlg:['甲：页面怎么还是旧的？','乙：缓存没刷，清一下'],new:true},
 {id:'twofa',term:'双重验证',full:'Two-Factor Authentication (2FA)',cn:'两步验证',zone:'misc',lv:1,
  tl:'登录时<b>除了密码再加一道确认</b>：短信验证码、验证器 App 的 6 位数、或按一下手机。你手机拿不到，别人有密码也进不去。',
  ana:'像<b>银行取钱要卡加密码</b>：光偷到卡没用，还得知道密码；光偷看密码没用，卡还在你身上。',
  scn:'你的 GitHub 令牌、各种 AI 平台后台，能开 2FA 就开——密码泄露是常态，多一道门多一分安全。',
- demo:null,rel:['cookie','apikey'],al:['双重验证','两步验证','2fa','二次验证','验证码登录'],one:'密码之外再加一道身份确认',cf:'短信验证码也有被截获的风险，验证器 App 更稳',dlg:['甲：要验证码干嘛？','乙：开了双重验证，更安全'],new:true},
+ demo:null,rel:['cookie','apikey'],quiz:{q:'「双重验证（2FA）」的作用是？',o:['网速加倍','密码之外再加一道身份确认','存两份密码','登录两次'],a:1,why:'密码泄露是常态，2FA 让别人拿到密码也进不去。'},al:['双重验证','两步验证','2fa','二次验证','验证码登录'],one:'密码之外再加一道身份确认',cf:'短信验证码也有被截获的风险，验证器 App 更稳',dlg:['甲：要验证码干嘛？','乙：开了双重验证，更安全'],new:true},
 {id:'vpn',term:'VPN',full:'Virtual Private Network',cn:'虚拟专用网络',zone:'misc',lv:2,
  tl:'在你和目标网络之间<b>架一条加密隧道</b>：公司用它让你在家也能安全接入公司内网。',
  ana:'像<b>公司派给你的专车专线</b>：从家直达公司内网，中途别人看不见也插不进。',
  scn:'公众号里「远程办公靠 VPN」说的就是这类企业用途。你在国内正常上网、抓国内数据，都用不到它。',
- demo:null,rel:['twofa'],al:['vpn','虚拟专用网络','加密隧道','远程接入'],one:'架一条加密隧道，安全接入另一头',cf:'企业 VPN 是办公工具，跟翻墙工具是两回事',dlg:['甲：在家怎么进公司系统？','乙：连上公司 VPN'],new:true},
+ demo:null,rel:['twofa'],quiz:{q:'公司让你「连 VPN 再进内网」，VPN 干的是？',o:['加速游戏','架加密隧道安全接入','换 IP 省流量','清理病毒'],a:1,why:'VPN 是加密隧道，让你在家安全接入公司内网。'},al:['vpn','虚拟专用网络','加密隧道','远程接入'],one:'架一条加密隧道，安全接入另一头',cf:'企业 VPN 是办公工具，跟翻墙工具是两回事',dlg:['甲：在家怎么进公司系统？','乙：连上公司 VPN'],new:true},
 {id:'shortlink',term:'短链接',full:'Short URL',cn:'短网址',zone:'misc',lv:1,
  tl:'把一长串网址<b>压成几个字符的短码</b>，点开自动跳回原网址。',
  ana:'像<b>快递驿站取件码</b>：真实地址很长，一个短码就够你取到货。',
  scn:'公众号文章里很短的跳转链接、群聊里防和谐用短链，都是它。代价：短链服务关了，链接就死了。',
- demo:null,rel:['domain','webhook'],al:['短链接','短网址','短链','shorturl','链接压缩'],one:'长网址压成的短码，点开自动跳回原处',cf:'短链依赖服务商活着，重要链接别只存短链',dlg:['甲：链接太长了','乙：压成短链再发'],new:true},
+ demo:null,rel:['domain','webhook'],quiz:{q:'短链接最大的风险是？',o:['太短记不住','依赖服务商活着，关了链接就死','收费贵','会被病毒感染'],a:1,why:'短链靠服务商跳转；重要链接别只存短链版本。'},al:['短链接','短网址','短链','shorturl','链接压缩'],one:'长网址压成的短码，点开自动跳回原处',cf:'短链依赖服务商活着，重要链接别只存短链',dlg:['甲：链接太长了','乙：压成短链再发'],new:true},
 {id:'meme',term:'Meme / 梗图',full:'Meme',cn:'梗图 / 梗',zone:'misc',lv:1,
  tl:'一张图配一句话、<b>被成千上万人复制改编</b>的传播单元。AI 圈的「AI 味」「冷启动」梗全是 meme。',
  ana:'像<b>一句话接龙</b>：模板固定，人人换个词就能玩，越传越广。',
  scn:'公众号文章里那些「配字神图」就是 meme。看懂梗图，往往比读懂正文更快理解圈内情绪。',
- demo:null,rel:['aiflav'],al:['meme','梗图','梗','表情包','迷因'],one:'人人可改、疯传的图配字模板',cf:'表情包是其中一种，meme 还包括文字梗',dlg:['甲：这张图啥意思？','乙：最近流行的一个 meme'],new:true},
+ demo:null,rel:['aiflav'],quiz:{q:'「一张图配一句话、被疯传改编」叫？',o:['Meme 梗图','HTML','横幅广告','弹窗'],a:0,why:'Meme 是人人可改的传播模板；看懂梗图能快速理解圈内情绪。'},al:['meme','梗图','梗','表情包','迷因'],one:'人人可改、疯传的图配字模板',cf:'表情包是其中一种，meme 还包括文字梗',dlg:['甲：这张图啥意思？','乙：最近流行的一个 meme'],new:true},
 {id:'kb',term:'知识库',full:'Knowledge Base',cn:'知识库',zone:'ai',lv:1,
  tl:'你把文档、笔记、网页喂给 AI，它回答时<b>优先从你这份资料里找依据</b>，而不是凭空瞎编。WorkBuddy、豆包、飞书都叫这个名。',
  ana:'像<b>给新员工一个内部资料柜</b>：不知道的先翻柜子，翻不到再用通识回答，还能注明出处。',
  scn:'你把五行针灸资料放进 Obsidian 让 AI 读、把技能包挂给 WorkBuddy——本质都是在搭自己的知识库。',
- demo:null,rel:['rag','obsidian','embedding'],al:['知识库','kb','knowledge base','私有知识库','文档库'],one:'喂给 AI 的资料柜，回答优先从这里找',cf:'知识库不是模型变聪明了，是回答时先查你的资料',dlg:['甲：它怎么知道我项目的？','乙：知识库里喂过'],new:true},
+ demo:null,rel:['rag','obsidian','embedding'],quiz:{q:'AI 的「知识库」功能本质是？',o:['让模型变大','回答时优先从你喂的资料里找依据','给 AI 升级脑容量','多买了几台服务器'],a:1,why:'知识库 = 给 AI 一个资料柜，回答先查你的资料，还能注明出处。'},al:['知识库','kb','knowledge base','私有知识库','文档库'],one:'喂给 AI 的资料柜，回答优先从这里找',cf:'知识库不是模型变聪明了，是回答时先查你的资料',dlg:['甲：它怎么知道我项目的？','乙：知识库里喂过'],new:true},
 {id:'ocr',term:'OCR',full:'Optical Character Recognition',cn:'文字识别',zone:'ai',lv:1,
  tl:'把<b>图片里的文字抠出来变成可编辑文本</b>：拍的书页、截图、票据，都能转成字。',
  ana:'像<b>一个看得见图、会打字的书吏</b>：你给它照片，它把字原样敲出来。',
  scn:'现在发一张群聊截图给 AI，它不光能 OCR 出文字，还能看懂谁说的、什么关系——那是 VLM 的功劳，比纯 OCR 强一代。',
- demo:null,rel:['vlm','t2i'],al:['ocr','文字识别','图片转文字','识别文字','截图识别'],one:'把图片里的字抠成可编辑文本',cf:'纯 OCR 只出文字，看不懂内容含义',dlg:['甲：截图文字能提取吗？','乙：OCR 一下就行'],new:true},
+ demo:null,rel:['vlm','t2i'],quiz:{q:'把截图里的文字抠出来变成可编辑文本，用的技术是？',o:['OCR','GPS','URL','DNS'],a:0,why:'OCR 文字识别；现在的 VLM 更强，不但出文字还能看懂图的内容。'},al:['ocr','文字识别','图片转文字','识别文字','截图识别'],one:'把图片里的字抠成可编辑文本',cf:'纯 OCR 只出文字，看不懂内容含义',dlg:['甲：截图文字能提取吗？','乙：OCR 一下就行'],new:true},
 {id:'training',term:'训练',full:'Training',cn:'训练',zone:'ai',lv:2,
  tl:'用<b>海量数据教模型学本事</b>的过程：读几万亿字，学会预测下一个字。训练完才能拿去用（那一步叫推理）。',
  ana:'训练是<b>学生上学十几年</b>；推理是毕业后<b>上班干活</b>。上学烧钱，上班挣钱。',
  scn:'公众号说「某模型训练成本几亿」「用 10 万张卡训练三个月」，说的都是这个阶段。你调 API 付的钱，只是推理钱。',
- demo:null,rel:['infer','compute','ft'],al:['训练','training','模型训练','预训练','训练成本'],one:'用海量数据教模型学本事的过程',cf:'训练一次烧几亿，推理一次几厘，别混',dlg:['甲：它怎么会的？','乙：训练出来的'],new:true},
+ demo:null,rel:['infer','compute','ft'],quiz:{q:'公众号说「训练成本几亿」，指的是哪个阶段？',o:['你调 API 付的钱','教模型学本事的阶段','下载模型的流量费','广告费'],a:1,why:'训练烧大钱；你调 API 付的是推理的钱，一次几厘。'},al:['训练','training','模型训练','预训练','训练成本'],one:'用海量数据教模型学本事的过程',cf:'训练一次烧几亿，推理一次几厘，别混',dlg:['甲：它怎么会的？','乙：训练出来的'],new:true},
 {id:'compute',term:'算力',full:'Compute / Compute Power',cn:'算力',zone:'ai',lv:2,
  tl:'能投入计算的<b>芯片总量</b>。训练要卡、推理要卡、本地跑模型也要卡——算力就是 AI 世界的电力。',
  ana:'像<b>工厂的电力供应</b>：机器再多，电不够就全趴窝。GPU 数量乘以性能，就是你的算力。',
  scn:'「算力军备竞赛」「卡被禁运」「显卡涨价」全是这个词的战场。你本地跑模型慢，本质就是算力不足。',
- demo:null,rel:['gpu','training','ramageddon'],al:['算力','compute','计算力','gpu算力','芯片'],one:'能投入计算的芯片总量，AI 的电力',cf:'算力不只是 GPU 数量，显存和带宽同样是瓶颈',dlg:['甲：为啥模型这么贵？','乙：算力烧钱'],new:true},
+ demo:null,rel:['gpu','training','ramageddon'],quiz:{q:'AI 圈说的「算力」，本质是？',o:['网速','能投入计算的芯片总量','电费','模型数量'],a:1,why:'算力 = 芯片总量，AI 世界的电力；显存和带宽也是瓶颈。'},al:['算力','compute','计算力','gpu算力','芯片'],one:'能投入计算的芯片总量，AI 的电力',cf:'算力不只是 GPU 数量，显存和带宽同样是瓶颈',dlg:['甲：为啥模型这么贵？','乙：算力烧钱'],new:true},
 {id:'t2i',term:'文生图',full:'Text-to-Image',cn:'文字生成图片',zone:'ai',lv:1,
  tl:'<b>你打一句描述，AI 给你一张图</b>。Midjourney、即梦这些工具都是干这个的。',
  ana:'像<b>对着画师描述「我要一只赛博朋克风格的橘猫」</b>，几秒钟给你十张挑——而且不要稿费。',
  scn:'公众号封面、文章配图已经大量用文生图生成。描述越具体（主体+风格+光线+构图），出图越可控。',
- demo:null,rel:['i2v','digitalhuman'],al:['文生图','text-to-image','ai绘画','ai画图','生成图片'],one:'打一句描述，AI 几秒出一张图',cf:'文生图出的是「像」，不是「对」：手指和文字仍常出错',dlg:['甲：封面哪来的？','乙：文生图，一句话生成'],new:true},
+ demo:null,rel:['i2v','digitalhuman'],quiz:{q:'「打一句描述，AI 出一张图」叫？',o:['文生图','图生视频','语音克隆','OCR'],a:0,why:'文生图 Text-to-Image；描述越具体（主体+风格+光线），出图越可控。'},al:['文生图','text-to-image','ai绘画','ai画图','生成图片'],one:'打一句描述，AI 几秒出一张图',cf:'文生图出的是「像」，不是「对」：手指和文字仍常出错',dlg:['甲：封面哪来的？','乙：文生图，一句话生成'],new:true},
 {id:'i2v',term:'图生视频',full:'Image-to-Video',cn:'图片生成视频',zone:'ai',lv:1,
  tl:'给 AI <b>一张静态图加一句动作描述</b>，它生成几秒钟的动态视频。老照片动起来、商品图变广告，全靠它。',
  ana:'像<b>给照片施魔法</b>：照片里的人眨眨眼、镜头缓缓推近，照片变成了短视频。',
  scn:'公众号里「让老照片动起来」「一张图变广告片」就是它。通常配文生图用：先生成图，再让图动起来。',
- demo:null,rel:['t2i','digitalhuman'],al:['图生视频','image-to-video','照片动起来','ai视频','图转视频'],one:'一张图加一句描述，生成几秒视频',cf:'时长普遍只有几秒，长视频是多段拼接',dlg:['甲：老照片怎么动的？','乙：图生视频'],new:true},
+ demo:null,rel:['t2i','digitalhuman'],quiz:{q:'让老照片「动起来」几秒钟，用的技术是？',o:['文生图','图生视频','语音克隆','OCR'],a:1,why:'图生视频：一张图加一句动作描述；通常先文生图、再让图动。'},al:['图生视频','image-to-video','照片动起来','ai视频','图转视频'],one:'一张图加一句描述，生成几秒视频',cf:'时长普遍只有几秒，长视频是多段拼接',dlg:['甲：老照片怎么动的？','乙：图生视频'],new:true},
 {id:'digitalhuman',term:'数字人',full:'Digital Human / Avatar',cn:'数字人',zone:'ai',lv:1,
  tl:'AI 生成的<b>仿真虚拟人</b>：能开口说话、对上口型、做表情。长相可以是克隆真人，也可以纯虚构。',
  ana:'像<b>给 AI 配了一副身体和脸</b>：声音是克隆的，口型是对上的，7×24 小时不休息。',
  scn:'直播间里「无人直播」、短视频里的虚拟主播，越来越多是数字人。声音配合语音克隆，成本极低。',
- demo:null,rel:['voiceclone','i2v'],al:['数字人','digital human','虚拟人','ai主播','虚拟主播'],one:'AI 造的仿真虚拟人，能说能动',cf:'对口型靠算法，声音和口型不同步就穿帮',dlg:['甲：主播是人还是 AI？','乙：数字人，脚本驱动的'],new:true},
+ demo:null,rel:['voiceclone','i2v'],quiz:{q:'直播间「无人直播的虚拟主播」是？',o:['数字人','机器人','录播','真人代播'],a:0,why:'数字人能说话、对口型、做表情，7×24 不休息，声音多来自克隆。'},al:['数字人','digital human','虚拟人','ai主播','虚拟主播'],one:'AI 造的仿真虚拟人，能说能动',cf:'对口型靠算法，声音和口型不同步就穿帮',dlg:['甲：主播是人还是 AI？','乙：数字人，脚本驱动的'],new:true},
 {id:'voiceclone',term:'语音克隆',full:'Voice Cloning',cn:'声音克隆',zone:'ai',lv:2,
  tl:'用<b>几十秒的录音样本</b>，克隆出和本人几乎一样的声音，之后输入什么文字，就用这个声音念什么。',
  ana:'像<b>复印了一把声音钥匙</b>：音色、口音、语气都在，念什么由你输入什么决定。',
  scn:'有声书、播客配音、数字人的声音，很多是克隆的。也有骗局用它冒充亲人声音——接到「家人」紧急求助电话，多一道验证。',
- demo:null,rel:['digitalhuman','tts'],al:['语音克隆','声音克隆','voiceclone','克隆声音','ai配音'],one:'几十秒样本克隆出同款声音',cf:'克隆声音有被冒用的风险，重要事当面或回拨核实',dlg:['甲：这配音谁录的？','乙：没人录，克隆的声音'],new:true},
+ demo:null,rel:['digitalhuman','tts'],quiz:{q:'「语音克隆」需要什么材料？',o:['几十秒的录音样本','对方身份证','一整本书','专业录音棚'],a:0,why:'几十秒样本就能克隆音色。防骗提醒：接到「亲人」紧急电话要多核实。'},al:['语音克隆','声音克隆','voiceclone','克隆声音','ai配音'],one:'几十秒样本克隆出同款声音',cf:'克隆声音有被冒用的风险，重要事当面或回拨核实',dlg:['甲：这配音谁录的？','乙：没人录，克隆的声音'],new:true},
 {id:'embedding',term:'Embedding',full:'Embedding / Vector',cn:'向量化',zone:'ai',lv:3,
  tl:'把<b>文字变成一串数字坐标</b>，意思相近的内容，坐标也挨得近。AI 由此能算出「这两句话像不像」。',
  ana:'像<b>给图书馆每本书标上坐标</b>：主题相近的书坐标相邻，找相似内容不用一本本翻。',
  scn:'你搜「让AI先查资料」能命中「工具调用」，靠的就是语义相似度——背后是 embedding 在比坐标距离。',
- demo:null,rel:['vectordb','rag','kb'],al:['embedding','向量','向量化','语义向量','嵌入'],one:'把文字变成数字坐标，意思近坐标就近',cf:'向量不是关键词匹配，换个说法也能算出相似',dlg:['甲：它怎么知道两句话像？','乙：坐标距离算的'],new:true},
+ demo:null,rel:['vectordb','rag','kb'],quiz:{q:'Embedding（向量化）做的是？',o:['把文字变成数字坐标，意思近坐标就近','压缩图片','翻译外语','加密数据'],a:0,why:'向量化让 AI 能算出「两句话像不像」，是知识库检索的地基。'},al:['embedding','向量','向量化','语义向量','嵌入'],one:'把文字变成数字坐标，意思近坐标就近',cf:'向量不是关键词匹配，换个说法也能算出相似',dlg:['甲：它怎么知道两句话像？','乙：坐标距离算的'],new:true},
 {id:'vectordb',term:'向量数据库',full:'Vector Database',cn:'向量数据库',zone:'ai',lv:3,
  tl:'专门<b>存 embedding 坐标、按「意思相近」来查</b>的数据库。知识库问答里存你资料的就是它。',
  ana:'普通数据库是<b>按编号找书</b>；向量库是<b>找跟这本书内容最像的十本</b>——查的是意思，不是关键词。',
  scn:'知识库问答时，你的文档先被切段、算好向量存进去；AI 回答前先去向量库里捞最相关的几段。飞书、WorkBuddy 的知识库底层都是这一套。',
- demo:null,rel:['embedding','kb','rag'],al:['向量数据库','vectordb','向量库','vector db','语义检索'],one:'按「意思相近」来查资料的数据库',cf:'它只负责找相似，判断和回答交给大模型',dlg:['甲：知识库怎么实现的？','乙：向量库加 RAG'],new:true},
+ demo:null,rel:['embedding','kb','rag'],quiz:{q:'向量数据库查询靠的是？',o:['关键词完全匹配','按编号查找','意思相近程度','字母排序'],a:2,why:'向量库查的是语义相似；找出来之后，判断和回答交给大模型。'},al:['向量数据库','vectordb','向量库','vector db','语义检索'],one:'按「意思相近」来查资料的数据库',cf:'它只负责找相似，判断和回答交给大模型',dlg:['甲：知识库怎么实现的？','乙：向量库加 RAG'],new:true},
 {id:'cloud',term:'云计算 / 云端',full:'Cloud Computing',cn:'云计算',zone:'misc',lv:1,
  tl:'把<b>存储和计算放到远方的大机房</b>（云），你的设备只是个窗口。「云端同步」「上云」都指这个。',
  ana:'像<b>从自家水井换成自来水</b>：水厂统一供水，你拧开龙头就用，不用自己打井维护。',
  scn:'「文件在云端」「AI 跑在云端」「多设备同步」，背后都是云。名词小抄是少数派：数据在你手机本地，断网也能用。',
- demo:null,rel:['clouddisk','server'],al:['云计算','云端','cloud','云服务','上云'],one:'把存储和计算放到远方机房，设备只是窗口',cf:'云端好处是多设备同步，代价是断网就抓瞎',dlg:['甲：数据在手机里还是云上？','乙：在云端，登录就同步'],new:true},
+ demo:null,rel:['clouddisk','server'],quiz:{q:'「数据在云端」指的是？',o:['数据存在天上','存储和计算在远方机房','数据在 SIM 卡里','数据在别人手机上'],a:1,why:'云端 = 远方大机房；好处是多设备同步，代价是断网就抓瞎。'},al:['云计算','云端','cloud','云服务','上云'],one:'把存储和计算放到远方机房，设备只是窗口',cf:'云端好处是多设备同步，代价是断网就抓瞎',dlg:['甲：数据在手机里还是云上？','乙：在云端，登录就同步'],new:true},
+
+
 {id:'syc',term:'Sycophancy',full:'Sycophancy',cn:'拍马屁 / 谄媚',zone:'ai',lv:2,tl:'AI 一味附和你，你说啥它都说对。<b>它是在讨好你，不是在讲真话</b>。',ana:'像那种永远说「您说得对」的下属——听着舒服，其实没帮你把关。',scn:'你问「我这个方案是不是没问题」，它回「非常完善」，其实漏洞一堆。想听真话就把问题改成「请找出这个方案的三个问题」。',al:['拍马屁','谄媚','马屁精','附和','讨好','说好话','一味赞同','老说我对'],one:'它一味说你对，其实是在讨好你',cf:'跟幻觉不同：幻觉是瞎编，这是明知也不反驳',dlg:['甲：它说我方案完美','乙：拍马屁呢，让它挑毛病试试'],rel:['hallu','rlhf','prompt'],new:true},
 {id:'compact',term:'Compaction',full:'Context compaction / /clear',cn:'压缩 / 清空',zone:'ai',lv:2,tl:'把长对话压成一段摘要，腾出空间继续干。<b>相当于给 AI 做一次「划重点」</b>。',ana:'像会议纪要：两小时讨论压成一页纸，重点还在，废话没了。',scn:'Claude Code 里打 /compact 或 /clear 就是在干这个。长任务干到一半感觉它开始糊了，压一下再继续，比硬撑着强。',al:['清空','压缩','上下文压缩','划重点','清会话','重开','compact','clear'],one:'把长对话压成摘要，腾地方继续干',cf:'压缩会丢细节；清空是从零开始，两者不一样',dlg:['甲：它越聊越糊','乙：/compact 压一下'],rel:['context','rot','token'],new:true},
 {id:'quota',term:'Quota / Rate limit',full:'Quota / Rate limit',cn:'额度 / 限流',zone:'code',lv:1,tl:'服务商给你定的用量上限。<b>用完就停，不是坏了</b>。',ana:'像手机流量包：用完就断网，或者给你限速到能聊但很慢。',scn:'Codex 报错「You have exceeded your quota」、调极致了 API 返回 429，都是这个。看一眼重置时间，或者换个模型、换把 Key。',al:['额度','限流','配额','超额','429','用超了','用完','rate limit','超了','没额度'],one:'服务商给的用量上限，用完就停',cf:'限流是短时间太快；额度用完是总量没了',dlg:['甲：怎么突然不干了？','乙：额度用完，看下重置时间'],rel:['apikey','token','api'],new:true},
@@ -1303,6 +1305,7 @@ function render(){
   else if(cur==='detail')h=viewDetail(curArg);
   else if(cur==='quiz')h=viewQuiz();
   else if(cur==='qlog')h=viewQLog();
+  else if(cur==='about')h=viewAbout();
   else if(cur==='fav')h=viewFav();
   /* v5.0 桌面分栏：首页/列表/收藏进左栏，右栏常驻显示当前词详解 */
   if(isDesk()&&(cur==='home'||cur==='list'||cur==='fav')){
@@ -1460,7 +1463,31 @@ function viewHome(){
      +'<div class="n">'+ZONES[z].n+'</div><div class="c">'+c+' 个词</div></div>';
   });
   h+='</div>';
-  h+='<p class="tip">共 '+WORDS.length+' 个词 · 每周一自动联网补新词<br>遇到看不懂的，直接在搜索框用大白话描述也行</p>';
+  /* v7.1：首页底部大扫除——tip 删除、说明全部搬进「关于」页（点左上角标题进入） */
+  h+=footer();
+  return h+'</div>';
+}
+/* v7.1：关于页（版本 / 说明 / 教程 / 外观切换都收进来） */
+function viewAbout(){
+  var th=STORE.theme||'auto';
+  var h='<div class="view v-list"><div class="topbar"><div class="back" data-back="1">‹ 返回</div><div class="t">关于 · AI 名词小抄</div></div>';
+  h+='<div class="secttl"><span>📋 基本信息</span></div>'
+   +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">版本 v7.1</div>'
+   +'<div class="rd">词库 168 个词 · 词库更新 2026-09-22 · 每周一自动联网补新词</div></div></div>'
+   +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">🔒 你的数据在你手机上</div>'
+   +'<div class="rd">收藏、答题记录、错题池、外观偏好，全部只存在你手机本地，不上传任何服务器。清浏览器数据会一起清掉。</div></div></div>'
+   +'<div class="secttl"><span>🎨 外观</span></div>'
+   +'<div class="chipsbar" style="margin:0 0 6px">'
+   +'<span class="fchip'+(th==='auto'?' on':'')+'" data-tset="auto">跟随系统</span>'
+   +'<span class="fchip'+(th==='light'?' on':'')+'" data-tset="light">浅色</span>'
+   +'<span class="fchip'+(th==='dark'?' on':'')+'" data-tset="dark">深色</span></div>'
+   +'<div class="row" style="cursor:default"><div class="rt"><div class="rd">页面被浏览器染花、图标变样时，手动选「深色」或「浅色」即可恢复。</div></div></div>'
+   +'<div class="secttl"><span>📌 添加到主屏幕</span></div>'
+   +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">📱 手机</div>'
+   +'<div class="rd">浏览器打开本页 → 菜单（⋮）→ 「添加到主屏幕」。之后像 App 一样点开，离线也能查。</div></div></div>'
+   +'<div class="row" style="cursor:default"><div class="rt"><div class="rn">💻 电脑</div>'
+   +'<div class="rd">地址栏右侧的「⊕ 安装」图标，点击即可安装为桌面应用。</div></div></div>'
+   +'<p class="tip">看不懂的词直接搜；大白话描述也能搜到（比如「AI胡说八道」能搜到幻觉）</p>';
   h+=footer();
   return h+'</div>';
 }
@@ -1471,8 +1498,8 @@ function applyTheme(){
   if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);
 }
 applyTheme();
-function footer(){var th=STORE.theme||'auto';
- return '<div class="themebar">🎨 外观：<span class="tchip'+(th==='auto'?' on':'')+'" data-tset="auto">跟随系统</span><span class="tchip'+(th==='light'?' on':'')+'" data-tset="light">浅色</span><span class="tchip'+(th==='dark'?' on':'')+'" data-tset="dark">深色</span></div><footer>AI 名词小抄 · v7.0 · 词库更新 2026-09-22<br>收藏和答题记录只存在你手机上<br><span style="font-size:10.5px">手机：浏览器打开 → 菜单里「添加到主屏幕」　电脑：地址栏右侧「⊕ 安装」</span></footer>'}
+/* v7.1：footer 大瘦身——说明文字搬进「关于」页，底栏不再显示 */
+function footer(){return ''}
 
 function viewList(o){
   var isAbbr=o.z==='abbr';
@@ -2542,8 +2569,13 @@ document.getElementById('tabbar').addEventListener('click',function(e){
   else if(k==='fav')go('fav');
   else{cur='home';curArg=null;render()}
 });
-document.getElementById('cnt').textContent=WORDS.length+' 词';
+document.getElementById('cnt').textContent=WORDS.length+' 词 · 每周一更新';
 render();
+
+/* v7.1：顶栏「AI 名词小抄」在 screen 外，单独绑定跳「关于」页 */
+document.querySelector('.brand').addEventListener('click',function(){
+  go('about');render();
+});
 
 /* ── v3.0 PWA：Service Worker 注册 + 更新提示 ── */
 if('serviceWorker' in navigator){
@@ -2553,7 +2585,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v7.0').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v7.1').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
