@@ -2642,7 +2642,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v7.2').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v7.3').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
