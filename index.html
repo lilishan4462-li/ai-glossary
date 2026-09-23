@@ -299,6 +299,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
     <div data-tab="home" class="on" data-page-node-id="nzlC6yptj33qoGu9yJkVmC"><span class="i" data-page-node-id="fNV5deb4DGeem6vM3b97UF">🏠</span>首页</div>
     <div data-tab="fav" data-page-node-id="mGRTSeyCnkABXVRiZB4a4H"><span class="i" data-page-node-id="dpZlAowaBDYObgucoWVPAA">⭐</span>收藏</div>
     <div data-tab="quiz" data-page-node-id="lhTVxUEvIo3pmIuZAqmKkj"><span class="i" data-page-node-id="YvJqCxMC4KDHGoEBIeFWQX">🎯</span>考考我</div>
+    <div data-tab="about"><span class="i">⚙️</span>设置</div>
   </div>
 </div>
 <script>
@@ -1371,7 +1372,7 @@ function syncTab(){
   var t=document.querySelectorAll('#tabbar div');
   for(var i=0;i<t.length;i++){
     var k=t[i].getAttribute('data-tab');
-    t[i].className=(k===cur||(cur==='list'&&k==='home')||(cur==='detail'&&k==='home'))?'on':'';
+    t[i].className=(k===cur||(cur==='list'&&k==='home')||(cur==='aboutsub'&&k==='about')||(cur==='detail'&&k==='home'))?'on':'';
   }
 }
 
@@ -1503,7 +1504,7 @@ function viewHome(){
 }
 /* v7.3：关于页二级结构（条目列表 + 点进各自说明页） */
 var ABOUT_META = {
-  ver : {icon:'📋', t:'版本与更新',  s:'v7.7 · 词库 168 · 每周一补新词'},
+  ver : {icon:'📋', t:'版本与更新',  s:'v7.8 · 词库 168 · 每周一补新词'},
   priv: {icon:'🔒', t:'数据与隐私',  s:'所有记录只存你手机本地'},
   theme:{icon:'🎨', t:'外观设置',    s:'跟随系统 / 浅色 / 深色'},
   pwa : {icon:'📌', t:'添加到主屏幕', s:'手机和电脑的安装方法'}
@@ -1512,7 +1513,7 @@ var ABOUT_BODY = {
   ver : function(){
     return '<div class="abwrap">'
       +'<div class="abcard">'
-      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v7.7</span></div>'
+      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v7.8</span></div>'
       +'<div class="abkv"><span class="k">词库规模</span><span class="v">168 个词</span></div>'
       +'<div class="abkv"><span class="k">词库更新</span><span class="v">2026-09-22</span></div>'
       +'<div class="abkv"><span class="k">手写精讲题</span><span class="v">48 道</span></div>'
@@ -2642,6 +2643,7 @@ document.getElementById('screen').addEventListener('click',function(e){
     else if(v==='fav')go('fav');
     else if(v==='quiz'){PICKED=null;go('quiz')}
     else if(v==='qlog')go('qlog');
+    else if(v==='about')go('about');
     else if(v==='aboutsub')go('aboutsub',{sub:n.getAttribute('data-sub')||'ver'});
   }
 });
@@ -2661,6 +2663,7 @@ document.getElementById('tabbar').addEventListener('click',function(e){
   stack=[];
   if(k==='quiz'){QI=0;PICKED=null;go('quiz')}
   else if(k==='fav')go('fav');
+  else if(k==='about')go('about');
   else{cur='home';curArg=null;render()}
 });
 document.getElementById('cnt').innerHTML=WORDS.length+' 词<br><span style="font-size:10px">每周一更新</span>';
@@ -2679,7 +2682,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v7.7').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v7.8').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
