@@ -48,11 +48,6 @@
 .tchip{padding:5px 12px;border-radius:14px;cursor:pointer;font-weight:700;
   background:var(--soft);border:1px solid var(--line);color:var(--sub)}
 .tchip.on{background:var(--accent);border-color:var(--accent);color:#fff}
-/* v7.7：关于入口提示 */
-.infoDot{display:inline-block;margin-left:6px;font-size:10px;font-weight:700;
-  background:var(--soft);color:var(--sub);border:1px solid var(--line);
-  border-radius:50%;width:17px;height:17px;line-height:15px;text-align:center;
-  vertical-align:2px}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;
@@ -289,7 +284,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
   <div id="updBar" style="display:none;position:sticky;top:0;z-index:40;background:#1f9d55;color:#fff;
     text-align:center;font-size:12.5px;padding:8px 12px;cursor:pointer">🔄 词库已更新到最新版，点这里刷新</div>
   <div class="hd" data-page-node-id="531YSBDUGMRi0KF5ACNSSk">
-    <div class="hdrow" data-page-node-id="fqxD1QvU28rWgIJUA5gGoZ"><span class="brand" data-page-node-id="3R4A6HCfYKgZAyMlmKTm3t" data-go="about" style="cursor:pointer">AI 名词<span data-page-node-id="IQrgBXzur7VUM5ejup5T3F">小抄</span><span class="infoDot">ⓘ</span></span>
+    <div class="hdrow" data-page-node-id="fqxD1QvU28rWgIJUA5gGoZ"><span class="brand" data-page-node-id="3R4A6HCfYKgZAyMlmKTm3t">AI 名词<span data-page-node-id="IQrgBXzur7VUM5ejup5T3F">小抄</span></span>
       <span class="brandsub" data-page-node-id="9EkykKrKOlMaS4GqjfU6IY">看不懂的词，说人话给你听</span><span class="cnt" id="cnt" data-page-node-id="cBCezoC5kSzbSbtFOSlvPD"></span></div>
     <div class="searchbox" data-page-node-id="hyFLO1EsxIjKTjVG1FcO2R"><span class="ico" data-page-node-id="Pc2M4oC0DntF1EFpPrUSuh">🔍</span>
       <input id="q" placeholder="搜词、缩写、或一句话描述…" autocomplete="off" data-page-node-id="KuMZIhvWCE8LDd55zIRnuu"></div>
@@ -1504,7 +1499,7 @@ function viewHome(){
 }
 /* v7.3：关于页二级结构（条目列表 + 点进各自说明页） */
 var ABOUT_META = {
-  ver : {icon:'📋', t:'版本与更新',  s:'v7.8 · 词库 168 · 每周一补新词'},
+  ver : {icon:'📋', t:'版本与更新',  s:'v7.9 · 词库 168 · 每周一补新词'},
   priv: {icon:'🔒', t:'数据与隐私',  s:'所有记录只存你手机本地'},
   theme:{icon:'🎨', t:'外观设置',    s:'跟随系统 / 浅色 / 深色'},
   pwa : {icon:'📌', t:'添加到主屏幕', s:'手机和电脑的安装方法'}
@@ -1513,7 +1508,7 @@ var ABOUT_BODY = {
   ver : function(){
     return '<div class="abwrap">'
       +'<div class="abcard">'
-      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v7.8</span></div>'
+      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v7.9</span></div>'
       +'<div class="abkv"><span class="k">词库规模</span><span class="v">168 个词</span></div>'
       +'<div class="abkv"><span class="k">词库更新</span><span class="v">2026-09-22</span></div>'
       +'<div class="abkv"><span class="k">手写精讲题</span><span class="v">48 道</span></div>'
@@ -2669,10 +2664,6 @@ document.getElementById('tabbar').addEventListener('click',function(e){
 document.getElementById('cnt').innerHTML=WORDS.length+' 词<br><span style="font-size:10px">每周一更新</span>';
 render();
 
-/* v7.1：顶栏「AI 名词小抄」在 screen 外，单独绑定跳「关于」页 */
-document.querySelector('.brand').addEventListener('click',function(){
-  go('about');render();
-});
 
 /* ── v3.0 PWA：Service Worker 注册 + 更新提示 ── */
 if('serviceWorker' in navigator){
@@ -2682,7 +2673,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v7.8').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v7.9').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
