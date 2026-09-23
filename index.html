@@ -47,33 +47,34 @@
   border-radius:12px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:12px;color:var(--sub)}
 .tchip{padding:5px 12px;border-radius:14px;cursor:pointer;font-weight:700;
   background:var(--soft);border:1px solid var(--line);color:var(--sub)}
-/* 演示 v11：关于子页卡片排版 */
-.abwrap{padding:2px 2px 14px}
-.abcard{background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:13px 15px;margin-bottom:10px}
-.abcard h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--text)}
-.abcard p{margin:0 0 9px;font-size:13px;line-height:1.75;color:var(--sub);text-align:left}
-.abcard p:last-child{margin-bottom:0}
-.abcard b{color:var(--text)}
-.abkv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;
-  border-bottom:1px dashed var(--line);font-size:13px}
-.abkv:last-child{border-bottom:none}
-.abkv .k{color:var(--faint)}
-.abkv .v{color:var(--text);font-weight:700;text-align:right}
-.abimg{margin-top:9px;border:1px dashed var(--line);border-radius:8px;
-  padding:14px 10px;text-align:center;font-size:12px;color:var(--faint)}
-.row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
-  border-radius:12px;padding:11px 13px;margin-bottom:8px;cursor:pointer}
-.row .rt{flex:1;min-width:0}
-.row .rn{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.row .rd{color:var(--sub);font-size:12.5px;line-height:1.5;margin-top:2px;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.badge{font-size:10px;padding:1px 6px;border-radius:5px;background:var(--new);color:#fff;font-weight:700}
-.chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--accent-soft);color:var(--accent)}
-.chip.lv{background:var(--soft);color:var(--sub)}
-.chip.z{background:var(--soft);color:var(--sub)}
-.star{font-size:18px;color:var(--line);cursor:pointer;flex:none;line-height:1;padding-left:4px}
-.star.on{color:var(--star)}
+.tchip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  padding-bottom:env(safe-area-inset-bottom)}
+.app{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
+.hd{position:sticky;top:0;z-index:20;background:var(--bg);padding:10px 14px 8px;
+  border-bottom:1px solid var(--line)}
+.hdrow{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.brand{font-size:18px;font-weight:800;letter-spacing:-.3px}
+.brand span{color:var(--accent)}
+.brandsub{font-size:11.5px;color:var(--faint);flex:1}
+.cnt{font-size:11.5px;color:var(--faint)}
+.searchbox{display:flex;align-items:center;gap:8px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:9px 13px}
+.searchbox input{flex:1;border:0;outline:0;background:transparent;color:var(--text);
+  font-size:15px;font-family:inherit;min-width:0}
+.searchbox .ico{color:var(--faint);font-size:14px}
+main{padding:12px 14px 96px}
+.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);
+  border-top:1px solid var(--line);display:flex;max-width:520px;margin:0 auto;
+  padding-bottom:env(safe-area-inset-bottom)}
+.tabbar div{flex:1;text-align:center;padding:9px 0 8px;font-size:11.5px;color:var(--faint);cursor:pointer}
+.tabbar div.on{color:var(--accent);font-weight:700}
+.tabbar div .i{font-size:18px;display:block;line-height:1.3}
+.view{animation:fade .2s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 
 .daily{background:linear-gradient(135deg,#3566f0,#7b4ff0);color:#fff;border-radius:16px;
   padding:15px 17px;box-shadow:var(--sh);margin-bottom:14px}
@@ -248,14 +249,34 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:16px 20px 1
   .v-quiz{max-width:720px;margin:0 auto}
   .zmask .zin{max-width:860px}
 }
-
-  /* v7.5 修复：恢复被 v7.3 CSS 同步误删的顶栏/图标规则 */
-  .brandsub{font-size:11.5px;color:var(--faint);flex:1}
-  .brand{font-size:18px;font-weight:800;letter-spacing:-.3px}
-  .cnt{font-size:11.5px;color:var(--faint)}
-  .hdrow{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
-  .ico{color:var(--faint);font-size:14px}
-  .i{font-size:18px;display:block;line-height:1.3}
+  /* v7.3：关于子页卡片排版（v7.6 恢复时保留） */
+  /* 演示 v11：关于子页卡片排版 */
+.abwrap{padding:2px 2px 14px}
+.abcard{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:13px 15px;margin-bottom:10px}
+.abcard h4{margin:0 0 6px;font-size:14px;font-weight:700;color:var(--text)}
+.abcard p{margin:0 0 9px;font-size:13px;line-height:1.75;color:var(--sub);text-align:left}
+.abcard p:last-child{margin-bottom:0}
+.abcard b{color:var(--text)}
+.abkv{display:flex;justify-content:space-between;gap:10px;padding:7px 0;
+  border-bottom:1px dashed var(--line);font-size:13px}
+.abkv:last-child{border-bottom:none}
+.abkv .k{color:var(--faint)}
+.abkv .v{color:var(--text);font-weight:700;text-align:right}
+.abimg{margin-top:9px;border:1px dashed var(--line);border-radius:8px;
+  padding:14px 10px;text-align:center;font-size:12px;color:var(--faint)}
+.row{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:11px 13px;margin-bottom:8px;cursor:pointer}
+.row .rt{flex:1;min-width:0}
+.row .rn{font-weight:700;font-size:14.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.row .rd{color:var(--sub);font-size:12.5px;line-height:1.5;margin-top:2px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge{font-size:10px;padding:1px 6px;border-radius:5px;background:var(--new);color:#fff;font-weight:700}
+.chip{font-size:11px;padding:2px 8px;border-radius:20px;background:var(--accent-soft);color:var(--accent)}
+.chip.lv{background:var(--soft);color:var(--sub)}
+.chip.z{background:var(--soft);color:var(--sub)}
+.star{font-size:18px;color:var(--line);cursor:pointer;flex:none;line-height:1;padding-left:4px}
+.star.on{color:var(--star)}
   </style>
 </head>
 <body data-page-node-id="QxIqCOXUCHxgQ7vOMDn8QF">
@@ -1476,7 +1497,7 @@ function viewHome(){
 }
 /* v7.3：关于页二级结构（条目列表 + 点进各自说明页） */
 var ABOUT_META = {
-  ver : {icon:'📋', t:'版本与更新',  s:'v7.4 · 词库 168 · 每周一补新词'},
+  ver : {icon:'📋', t:'版本与更新',  s:'v7.6 · 词库 168 · 每周一补新词'},
   priv: {icon:'🔒', t:'数据与隐私',  s:'所有记录只存你手机本地'},
   theme:{icon:'🎨', t:'外观设置',    s:'跟随系统 / 浅色 / 深色'},
   pwa : {icon:'📌', t:'添加到主屏幕', s:'手机和电脑的安装方法'}
@@ -1485,7 +1506,7 @@ var ABOUT_BODY = {
   ver : function(){
     return '<div class="abwrap">'
       +'<div class="abcard">'
-      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v7.4</span></div>'
+      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v7.6</span></div>'
       +'<div class="abkv"><span class="k">词库规模</span><span class="v">168 个词</span></div>'
       +'<div class="abkv"><span class="k">词库更新</span><span class="v">2026-09-22</span></div>'
       +'<div class="abkv"><span class="k">手写精讲题</span><span class="v">48 道</span></div>'
@@ -2650,7 +2671,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v7.4').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v7.6').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
