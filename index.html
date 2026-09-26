@@ -1617,7 +1617,7 @@ function viewHome(){
 }
 /* v7.3：关于页二级结构（条目列表 + 点进各自说明页） */
 var ABOUT_META = {
-  ver : {icon:'📋', t:'版本与更新',  s:'v8.1 · 词库 286 · 每周一补新词'},
+  ver : {icon:'📋', t:'版本与更新',  s:'v8.2 · 词库 286 · 每周一补新词'},
   priv: {icon:'🔒', t:'数据与隐私',  s:'所有记录只存你手机本地'},
   theme:{icon:'🎨', t:'外观设置',    s:'跟随系统 / 浅色 / 深色'},
   pwa : {icon:'📌', t:'添加到主屏幕', s:'手机和电脑的安装方法'}
@@ -1626,9 +1626,9 @@ var ABOUT_BODY = {
   ver : function(){
     return '<div class="abwrap">'
       +'<div class="abcard">'
-      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v8.1</span></div>'
+      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v8.2</span></div>'
       +'<div class="abkv"><span class="k">词库规模</span><span class="v">286 个词</span></div>'
-      +'<div class="abkv"><span class="k">词库更新</span><span class="v">2026-09-23</span></div>'
+      +'<div class="abkv"><span class="k">词库更新</span><span class="v">2026-09-26</span></div>'
       +'<div class="abkv"><span class="k">手写精讲题</span><span class="v">178 道</span></div>'
       +'<div class="abkv"><span class="k">补新词节奏</span><span class="v">每周一早上 9 点</span></div>'
       +'</div>'
@@ -1753,7 +1753,7 @@ function detailInner(id){
   h+='<div class="blk"><div class="h">📍 你会在哪撞见它</div><div class="b">'+w.scn+'</div></div>';
   if(w.dlg&&w.dlg.length){
     h+='<div class="blk talk"><div class="h">🗣 真实对话里长这样</div>'
-     +w.dlg.map(function(d){return '<div class="dl">'+esc(d)+'</div>'}).join('')+'</div>';
+     +w.dlg.map(function(d){if(typeof d==='string')return '<div class="dl">'+esc(d)+'</div>';return '<div class="dl">问：'+esc((d&&d.q)||'')+'<br>答：'+esc((d&&d.a)||'')+'</div>'}).join('')+'</div>';
   }
   if(w.demo)h+='<div class="blk"><div class="h">🎬 看图就懂</div><div class="demoname">'
    +(w.demo==='token'||w.demo==='temp'?'下面会自动演示一遍，演完你可以自己动手试':'下面会自动演示一遍')+'</div>'
@@ -2791,7 +2791,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v8.1').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v8.2').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
