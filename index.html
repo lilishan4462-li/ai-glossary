@@ -173,6 +173,38 @@ main{padding:12px 14px 96px}
 .caret{display:inline-block;width:2px;height:17px;background:var(--accent);
   vertical-align:-2px;animation:blink .9s steps(2) infinite}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+/* v8.5 动画：KV 笔记变厚 */
+.kvd{display:flex;gap:10px}
+.kvd .chat{flex:1.15;display:flex;flex-direction:column;gap:7px;justify-content:center}
+.kvd .bub{background:var(--soft);border-radius:10px;padding:7px 10px;font-size:12.5px;line-height:1.5;opacity:0;animation:kvin 8s infinite}
+.kvd .bub.me{background:var(--accent-soft);color:var(--accent)}
+.kvd .b2,.kvd .b4{margin-left:14px}
+.kvd .b1{animation-delay:.2s}.kvd .b2{animation-delay:1.5s}.kvd .b3{animation-delay:2.8s}.kvd .b4{animation-delay:4.1s}
+@keyframes kvin{0%{opacity:0;transform:translateY(8px)}5%{opacity:1;transform:none}80%{opacity:1}90%,100%{opacity:0}}
+.kvd .book{flex:1;border:2px dashed var(--line);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.kvd .bt{font-size:12px;font-weight:700;color:var(--text)}
+.kvd .pg{height:7px;border-radius:4px;background:var(--accent);opacity:0;animation:pgin 8s infinite}
+.kvd .p1{animation-delay:.3s}.kvd .p2{animation-delay:1.6s}.kvd .p3{animation-delay:2.9s}.kvd .p4{animation-delay:4.2s}
+@keyframes pgin{0%{opacity:0;transform:scaleX(.3)}6%{opacity:.8;transform:none}82%{opacity:.8}92%,100%{opacity:0}}
+.kvd .mt{font-size:11px;color:var(--sub);margin-top:4px}
+.kvd .mem{height:10px;border-radius:5px;background:var(--soft);overflow:hidden}
+.kvd .mf{height:100%;width:5%;border-radius:5px;background:linear-gradient(90deg,var(--accent),var(--bad));animation:memg 8s infinite}
+@keyframes memg{0%{width:5%}5%{width:5%}12%{width:27%}25%{width:27%}32%{width:49%}45%{width:49%}52%{width:71%}65%{width:71%}72%{width:93%}82%{width:93%}92%,100%{width:5%}}
+/* v8.5 动画：async 压平回调地狱 */
+.asyd{display:flex;gap:8px}
+.asyd .col{flex:1;border-radius:11px;padding:9px 10px;background:var(--soft);min-width:0}
+.asyd .ct{font-size:12px;font-weight:700;margin-bottom:7px}
+.asyd .ct.bad{color:var(--bad)}.asyd .ct.ok{color:var(--ok)}
+.asyd .ln{font-size:11px;line-height:1.9;border-radius:6px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.asyd .nl{opacity:0;animation:nlin 9s infinite;border-left:2px solid var(--bad)}
+.asyd .n1{animation-delay:.2s}.asyd .n2{animation-delay:.8s;padding-left:16px}.asyd .n3{animation-delay:1.4s;padding-left:26px}.asyd .n4{animation-delay:2s;padding-left:36px}
+@keyframes nlin{0%{opacity:0;transform:translateX(-6px)}5%{opacity:1;transform:none}38%{opacity:1}50%{opacity:.3}88%{opacity:.3}96%,100%{opacity:0}}
+.asyd .fl{opacity:0;animation:flin 9s infinite;border-left:2px solid var(--ok)}
+.asyd .f1{animation-delay:4.7s}.asyd .f2{animation-delay:5.3s}.asyd .f3{animation-delay:5.9s}.asyd .f4{animation-delay:6.5s}
+@keyframes flin{0%{opacity:0;transform:translateX(6px)}5%{opacity:1;transform:none}84%{opacity:1}94%,100%{opacity:0}}
+.asyd .stamp{font-size:11.5px;font-weight:700;margin-top:7px;opacity:0;animation:stin 9s infinite}
+.asyd .s1{color:var(--bad);animation-delay:3.2s}.asyd .s2{color:var(--ok);animation-delay:7.3s}
+@keyframes stin{0%{opacity:0}4%{opacity:1}86%{opacity:1}94%,100%{opacity:0}}
 .cmp{display:flex;gap:8px}
 .cmp .side{flex:1;border-radius:11px;padding:11px 12px;font-size:13px;line-height:1.6;
   background:var(--soft);border:1px solid var(--line)}
@@ -1282,7 +1314,7 @@ var WORDS=[
 
 {id:'latency',term:'延迟',full:'Latency',cn:'延迟',tl:'<b>按下回车到 AI 吐出第一个字</b>的那段时间。延迟高就是等得久，体验直接变差。',ana:'像<b>外卖从下单到敲门</b>：商家做菜再快，路上也要时间——「接单快」不等于「送达快」，你体感的是全程。',zone:'ai',lv:1,one:'从你按下回车到 AI 吐出第一个字的时间。延迟高=等得久。',cf:'和「吞吐量」不同：延迟是「多快响应你一个人」，吞吐是「一秒能服务多少人」。',al:["响应时间", "首字延迟"],rel:['throughput','token','gpu'],scn:'AI 聊天时字一个个蹦得慢吞吞、语音助手半天才应一声，都是延迟在作怪；买模型 API 时商家爱晒「首字延迟」，看的就是这个。',dlg:[{q:'为什么有的 AI 回复一个字一个字蹦？',a:'为了降体感延迟——先出字比全等完体验好。'},{q:'延迟多少算好？',a:'首字 1 秒内体感就不错，超过 3 秒就明显卡。'}],new:true,quiz:{q:'为什么有的 AI 回复一个字一个字蹦？',o:["因为网速慢，字是逐个从服务器下载的","为了降体感延迟——先出字比全等完体验好。","服务器为省流量，故意少发几个字","模型在炫技，一字一顿显得有气势"],a:1,why:'等 AI 响应的时间。'}},
 {id:'topp',term:'Top-p 采样',full:'核采样',cn:'Top-p 采样',tl:'<b>管 AI 敢不敢猜的旋钮</b>：调低只从最有把握的词里挑，调高连冷门词也敢往外蹦。',ana:'像<b>点菜只看热门榜</b>：调低等于只在前三名里选，顿顿安全没惊喜；调高是把榜单扩到前二十，偶尔踩雷但常有新花样。',zone:'ai',lv:3,one:'控制 AI 发散度的旋钮：越低越稳，越高越敢猜。',cf:'和「温度」是兄弟参数：温度管整体随机度，Top-p 管候选词池的大小。',al:["核采样", "nucleus sampling"],rel:['temp','llm','param'],scn:'要答案稳（写代码、抽数据）就调低，要文案有花样就调高；很多 AI 应用设置页那个「创造性」滑杆，背后就是它和温度这对兄弟。',dlg:[{q:'写文案要把 Top-p 调高还是低？',a:'调高些更有机灵劲儿；要严谨答案就调低。'},{q:'和温度冲突吗？',a:'不冲突，两个一起调，通常改一个就够。'}],new:true,quiz:{q:'写文案要把 Top-p 调高还是低？',o:["永远调到最高，越高越聪明","调高调低没区别，纯心理安慰","写严谨文档调高，闲聊时调低（正好反了）","调高些更有机灵劲儿；要严谨答案就调低。"],a:3,why:'控制 AI 发散程度的参数。'}},
-{id:'kv',term:'KV 缓存',full:'KV Cache',cn:'KV 缓存',tl:'<b>模型的课堂笔记</b>：把读过的内容记成速查表，回答时不用从头重读，又快又省。',ana:'像<b>读长合同做了批注</b>：问第 10 条，你翻批注直接答，不用整份重读——笔记越厚（上下文越长），本子（显存）占得越多。',zone:'ai',lv:3,one:'模型的「笔记术」：记住处理过的内容，回复更快。',cf:'和「上下文」相关：上下文越长，KV 缓存占的显存越多。',al:["KV Cache", "键值缓存"],rel:['context','token','gpu'],scn:'贴一大段代码、聊一整本书还能秒回，就是 KV 缓存在扛；公众号聊「长文本又贵又慢」，根子也在它身上。',dlg:[{q:'为什么长对话越聊越慢？',a:'上下文变长，KV 缓存变大，计算量增加。'},{q:'这是软件还是硬件技术？',a:'是推理引擎里的软件优化技术。'}],new:true,quiz:{q:'为什么长对话越聊越慢？',o:["上下文变长，KV 缓存变大，计算量增加。","聊久了模型会累，反应自然变慢","聊天记录太多，手机内存不够了","模型故意变慢，逼你开新会话"],a:0,why:'模型提速省钱的「笔记」机制。'}},
+{id:'kv',term:'KV 缓存',full:'KV Cache',cn:'KV 缓存',tl:'<b>模型的课堂笔记</b>：把读过的内容记成速查表，回答时不用从头重读，又快又省。',ana:'像<b>读长合同做了批注</b>：问第 10 条，你翻批注直接答，不用整份重读——笔记越厚（上下文越长），本子（显存）占得越多。',zone:'ai',lv:3,one:'模型的「笔记术」：记住处理过的内容，回复更快。',cf:'和「上下文」相关：上下文越长，KV 缓存占的显存越多。',al:["KV Cache", "键值缓存"],rel:['context','token','gpu'],scn:'贴一大段代码、聊一整本书还能秒回，就是 KV 缓存在扛；公众号聊「长文本又贵又慢」，根子也在它身上。',dlg:[{q:'为什么长对话越聊越慢？',a:'上下文变长，KV 缓存变大，计算量增加。'},{q:'这是软件还是硬件技术？',a:'是推理引擎里的软件优化技术。'}],new:true,demo:'kv',quiz:{q:'为什么长对话越聊越慢？',o:["上下文变长，KV 缓存变大，计算量增加。","聊久了模型会累，反应自然变慢","聊天记录太多，手机内存不够了","模型故意变慢，逼你开新会话"],a:0,why:'模型提速省钱的「笔记」机制。'}},
 {id:'structured',term:'结构化输出',full:'Structured Output',cn:'结构化输出',tl:'<b>让 AI 按你给定的格式交作业</b>：输出直接是程序能读的数据表格，不是一篇自由发挥的作文。',ana:'像<b>报销只收固定栏目的表格</b>：金额、日期、事由各归各位，系统直接录入；作文写得再好，机器也没法自动过账。',zone:'ai',lv:2,one:'让 AI 严格按指定格式（JSON）作答，程序能直接读。',cf:'和普通回答的区别：普通回答是给人看的段落，结构化输出是给程序看的数据。',al:["JSON Mode", "格式化输出"],rel:['json','api','llm'],scn:'让 AI 往飞书多维表格填字段、抓公众号按固定栏目出摘要，都得靠它——不然光解析小作文就能把你逼疯。',dlg:[{q:'为什么程序调 AI 都要 JSON？',a:'程序能直接解析字段，不用从一段话里「猜」答案在哪。'},{q:'AI 会格式错乱吗？',a:'早期会，现在主流 API 都支持强制 JSON 模式。'}],new:true,quiz:{q:'为什么程序调 AI 都要 JSON？',o:["JSON 更省流量，传输速度更快","JSON 是行业规定，不用就违规","程序能直接解析字段，不用从一段话里「猜」答案在哪。","AI 只认识 JSON，其他格式一律不回"],a:2,why:'让 AI 按表格格式交作业。'}},
 {id:'tos',term:'思维树',full:'Tree-of-Thoughts',cn:'思维树',tl:'<b>AI 碰到难题先岔开几条路各想一遍</b>，比比哪条走得通，再挑最好的一条交卷。',ana:'像<b>下棋时在脑内真摆几步</b>：这步被将、那步吃车，摆完再定招——而不是一条道走到黑，错了才发现。',zone:'ai',lv:3,one:'AI 分叉多条思路比较后选优的思考法。',cf:'和「思维链」的区别：思维链是单线推理，思维树是多线并行再择优。',al:["Tree-of-Thoughts", "ToT"],rel:['cot','reason','selfcons'],scn:'让 AI 做数学、出方案时，开了「深度思考」的模型会先自己列草稿再答；公众号说推理模型「会分叉试错」，就是这类玩法。',dlg:[{q:'什么时候用思维树？',a:'数学、谜题这类有多种解法路径的复杂问题。'},{q:'日常问答需要吗？',a:'不需要，简单问题用思维树反而浪费。'}],new:true,quiz:{q:'什么时候用思维树？',o:["查「今天天气」这类简单事实时用","数学、谜题这类有多种解法路径的复杂问题。","任何问题都用，分支越多越好","只在模型出 bug 时拿来调试"],a:1,why:'AI 的「多方案比选」思考法。'}},
 {id:'selfcons',term:'自洽性',full:'Self-Consistency',cn:'自洽性',tl:'<b>同一道题让 AI 独立答好几遍，投票取多数</b>：多数一致的结果，翻车的概率小得多。',ana:'像<b>问路连问五个人</b>：三个都说往东，那往东基本错不了；只问一个，赶上他记岔了你就完了。',zone:'ai',lv:3,one:'同一题让 AI 答多次投票取众数，降低错误率。',cf:'和「思维树」的区别：树是思考时分叉，自洽是答完后投票。',al:["Self-Consistency", "多数投票"],rel:['tos','temp','eval'],scn:'对准确性敏感的活（抽数据、做判断）可以这么干：同一提示跑 3-5 遍取一致结果；评测模型「稳不稳」也常用这招。',dlg:[{q:'为什么要答多次？',a:'每次推理路径略不同，多次投票能滤掉偶然错误。'},{q:'成本会变高吗？',a:'会，答 5 次就是 5 倍推理费，适合难题。'}],new:true,quiz:{q:'为什么要答多次？',o:["答得越多，模型记得越牢","为了绕过模型的回答次数限制","多次回答会自动拼成更长的答案","每次推理路径略不同，多次投票能滤掉偶然错误。"],a:3,why:'AI 答案的「多数表决」机制。'}},
@@ -1318,7 +1350,7 @@ var WORDS=[
 {id:'configfile',term:'配置文件',full:'Config File',cn:'配置文件',tl:'<b>程序「可调参数」集中存放的文件</b>：改配置不动代码，改完重启就生效。',ana:'像<b>洗衣机面板上的旋钮</b>：水温、转速随手调，不用拆机改线路；程序行为想换，改配置文件就行，代码一行不动。',zone:'code',lv:1,one:'程序「可调参数」集中存放的文件',cf:'常见格式：JSON、YAML、TOML——都是「键=值」的纯文本。',al:["Config", "配置"],rel:['json','yaml','toml'],scn:'你见过的 manifest.json、.gitignore、各种 .yaml 都是配置文件；接 API 时的 key 也放这里（再进 .gitignore 防泄露）。',dlg:[{q:'为什么不写死在代码里？',a:'换环境（测试/正式）只换配置不动代码，安全且快。'},{q:'配置文件有什么风险？',a:'里面常有密码，进 git 前必须确认 gitignore 配好。'}],new:true,quiz:{q:'为什么不写死在代码里？',o:["写死在代码里会导致内存泄漏","换环境（测试/正式）只换配置不动代码，安全且快。","配置文件运行速度比代码快","代码里不允许出现数字和中文"],a:1,why:'程序的「设置面板」。'}},
 {id:'singleton',term:'单例模式',full:'Singleton',cn:'单例模式',tl:'<b>保证某个东西全局只有一份</b>：谁都用同一个，不各建各的——省资源、状态也一致。',ana:'像<b>一个公司只有一个公章</b>：谁盖章都用同一枚，记录才对得上；要是每个部门私刻一枚，账目马上乱套。',zone:'code',lv:3,one:'保证一个东西全局只有一份',cf:'设计模式的一种：解决「重复创建浪费/状态不一致」的问题。',al:["单例", "Singleton Pattern"],rel:['env','codebase','runtime'],scn:'数据库连接、全局配置、日志器通常做成单例；面试常考、面试常考，实际写代码时你用 AI 生成的配置管理多半就是它。',dlg:[{q:'滥用会怎样？',a:'全局状态互相干扰，测试难做——它也是「反模式」常客。'},{q:'什么场景合适？',a:'日志器、全局配置这类「天然只该有一份」的东西。'}],new:true,quiz:{q:'滥用会怎样？',o:["程序会自动复制出多个实例","滥用会让程序无法联网","类名太长会影响编译速度","全局状态互相干扰，测试难做——它也是「反模式」常客。"],a:3,why:'全局「只此一份」的模式。'}},
 {id:'callback',term:'回调函数',full:'Callback',cn:'回调函数',tl:'<b>「完事了打这个电话」</b>：你把一个函数交给别人，事情办完后它替你调用——这就是回调。',ana:'像<b>餐厅说「好了叫你」留个手机号</b>：你不用站柜台傻等；那个号码就是回调函数，叫你就是「调用」。',zone:'code',lv:2,one:'「完事了打这个电话」',cf:'和「异步」的关系：异步操作完成后靠回调通知你结果。',al:["Callback", "回调"],rel:['async','promise','js'],scn:'按钮「点击后干什么」、定时器「到点干什么」、请求「回来后干什么」，全是回调；老代码里回调套回调能套成金字塔，后来才有 Promise 救场。',dlg:[{q:'回调地狱是什么？',a:'回调套回调套回调，缩进深得像楼梯——被 Promise/async 治好了。'},{q:'还用回调吗？',a:'底层到处是，业务代码基本被 async/await 替代。'}],new:true,quiz:{q:'回调地狱是什么？',o:["回调套回调套回调，缩进深得像楼梯——被 Promise/async 治好了。","回调写错导致程序当场崩溃","回调太多把 CPU 烧坏了","回调的返回值全是 null"],a:0,why:'「办完事打给我」的函数。'}},
-{id:'async',term:'异步',full:'Async / Await',cn:'异步',tl:'<b>发出任务后不等结果，先去干别的</b>：结果好了再回来处理——界面不卡、效率不减。',ana:'像<b>奶茶店点了拿号</b>：同步是站柜台前干等；异步是拿号坐下刷手机，叫号了再去取。',zone:'code',lv:2,one:'「等结果时先去干别的」',cf:'和同步的区别：同步是傻等（界面卡死），异步是先干别的、好了叫我。',al:["异步编程", "async await"],rel:['promise','callback','js'],scn:'你在 Codex 里丢一个长任务还能继续打字，就是异步在工作；页面一点按钮就转圈卡死，多半是被写成了同步。',dlg:[{q:'async/await 是什么？',a:'让异步代码写起来像同步一样直白，消灭回调地狱。'},{q:'什么时候必须异步？',a:'网络请求、读文件、任何「要等」的操作。'}],new:true,quiz:{q:'async/await 是什么？',o:["让代码自动多线程并行加速","把同步代码自动改成异步","让异步代码写起来像同步一样直白，消灭回调地狱。","是一种新的数据库查询语法"],a:2,why:'不傻等的「边等边干」。'}},
+{id:'async',term:'异步',full:'Async / Await',cn:'异步',tl:'<b>发出任务后不等结果，先去干别的</b>：结果好了再回来处理——界面不卡、效率不减。',ana:'像<b>奶茶店点了拿号</b>：同步是站柜台前干等；异步是拿号坐下刷手机，叫号了再去取。',zone:'code',lv:2,one:'「等结果时先去干别的」',cf:'和同步的区别：同步是傻等（界面卡死），异步是先干别的、好了叫我。',al:["异步编程", "async await"],rel:['promise','callback','js'],scn:'你在 Codex 里丢一个长任务还能继续打字，就是异步在工作；页面一点按钮就转圈卡死，多半是被写成了同步。',dlg:[{q:'async/await 是什么？',a:'让异步代码写起来像同步一样直白，消灭回调地狱。'},{q:'什么时候必须异步？',a:'网络请求、读文件、任何「要等」的操作。'}],new:true,demo:'async',quiz:{q:'async/await 是什么？',o:["让代码自动多线程并行加速","把同步代码自动改成异步","让异步代码写起来像同步一样直白，消灭回调地狱。","是一种新的数据库查询语法"],a:2,why:'不傻等的「边等边干」。'}},
 {id:'promise',term:'Promise',full:'异步承诺',cn:'Promise',tl:'<b>异步任务的「欠条」</b>：现在没结果，但承诺将来给你——到时兑现（成功）或拒付（失败）。',ana:'像<b>取餐小票上的取餐码</b>：小票在手说明餐「在路上」；凭码取餐是兑现，告知售罄是拒付，你都能凭码处理。',zone:'code',lv:3,one:'异步操作的「欠条」',cf:'和回调的关系：Promise 是回调的规范化升级，链式调用不再嵌套成山。',al:["Promise", "承诺对象"],rel:['async','callback','js'],scn:'代码里看到 .then()、await 就是在等这张「欠条」兑现；它把回调套回调的金字塔拉直成一条链，是现代 JS 的标配。',dlg:[{q:'三种状态是什么？',a:'进行中（pending）、成功（fulfilled）、失败（rejected）——定了就不能改。'},{q:'和 async 什么关系？',a:'await 就是「等这张欠条兑现」的语法糖。'}],new:true,quiz:{q:'三种状态是什么？',o:["开始、暂停、结束——可以来回切换","进行中（pending）、成功（fulfilled）、失败（rejected）——定了就不能改。","加载中、已读、已忽略","排队中、处理中、已完成——能反复进入"],a:1,why:'异步结果的「欠条」。'}},
 {id:'scope',term:'作用域',full:'Scope',cn:'作用域',tl:'<b>变量的「有效期 + 活动范围」</b>：出了这层花括号，它就查无此人——这是大量「变量未定义」报错的根源。',ana:'像<b>工牌的通行范围</b>：本部门楼层随便走，出了门就刷不开闸机；变量也一样，出了自己那层「楼」，谁都不认识它。',zone:'code',lv:2,one:'变量的「有效期+活动范围」：出了这个花括号，它就不存在了。',cf:'为什么重要：作用域搞混=「变量未定义」或「值莫名被改」两大经典 bug。',al:["作用域", "变量作用域"],rel:['closure','bug','debug'],scn:'「变量明明定义了却报未定义」「两个地方的同名变量互相打架」，全是作用域问题；AI 生成的代码出错，也常是它把变量用出了自己的范围。',dlg:[{q:'全局变量为什么少用？',a:'谁都能改、活整个程序生命周期，出问题查不到源头。'},{q:'块级作用域是什么？',a:'let/const 只在自己所在的花括号内有效——比老 var 安全。'}],new:true,quiz:{q:'全局变量为什么少用？',o:["全局变量占用硬盘空间","全局变量会让编译变慢","全局变量不能存数字类型","谁都能改、活整个程序生命周期，出问题查不到源头。"],a:3,why:'变量的「户口和寿命」。'}},
 {id:'closure',term:'闭包',full:'Closure',cn:'闭包',tl:'<b>函数「记住」了自己出生地 variables 的本事</b>：哪怕老家已经执行完了，它还带着那份记忆到处跑。',ana:'像<b>离家发展的你仍记得老家门牌</b>：房子可能拆了（函数执行完了），但地址（变量）你还随身带着、随时能「寄东西回去」。',zone:'code',lv:3,one:'哪怕那个地方已经执行完了，它还带着',cf:'经典用途：计数器（每次调用+1）、数据私有化（外部改不了内部变量）。',al:["闭包", "Closure"],rel:['scope','js','callback'],scn:'计数器「每点一次加一」、给按钮绑「各自专属的编号」，靠的都是闭包；JS 面试必考，实际是很多自动保存、防抖功能的底层机制。',dlg:[{q:'为什么难懂？',a:'它打破「函数执行完变量就销毁」的直觉——变量被函数「包」走了。'},{q:'实际用过吗？',a:'用过，AI 工具的记忆钩子、防抖节流都是闭包。'}],new:true,quiz:{q:'为什么难懂？',o:["它打破「函数执行完变量就销毁」的直觉——变量被函数「包」走了。","闭包必须配合数据库才能用","闭包是加密函数的别称","闭包只存在于 Python 语言里"],a:0,why:'函数带走的「随身行李」。'}},
@@ -1617,7 +1649,7 @@ function viewHome(){
 }
 /* v7.3：关于页二级结构（条目列表 + 点进各自说明页） */
 var ABOUT_META = {
-  ver : {icon:'📋', t:'版本与更新',  s:'v8.4 · 词库 391 · 每周一补新词'},
+  ver : {icon:'📋', t:'版本与更新',  s:'v8.5 · 词库 391 · 每周一补新词'},
   priv: {icon:'🔒', t:'数据与隐私',  s:'所有记录只存你手机本地'},
   theme:{icon:'🎨', t:'外观设置',    s:'跟随系统 / 浅色 / 深色'},
   pwa : {icon:'📌', t:'添加到主屏幕', s:'手机和电脑的安装方法'}
@@ -1626,7 +1658,7 @@ var ABOUT_BODY = {
   ver : function(){
     return '<div class="abwrap">'
       +'<div class="abcard">'
-      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v8.4</span></div>'
+      +'<div class="abkv"><span class="k">当前版本</span><span class="v">v8.5</span></div>'
       +'<div class="abkv"><span class="k">词库规模</span><span class="v">391 个词</span></div>'
       +'<div class="abkv"><span class="k">词库更新</span><span class="v">2026-09-26</span></div>'
       +'<div class="abkv"><span class="k">手写精讲题</span><span class="v">178 道</span></div>'
@@ -1831,6 +1863,14 @@ function demoHTML(k){
   if(k==='api')return '<div class="apirow"><div class="apibox hi">你（点单）</div><div class="apiline"><i></i></div>'
    +'<div class="apibox">服务员 = API</div><div class="apiline"><i></i></div><div class="apibox">厨房 = 服务器</div></div>'
    +'<div class="hint">你把「文章链接」递给数据服务的 API → 它去后台爬 → 把「阅读量 1.2 万」递回来。<b>你看不见厨房，也不用会做菜。</b></div>';
+   if(k==='kv')return '<div class="kvd">'
+    +'<div class="chat"><div class="bub me b1">帮我看看这段代码</div><div class="bub b2">第 3 行是不是有 bug？</div><div class="bub me b3">对，改成异步写法</div><div class="bub b4">改好了，再加个注释</div></div>'
+    +'<div class="book"><div class="bt">📒 KV 笔记（模型记的）</div><div class="pg p1"></div><div class="pg p2"></div><div class="pg p3"></div><div class="pg p4"></div><div class="mt">显存占用</div><div class="mem"><div class="mf"></div></div></div></div>'
+    +'<div class="hint">👆 每聊一句，模型都把<b>全部历史对话</b>记成「笔记」（KV 缓存）——聊得越久，笔记越厚、显存越占。<b>长对话越聊越慢、越聊越贵</b>，根子就在这。</div>';
+   if(k==='async')return '<div class="asyd">'
+    +'<div class="col"><div class="ct bad">😰 回调地狱：套娃</div><div class="ln nl n1">读文件("a.txt", () =&gt;</div><div class="ln nl n2">处理(data, () =&gt;</div><div class="ln nl n3">存结果(res, () =&gt;</div><div class="ln nl n4">完事了 )))</div><div class="stamp s1">💀 越缩越深，没法读</div></div>'
+    +'<div class="col"><div class="ct ok">😌 async/await：直排</div><div class="ln fl f1">data = await 读文件()</div><div class="ln fl f2">res = await 处理(data)</div><div class="ln fl f3">await 存(res)</div><div class="ln fl f4">完事了！</div><div class="stamp s2">✨ 从上往下读，像菜谱</div></div></div>'
+    +'<div class="hint">👆 动画在演：左边<b>一层套一层</b>的回调，被 async/await <b>压平</b>成右边一列——每行等上一行干完，再走下一行。</div>';
   return '';
 }
 
@@ -2791,7 +2831,7 @@ if('serviceWorker' in navigator){
         if(!old)return;
         old.text().then(function(ot){
           if(ot!==t){
-            caches.open('aigc-glossary-v8.4').then(function(c){c.put('./index.html',new Response(t))});
+            caches.open('aigc-glossary-v8.5').then(function(c){c.put('./index.html',new Response(t))});
             var b=document.getElementById('updBar');if(b)b.style.display='block';
           }
         });
